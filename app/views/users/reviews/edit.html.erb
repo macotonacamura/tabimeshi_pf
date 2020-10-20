@@ -1,2 +1,34 @@
-<h1>Users::Reviews#edit</h1>
-<p>Find me in app/views/users/reviews/edit.html.erb</p>
+<h1>edit your review</h1>
+
+<%= form_with model: @review,url:reviews_path(@review.id), method: :patch, local: true do |f| %>
+	<table class="table">
+		<tr>
+			<th><%= f.label 'restaurant name' %></th>
+			<td><%= f.text_field :restaurant_name %></td>
+		</tr>
+		<tr>
+			<th><%= f.label 'country  city' %></th>
+			<td><%= f.text_field :country %><%= f.text_field :city %></td>
+
+		</tr>
+		<tr>
+			<th><%= f.label 'address' %></th>
+			<td><%= f.text_field :address %></td>
+		</tr>
+		<tr>
+			<th><%= f.label 'budget' %></th>
+			<td><%= f.text_field :budget %></td>
+		</tr>
+		<tr>
+			<th><%= f.label 'review' %></th>
+			<td><%= f.text_area :review ,:size=>"50" %></td>
+		</tr>
+		<tr>
+			<th><%= f.label 'images' %></th>
+			<tb><%= f.attachment_field :review_images_images, multiple: true %></tb><!--multiple: trueで複数選択可能にする-->
+		</tr>
+		<tr>
+		<td><%= f.submit 'send', class: "btn btn-default" %></td>
+		</tr>
+	</table>
+<% end %>

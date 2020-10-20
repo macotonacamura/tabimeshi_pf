@@ -4,8 +4,8 @@
 
 img {
   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  width: 100px;  /* 縦横を同じ値にする */
-  height: 100px;  /* 縦横を同じ値にする */
+  width: 150px;  /* 縦横を同じ値にする */
+  height: 150px;  /* 縦横を同じ値にする */
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
 }
 
@@ -14,4 +14,26 @@ img {
 	width:1000px;
 	background-color:#eee;
 	margin: 20px auto;
+}
+
+.info-table{
+	margin-bottom:20px;
+}
+
+.btn-circle-flat_user_show{
+	display: inline-block;
+	text-decoration: none;
+	background: #444;
+	color: #FFF;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	border-radius: 50%;
+	text-align: center;
+	overflow: hidden;
+	transition: .4s;
+}
+
+.btn-circle-flat_user_show:hover {
+  background: #fc0;
 }

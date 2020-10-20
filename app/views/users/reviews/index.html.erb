@@ -15,4 +15,13 @@
 
 <div class="container">
 	<h2>new article</h2>
-
+	<span>調整中</span>
+	<table>
+		<% @reviews.each do |review| %>
+			<tr>
+			<th><%= review.user.user_name %></th>
+			<td><%= review.restaurant_name %>
+			<td><%= review.review %></td>
+			</tr>
+		<% end %>
+	</table>

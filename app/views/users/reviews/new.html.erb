@@ -1,2 +1,41 @@
-<h1>Users::Reviews#new</h1>
-<p>Find me in app/views/users/reviews/new.html.erb</p>
+<h1>post review</h1>
+
+<%= form_with model: @review,url:reviews_path(@review.id), method: :post, local: true do |f| %>
+	<table class="table">
+		<tr>
+			<th><%= f.label 'restaurant name' %></th>
+			<td><%= f.text_field :restaurant_name %></td>
+		</tr>
+		<tr>
+			<th><%= f.label 'country  city' %></th>
+			<td><%= f.text_field :country %><%= f.text_field :city %></td>
+
+		</tr>
+		<tr>
+			<th><%= f.label 'address' %></th>
+			<td><%= f.text_field :address %></td>
+		</tr>
+		<tr>
+			<th><%= f.label 'budget' %></th>
+			<td><%= f.text_field :budget %>〜<%= f.text_field :muximum_budget %></td>
+		</tr>
+		<tr>
+			<th><%= f.label 'review' %></th>
+			<td><%= f.text_area :review ,:size=>"50" %></td>
+		</tr>
+		<tr>
+			<th><%= f.label 'images' %></th>
+			<td>
+				<%#= f.attachment_field :review_images_images, multiple: true %><!--multiple: trueで複数選択可能にする-->
+
+			</td>
+		</tr>
+		<tr>
+			<th></th>
+		<td><%= f.submit 'send', class: "btn btn-default" %></td>
+		</tr>
+	</table>
+<% end %>
+
+
+

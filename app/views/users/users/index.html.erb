@@ -1,11 +1,11 @@
 
 
-<table class="info-box">
+<table class="table">
 	<tbody>
 		<% @users.each do |user| %>
-			<tr>
+			<tr class="info-box">
 				<th></th>
-				<td style="padding-left: 30px;"><%= attachment_image_tag user, :profile_image, format: 'jpg', fallback: "no_image.jpg" ,size:"65x65" %>
+				<td style="padding-left: 30px;"><%= attachment_image_tag user, :profile_image, format: 'jpg', fallback: "no_image.jpg" ,size:"65x65" ,class: 'profile_img'%></td>
 				<th>user name</th>
 				<td><%= user.user_name %></td>
 				<th>introduction</th>

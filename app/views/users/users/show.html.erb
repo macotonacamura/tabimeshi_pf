@@ -2,10 +2,10 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<h1>mypage</h1>
-				<table>
+				<table class="info-table">
 					<%= flash[:change] %>
 					<tr>
-						<%= attachment_image_tag @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" ,size:"50x50" %>
+						<%= attachment_image_tag @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" ,size:"150x150",class: 'profile_img' %>
 					</tr>
 					<tr>
 						<th>user name</th>
@@ -15,12 +15,14 @@
 						<th>introduction</th>
 						<td><%= @user.introduction %></td>
 					</tr>
-					<tr>
-						<% if @user == current_user %>
-						<td><%= link_to 'edit', edit_user_path %></td>
-						 <% end %>
-					</tr>
 				</table>
+
+
+						<% if @user == current_user %>
+							<%= link_to edit_user_path(current_user.id) ,class: 'btn-circle-flat_user_show', :style=>"color:#fff;" do %>
+							<i class="fas fa-wrench"></i>
+							<% end %>
+						 <% end %>
 
 			<br>
 			<span>投稿一覧を表示</span>

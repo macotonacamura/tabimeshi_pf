@@ -5,4 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :profile_image
+
+  has_many :reviews, dependent: :destroy
+
+
+
+  #退会ユーザーをログインできないようにする active_for_authentication?
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+
 end

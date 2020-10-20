@@ -1,7 +1,7 @@
 class Users::UsersController < ApplicationController
 
   def index
-		@users = User.all
+	@users = User.where(is_deleted: false) #ここで削除されていない会員のみ表示
   end
 
   def show
@@ -23,9 +23,15 @@ class Users::UsersController < ApplicationController
   end
 
   def unsubscribe
+  	@user = current_user
   end
 
   def withdraw
+  	@user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:withdraw] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   private

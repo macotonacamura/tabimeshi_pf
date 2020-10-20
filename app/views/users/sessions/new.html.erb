@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <h2>Log in</h2>
+      <%= flash[:error] %>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 

@@ -1,2 +1,8 @@
 <h1>Users::Reviews#show</h1>
 <p>Find me in app/views/users/reviews/show.html.erb</p>
+
+ <% @review.review_images.each do |image| %>
+    <%= attachment_image_tag image, :image, class: "review_images" %>
+ <% end %>
+
+ <%= @review.budget %> 〜 <%= @review.muximum_budget %>
