@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tabimeshi</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 80px;">
+        <div class="container">
+           <a class="navbar-brand " href="/">
+            <% if user_signed_in? %>
+              <%= link_to reviews_path, :style=>"color:#fff;" do %>tabimeshi<% end %>
+            <% else %>
+            <%= link_to root_path, :style=>"color:#fff;" do %><div>tabimeshi</div><% end %>
+            <% end %>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <% if user_signed_in? %>
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item nav-link">
+                      <%= link_to 'find ppl', users_path, :style=>"color:#fff;" %>
+                    </li>
+                    <li class="nav-item nav-link">
+                           search
+                    </li>
+                    <li class="nav-item nav-link">
+                            post review
+                    </li>
+                    <li class="nav-item nav-link">
+                            search
+                    </li>
+                  </ul>
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">x x x</a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="text-align: center;">
+                        <a class="dropdown-item" href="#"><%= link_to 'mypage', user_path(current_user.id), :style=>"color:#333;" %></a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="#"><%= link_to 'edit profile', edit_user_path(current_user.id), :style=>"color:#333;" %></a>
+                      </div>
+                    </li>
+                    <li class="nav-item nav-link">
+                      <%= link_to 'log out', destroy_user_session_path, method: :delete, :style=>"color:#fff;" %>
+                    </li>
+                  </ul>
+                 <% else %>
+                    <ul class="navbar-nav mr-auto">
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item nav-link ">
+                           <%= link_to 'sign up', new_user_registration_path, :style=>"color:#fff;" %>
+                        </li>
+                        <li class="nav-item nav-link">
+                           <%= link_to 'sign in', new_user_session_path, :style=>"color:#fff;" %>
+                        </li>
+                    </ul>
+                  <% end %>
+            </div>
+          </div>
+      </nav>
+
+
+    </header>
+    <%= yield %>
+    <footer class="fixed-bottom">
+      <div class="container">
+          <ul class="nav navbar-inverse pull-right">
+            <li>CopyRight tabimeshi.inc</li>
+          </ul>
+      </div>
+    </footer>
+  </body>
+</html>

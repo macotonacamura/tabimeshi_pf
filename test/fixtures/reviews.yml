@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  genre_id: 1
+  restaurant_name: MyString
+  review: MyText
+  rate: 1.5
+  budget: 1
+  image_id: MyString
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  user_id: 1
+  genre_id: 1
+  restaurant_name: MyString
+  review: MyText
+  rate: 1.5
+  budget: 1
+  image_id: MyString
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5

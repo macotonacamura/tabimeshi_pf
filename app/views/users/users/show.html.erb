@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>mypage</h1>
+				<table>
+					<%= flash[:change] %>
+					<tr>
+						<%= attachment_image_tag @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" ,size:"50x50" %>
+					</tr>
+					<tr>
+						<th>user name</th>
+						<td><%= @user.user_name %></td>
+					</tr>
+					<tr>
+						<th>introduction</th>
+						<td><%= @user.introduction %></td>
+					</tr>
+					<tr>
+						<% if @user == current_user %>
+						<td><%= link_to 'edit', edit_user_path %></td>
+						 <% end %>
+					</tr>
+				</table>
+
+			<br>
+			<span>投稿一覧を表示</span>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+// Place all the styles related to the users::reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.review-main-visual{
+	width: 400px;
+	height: 500px;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	background-size: cover;
+	background-position: center;
+	background-image: url(../review_image.jpg);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 40px;
+
+}
+
+
+.link-list{
+	font-size: 15px;
+	margin-top: 20px;
+	padding:30px;
+}
+
+.btn-circle-flat {
+  display: inline-block;
+  text-decoration: none;
+  background: #004400;
+  color: #FFF;
+  width: 130px;
+  height: 130px;
+  line-height: 130px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+  margin:50px;
+}

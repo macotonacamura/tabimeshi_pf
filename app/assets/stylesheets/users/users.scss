@@ -1,0 +1,17 @@
+// Place all the styles related to the users::users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+img {
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 100px;  /* 縦横を同じ値にする */
+  height: 100px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+}
+
+.info-box{
+	height:200px;
+	width:1000px;
+	background-color:#eee;
+	margin: 20px auto;
+}

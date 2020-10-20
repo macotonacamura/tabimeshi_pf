@@ -1,0 +1,55 @@
+// Place all the styles related to the users::homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container{
+	height:1000px;
+}
+
+.main-visual{
+	width: 100%;
+	height: 300px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	background-size: cover;
+	background-position: center;
+	background-image: url(../home_pic.jpg);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 40px;
+
+}
+
+.main-visual-content{
+	width: 100%;
+	height: 300px;
+	line-height: 300px;
+}
+
+
+.about{
+	font-size: 15px;
+	margin-top: 20px;
+	padding:30px;
+	color: #444;
+	width: 600px;
+}
+
+.btn-circle-flat {
+  display: inline-block;
+  text-decoration: none;
+  background: #004400;
+  color: #FFF;
+  width: 110px;
+  height: 110px;
+  line-height: 110px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+
+.btn-circle-flat:hover {
+  background: #fc0;
+}
