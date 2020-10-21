@@ -1,7 +1,7 @@
 class Users::ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all
+    @reviews = Review.page(params[:page]).reverse_order
   end
 
   def show
@@ -10,12 +10,13 @@ class Users::ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    #@review.revew_images.build #親モデルに属する子モデルのインスタンスを新たに生成したい場合に使うメソッド
+    @review.review_images << Array.new(5, ReviewImage.new)
   end
 
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+    #byebug
     if @review.save
       redirect_to review_path(@review), notice: "You have created a review successfully."
     else
@@ -37,7 +38,19 @@ class Users::ReviewsController < ApplicationController
   private
 
   def review_params
-     params.require(:review).permit(:restaurant_name, :country,:city,:address,:budget,:muximum_budget,:address,:review, [review_images_attributes: [:revew_images]])#複数画像upは配列で渡す[]
+    params.require(:review).permit(
+      :restaurant_name,
+      :country,:city,
+      :address,
+      :budget,
+      :rate,
+      :muximum_budget,
+      :address,
+      :review,
+      review_images_attributes: [
+        :image
+      ]
+    )#複数画像upは配列で渡す[]
   end
 
 end

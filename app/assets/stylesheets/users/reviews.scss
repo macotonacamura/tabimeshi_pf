@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.page{
+  height: 1500px;
+  background-image: url("../background_image.jpg");
+  background-size: cover;
+  object-fit: cover;
+}
+
+
 .review-main-visual{
 	width: 400px;
 	height: 500px;
@@ -29,9 +37,9 @@
   text-decoration: none;
   background: #004400;
   color: #FFF;
-  width: 130px;
-  height: 130px;
-  line-height: 130px;
+  width: 170px;
+  height: 170px;
+  line-height: 170px;
   border-radius: 50%;
   text-align: center;
   overflow: hidden;
@@ -45,95 +53,40 @@
 	object-fit: cover;
 }
 
-
-
-
-//投稿欄以外のCSSは省略します
-
-//image投稿欄のCSS
-.post__drop__box__container{
-  display: block;
-  margin: 16px auto 0;
-  display: flex;
-  flex-wrap: wrap;
-
-  //プレビュー表示欄のCSS
-  .prev-content {
-    display: flex;
-    .preview-box {
-      height: 162px;
-      width: 112px;
-      margin: 0 15px 10px 0;
-      .upper-box {
-        height: 112px;
-        width: 100%;
-        img{
-          width: 112px;
-          height: 112px;
-        }
-      }
-      .lower-box {
-        display: flex;
-        text-align: center;
-        .update-box {
-          color: #00b0ff;
-          width: 50%;
-          height: 50px;
-          line-height: 50px;
-          border: 1px solid #eee;
-          background: #f5f5f5;
-          cursor: pointer;
-        }
-        .delete-box {
-          color: #00b0ff;
-          width: 50%;
-          height: 50px;
-          line-height: 50px;
-          border: 1px solid #eee;
-          background: #f5f5f5;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
-  //投稿クリックエリアのCSS
-  .label-content{
-    margin-bottom: 10px;
-    width: 620px;
-    .label-box {
-      display: block;
-      border: 1px dashed #ccc;
-      position: relative;
-      background: #f5f5f5;
-      width: 100%;
-      height: 162px;
-      cursor: pointer;
-      &__text-visible {
-        position: absolute;
-        top: 50%;
-        left: 16px;
-        right: 16px;
-        text-align: center;
-        font-size: 14px;
-        line-height: 1.5;
-        font-weight: bold;
-        -webkit-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        pointer-events: none;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-      }
-    }
-  }
-
-  //file_fieldのcss
-  .hidden-content {
-    .hidden-field {
-      display: none;
-    }
-    .hidden-checkbox {
-      display: none;
-    }
-  }
+.profile_img{
+  border: 5px solid #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
 }
+
+.review-box{
+  padding-top:15px;
+  padding-left:40px;
+  margin-bottom:20px;
+  width:1000px;
+  height:200px;
+  background-color:#eee;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 40px;
+}
+
+.review-box i{
+  margin-right:10px;
+}
+
+.review-info{
+  height:600px;
+  width:100%;
+  padding:30px;
+  background-color:#eee;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 40px;
+}
+
+

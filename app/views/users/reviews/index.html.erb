@@ -1,27 +1,53 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-5">
-			<div class="review-main-visual"></div>
-		</div>
+<div class="page">
 
-		<div class="link-list col-md-7">
-			<a class="btn-circle-flat"  id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">目的地から探す</a>
-			<%= link_to 'post', new_review_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
-			<%= link_to 'find ppl', users_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
-			<a class="btn-circle-flat"  id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">sth</a>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="review-main-visual"></div>
+			</div>
+
+			<div class="link-list col-md-7">
+				<a class="btn-circle-flat"  id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">distination</a>
+				<%= link_to 'post', new_review_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
+				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
+				<a class="btn-circle-flat"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">new posts</a>
+			</div>
 		</div>
 	</div>
+
+
+	<div class="container">
+		<h2>new posts</h2>
+		<% @reviews.each do |review| %>
+		 <div class="review-box">
+			<%=  l review.created_at, format: :long %>
+			<%= attachment_image_tag review.user, :profile_image, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'%>
+			<strong><%= link_to user_path(review.user.id),:style=>"color:#444;" do %><%= review.user.user_name %><% end %>
+			</strong><br>
+			<strong>
+				<i class="fas fa-utensils"></i>
+				<h4><%= link_to review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4>
+			</strong><br>
+			<div><%= review.review %></div>
+		</div>
+		<% end %>
+		<%= paginate @reviews %>
+	</div>
+
+	<script>
+      $(function(){
+        // #で始まるリンクをクリックしたら実行されます
+        $('a[href^="#to-lists"]').click(function() {
+          // スクロールの速度
+          var speed = 400; // ミリ秒で記述
+          var href= $(this).attr("href");
+          var target = $(href == "#" || href == "" ? 'html' : href);
+          var position = target.offset().top;
+          $('body,html').animate({scrollTop:position}, speed, 'swing');
+          return false;
+        });
+      });
+    </script>
+
 </div>
 
-<div class="container">
-	<h2>new article</h2>
-	<span>調整中</span>
-	<table>
-		<% @reviews.each do |review| %>
-			<tr>
-			<th><%= review.user.user_name %></th>
-			<td><%= review.restaurant_name %>
-			<td><%= review.review %></td>
-			</tr>
-		<% end %>
-	</table>

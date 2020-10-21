@@ -1,8 +1,37 @@
-<h1>Users::Reviews#show</h1>
-<p>Find me in app/views/users/reviews/show.html.erb</p>
+<div class="page">
+	<div class="container">
+		<h1>Users::Reviews#show</h1>
+<!-- 
+		 <% @review.review_images.each do |image| %>
+		    <%= attachment_image_tag image, :image, class: "review_images" %>
+		 <% end %> -->
 
- <% @review.review_images.each do |image| %>
-    <%= attachment_image_tag image, :image, class: "review_images" %>
- <% end %>
+		<% @review.review_images.each do |image| %>
+	      <tr>
+	        <td><%= image_tag image %></td>
+	      </tr>
+ 		<% end %>
 
- <%= @review.budget %> 〜 <%= @review.muximum_budget %>
+		<div class="review-info">
+			<span>投稿日時  <%=  l @review.created_at, format: :long %></span>
+			<h3><i class="fas fa-utensils"></i>　<%= @review.restaurant_name %></h3><%#= レート⭐︎ %>
+			<table>
+				<tr>
+				 <th>エリア</th>
+				 <td><%= @review.country %>・<%= @review.city %></td>
+				 <th>予算</th>
+				 <td><%= @review.budget %> 〜 <%= @review.muximum_budget %></td>
+				</tr>
+				 <th style="padding-top: 20px;"><%= attachment_image_tag @review.user, :profile_image, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
+				 <%= @review.user.user_name %> さんの口コミ</th>
+			</table>
+
+
+			<div class="review">
+				<%= @review.review %>
+			</div>
+
+
+		</div>
+	</div>
+</div>

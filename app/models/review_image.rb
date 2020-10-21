@@ -1,6 +1,6 @@
 class ReviewImage < ApplicationRecord
 
 	belongs_to :review, optional: true
-	attachment :image
+	#attachment :image
 	mount_uploader :image, ImageUploader
 end
