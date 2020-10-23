@@ -1,19 +1,22 @@
-
-
-<table class="table">
-	<tbody>
-		<% @users.each do |user| %>
-			<tr class="info-box">
-				<th></th>
-				<td style="padding-left: 30px;"><%= attachment_image_tag user, :profile_image, format: 'jpg', fallback: "no_image.jpg" ,size:"65x65" ,class: 'profile_img'%></td>
-				<th>user name</th>
-				<td><%= user.user_name %></td>
-				<th>introduction</th>
-				<td><%= user.introduction %></td>
-			<tr>
-
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-
+<div class="page">
+	<div class="container main">
+		<div class="row">
+				<% @users.each do |user| %>
+					<div class="info-box_index col-xs-3">
+						<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index' %>
+						<div class="name-info col-xs-9">
+							<strong>
+								<h3>
+									<%= link_to user_path(user.id), :style=>"color:#444;" do %>
+										<%= user.user_name %>
+									<% end %>
+								</h3><br>
+								<%= user.introduction %>
+							</strong>
+						</div>
+						<div style="margin-left: 200px;">Follow</div>
+					</div>
+				<% end %>
+		</div>
+	</div>
+</div>

@@ -15,8 +15,8 @@ class Review < ApplicationRecord
 	validates :restaurant_name,  length: { maximum: 20 }
 	validates :review,presence: true
 	validates :rate, presence: true
-	validates :budget, presence: true
-	validates :muximum_budget, presence: true
+	validates :budget, numericality: { only_integer: true,greater_than: 1,less_than: :muximum_budget}
+	validates :muximum_budget, numericality: { only_integer: true,greater_than: :budget }
 	validates :address, presence: true
 	validates :country, presence: true
 	validates :city, presence: true

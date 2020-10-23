@@ -1,27 +1,73 @@
 // Place all the styles related to the users::users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.main{
+	padding-top:100px;
+}
+
 
 img {
 
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
 }
 
-.info-box{
-	height:200px;
-	width:1000px;
-	background-color:#eee;
-	margin: 20px auto;
+h2{
+  margin-top:100px;
 }
 
 .info-table{
 	margin-bottom:20px;
 }
 
+.profile_img_index{
+	border: 5px solid #888;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	transition: .4s;
+}
+
+.profile_img-show{
+	border: 5px solid #fff;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	transition: .4s;
+}
+
+#profile_image_prev{
+	border: 5px solid #fff;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	transition: .4s;
+}
+
+.info-box_index{
+	padding-left:40px;
+	padding-top:15px;
+	margin-bottom:20px;
+	margin-top:50px;
+	width:1000px;
+	height:220px;
+	background-color: rgba(245, 245, 245,0.6);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 40px;
+	position: relative;
+}
+
 .btn-circle-flat_user_show{
+	position: absolute;
+	bottom: 10px;
+	right:10px;
 	display: inline-block;
 	text-decoration: none;
-	background: #444;
+	background: #888;
 	color: #FFF;
 	width: 60px;
 	height: 60px;
@@ -33,5 +79,16 @@ img {
 }
 
 .btn-circle-flat_user_show:hover {
-  background: #fc0;
+  background: #bbb;
+}
+
+.name-info{
+	display: inline-block;
+	padding-left: 20px;
+}
+
+.edit_form{
+	margin:0 auto;
+	padding:100px;
+	width:900px;
 }

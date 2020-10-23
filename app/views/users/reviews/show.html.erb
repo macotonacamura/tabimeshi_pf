@@ -1,5 +1,5 @@
 <div class="page">
-	<div class="container">
+	<div class="container body">
 		<% @review.review_images.each do |review_image| %>
 	     	<%= image_tag review_image.image.url, class: 'review_images' %>
  		<% end %>
@@ -10,11 +10,13 @@
 			<table>
 				<tr>
 				 <th>エリア <%= @review.country %>・<%= @review.city %></th>
-				 <th>予算</th>
+				 <th> 　予算</th>
 				 <td><%= @review.budget %> 〜 <%= @review.muximum_budget %></td>
 				</tr>
-				 <th style="padding-top: 20px;"><%= attachment_image_tag @review.user, :profile_image, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
-				 <%= @review.user.user_name %> さんの口コミ</th>
+				 <th style="padding-top: 20px;"><%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
+				 	<%= link_to user_path(@review.user.id), :style=>"color:#444;" do %>
+				 		<%= @review.user.user_name %><% end %>  さんの口コミ
+				 </th>
 			</table>
 				 <td>
 					<div class="review">
@@ -59,9 +61,12 @@
 			</script>
 			<div id="map" style="margin: 30px 20px;"></div>
 
-			<div style="text-align: right;">
+			<div>
             	<%if @review.user == current_user%>
-					<%= link_to 'delete',review_path(@review),method: :delete, local: true, class: 'btn btn-default',"data-confirm" => "Are you sure?",:style=>"background-color:#000; color:#fff;" %>
+					<%= link_to 'delete',review_path(@review),method: :delete, local: true, class: 'btn-delete',"data-confirm" => "Are you sure?"%>
+					<%= link_to edit_review_path(@review.id) ,class: 'btn-circle-flat_user_show icon_to_edit', :style=>"color:#fff;" do %>
+						<i class="fas fa-wrench"></i>
+					<% end %>
 				<% end %>
 			</div>
 

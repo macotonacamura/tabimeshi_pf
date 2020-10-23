@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 80px;">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav fixed-top" style="height: 80px;">
         <div class="container">
            <a class="navbar-brand " href="/">
             <% if user_signed_in? %>
@@ -59,7 +59,7 @@
                            <%= link_to 'sign up', new_user_registration_path, :style=>"color:#fff;" %>
                         </li>
                         <li class="nav-item nav-link">
-                           <%= link_to 'sign in', new_user_session_path, :style=>"color:#fff;" %>
+                           <%= link_to 'log in', new_user_session_path, :style=>"color:#fff;" %>
                         </li>
                     </ul>
                   <% end %>
@@ -70,7 +70,7 @@
 
     </header>
     <%= yield %>
-    <footer class="fixed-bottom">
+    <footer class="bottom">
       <div class="container">
           <ul class="nav navbar-inverse pull-right">
             <li>CopyRight tabimeshi.inc</li>

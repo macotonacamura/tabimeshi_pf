@@ -1,7 +1,6 @@
 <div class="page">
-
-	<div class="container">
-		<div class="row">
+	<div class="container" style="padding-top: 20px;">
+		<div class="row main-box">
 			<div class="col-md-5">
 				<div class="review-main-visual"></div>
 			</div>
@@ -15,19 +14,18 @@
 		</div>
 	</div>
 
-
 	<div class="container">
 		<h2>new posts</h2>
 		<% @reviews.each do |review| %>
 		 <div class="review-box">
 			<%=  l review.created_at, format: :long %>
-			<%= attachment_image_tag review.user, :profile_image, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'%>
+			<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
 			<strong><%= link_to user_path(review.user.id),:style=>"color:#444;" do %>   <%= review.user.user_name %><% end %>
 			</strong><br>
 				<th><i class="fas fa-utensils">
 					<h4><%= link_to review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4>
 				</i></th>
-				<td><div id="star-rate"><%= review.rate %></div></td>
+				<div id="star-rate"><%= review.rate %></div>
 			<div><%= review.review %></div>
 		</div>
 		<% end %>

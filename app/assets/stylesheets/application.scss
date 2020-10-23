@@ -15,7 +15,14 @@
  */
 @import "bootstrap";
 
+@font-face{
+	font-family: "minifont";
+   	src: font-url('mincho.otf') format('truetype');
+ }
 
+body{
+  font-family: 'minifont';
+}
 
 
 footer{
@@ -26,9 +33,6 @@ footer{
 	background-color:#000;
 }
 
-h2{
-	margin-top: 20px;
-}
 
 .pagination>li>a {
   border: none;     /*枠線をなくす*/

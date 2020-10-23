@@ -1,42 +1,58 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			<h1>Edit Profile</h1>
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 edit_form">
+				<h1>Edit Profile</h1>
 
-			<%= form_with model: @user,url:user_path(current_user.id), method: :patch, local: true do |f| %>
-			<table class="table">
-				<tr>
-					<th><%= attachment_image_tag @user, :profile_image, format: 'jpg', fallback: "no_image.jpg" ,size:"50x50" %><br></th>
-					<td><%= f.attachment_field :profile_image, placeholder: "select" %></td>
-				</tr>
-				<tr>
-					<th><%= f.label 'user name' %></th>
-					<td><%= f.text_field :user_name %></td>
-				</tr>
-				<tr>
-					<th><%= f.label 'introduction' %></th>
-					<td><%= f.text_field :introduction %></td>
-				</tr>
-				<tr>
-					<th>Private Information</th>
-				</tr>
-				<tr>
-					<th><%= f.label 'email' %></th>
-					<td><%= f.text_field :email %></td>
-				</tr>
-				<tr>
-				<td><%= f.submit 'send', class: "btn btn-default" %></td>
-				</tr>
-			</table>
-			<% end %>
+				<%= form_with model: @user,url:user_path(current_user.id), method: :patch, local: true do |f| %>
+
+				<table class="table">
+					<tr>
+						<%= f.file_field :profile_image ,id: :profile_image, placeholder: "select" %>
+						<%= image_tag "no_image.jpg", id: :profile_image_prev %>
+					</tr>
+					<script type="text/javascript">
+					  $(function() {
+					    function readURL(input) {
+					        if (input.files && input.files[0]) {
+					        var reader = new FileReader();
+					        reader.onload = function (e) {
+					    $('#profile_image_prev').attr('src', e.target.result);
+					        }
+					        reader.readAsDataURL(input.files[0]);
+					        }
+					    }
+					    $("#profile_image").change(function(){
+					        readURL(this);
+					    });
+					  });
+					</script>
+					<tr>
+						<th><%= f.label 'user name' %></th>
+						<td><%= f.text_field :user_name ,:size=>"21"%></td>
+					</tr>
+					<tr>
+						<th><%= f.label 'introduction' %></th>
+						<td><%= f.text_area :introduction ,:size=>"40"%></td>
+					</tr>
+					<tr>
+						<th>Private Information</th>
+					</tr>
+					<tr>
+						<th><%= f.label 'email' %></th>
+						<td><%= f.text_field :email,:size=>"21" %></td>
+					</tr>
+					<tr>
+						<th></th>
+						<td></td>
+					<td><%= f.submit 'update', class: "btn btn-light" %></td>
+					</tr>
+				</table>
+				<% end %>
+			</div>
+		</div>
+		<div style="text-align: right;">
+			<%= link_to users_unsubscribe_path(current_user.id), class: "btn btn-light" do %>退会画面<% end %>
 		</div>
 	</div>
-</div>
-<div class="container">
-<div class="row">
-	<div class="col-xs-8"></div>
-	<div class="col-xs-4">
-	<%= link_to users_unsubscribe_path(current_user.id) do %>退会画面<% end %>
-	</div>
-</div>
 </div>

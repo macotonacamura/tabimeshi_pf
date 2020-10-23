@@ -1,49 +1,76 @@
-
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="main-visual">
-				<div class="main-visual-content">
-					<strong><h2><br><br>     Find delicacies and Create memorys!</h2></strong>
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="main-visual">
+					<div class="main-visual-content">
+						<strong><h2>Find delicacies and Create memorys !</h2></strong>
+					</div>
 				</div>
-			</div>
 
-			 <div class="col">
-				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-					<a class="btn-circle-flat"  id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">About</a>
-						<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-							<div class="about">
+				 <div class="row">
+				 	<div class="col-xs-12">
+						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="display: block; clear: both;">
+							<a class="btn-circle-flat"  id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">About</a>
 
-									<strong>海外旅行先で絶対に美味しいものを食べたい！</strong><br>
-									<strong>ガイドブックに載っている場所だけではなくローカルな体験をしたい！</strong><br>
-									<br>
-									そんな願いを叶えるための、<br>
-									海外の美味しい情報レビューサイトです。<br>
+							<a class="btn-circle-flat" id="v-pills-wwcd-tab" data-toggle="pill" href="#v-pills-wwcd" role="tab" aria-controls="v-pills-wwcd" aria-selected="false" style="color: #fff;" >w y c d</a>
 
-									現地で見つけた美味しい情報を共有しましょう！ <br>
-									<br>
+							<a class="btn-circle-flat" id="v-pills-wwcd-tab" data-toggle="pill" href="#v-pills-wwcd" role="tab" aria-controls="v-pills-wwcd" aria-selected="false" style="color: #fff;" >sth</a>
 
-									皆様の旅がより充実したものになりますように。<br>
-
-
-									記事を投稿するには会員登録が必要となります。<br>
-								</div>
+							<a class="btn-circle-flat" id="v-pills-start-tab" data-toggle="pill" href="#v-pills-start" role="tab" aria-controls="v-pills-start" aria-selected="false" style="color: #fff;" >start</a>
 						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<div class="tab-content" id="v-pills-tabContent">
+							<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+								<div class="about" id="about" >
+
+									<h4>About " tabimeshi "</h4><br>
+
+									<h4>思い出が深まるような旅中での特別な食事</h4><br>
+
+									<h5 style="float:left;">
+										ガイドブックに載っている場所だけではなく、特別な食体験をしたい！<br>
+										そんな願いを叶えるための、海外の美味しい情報レビューサイトです。<br>
+										現地で見つけた美味しい情報を共有しましょう！ <br>
+										<br>
+
+										皆様の旅がより充実したものになりますように。<br>
+									</h5>
+								</div>
+							</div>
+
+							<div class="tab-pane fade" id="v-pills-wwcd" role="tabpanel" aria-labelledby="v-pills-wwcd-tab">
+								<strong><h3>What you can do with " tabimeshi " ?</h3></strong><br>
+								<h5>
+									tabimeshi では、 旅先で見つけた皆様の美味しい情報を閲覧・投稿ができます。<br>
+									地図機能も搭載しているのでご旅行中も美味しい情報を気軽にチェックいただけます。
+								</h5><br>
+								<h6>記事を投稿するには会員登録が必要となります。</h6>
+							</div>
+
+							<div class="tab-pane fade" id="v-pills-start" role="tabpanel" aria-labelledby="v-pills-start-tab" style="margin:0 auto;">
+								<strong><h3>Let's Find delicacies and Create memorys!</h3></strong><br>
+								<h5>
+									さあ、世界の美味しい情報をチェックしよう！<br>
+								</h5>
+								<div style="margin-right: 50px; text-align: right;">
+									<button type="button" class="btn btn-light" style="margin-bottom: 10px;">
+										<%= link_to '会員登録して始める', new_user_registration_path, :style=>"color:#444;" %>
+									</button><br>
+		                           	<button type="button" class="btn btn-light"><%= link_to 'ログインする', new_user_session_path, :style=>"color:#444;" %>
+		                        </div>
+
+							</div>
+
+						</div>
+					</div>
 				</div>
 			</div>
-
-							<div class="col">
-								<!-- <table>
-									<tr>
-										<th>ログインして始める  </th>
-										<td><%= link_to 'sign in', new_user_session_path %></td>
-									</tr>
-									<tr>
-										<th>登録して始める</th>
-										<td><%= link_to 'sign up', new_user_registration_path %></td>
-									</tr>
-								</table> -->
-							</div>
 		</div>
 	</div>
 </div>
+

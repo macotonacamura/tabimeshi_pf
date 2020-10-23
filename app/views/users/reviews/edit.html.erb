@@ -1,34 +1,89 @@
-<h1>edit your review</h1>
+<div class="page">
+	<div class="container body">
+		<h2>edit your review</h2>
 
-<%= form_with model: @review,url:reviews_path(@review.id), method: :patch, local: true do |f| %>
-	<table class="table">
-		<tr>
-			<th><%= f.label 'restaurant name' %></th>
-			<td><%= f.text_field :restaurant_name %></td>
-		</tr>
-		<tr>
-			<th><%= f.label 'country  city' %></th>
-			<td><%= f.text_field :country %><%= f.text_field :city %></td>
+		<%= form_with model: @review,url:reviews_path(@review.id), method: :patch, local: true do |f| %>
+			<table class="table">
+				<tr>
+					<th><%= f.label 'restaurant name' %></th>
+					<td><%= f.text_field :restaurant_name %></td>
+				</tr>
+				<tr>
+					<th><%= f.label 'country  city' %></th>
+					<td><%= f.text_field :country %><%= f.text_field :city %></td>
 
-		</tr>
-		<tr>
-			<th><%= f.label 'address' %></th>
-			<td><%= f.text_field :address %></td>
-		</tr>
-		<tr>
-			<th><%= f.label 'budget' %></th>
-			<td><%= f.text_field :budget %></td>
-		</tr>
-		<tr>
-			<th><%= f.label 'review' %></th>
-			<td><%= f.text_area :review ,:size=>"50" %></td>
-		</tr>
-		<tr>
-			<th><%= f.label 'images' %></th>
-			<tb><%= f.attachment_field :review_images_images, multiple: true %></tb><!--multiple: trueで複数選択可能にする-->
-		</tr>
-		<tr>
-		<td><%= f.submit 'send', class: "btn btn-default" %></td>
-		</tr>
-	</table>
-<% end %>
+				</tr>
+				<tr>
+					<th><%= f.label 'address' %></th>
+					<td><%= f.text_field :address %></td>
+				</tr>
+				<tr>
+					<th><%= f.label 'budget' %></th>
+					<td><%= f.text_field :budget %><%= f.text_field :muximum_budget %></td>
+				</tr>
+				<tr>
+					<th><%= f.label 'review' %></th>
+					<td><%= f.text_area :review ,:size=>"50" %></td>
+				</tr>
+				<tr>
+					<th><%= f.label 'images' %></th>
+					<td>
+						<div class="post__drop__box__container">
+				            <div class="prev-content"></div>
+				            <div class="label-content">
+				              <label class="abel-box" for="item_images_attributes_0_image" id="label-box--0">
+				                <pre class="label-box__text-visible"></pre>
+				              </label>
+				            </div>
+				            <div class="img-field">
+				                <%= f.fields_for :review_images do |i| %>
+				                  <%= i.file_field :image , class: "img-field" %>
+			                    <% end %>
+			                </div>
+			                <div class="prev-list">
+								  <%= image_tag "no_image.jpg", id: :img_prev_0 %>
+								  <%= image_tag "no_image.jpg", id: :img_prev_1 %>
+								  <%= image_tag "no_image.jpg", id: :img_prev_2 %>
+								  <%= image_tag "no_image.jpg", id: :img_prev_3 %>
+								  <%= image_tag "no_image.jpg", id: :img_prev_4 %>
+							</div>
+
+
+								<script type="text/javascript">
+								  $(function() {
+								    function readURL(input,index) {
+								        if (input.files && input.files[0]) {
+								        var reader = new FileReader();
+								        reader.onload = function (e) {
+								    $('#img_prev_'+ index).attr('src', e.target.result);
+								        }
+								        reader.readAsDataURL(input.files[0]);
+								        }
+								    }
+								    $("#review_review_images_attributes_0_image").change(function(){
+								        readURL(this,0);
+								    });
+								     $("#review_review_images_attributes_1_image").change(function(){
+								        readURL(this,1);
+								    });
+								      $("#review_review_images_attributes_2_image").change(function(){
+								        readURL(this,2);
+								    });
+								       $("#review_review_images_attributes_3_image").change(function(){
+								        readURL(this,3);
+								    });
+								        $("#review_review_images_attributes_4_image").change(function(){
+								        readURL(this,4);
+								    });
+								  });
+								</script>
+				          </div>
+		        		</div>
+					</td>
+				<tr>
+				<td><%= f.submit 'send', class: "btn btn-default" %></td>
+				</tr>
+			</table>
+		<% end %>
+</div>
+</div>
