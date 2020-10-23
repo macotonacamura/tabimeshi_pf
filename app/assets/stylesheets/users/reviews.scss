@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .page{
-  height: 1500px;
+  height: 1600px;
   background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
@@ -35,7 +35,7 @@
 .btn-circle-flat {
   display: inline-block;
   text-decoration: none;
-  background: #004400;
+  background: rgba(0, 68, 0,0.9);
   color: #FFF;
   width: 170px;
   height: 170px;
@@ -48,9 +48,15 @@
 }
 
 .review_images{
-	height:150px;
-	width:200px;
+	height:200px;
+	width:300px;
+  margin:10px;
 	object-fit: cover;
+  border: 5px solid #888;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 40px;
 }
 
 .profile_img{
@@ -66,8 +72,8 @@
   padding-left:40px;
   margin-bottom:20px;
   width:1000px;
-  height:200px;
-  background-color:#eee;
+  height:220px;
+  background-color: rgba(245, 245, 245,0.6);
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
@@ -80,7 +86,7 @@
 
 .review-info{
   height:600px;
-  width:100%;
+  width:auto;
   padding:30px;
   background-color:#eee;
   border-top-left-radius: 10px;
@@ -89,4 +95,60 @@
   border-bottom-left-radius: 40px;
 }
 
+.review{
+  margin:15px 30px;
+}
+.shop-info{
+  margin-top:50px;
+  margin-left: 30px;
+  font-size: 15px;
+}
 
+#map{
+  height: 200px;
+  width: 400px;
+}
+
+.img-field{
+  font-size:15px;
+  margin-bottom:20px;
+}
+
+.prev-list{
+  width:1000px;
+  margin:o auto;
+}
+
+#img_prev_0{
+  height: 150px;
+  width: 150px;
+  padding:10px;
+}
+#img_prev_1{
+  height: 150px;
+  width: 150px;
+  padding:10px;
+}
+
+#img_prev_2{
+  height: 150px;
+  width: 150px;
+  padding:10px;
+}
+
+#img_prev_3{
+  height: 150px;
+  width: 150px;
+  padding:10px;
+}
+
+#img_prev_4{
+  height: 150px;
+  width: 150px;
+  padding:10px;
+}
+
+#map {
+  height: 200px;
+  width: 70%;
+}

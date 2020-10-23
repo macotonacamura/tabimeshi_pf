@@ -41,9 +41,9 @@
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">x x x</a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="text-align: center;">
-                        <a class="dropdown-item" href="#"><%= link_to 'mypage', user_path(current_user.id), :style=>"color:#333;" %></a>
+                        <a class="dropdown-item" href="#"><%= link_to user_path(current_user.id), :style=>"color:#333; font-size:25px;" do %><i class="fas fa-user-circle"></i><% end %></a>
                          <div class="dropdown-divider"></div>
-                         <a class="dropdown-item" href="#"><%= link_to edit_user_path(current_user.id), :style=>"color:#333;" do %><i class="fas fa-wrench"></i><% end %></a>
+                         <a class="dropdown-item" href="#"><%= link_to edit_user_path(current_user.id), :style=>"color:#333; font-size:25px;" do %><i class="fas fa-wrench"></i><% end %></a>
                       </div>
                     </li>
                     <li class="nav-item nav-link">

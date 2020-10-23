@@ -22,12 +22,12 @@
 		 <div class="review-box">
 			<%=  l review.created_at, format: :long %>
 			<%= attachment_image_tag review.user, :profile_image, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'%>
-			<strong><%= link_to user_path(review.user.id),:style=>"color:#444;" do %><%= review.user.user_name %><% end %>
+			<strong><%= link_to user_path(review.user.id),:style=>"color:#444;" do %>   <%= review.user.user_name %><% end %>
 			</strong><br>
-			<strong>
-				<i class="fas fa-utensils"></i>
-				<h4><%= link_to review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4>
-			</strong><br>
+				<th><i class="fas fa-utensils">
+					<h4><%= link_to review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4>
+				</i></th>
+				<td><div id="star-rate"><%= review.rate %></div></td>
 			<div><%= review.review %></div>
 		</div>
 		<% end %>
@@ -36,10 +36,10 @@
 
 	<script>
       $(function(){
-        // #で始まるリンクをクリックしたら実行されます
+        // #to-listsで発火 sth
         $('a[href^="#to-lists"]').click(function() {
           // スクロールの速度
-          var speed = 400; // ミリ秒で記述
+          var speed = 400; // ミリ秒
           var href= $(this).attr("href");
           var target = $(href == "#" || href == "" ? 'html' : href);
           var position = target.offset().top;

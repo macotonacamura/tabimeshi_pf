@@ -11,12 +11,12 @@ class Users::ReviewsController < ApplicationController
   def new
     @review = Review.new
     @review.review_images << Array.new(5, ReviewImage.new)
+    @reviewimages = @review.review_images
   end
 
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    #byebug
     if @review.save
       redirect_to review_path(@review), notice: "You have created a review successfully."
     else
@@ -29,9 +29,13 @@ class Users::ReviewsController < ApplicationController
   end
 
   def update
+
   end
 
   def destroy
+     @review = Review.find(params[:id])
+     @review.destroy
+     redirect_to reviews_path
   end
 
 
@@ -46,6 +50,8 @@ class Users::ReviewsController < ApplicationController
       :rate,
       :muximum_budget,
       :address,
+      :latitude,
+      :longitude,
       :review,
       review_images_attributes: [
         :image

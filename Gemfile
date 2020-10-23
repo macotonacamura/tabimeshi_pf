@@ -70,3 +70,5 @@ gem "refile-mini_magick"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
+gem "geocoder"
+gem "dotenv-rails"

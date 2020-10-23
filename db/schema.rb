@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_111919) do
+ActiveRecord::Schema.define(version: 2020_10_22_073214) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2020_10_20_111919) do
     t.text "review"
     t.float "rate", default: 0.0
     t.integer "budget"
-    t.string "image_id"
     t.string "address"
     t.float "latitude"
     t.float "longitude"

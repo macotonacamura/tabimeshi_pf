@@ -1,36 +1,69 @@
 <div class="page">
 	<div class="container">
-		<h1>Users::Reviews#show</h1>
-<!-- 
-		 <% @review.review_images.each do |image| %>
-		    <%= attachment_image_tag image, :image, class: "review_images" %>
-		 <% end %> -->
-
-		<% @review.review_images.each do |image| %>
-	      <tr>
-	        <td><%= image_tag image %></td>
-	      </tr>
+		<% @review.review_images.each do |review_image| %>
+	     	<%= image_tag review_image.image.url, class: 'review_images' %>
  		<% end %>
 
 		<div class="review-info">
 			<span>投稿日時  <%=  l @review.created_at, format: :long %></span>
-			<h3><i class="fas fa-utensils"></i>　<%= @review.restaurant_name %></h3><%#= レート⭐︎ %>
+			<h3 style="margin-top: 7px;"><i class="fas fa-utensils"></i>　<%= @review.restaurant_name %></h3><%= @review.rate %>
 			<table>
 				<tr>
-				 <th>エリア</th>
-				 <td><%= @review.country %>・<%= @review.city %></td>
+				 <th>エリア <%= @review.country %>・<%= @review.city %></th>
 				 <th>予算</th>
 				 <td><%= @review.budget %> 〜 <%= @review.muximum_budget %></td>
 				</tr>
 				 <th style="padding-top: 20px;"><%= attachment_image_tag @review.user, :profile_image, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
 				 <%= @review.user.user_name %> さんの口コミ</th>
 			</table>
+				 <td>
+					<div class="review">
+						<%= @review.review %>
+					</div>
+				</td>
 
+				<div class="shop-info">
+					<strong>住所 </strong>
+					<span><%= @review.address %></span>
+				</div>
 
-			<div class="review">
-				<%= @review.review %>
+			<script type="text/javascript">
+			  function initMap() {
+			    var test ={lat: <%= @review.latitude %>, lng: <%= @review.longitude %>};
+			    var map = new google.maps.Map(document.getElementById('map'), {
+			              zoom: 15,
+			              center: test
+			              });
+			    var transitLayer = new google.maps.TransitLayer();
+			    transitLayer.setMap(map);
+
+			    var contentString = '住所：<%= @review.address %>';
+			    var infowindow = new google.maps.InfoWindow({
+			      content: contentString
+			    });
+
+			    var marker = new google.maps.Marker({
+			                  position:test,
+			                  map: map,
+			                  title: contentString
+			                 });
+
+			     marker.addListener('click', function() {
+			       infowindow.open(map, marker);
+			     });
+			  }
+			</script>
+
+			<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBBsATnhfmaNxdvAP9YOPuE2ERHpvPjDSo&callback=initMap">
+			</script>
+			<div id="map" style="margin: 30px 20px;"></div>
+
+			<div style="text-align: right;">
+            	<%if @review.user == current_user%>
+					<%= link_to 'delete',review_path(@review),method: :delete, local: true, class: 'btn btn-default',"data-confirm" => "Are you sure?",:style=>"background-color:#000; color:#fff;" %>
+				<% end %>
 			</div>
-
 
 		</div>
 	</div>
