@@ -1,8 +1,8 @@
 <div class="page" style="height: 1000px;">
-	<div class="container main-box" >
-		<h2>post review</h2>
+	<div class="container" >
+		<h2 class="title">post review</h2>
 
-		<%= form_with model: @review,url:reviews_path(@review.id), method: :post, local: true do |f| %>
+		<%= form_with model: @review, url:reviews_path(@review.id), method: :post, local: true do |f| %>
 			<table class="table">
 				<tr>
 					<th><%= f.label 'restaurant name' %></th>
@@ -54,53 +54,25 @@
 						<div class="post__drop__box__container">
 				            <div class="prev-content"></div>
 				            <div class="label-content">
-				              <label class="abel-box" for="item_images_attributes_0_image" id="label-box--0">
+				              <label class="label-box" for="review_images_attributes_0_image" id="label-box--0">
 				                <pre class="label-box__text-visible"></pre>
 				              </label>
 				            </div>
-				            <div class="img-field">
-				                <%= f.fields_for :review_images do |i| %>
-				                  <%= i.file_field :image , class: "img-field" %>
-			                    <% end %>
-			                </div>
-			                <div class="prev-list">
-								  <%= image_tag "no_image.jpg", id: :img_prev_0 %>
-								  <%= image_tag "no_image.jpg", id: :img_prev_1 %>
-								  <%= image_tag "no_image.jpg", id: :img_prev_2 %>
-								  <%= image_tag "no_image.jpg", id: :img_prev_3 %>
-								  <%= image_tag "no_image.jpg", id: :img_prev_4 %>
-							</div>
+				            <div class="hidden-content">
 
 
-								<script type="text/javascript">
-								  $(function() {
-								    function readURL(input,index) {
-								        if (input.files && input.files[0]) {
-								        var reader = new FileReader();
-								        reader.onload = function (e) {
-								    $('#img_prev_'+ index).attr('src', e.target.result);
-								        }
-								        reader.readAsDataURL(input.files[0]);
-								        }
-								    }
-								    $("#review_review_images_attributes_0_image").change(function(){
-								        readURL(this,0);
-								    });
-								     $("#review_review_images_attributes_1_image").change(function(){
-								        readURL(this,1);
-								    });
-								      $("#review_review_images_attributes_2_image").change(function(){
-								        readURL(this,2);
-								    });
-								       $("#review_review_images_attributes_3_image").change(function(){
-								        readURL(this,3);
-								    });
-								        $("#review_review_images_attributes_4_image").change(function(){
-								        readURL(this,4);
-								    });
-								  });
-								</script>
-				          </div>
+							      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
+							      <input class="hidden-field" id="review_images_attributes_1_image" name="review[review_images][1][image]" type="file"></input>
+
+							      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
+							      <input class="hidden-field" id="review_images_attributes_2_image" name="review[review_images][2][image]" type="file"></input>
+
+							      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
+							      <input class="hidden-field" id="review_images_attributes_3_image" name="review[review_images][3][image]" type="file"></input>
+
+							      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
+							      <input class="hidden-field" id="review_images_attributes_4_image" name="review[review_images][4][image]" type="file"></input>
+
 		        		</div>
 					</td>
 				</tr>

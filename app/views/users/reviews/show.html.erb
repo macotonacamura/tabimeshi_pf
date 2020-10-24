@@ -7,27 +7,50 @@
 		<div class="review-info">
 			<span>投稿日時  <%=  l @review.created_at, format: :long %></span>
 			<h3 style="margin-top: 7px;"><i class="fas fa-utensils"></i>　<%= @review.restaurant_name %></h3><%= @review.rate %>
+
 			<table>
 				<tr>
-				 <th>エリア <%= @review.country %>・<%= @review.city %></th>
-				 <th> 　予算</th>
-				 <td><%= @review.budget %> 〜 <%= @review.muximum_budget %></td>
+					<th>エリア <%= @review.country %>・<%= @review.city %></th>
+					<th> 　予算</th>
+					<td><%= @review.budget %> 〜 <%= @review.muximum_budget %></td>
 				</tr>
-				 <th style="padding-top: 20px;"><%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
-				 	<%= link_to user_path(@review.user.id), :style=>"color:#444;" do %>
-				 		<%= @review.user.user_name %><% end %>  さんの口コミ
-				 </th>
-			</table>
-				 <td>
-					<div class="review">
-						<%= @review.review %>
-					</div>
-				</td>
+				<tr>
+					<th style="padding-top: 20px;"><%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
+					 	<%= link_to user_path(@review.user.id), :style=>"color:#444;" do %>
+					 		<%= @review.user.user_name %>
+					 	<% end %>  さんの口コミ
+					</th>
+				</tr>
+				<tr>
+					<td>
+						<div class="review">
+							<%= @review.review %>
+						</div>
+					</td>
+					<td>
 
-				<div class="shop-info">
-					<strong>住所 </strong>
-					<span><%= @review.address %></span>
-				</div>
+						<% if @review.liked_by?(current_user) %>
+						   <%= link_to review_likes_path(@review), method: :delete, local:true do %>
+						   <span class="fas fa-heart" aria-hidden="true"></span>
+						<% end %>
+						<%= @review.likes.count %>
+
+						<% else %>
+
+						<%= link_to review_likes_path(@review),method: :post, local:true do %>
+						<span class="far fa-heart" aria-hidden="true"></span>
+						<% end %>
+						<%= @review.likes.count %>
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<strong class="shop-info">住所 </strong>
+						<span><%= @review.address %></span>
+					</td>
+				</tr>
+			</table>
 
 			<script type="text/javascript">
 			  function initMap() {
@@ -69,7 +92,41 @@
 					<% end %>
 				<% end %>
 			</div>
+		</div>
+			<h5 class="mini-title">コメント一覧</h5>
+			<table class="comment-area">
+				<% @review.review_comments.each do |review_comment| %>
+					<tr>
+					<th><%= image_tag review_comment.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
+						<%= link_to user_path(review_comment.user), :style=>"color:#444;" do %>
+							<%= review_comment.user.user_name %>
+						<% end %>
+					</th>
 
+					<th class="comment-content">
+						<%= review_comment.review_comment %>
+					</th>
+					<th>
+						<%=  l review_comment.created_at, format: :long %>
+						<%if current_user== review_comment.user %>
+							<%= link_to review_review_comment_path(review_comment.review,review_comment), :style=>"color:#444;" ,method: :delete do %>
+									<i class="far fa-trash-alt"></i>
+							<% end %>
+						<% end %>
+					</th>
+				</tr>
+
+				<% end %>
+
+			</table>
+
+				<div>
+					<%= form_with model: @review_comment ,url:review_review_comments_path(@review.id), method: :post, local: true do |f| %>
+					<h5 class="mini-title">コメントを投稿する</h5>
+					<%= f.text_area :review_comment ,:size=>"50" %>
+					<%= f.submit "comment" %>
+					<% end %>
+				</div>
 		</div>
 	</div>
 </div>

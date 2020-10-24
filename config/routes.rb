@@ -23,7 +23,10 @@ Rails.application.routes.draw do
 	get '/users/:id/unsubscribe' => 'users#unsubscribe',as: 'users_unsubscribe'
 	patch '/users/:id/withdraw' => 'users#withdraw',as: 'users_withdraw'
 
-	resources :reviews
+	resources :reviews do
+		resource :likes, only:[:create, :destroy]
+		resources :review_comments, only:[:create, :destroy]
+	end
 
 	end
 

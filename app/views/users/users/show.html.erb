@@ -1,9 +1,9 @@
 <div class="page">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12" style="margin-top: 30px;">
+			<div class="col-xs-12">
 				<% if @user == current_user %>
-					<h1 style="margin-bottom: 20px;">mypage</h1>
+					<h1 style="margin-top: 100px;">mypage</h1>
 				<% end %>
 				<%= flash[:change] %>
 			</div>
@@ -36,6 +36,22 @@
 	</div>
 
 				<br>
-				<span>投稿一覧を表示</span>
+				<h3><%= @user.user_name %>'s posts list</h3>
+
+				<% @reviews.each do |review| %>
+			 		<div class="review-box">
+						<%=  l review.created_at, format: :long %>
+						<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
+						<strong><%= link_to user_path(review.user.id),:style=>"color:#444;" do %>   <%= review.user.user_name %><% end %>
+						</strong><br>
+							<th><i class="fas fa-utensils">
+								<h4><%= link_to review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4></i>
+								<%= review.country %>・<%= review.city %>
+							</th>
+							<div id="star-rate"><%= review.rate %></div>
+						<div><%= review.review %></div>
+					</div>
+				<% end %>
+				<%= paginate @reviews %>
 	</div>
 </div>
