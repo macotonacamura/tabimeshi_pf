@@ -1,5 +1,5 @@
 class Users::ReviewsController < ApplicationController
-  before_action :convert_review_image_format, only: [:create, :update]
+  before_action :convert_review_image_format, only: [:create]
 
   def index
     @reviews = Review.page(params[:page]).reverse_order
@@ -11,12 +11,23 @@ class Users::ReviewsController < ApplicationController
   end
 
   def new
+    # @review = Review.new
+    # (@review.review_images.count...5).each do |index|
+    #   @review.review_images.build
+    # end
     @review = Review.new
     @review.review_images << Array.new(5, ReviewImage.new)
     @reviewimages = @review.review_images
   end
 
   def create
+  #   @review = Review.new(review_params)
+  #   #binding.pry
+  #   if @review.save
+  #     redirect_to review_path(@review), notice: "You've created a new review successfully."
+  #   else
+  #     render 'new'
+  # end
     @review = Review.new(@converted_review_params)
     @review.user_id = current_user.id
     if @review.save(review_params)
@@ -28,16 +39,18 @@ class Users::ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    (@review.review_images.count...5).each do |index|
+      @review.review_images.build
+    end
   end
 
   def update
     @review = Review.find(params[:id])
-    if @review.update(@converted_review_params)
+    if @review.update(update_review_params)
       redirect_to review_path(@review), notice: "You've updateded this review successfully."
     else
       render 'edit'
     end
-
   end
 
   def destroy
@@ -70,6 +83,28 @@ class Users::ReviewsController < ApplicationController
       :longitude,
       :review,
       review_images: [
+        :image
+      ],
+      review_images_attributes: [
+        :image
+      ]
+    )#複数画像upは配列で渡す[]
+  end
+
+  def update_review_params
+    params.require(:review).permit(
+      :restaurant_name,
+      :country,:city,
+      :address,
+      :budget,
+      :rate,
+      :muximum_budget,
+      :address,
+      :latitude,
+      :longitude,
+      :review,
+      review_images_attributes: [
+        :id,
         :image
       ]
     )#複数画像upは配列で渡す[]

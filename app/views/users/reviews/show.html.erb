@@ -1,7 +1,10 @@
 <div class="page">
 	<div class="container body">
 		<% @review.review_images.each do |review_image| %>
-	     	<%= image_tag review_image.image.url, class: 'review_images' %>
+			<!-- 消す -->
+			<% if review_image.image.present? %>
+	     		<%= image_tag review_image.image.url, class: 'review_images' %>
+	     	<% end %>
  		<% end %>
 
 		<div class="review-info">

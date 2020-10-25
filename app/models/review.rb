@@ -11,7 +11,7 @@ class Review < ApplicationRecord
 
 
 	has_many :review_images, dependent: :destroy
-  	accepts_nested_attributes_for :review_images, allow_destroy: true, limit: 4
+  	accepts_nested_attributes_for :review_images, limit: 5
 
 	validates :rate, numericality: {
     less_than_or_equal_to: 5,
