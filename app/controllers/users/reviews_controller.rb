@@ -1,5 +1,5 @@
 class Users::ReviewsController < ApplicationController
-  before_action :convert_review_image_format, only: :create
+  before_action :convert_review_image_format, only: [:create, :update]
 
   def index
     @reviews = Review.page(params[:page]).reverse_order
@@ -32,7 +32,7 @@ class Users::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    if @review.update(review_params)
+    if @review.update(@converted_review_params)
       redirect_to review_path(@review), notice: "You've updateded this review successfully."
     else
       render 'edit'

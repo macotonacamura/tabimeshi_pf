@@ -1,6 +1,6 @@
 <div class="page">
 	<div class="container body">
-		<h2>edit your review</h2>
+		<h2>Edit your review</h2>
 
 		<%= form_with model: @review,url:review_path(@review.id), method: :patch, local: true do |f| %>
 			<table class="table">
@@ -35,18 +35,28 @@
 				                <pre class="label-box__text-visible"></pre>
 				              </label>
 				            </div>
+				            				            <!--このeach文を応用する？-->
+
+				            <% if @review.review_images.present? %>
+								<% @review.review_images.each do |review_image| %>
+							     	<%= image_tag review_image.image.url, class: 'review_images',id: :img_prev %>
+						 		<% end %>
+					 		<% else %>
+								<%= image_tag "no_image.jpg", id: :img_prev %>
+							<% end %>
+
 				            <div class="hidden-content">
-							      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
-							      <input class="hidden-field" id="review_images_attributes_1_image" name="review[review_images][1][image]" type="file"></input>
+								      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
+								      <input class="hidden-field" id="review_images_attributes_1_image" name="review[review_images][1][image]" type="file"></input>
 
-							      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
-							      <input class="hidden-field" id="review_images_attributes_2_image" name="review[review_images][2][image]" type="file"></input>
+								      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
+								      <input class="hidden-field" id="review_images_attributes_2_image" name="review[review_images][2][image]" type="file"></input>
 
-							      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
-							      <input class="hidden-field" id="review_images_attributes_3_image" name="review[review_images][3][image]" type="file"></input>
+								      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
+								      <input class="hidden-field" id="review_images_attributes_3_image" name="review[review_images][3][image]" type="file"></input>
 
-							      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
-							      <input class="hidden-field" id="review_images_attributes_4_image" name="review[review_images][4][image]" type="file"></input>
+								      <%= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
+								      <input class="hidden-field" id="review_images_attributes_4_image" name="review[review_images][4][image]" type="file"></input>
 			        		</div>
 
 				          </div>
