@@ -18,7 +18,7 @@
             <% if user_signed_in? %>
               <%= link_to reviews_path, :style=>"color:#fff;" do %>tabimeshi<% end %>
             <% else %>
-            <%= link_to root_path, :style=>"color:#fff;" do %><div>tabimeshi</div><% end %>
+              <%= link_to root_path, :style=>"color:#fff;" do %><div>tabimeshi</div><% end %>
             <% end %>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,6 +50,15 @@
                       <%= link_to 'log out', destroy_user_session_path, method: :delete, :style=>"color:#fff;" %>
                     </li>
                   </ul>
+                 <% elsif admin_signed_in? %>
+                  <ul class="navbar-nav mr-auto">
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li style="padding-right: 15px;"><%= link_to 'ユーザー一覧', admins_users_path, :style=>"color:#fff;" %></li>
+                        <li style="padding-right: 15px;"><%= link_to 'ジャンル登録・一覧', admins_genres_path, :style=>"color:#fff;" %></li>
+                        <li style="padding-right: 15px;"><%= link_to '投稿一覧', admins_reviews_path, :style=>"color:#fff;" %></li>
+                        <li style="padding-right: 15px;"><%= link_to 'Log out', admins_sign_out_path, method: :delete, :style=>"color:#fff;" %></li>
+                    </ul>
                  <% else %>
                     <ul class="navbar-nav mr-auto">
                     </ul>

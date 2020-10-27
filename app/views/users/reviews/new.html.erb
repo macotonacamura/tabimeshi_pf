@@ -1,4 +1,4 @@
-<div class="page" style="height: 1000px;">
+<div class="page" style="height: 1100px;">
 	<div class="container" >
 		<h2 class="title">post review</h2>
 
@@ -40,7 +40,7 @@
 
 				<tr>
 					<th><%= f.label 'budget' %></th>
-					<td><%= f.text_field :budget %> 〜 <%= f.text_field :muximum_budget %></td>
+					<td><%= f.text_field :budget %> 〜 <%= f.text_field :maximum_budget %></td>
 				</tr>
 
 				<tr>
@@ -65,13 +65,14 @@
 					            			<%= image_tag image_form.object.image.url, class: 'review_images' %>
 					            		<% end %>
 					            		<%= image_form.file_field :image, class: 'hidden-field' %>
-					            		<%= image_form.hidden_field :id, value: image_form.object %>
+					            		<%#= image_form.hidden_field :id, value: image_form.review_id %>
+					            		<%#= image_form.hidden_field :review_id, value: image_form.review_id %>
 				            		</div>
 				            	<% end %>
 				            </div>
 
 
-							     <!--  <%#= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
+							     <!-- <%#= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
 							      <input class="hidden-field" id="review_images_attributes_1_image" name="review[review_images][1][image]" type="file"></input>
 
 							      <%#= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
@@ -83,7 +84,7 @@
 							      <%#= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
 							      <input class="hidden-field" id="review_images_attributes_4_image" name="review[review_images][4][image]" type="file"></input>
 
-		        		</div> -->
+		        		</div>-->
 					</td>
 				</tr>
 

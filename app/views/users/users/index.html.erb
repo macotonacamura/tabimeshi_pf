@@ -12,9 +12,21 @@
 									<% end %>
 								</h3><br>
 								<%= user.introduction %>
+								<div>
+									<table style="text-align: center; width:400px;">
+										<tr>
+											<th><%= user.followers.count %></th>
+											<th><%= user.followings.count %></th>
+										</tr>
+										<tr>
+											<td>followers</td>
+											<td>followings</td>
+										</tr>
+									</table>
+									<div style="margin-top: 10px;"><%= render 'users/relationships/follow_button', user: user %></div>
+								</div>
 							</strong>
 						</div>
-						<div style="margin-left: 200px;">Follow</div>
 					</div>
 				<% end %>
 		</div>

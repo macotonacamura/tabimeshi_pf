@@ -2,9 +2,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-				<% if @user == current_user %>
-					<h1 style="margin-top: 100px;">mypage</h1>
-				<% end %>
+				<div style="margin-top: 80px;">
+					<% if @user == current_user %>
+						<h1>mypage</h1>
+					<% end %>
+				</div>
 				<%= flash[:change] %>
 			</div>
 		</div>
@@ -18,13 +20,27 @@
 						<%= link_to user_path(@user.id), :style=>"color:#444;" do %>
 							<%= @user.user_name %>
 						<% end %>
-					</h3><br>
+					</h3>
 					<%= @user.introduction %>
+					<div>
+						<table style="text-align: center; width:400px;">
+							<tr>
+								<th><%= @reviews.count %></th>
+								<th><%= link_to relationship_follower_path, :style=>"color:#444;" do %><%= @user.followers.count %><% end %></th>
+								<th><%= link_to relationship_following_path, :style=>"color:#444;" do %><%= @user.followings.count %><% end %></th>
+							</tr>
+							<tr>
+								<td>投稿数</td>
+								<td>followers</td>
+								<td>followings</td>
+							</tr>
+						</table>
+						<div style="margin-top: 10px;"><%= render 'users/relationships/follow_button', user: @user %></div>
+					</div>
 				</strong>
 			</div>
-			<% if @user != current_user %>
-				<div style="margin-left: 200px;">Follow</div>
-			<% end %>
+
+
 <!--ここまで-->
 
 

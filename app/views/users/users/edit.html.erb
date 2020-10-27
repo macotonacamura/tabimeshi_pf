@@ -9,7 +9,12 @@
 				<table class="table">
 					<tr>
 						<%= f.file_field :profile_image ,id: :profile_image, placeholder: "select" %>
-						<%= image_tag "no_image.jpg", id: :profile_image_prev %>
+						<%#= image_tag "no_image.jpg", id: :profile_image_prev %>
+						<% if @user.profile_image.present? %>
+						  <%= image_tag @user.profile_image.url,class: 'profile_img-show', id: :img_prev %>
+						<% else %>
+						  <%= image_tag "sample.jpg", id: :img_prev %>
+						<% end %>
 					</tr>
 					<script type="text/javascript">
 					  $(function() {
@@ -22,7 +27,7 @@
 					        reader.readAsDataURL(input.files[0]);
 					        }
 					    }
-					    $("#profile_image").change(function(){
+					    $("#profile_img-show").change(function(){
 					        readURL(this);
 					    });
 					  });

@@ -1,7 +1,7 @@
 class Users::UsersController < ApplicationController
 
   def index
-	@users = User.where(is_deleted: false) #ここで削除されていない会員のみ表示
+	  @users = User.where(is_deleted: false) #ここで削除されていない会員のみ表示
   end
 
   def show
@@ -18,9 +18,19 @@ class Users::UsersController < ApplicationController
   	if @user.update(user_params)
   	   redirect_to user_path(@user.id)
 	   flash[:change] = "登録情報を更新しました"
-	else
-	   render :edit
-	end
+  	else
+  	   render :edit
+  	end
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @users = @user.followings.all
+  end
+
+  def follower
+    @user = User.find(params[:id])
+    @users = @user.followers.all
   end
 
   def unsubscribe

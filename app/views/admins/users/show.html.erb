@@ -1,2 +1,71 @@
-<h1>Admins::Users#show</h1>
-<p>Find me in app/views/admins/users/show.html.erb</p>
+	<div class="container" style="height: 1300px;">
+		<div class="row">
+			<div class="col-xs-12">
+				<div style="margin-top: 80px;"></div>
+
+				<table class="table" style="text-align: center;">
+					<thead>
+						<tr>
+							<th></th>
+							<th>会員ID</th>
+							<th>　ステータス</th>
+							<th>　ユーザーネーム</th>
+							<th>　メールアドレス</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td><%= image_tag @user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_admin_index' %></td>
+								<td><%= @user.id%></td>
+								<td>
+									<%if @user.is_deleted == false %>
+										<span>有効</span>
+									<% else %>
+										<span>無効</span>
+									<% end %>
+								</td>
+								<td><%= @user.user_name %></td>
+								<td><%= @user.email %></td>
+							</tr>
+							<tr>
+								<th></th><th></th>
+								<th>投稿数</th>
+								<th>followers</th>
+								<th>followings</th>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td><td></td>
+								<td><%= @reviews.count %></td>
+								<td><%= @user.followers.count %></td>
+								<td><%= @user.followings.count %></td>
+								<td><h5><%= link_to 'ユーザー情報を編集する',edit_admins_user_path(@user.id) %></h5></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h3><%= @user.user_name %>'s posts list</h3>
+
+					<% @reviews.each do |review| %>
+				 		<div class="review-box">
+				 			<div>
+								<%=  l review.created_at, format: :long %>
+								<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
+								<%= review.user.user_name %>
+							</div>
+							<div>
+								<i class="fas fa-utensils">
+									<%= link_to admins_review_path(review.id),:style=>"color:#444;" do %><h4><%= review.restaurant_name %></h4><% end %>
+									<div id="star-rate"><%= review.rate %></div>
+								</i>
+								<%= review.country %>・<%= review.city %>
+							</div>
+							<div>
+								<%= review.review %>
+							</div>
+						</div>
+					<% end %>
+					<%= paginate @reviews %>
+			</div>
+		</div>
+	</div>

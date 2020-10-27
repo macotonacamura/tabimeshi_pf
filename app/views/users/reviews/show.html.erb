@@ -15,7 +15,7 @@
 				<tr>
 					<th>エリア <%= @review.country %>・<%= @review.city %></th>
 					<th> 　予算</th>
-					<td><%= @review.budget %> 〜 <%= @review.muximum_budget %></td>
+					<td><%= @review.budget %> 〜 <%= @review.maximum_budget %></td>
 				</tr>
 				<tr>
 					<th style="padding-top: 20px;"><%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>

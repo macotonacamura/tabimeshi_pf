@@ -8,6 +8,21 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    reviews_path(resource)
+    case resource
+      when Admin
+        admins_admins_top_path
+      when User
+        reviews_path
+    end
   end
+
+  def after_sign_out_path_for(resource_or_scope)
+    if resource_or_scope == :admin
+      admins_sign_in_path
+    else
+      root_path
+    end
+  end
+
 end
+
