@@ -5,10 +5,10 @@ class Users::RelationshipsController < ApplicationController
 		following = current_user.follow(@user)
 		if following.save
 			flash[:success] = 'Followed'
-			redirect_to request.referer
+			#redirect_to request.referer
 		else
 			flash.now[:alert] = 'failed to follow user'
-			redirect_to request.referer
+			#redirect_to request.referer
 		end
 	end
 
@@ -17,10 +17,10 @@ class Users::RelationshipsController < ApplicationController
 		following = current_user.unfollow(@user)
 		if following.destroy
 			flash[:success] = 'Unfollowed user'
-			redirect_to request.referer
+			#redirect_to request.referer
 		else
 			flash.now[:alert] = 'failed to unfollow user'
-			redirect_to request.referer
+			#redirect_to request.referer
 		end
 	end
 

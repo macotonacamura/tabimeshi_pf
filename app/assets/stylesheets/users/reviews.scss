@@ -13,6 +13,17 @@
   padding-top: 100px;
 }
 
+.pagination>.active>a {
+  background-color: #000;
+  border-radius: 15px;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+
+
 .title{
   padding-top: 100px;
   padding-bottom: 30px;

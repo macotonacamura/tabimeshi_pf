@@ -1,0 +1,1 @@
+document.getElementById('review_<%= @review.id %>').innerHTML = '<%= j(render "users/reviews/like" , review: @review) %>'

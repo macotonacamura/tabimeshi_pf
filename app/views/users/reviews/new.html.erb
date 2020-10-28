@@ -47,6 +47,10 @@
 					<th><%= f.label 'review' %></th>
 					<td><%= f.text_area :review ,:size=>"50" %></td>
 				</tr>
+				<tr>
+					<th><%= f.label 'genre' %> </th>
+  					<td><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: "-- 選択してください --" %></td>
+				</tr>
 
 				<tr>
 					<th><%= f.label 'images' %></th>
@@ -65,7 +69,7 @@
 					            			<%= image_tag image_form.object.image.url, class: 'review_images' %>
 					            		<% end %>
 					            		<%= image_form.file_field :image, class: 'hidden-field' %>
-					            		<%#= image_form.hidden_field :id, value: image_form.review_id %>
+					            		<%#= image_form.hidden_field :id, value: nil %>
 					            		<%#= image_form.hidden_field :review_id, value: image_form.review_id %>
 				            		</div>
 				            	<% end %>

@@ -8,24 +8,26 @@ class Review < ApplicationRecord
 	end
 
 	has_many :review_comments , dependent: :destroy
+	belongs_to :genre
 
 
 	has_many :review_images, dependent: :destroy
   	accepts_nested_attributes_for :review_images, limit: 5
+
 
 	validates :rate, numericality: {
     less_than_or_equal_to: 5,
     greater_than_or_equal_to: 1
 	}, presence: true
 
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+	geocoded_by :address
+	after_validation :geocode, if: :address_changed?
 
 	validates :restaurant_name,  length: { maximum: 20 }
 	validates :review,presence: true
 	validates :rate, presence: true
-	validates :budget, numericality: { only_integer: true,greater_than: 1,less_than: :muximum_budget}
-	validates :muximum_budget, numericality: { only_integer: true,greater_than: :budget }
+	validates :budget, numericality: { only_integer: true,greater_than: 1,less_than: :maximum_budget}
+	validates :maximum_budget, numericality: { only_integer: true,greater_than: :budget }
 	validates :address, presence: true
 	validates :country, presence: true
 	validates :city, presence: true

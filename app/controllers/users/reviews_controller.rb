@@ -24,6 +24,7 @@ class Users::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params.merge({user_id: current_user.id})) #.merge〜でパラメータにuserのidを付け加える
     if @review.save
+      #binding.pry
       redirect_to review_path(@review), notice: "You've created a new review successfully."
     else
       render 'new'
@@ -70,27 +71,6 @@ class Users::ReviewsController < ApplicationController
   #   @converted_review_params['review_images'] = review_images
   # end
 
-  # def review_params
-  #   params.require(:review).permit(
-  #     :restaurant_name,
-  #     :country,:city,
-  #     :address,
-  #     :budget,
-  #     :rate,
-  #     :muximum_budget,
-  #     :address,
-  #     :latitude,
-  #     :longitude,
-  #     :review,
-  #     review_images: [
-  #       :image
-  #     ],
-  #     review_images_attributes: [
-  #       :image
-  #     ]
-  #   )#複数画像upは配列で渡す[]
-  # end
-
   def review_params
     params.require(:review).permit(
       :restaurant_name,
@@ -98,14 +78,14 @@ class Users::ReviewsController < ApplicationController
       :address,
       :budget,
       :rate,
-      :muximum_budget,
+      :maximum_budget,
       :address,
+      :genre_id,
       :latitude,
       :longitude,
       :review,
       review_images_attributes: [
-        #:review_id,
-        #:id,
+        :id,
         :image
       ]
     )#複数画像upは配列で渡す[]

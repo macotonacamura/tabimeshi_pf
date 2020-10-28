@@ -26,6 +26,10 @@
 					<td><%= f.text_area :review ,:size=>"50" %></td>
 				</tr>
 				<tr>
+					<th><%= f.label 'genre' %> </th>
+  					<td><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: "-- 選択してください --" %></td>
+				</tr>
+				<tr>
 					<th><%= f.label 'review_images' %></th>
 					<td>
 						<div class="post__drop__box__container">
@@ -43,7 +47,7 @@
 					            			<%= image_tag image_form.object.image.url, class: 'review_images_prev' %>
 					            		<% end %>
 					            		<%= image_form.file_field :image, class: 'hidden-field' %>
-					            		<%#= image_form.hidden_field :id, value: image_form.object.id %>
+					            		<%= image_form.hidden_field :id, value: image_form.object.id %>
 				            		</div>
 				            	<% end %>
 				            </div>

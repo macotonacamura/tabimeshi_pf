@@ -18,36 +18,32 @@
 		<h2>new posts</h2>
 		<% @reviews.each do |review| %>
 		 <div class="review-box">
-			<%=  l review.created_at, format: :long %>
-			<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
-			<strong><%= link_to user_path(review.user.id),:style=>"color:#444;" do %>   <%= review.user.user_name %><% end %>
-			</strong>
-			<% if review.liked_by?(current_user) %>
-				<%= link_to review_likes_path(review), method: :delete, local:true do %>
-			  		<span class="fas fa-heart" aria-hidden="true"></span>
-				<% end %>
-				<%= review.likes.count %>
-			<% else %>
-
-				<%= link_to review_likes_path(review),method: :post, local:true do %>
-					<span class="far fa-heart" aria-hidden="true"></span>
-				<% end %>
-				<%= review.likes.count %>
-			<% end %>
-			<i class="far fa-comment"></i><%= review.review_comments.count %>
-			<br>
-
-				<th><i class="fas fa-utensils">
+			<div id="review_<%= review.id %>">
+				<%= render 'users/reviews/like' , review: review %>
+			</div>
+				<div>
+					<i class="fas fa-utensils">
 					<h4><%= link_to review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4>
 					</i>
 					<%= review.country %>・<%= review.city %>
-				</th>
-				<div id="star-rate"><%= review.rate %></div>
+				</div>
+				<div id="star-rate-<%= review.id %>" ></div>
+				<script>
+				  $('#star-rate-<%= review.id %>').raty({
+				   size: 35,
+				   starOff:  "/assets/star-off.png",
+				   starOn: "/assets/star-on.png",
+				   starHalf: "/assets/star-half.png",
+				   readOnly: true,
+				   half: true,
+				   score: <%= review.rate %>
+				 });
+				</script>
 			<div><%= review.review %></div>
 		</div>
 		<% end %>
 	</div>
-	<div class="pagenate"><%= paginate @reviews %></div>
+	<div><%= paginate @reviews , class: "pagination" %></div>
 
 	<script>
       $(function(){

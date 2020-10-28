@@ -1,0 +1,21 @@
+<%=  l review.created_at, format: :long %>
+<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
+
+<strong>
+	<%= link_to user_path(review.user.id),:style=>"color:#444;" do %>
+		<%= review.user.user_name %>
+	<% end %>
+</strong>
+<% if review.liked_by?(current_user) %>
+	<%= link_to review_likes_path(review), method: :delete, remote:true do %>
+  		<span class="fas fa-heart" aria-hidden="true"></span>
+	<% end %>
+	<%= review.likes.count %>
+<% else %>
+
+	<%= link_to review_likes_path(review),method: :post, remote:true do %>
+		<span class="far fa-heart" aria-hidden="true"></span>
+	<% end %>
+	<%= review.likes.count %>
+<% end %>
+<i class="far fa-comment"></i><%= review.review_comments.count %>

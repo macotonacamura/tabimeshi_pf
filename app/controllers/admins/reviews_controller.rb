@@ -19,7 +19,7 @@ class Admins::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      redirect_to review_path(@review), notice: "You've updateded this review successfully."
+      redirect_to admins_review_path(@review), notice: "You've updateded this review successfully."
     else
       render 'edit'
     end
@@ -28,7 +28,7 @@ class Admins::ReviewsController < ApplicationController
   def destroy
      @review = Review.find(params[:id])
      @review.destroy
-     redirect_to reviews_path
+     redirect_to admins_reviews_path
   end
 
   def review_params
@@ -38,8 +38,9 @@ class Admins::ReviewsController < ApplicationController
       :address,
       :budget,
       :rate,
-      :muximum_budget,
+      :maximum_budget,
       :address,
+      :genre_id,
       :latitude,
       :longitude,
       :review,
