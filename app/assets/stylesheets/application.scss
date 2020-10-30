@@ -50,3 +50,11 @@ footer{
   border-radius: 15px;   /*角を丸くする*/
 }
 
+@media screen and (max-width:425px) {
+  header {
+    width: 100%;
+  }
+  .nav {
+    width: 100%;
+  }
+}

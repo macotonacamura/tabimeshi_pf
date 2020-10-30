@@ -2,72 +2,46 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-				<div style="margin-top: 80px;">
+
+				<div style="margin-top: 100px;">
 					<% if @user == current_user %>
-						<h1>mypage</h1>
+						<h2>mypage</h2>
+					<% else %>
+						<h2><%= @user.user_name %>'s room</h2>
 					<% end %>
 				</div>
-				<%= flash[:change] %>
+				<div class="time-limit" style="font-size: 15px;"><%= flash[:change] %></div>
+
+				<div class="info-box_index_show">
+					<div>
+						<%= image_tag @user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
+					</div>
+					<div class="user_info_index_show">
+						<h3 class="user_name">
+							<%= link_to user_path(@user.id), :style=>"color:#444;" do %>
+								<%= @user.user_name %>
+							<% end %>
+						</h3>
+						<div id="follow_button_<%= @user.id %>" style="margin-top: 10px;">
+							<%= render 'users/relationships/follow_button', user: @user,reviews:@user.reviews %>
+						</div>
+						<% if current_user == @user %>
+							<%= link_to edit_user_path(current_user.id), :style=>"color:#444;" do %>
+								<i class="fas fa-wrench btn btn-sm">Edit</i>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+
+
+				<div>
+					<h3 class="title_posts_list"><%= @user.user_name %>'s posts list</h3>
+
+					<%= render 'users/reviews/reviews_list', reviews:@reviews %>
+					<%= paginate @reviews %>
+				</div>
+
 			</div>
 		</div>
-
-<!--部分テンプレートできそう users//show/index-->
-		<div class="info-box_index col-xs-3">
-			<%= image_tag @user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index' %>
-			<div class="name-info col-xs-9">
-				<strong>
-					<h3>
-						<%= link_to user_path(@user.id), :style=>"color:#444;" do %>
-							<%= @user.user_name %>
-						<% end %>
-					</h3>
-					<%= @user.introduction %>
-					<div>
-						<table style="text-align: center; width:400px;">
-							<tr>
-								<th><%= @reviews.count %></th>
-								<th><%= link_to relationship_follower_path, :style=>"color:#444;" do %><%= @user.followers.count %><% end %></th>
-								<th><%= link_to relationship_following_path, :style=>"color:#444;" do %><%= @user.followings.count %><% end %></th>
-							</tr>
-							<tr>
-								<td>投稿数</td>
-								<td>followers</td>
-								<td>followings</td>
-							</tr>
-						</table>
-						<div style="margin-top: 10px;"><%= render 'users/relationships/follow_button', user: @user %></div>
-					</div>
-				</strong>
-			</div>
-
-
-<!--ここまで-->
-
-
-			<% if @user == current_user %>
-				<%= link_to edit_user_path(current_user.id) ,class: 'btn-circle-flat_user_show', :style=>"color:#fff;" do %>
-				<i class="fas fa-wrench link-icon"></i>
-				<% end %>
-			<% end %>
-	</div>
-
-				<br>
-				<h3><%= @user.user_name %>'s posts list</h3>
-
-				<% @reviews.each do |review| %>
-			 		<div class="review-box">
-						<%=  l review.created_at, format: :long %>
-						<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
-						<strong><%= link_to user_path(review.user.id),:style=>"color:#444;" do %>   <%= review.user.user_name %><% end %>
-						</strong><br>
-							<th><i class="fas fa-utensils">
-								<h4><%= link_to review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4></i>
-								<%= review.country %>・<%= review.city %>
-							</th>
-							<div id="star-rate"><%= review.rate %></div>
-						<div><%= review.review %></div>
-					</div>
-				<% end %>
-				<%= paginate @reviews %>
 	</div>
 </div>

@@ -23,7 +23,7 @@ class Review < ApplicationRecord
 	geocoded_by :address
 	after_validation :geocode, if: :address_changed?
 
-	validates :restaurant_name,  length: { maximum: 20 }
+	validates :restaurant_name,  length: { maximum: 60 }
 	validates :review,presence: true
 	validates :rate, presence: true
 	validates :budget, numericality: { only_integer: true,greater_than: 1,less_than: :maximum_budget}

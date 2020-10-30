@@ -1,34 +1,32 @@
 <div class="page">
 	<div class="container main">
 		<div class="row">
+			<div class="col-md-12">
 				<% @users.each do |user| %>
-					<div class="info-box_index col-xs-3">
-						<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index' %>
-						<div class="name-info col-xs-9">
-							<strong>
-								<h3>
-									<%= link_to user_path(user.id), :style=>"color:#444;" do %>
-										<%= user.user_name %>
-									<% end %>
-								</h3><br>
-								<%= user.introduction %>
-								<div>
-									<table style="text-align: center; width:400px;">
-										<tr>
-											<th><%= user.followers.count %></th>
-											<th><%= user.followings.count %></th>
-										</tr>
-										<tr>
-											<td>followers</td>
-											<td>followings</td>
-										</tr>
-									</table>
-									<div style="margin-top: 10px;"><%= render 'users/relationships/follow_button', user: user %></div>
-								</div>
-							</strong>
+					<div class="info-box_index_show">
+						<div>
+							<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
+						</div>
+						<div class="user_info_index_show">
+							<h3 class="user_name">
+								<%= link_to user_path(user.id), :style=>"color:#444;" do %>
+									<%= user.user_name %>
+								<% end %>
+							</h3>
+							<div id="follow_button_<%= user.id %>" style="margin-top: 10px;">
+								<%= render 'users/relationships/follow_button', user: user,reviews:user.reviews %>
+							</div>
+							<% if current_user == user %>
+								<%= link_to edit_user_path(current_user.id), :style=>"color:#444;", remote:true do %>
+									<i class="fas fa-wrench btn btn-sm"></i>編集する
+								<% end %>
+							<% end %>
 						</div>
 					</div>
 				<% end %>
+			</div>
 		</div>
 	</div>
 </div>
+
+

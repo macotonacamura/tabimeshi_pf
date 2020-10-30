@@ -1,0 +1,15 @@
+<div class="info-box_index_show">
+	<div>
+		<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
+	</div>
+	<div class="user_info_index_show">
+		<h3 class="user_name">
+			<%= link_to user_path(user.id), :style=>"color:#444;" do %>
+				<%= user.user_name %>
+			<% end %>
+		</h3>
+		<div id="follow_button_<%= user.id %>" style="margin-top: 10px;">
+			<%= render 'users/relationships/follow_button', user: user,reviews:user.reviews %>
+		</div>
+	</div>
+</div>

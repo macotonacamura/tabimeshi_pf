@@ -11,7 +11,7 @@
 						<%= f.file_field :profile_image ,id: :profile_image, placeholder: "select" %>
 						<%#= image_tag "no_image.jpg", id: :profile_image_prev %>
 						<% if @user.profile_image.present? %>
-						  <%= image_tag @user.profile_image.url,class: 'profile_img-show', id: :img_prev %>
+						  <%= image_tag @user.profile_image.url,class: 'profile_img-edit', id: :img_prev %>
 						<% else %>
 						  <%= image_tag "sample.jpg", id: :img_prev %>
 						<% end %>

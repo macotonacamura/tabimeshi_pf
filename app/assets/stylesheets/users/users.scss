@@ -1,6 +1,7 @@
 // Place all the styles related to the users::users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .main{
 	padding-top:100px;
 }
@@ -19,23 +20,7 @@ h2{
 	margin-bottom:20px;
 }
 
-.profile_img_index{
-	border: 5px solid #888;
-	border-radius: 50%;
-	width: 150px;
-	height: 150px;
-	object-fit: cover;
-	transition: .4s;
-}
 
-.profile_img-show{
-	border: 5px solid #fff;
-	border-radius: 50%;
-	width: 200px;
-	height: 200px;
-	object-fit: cover;
-	transition: .4s;
-}
 
 #profile_image_prev{
 	border: 5px solid #fff;
@@ -46,19 +31,60 @@ h2{
 	transition: .4s;
 }
 
-.info-box_index{
+
+.info-box_index::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.info-box_index_show{
 	padding-left:40px;
 	padding-top:15px;
 	margin-bottom:20px;
 	margin-top:50px;
 	width:1000px;
-	height:220px;
-	background-color: rgba(245, 245, 245,0.6);
+	height:300px;
+	background-color: rgba(220, 220, 220,0.4);
 	border-top-left-radius: 10px;
 	border-top-right-radius: 20px;
 	border-bottom-right-radius: 30px;
 	border-bottom-left-radius: 40px;
+	border: 3px solid #fff;
 	position: relative;
+}
+
+.profile_img_index_show{
+	border: 5px solid #fff;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	float:left;
+}
+
+.user_info_index_show{
+	float:left;
+	margin: 0 0 0 30px;
+}
+
+.user_name{
+	padding:12px;
+}
+
+.table-borderless{
+	font-size:15px;
+}
+
+.introduction{
+	font-size:18px;
+}
+
+.profile_img-edit{
+	border: 5px solid #fff;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
 }
 
 .btn-circle-flat_user_show{
@@ -78,17 +104,42 @@ h2{
 	transition: .4s;
 }
 
+
 .btn-circle-flat_user_show:hover {
   background: #bbb;
 }
 
-.name-info{
-	display: inline-block;
-	padding-left: 20px;
-}
 
 .edit_form{
 	margin:0 auto;
 	padding:100px;
 	width:900px;
 }
+
+.title_posts_list{
+	padding:20px 0 0 10px;
+}
+
+.page{
+  height: 1700px;
+  background-image: url("../background_image.jpg");
+  background-size: cover;
+  object-fit: cover;
+}
+
+.unsubscribe{
+	margin-top:150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

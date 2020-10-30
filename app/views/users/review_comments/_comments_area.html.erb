@@ -1,0 +1,25 @@
+<table class="comment-area">
+
+	<% review.review_comments.each do |review_comment| %>
+		<tr>
+			<th><%= image_tag review_comment.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
+				<%= link_to user_path(review_comment.user), :style=>"color:#444;" do %>
+					<%= review_comment.user.user_name %>
+				<% end %>
+			</th>
+
+			<th class="comment-content">
+				<%= review_comment.review_comment %>
+			</th>
+			<th>
+				<%=  l review_comment.created_at, format: :long %>
+				<%if current_user== review_comment.user %>
+					<%= link_to review_review_comment_path(review_comment.review,review_comment), :style=>"color:#444;" ,method: :delete, remote:true do %>
+						<i class="far fa-trash-alt"></i>
+					<% end %>
+				<% end %>
+			</th>
+		</tr>
+	<% end %>
+
+</table>

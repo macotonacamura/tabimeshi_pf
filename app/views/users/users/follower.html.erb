@@ -9,9 +9,7 @@
 							<tr>
 								<td><%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img' %></td>
 								<td><%= link_to  user_path(user), class: "user_#{user.id}", :style=>"color:#444;"  do%><%= user.user_name %><% end %></td>
-								<td>Following：<%= user.followings.count %></td>
-								<td>Followers：<%= user.followers.count %></td>
-								<td><%= render 'users/relationships/follow_button', user: user %></td>
+								<td><%= user.introduction %></td>
 							</tr>
 						<% end %>
 

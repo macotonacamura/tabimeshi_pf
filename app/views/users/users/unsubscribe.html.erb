@@ -1,9 +1,16 @@
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h3 class="unsubscribe"><strong>本当に退会しますか？</strong></h3>
+					<p>退会するとこれまでの投稿が全て削除されます。<br>
+					退会する場合は退会するをクリックしてください。</p>
 
+					<% if user_signed_in? && @user.id == current_user.id %>
+				        <%= link_to "退会", users_withdraw_path(current_user.id), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+					<% end %>
 
-<h3 style="margin-top: 120px;"><strong>本当に退会しますか？</strong></h3>
-				<p>退会するとこれまでの投稿が全て削除されます。<br>
-				退会する場合は退会するをクリックしてください。</p>
-
-<% if user_signed_in? && @user.id == current_user.id %>
-        <%= link_to "退会", users_withdraw_path(current_user.id), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
-<% end %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -17,7 +17,7 @@ class Users::UsersController < ApplicationController
   	@user = User.find(params[:id])
   	if @user.update(user_params)
   	   redirect_to user_path(@user.id)
-	   flash[:change] = "登録情報を更新しました"
+	   flash[:change] = "Updated your infomation."
   	else
   	   render :edit
   	end

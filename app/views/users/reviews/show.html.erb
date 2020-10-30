@@ -1,136 +1,129 @@
-<div class="page">
-	<div class="container body">
-		<% @review.review_images.each do |review_image| %>
-			<% if review_image.image.present? %>
-	     		<%= image_tag review_image.image.url, class: 'review_images' %>
-	     	<% end %>
- 		<% end %>
+<div class="page_show">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
 
-		<div class="review-info">
-			<span>投稿日時  <%=  l @review.created_at, format: :long %></span>
-			<h3 style="margin-top: 7px;"><i class="fas fa-utensils"></i>　<%= @review.restaurant_name %></h3>
-			<%= @review.rate %>
-			<%= @review.genre.genre_name %>
+				<div class="review-info">
+					<div class="time-limit" style="font-size: 15px;"><%= flash[:update] %></div>
+					<div class="time-limit" style="font-size: 15px;"><%= flash[:create] %></div>
 
-			<table>
-				<tr>
-					<th>エリア <%= @review.country %>・<%= @review.city %></th>
-					<th> 　予算</th>
-					<td><%= @review.budget %> 〜 <%= @review.maximum_budget %></td>
-				</tr>
-				<tr>
-					<th style="padding-top: 20px;"><%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
-					 	<%= link_to user_path(@review.user.id), :style=>"color:#444;" do %>
-					 		<%= @review.user.user_name %>
-					 	<% end %>  さんの口コミ
-					</th>
-				</tr>
-				<tr>
-					<td>
-						<div class="review">
-							<%= @review.review %>
+						<% @review.review_images.each do |review_image| %>
+							<% if review_image.image.present? %>
+					     		<%=  link_to review_image.image.url, 'data-lightbox': review_image.image do %>
+					     			<%= image_tag review_image.image.url, class: 'review_images' %>
+					     		<% end %>
+					     	<% end %>
+				 		<% end %>
+
+
+						<div>投稿日時  <%=  l @review.created_at, format: :long %></div>
+						<div class="review_show">
+							<%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
+							<%= link_to user_path(@review.user.id), :style=>"color:#444;" do %>
+								 	<%= @review.user.user_name %>
+							<% end %>  さんの口コミ
 						</div>
-					</td>
-					<td>
 
-						<% if @review.liked_by?(current_user) %>
-						   <%= link_to review_likes_path(@review), method: :delete, local:true do %>
-						   <span class="fas fa-heart" aria-hidden="true"></span>
-						<% end %>
-						<%= @review.likes.count %>
+						<h3 class="restaurant_name_show"><i class="fas fa-utensils"></i>　<%= @review.restaurant_name %></h3>
 
-						<% else %>
+						<div id="star-rate-<%= @review.id %>" ></div>
+						<script>
+						  $('#star-rate-<%= @review.id %>').raty({
+						   size: 35,
+						   starOff:  "/assets/star-off.png",
+						   starOn: "/assets/star-on.png",
+						   starHalf: "/assets/star-half.png",
+						   readOnly: true,
+						   half: true,
+						   score: <%= @review.rate %>
+						 });
+						</script>
 
-						<%= link_to review_likes_path(@review),method: :post, local:true do %>
-						<span class="far fa-heart" aria-hidden="true"></span>
-						<% end %>
-						<%= @review.likes.count %>
-						<% end %>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<strong class="shop-info">住所 </strong>
-						<span><%= @review.address %></span>
-					</td>
-				</tr>
-			</table>
+						<div class="details">
+							<table class="table table-borderless" style="width:300px;">
+							<tr>
+								<th>ジャンル</th>
+								<td><%= @review.genre.genre_name %></td>
+							</tr>
+							<tr>
+								<th>エリア</th>
+								<td><%= @review.country %>・<%= @review.city %></td>
+							</tr>
+							<tr>
+								<th>予算</th>
+								<td><%= @review.budget %> 〜 <%= @review.maximum_budget %></td>
+							</tr>
+							</table>
 
-			<script type="text/javascript">
-			  function initMap() {
-			    var test ={lat: <%= @review.latitude %>, lng: <%= @review.longitude %>};
-			    var map = new google.maps.Map(document.getElementById('map'), {
-			              zoom: 15,
-			              center: test
-			              });
-			    var transitLayer = new google.maps.TransitLayer();
-			    transitLayer.setMap(map);
+							<div class="review">
+								<%= @review.review %>
+							</div>
 
-			    var contentString = '住所：<%= @review.address %>';
-			    var infowindow = new google.maps.InfoWindow({
-			      content: contentString
-			    });
+							<div id="review_<%= @review.id %>" class="count_like_comment">
+								<%= render 'users/reviews/like' , review: @review %>
+							</div>
+						</div>
 
-			    var marker = new google.maps.Marker({
-			                  position:test,
-			                  map: map,
-			                  title: contentString
-			                 });
+						<div class="address">
+							<strong>住所 </strong>
+							<span><%= @review.address %></span>
 
-			     marker.addListener('click', function() {
-			       infowindow.open(map, marker);
-			     });
-			  }
-			</script>
+							<script type="text/javascript">
+							  function initMap() {
+							    var test ={lat: <%= @review.latitude %>, lng: <%= @review.longitude %>};
+							    var map = new google.maps.Map(document.getElementById('map'), {
+							              zoom: 15,
+							              center: test
+							              });
+							    var transitLayer = new google.maps.TransitLayer();
+							    transitLayer.setMap(map);
 
-			<script async defer
-              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
-			</script>
-			<div id="map" style="margin: 30px 20px;"></div>
+							    var contentString = '住所：<%= @review.address %>';
+							    var infowindow = new google.maps.InfoWindow({
+							      content: contentString
+							    });
 
-			<div>
-            	<%if @review.user == current_user%>
-					<%= link_to 'delete',review_path(@review),method: :delete, local: true, class: 'btn-delete',"data-confirm" => "Are you sure?"%>
-					<%= link_to edit_review_path(@review.id) ,class: 'btn-circle-flat_user_show icon_to_edit', :style=>"color:#fff;" do %>
-						<i class="fas fa-wrench"></i>
-					<% end %>
-				<% end %>
-			</div>
-		</div>
-			<h5 class="mini-title">コメント一覧</h5>
-			<table class="comment-area">
-				<% @review.review_comments.each do |review_comment| %>
-					<tr>
-					<th><%= image_tag review_comment.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
-						<%= link_to user_path(review_comment.user), :style=>"color:#444;" do %>
-							<%= review_comment.user.user_name %>
-						<% end %>
-					</th>
+							    var marker = new google.maps.Marker({
+							                  position:test,
+							                  map: map,
+							                  title: contentString
+							                 });
 
-					<th class="comment-content">
-						<%= review_comment.review_comment %>
-					</th>
-					<th>
-						<%=  l review_comment.created_at, format: :long %>
-						<%if current_user== review_comment.user %>
-							<%= link_to review_review_comment_path(review_comment.review,review_comment), :style=>"color:#444;" ,method: :delete do %>
-									<i class="far fa-trash-alt"></i>
+							     marker.addListener('click', function() {
+							       infowindow.open(map, marker);
+							     });
+							  }
+							</script>
+
+							<script async defer
+				              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+							</script>
+							<div id="map" style="margin: 30px 20px;"></div>
+						</div>
+
+						<div>
+			            	<%if @review.user == current_user%>
+								<%= link_to 'delete',review_path(@review),method: :delete, local: true, class: 'btn-delete',"data-confirm" => "Are you sure?"%>
+								<%= link_to edit_review_path(@review.id) ,class: 'btn-circle-flat_user_show icon_to_edit', :style=>"color:#fff;" do %>
+									<i class="fas fa-wrench"></i>
+								<% end %>
 							<% end %>
+						</div>
+					</div>
+
+					<h5 class="mini-title"><strong>コメント一覧</strong></h5>
+					<div id="table_comment">
+						<%= render 'users/review_comments/comments_area', review:@review %>
+					</div>
+					<div class="comment_place">
+						<%= form_with model: @review_comment ,url:review_review_comments_path(@review.id), method: :post do |f| %>
+							<h6 class="mini-title">コメントを投稿する</h6>
+							<%= f.text_area :review_comment, id: "comment_body", :size=>"50" %>
+							<%= f.submit "comment" %>
 						<% end %>
-					</th>
-				</tr>
+					</div>
 
-				<% end %>
-
-			</table>
-
-				<div>
-					<%= form_with model: @review_comment ,url:review_review_comments_path(@review.id), method: :post, local: true do |f| %>
-					<h5 class="mini-title">コメントを投稿する</h5>
-					<%= f.text_area :review_comment ,:size=>"50" %>
-					<%= f.submit "comment" %>
-					<% end %>
-				</div>
+			</div>
 		</div>
 	</div>
 </div>

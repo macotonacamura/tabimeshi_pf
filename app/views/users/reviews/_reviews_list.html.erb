@@ -1,0 +1,34 @@
+<% @reviews.each do |review| %>
+	<div class="review-box">
+		<%=  l review.created_at, format: :long %>
+	<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
+
+	<strong>
+		<%= link_to user_path(review.user.id),:style=>"color:#444;" do %>
+			<%= review.user.user_name %>
+		<% end %>
+	</strong>
+
+	<div>
+		<div id="review_<%= review.id %>" class="like_comment">
+		<%= render 'users/reviews/like' , review: review %>
+	</div>
+		<i class="fas fa-utensils">
+		<h4><%= link_to review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4></i>
+		<%= review.country %>・<%= review.city %>
+	</div>
+	<div id="star-rate-<%= review.id %>" ></div>
+	<script>
+	  $('#star-rate-<%= review.id %>').raty({
+	   size: 35,
+	   starOff:  "/assets/star-off.png",
+	   starOn: "/assets/star-on.png",
+	   starHalf: "/assets/star-half.png",
+	   readOnly: true,
+	   half: true,
+	   score: <%= review.rate %>
+	 });
+	</script>
+	<div class="review_index"><%= review.review %></div>
+	</div>
+<% end %>

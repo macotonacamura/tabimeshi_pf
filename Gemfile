@@ -77,5 +77,6 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
-
 gem 'rakuten_web_service'
+gem 'faraday', '~> 1.1'
+gem 'lightbox2-rails'
