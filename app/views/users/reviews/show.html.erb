@@ -26,33 +26,35 @@
 
 						<h3 class="restaurant_name_show"><i class="fas fa-utensils"></i>　<%= @review.restaurant_name %></h3>
 
-						<div id="star-rate-<%= @review.id %>" ></div>
-						<script>
-						  $('#star-rate-<%= @review.id %>').raty({
-						   size: 35,
-						   starOff:  "/assets/star-off.png",
-						   starOn: "/assets/star-on.png",
-						   starHalf: "/assets/star-half.png",
-						   readOnly: true,
-						   half: true,
-						   score: <%= @review.rate %>
-						 });
-						</script>
 
 						<div class="details">
 							<table class="table table-borderless" style="width:300px;">
-							<tr>
-								<th>ジャンル</th>
-								<td><%= @review.genre.genre_name %></td>
-							</tr>
-							<tr>
-								<th>エリア</th>
-								<td><%= @review.country %>・<%= @review.city %></td>
-							</tr>
-							<tr>
-								<th>予算</th>
-								<td><%= @review.budget %> 〜 <%= @review.maximum_budget %></td>
-							</tr>
+								<tr>
+									<th><div id="star-rate-<%= @review.id %>" ></div></th>
+								</tr>
+								<script>
+								  $('#star-rate-<%= @review.id %>').raty({
+								   size: 35,
+								   starOff:  "/assets/star-off.png",
+								   starOn: "/assets/star-on.png",
+								   starHalf: "/assets/star-half.png",
+								   readOnly: true,
+								   half: true,
+								   score: <%= @review.rate %>
+								 });
+								</script>
+								<tr>
+									<th>ジャンル</th>
+									<td><%= @review.genre.genre_name %></td>
+								</tr>
+								<tr>
+									<th>エリア</th>
+									<td><%= @review.country %>・<%= @review.city %></td>
+								</tr>
+								<tr>
+									<th>予算</th>
+									<td><%= @review.budget %> 〜 <%= @review.maximum_budget %></td>
+								</tr>
 							</table>
 
 							<div class="review">

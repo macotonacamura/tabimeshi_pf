@@ -9,3 +9,7 @@ Admin.create!(
  	email: "admin@ex.com",
  	password: "oooooo"
  )
+# countries = ['日本', 'フランス', 'アメリカ']
+# countries.each do |country|
+	# Country.create!(name: country)
+# end

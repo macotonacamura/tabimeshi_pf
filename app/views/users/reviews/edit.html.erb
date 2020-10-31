@@ -1,29 +1,29 @@
-<div class="page">
-	<div class="container body">
-		<h2>Edit your review</h2>
+<div class="page_edit">
+	<div class="container">
+		<h2 class="edit_title">Edit your review</h2>
 
 		<%= form_with model: @review,url:review_path(@review.id), method: :patch, local: true do |f| %>
 			<table class="table">
 				<tr>
 					<th><%= f.label 'restaurant name' %></th>
-					<td><%= f.text_field :restaurant_name %></td>
+					<td><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
 				</tr>
 				<tr>
 					<th><%= f.label 'country  city' %></th>
-					<td><%= f.text_field :country %><%= f.text_field :city %></td>
+					<td><%= f.text_field :country, :placeholder => "国名(例:France)" %><%= f.text_field :city, :placeholder => "都市名(例:Paris)" %></td>
 
 				</tr>
 				<tr>
 					<th><%= f.label 'address' %></th>
-					<td><%= f.text_field :address %></td>
+					<td><%= f.text_field :address,:size=>"30", :placeholder => "住所" %></td>
 				</tr>
 				<tr>
 					<th><%= f.label 'budget' %></th>
-					<td><%= f.text_field :budget %><%= f.text_field :maximum_budget %></td>
+					<td><%= f.text_field :budget,:placeholder => "予算(最低)" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額)" %></td>
 				</tr>
 				<tr>
 					<th><%= f.label 'review' %></th>
-					<td><%= f.text_area :review ,:size=>"50" %></td>
+					<td><%= f.text_area :review ,:size=>"50x8",:placeholder => "レビュー"%></td>
 				</tr>
 				<tr>
 					<th><%= f.label 'genre' %> </th>

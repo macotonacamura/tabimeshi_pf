@@ -1,12 +1,12 @@
-<div class="page" style="height: 1100px;">
-	<div class="container" >
+<div class="page_new" style="height: 1500px;">
+	<div class="container">
 		<h2 class="title">post review</h2>
 
 		<%= form_with model: @review, url:reviews_path(@review.id), method: :post, local: true do |f| %>
-			<table class="table">
+			<table class="table" >
 				<tr>
 					<th><%= f.label 'restaurant name' %></th>
-					<td><%= f.text_field :restaurant_name %></td>
+					<td><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
 				</tr>
 				<tr>
 					<th>
@@ -29,23 +29,22 @@
 
 				<tr>
 					<th><%= f.label 'country' %>  <%= f.label 'city' %></th>
-					<td><%= f.text_field :country,:size=>"10" %>　<%= f.text_field :city %></td>
-
+					<td><%= f.text_field :country,:size=>"20", :placeholder => "国名(例:France)" %>　<%= f.text_field :city, :placeholder => "都市名(例:Paris)" %></td>
 				</tr>
 
 				<tr>
 					<th><%= f.label 'address' %></th>
-					<td><%= f.text_area :address %></td>
+					<td><%= f.text_area :address,:size=>"30", :placeholder => "住所" %></td>
 				</tr>
 
 				<tr>
 					<th><%= f.label 'budget' %></th>
-					<td><%= f.text_field :budget %> 〜 <%= f.text_field :maximum_budget %></td>
+					<td><%= f.text_field :budget,:placeholder => "予算(最低)" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額)" %></td>
 				</tr>
 
 				<tr>
 					<th><%= f.label 'review' %></th>
-					<td><%= f.text_area :review ,:size=>"50" %></td>
+					<td><%= f.text_area :review ,:size=>"50x8",:placeholder => "レビュー" %></td>
 				</tr>
 				<tr>
 					<th><%= f.label 'genre' %> </th>
@@ -74,21 +73,6 @@
 				            		</div>
 				            	<% end %>
 				            </div>
-
-
-							     <!-- <%#= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
-							      <input class="hidden-field" id="review_images_attributes_1_image" name="review[review_images][1][image]" type="file"></input>
-
-							      <%#= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
-							      <input class="hidden-field" id="review_images_attributes_2_image" name="review[review_images][2][image]" type="file"></input>
-
-							      <%#= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
-							      <input class="hidden-field" id="review_images_attributes_3_image" name="review[review_images][3][image]" type="file"></input>
-
-							      <%#= f.file_field :image, name: "review[review_images][][image]", class: "hidden-field", :style=> 'display: none;' %>
-							      <input class="hidden-field" id="review_images_attributes_4_image" name="review[review_images][4][image]" type="file"></input>
-
-		        		</div>-->
 					</td>
 				</tr>
 

@@ -21,11 +21,26 @@
    	src: font-url('mincho.otf') format('truetype');
  }
 
+.logo{
+  margin-right:20px;
+  text-align:left;
+}
+
 body{
   font-family: 'minifont';
 }
 
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+}
+
 footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 	height:100px;
 	width:100%;
 	color: #DDD;

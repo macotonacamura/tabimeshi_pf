@@ -43,6 +43,9 @@ Rails.application.routes.draw do
 		resources :reviews do
 			resource :likes, only:[:create, :destroy]
 			resources :review_comments, only:[:create, :destroy]
+			collection do
+      			get 'search'
+      		end
 		end
 
 		resources :relationships, only: [:create, :destroy]

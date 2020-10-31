@@ -3,22 +3,49 @@
 		<div class="row main-box">
 			<div class="col-md-5">
 				<div class="review-main-visual"></div>
+				<!-- <div id="container">
+				  <div id="theTarget">
+				    <div class="image1"></div>
+				    <div class="image2"></div>
+				    <div class="image4"></div>
+				    <div class="image5"></div>
+				  </div>
+				</div> -->
 			</div>
 
 			<div class="link-list col-md-7">
-				<a class="btn-circle-flat"  id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">distination</a>
+				<a class="btn-circle-flat" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</a>
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-lg">
+				    <div class="modal-content">
+				    	目的地から検索
+				      <%= form_with  url:reviews_path, method: :get, local: true do |f| %>
+				       	 <%= f.text_field :country, id:"form", placeholder:"国名を入力してください", style:"width: 250px;" %>
+				     	 <%= f.submit 'post', class: "btn btn-light" %>
+					 	 <select id="result"></select>
+					  <% end %>
+				    </div>
+				  </div>
+				</div>
+
 				<%= link_to 'post', new_review_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
 				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
 				<a class="btn-circle-flat"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">new posts</a>
 			</div>
 		</div>
+		<div class="row review_list_index">
+			<h2 class="title_new_posts">new posts</h2>
+			<%= render 'users/reviews/reviews_list', reviews:@reviews %>
+			<div><%= paginate @reviews , class: "pagination" %></div>
+		</div>
 	</div>
 
-	<div class="container">
+
+	<!-- <div class="container">
 		<h2 class="title_new_posts">new posts</h2>
-		<%= render 'users/reviews/reviews_list', reviews:@reviews %>
-		<div><%= paginate @reviews , class: "pagination" %></div>
-	</div>
+		<%#= render 'users/reviews/reviews_list', reviews:@reviews %>
+		<div><%#= paginate @reviews , class: "pagination" %></div>
+	</div> -->
 
 	<script>
       $(function(){

@@ -29,6 +29,6 @@
 	   score: <%= review.rate %>
 	 });
 	</script>
-	<div class="review_index"><%= review.review %></div>
+	<div class="review_index"><%= review.review.truncate(20) %></div>
 	</div>
 <% end %>

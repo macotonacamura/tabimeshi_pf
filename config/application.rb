@@ -12,6 +12,7 @@ module Tabimeshi
     config.load_defaults 5.2
     config.time_zone = 'Asia/Tokyo'
     config.i18n.default_locale = :ja
+    I18n.available_locales = [:fr, :de, :es, :en, :ja, :it, :ko, :da, :el, :et, :ru,]
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
