@@ -1,16 +1,15 @@
 class Users::ReviewsController < ApplicationController
-  include Country #concernファイルのcountry.rbのCountyメソッドを呼び出し
+  #include Country #concernファイルのcountry.rbのCountyメソッドを呼び出し
+  #before_action :country, only:[:index]
+
   def index
-    # モーダルで入力した国名を params[:xxx] みたいな感じで取得する
-    # params[:xxx] の中には Canada みたいな国名が入ってます
-    # @reviews =
-    #   if params[:xxx]
-    #     Review.where('country LIKE(?)', "%#{params[:xxx]}%")
-    #   else
-    #     Review.all
-    #   end
-    # @reviews = @reviews.page(params[:page]).reverse_order
-    @reviews = Review.page(params[:page]).reverse_order
+      # return nil if params[:keyword] == ""
+       if params[:country].present? #国名の取得
+         @reviews = Review.where('country LIKE(?)', "%#{params[:country]}%").page(params[:page])
+       else
+          @reviews = Review.page(params[:page]).reverse_order
+       end
+    #@reviews = Review.page(params[:page]).reverse_order
     # users = User.where(is_deleted: false)退会すみユーザの投稿は消したい
   end
 
@@ -60,9 +59,9 @@ class Users::ReviewsController < ApplicationController
   end
 
   def search
-  @reviews = Review.where('country LIKE(?)', "%#{params[:keyword]}%") #paramsとして送られてきたkeyword（入力された語句）で、Userモデルのnameカラムを検索し、その結果を@usersに代入する
+  @reviews = Review.where('country LIKE(?)', "%#{params[:keyword]}%") #paramsとして送られてきたkeyword（入力された語句）で、Reviewモデルのcountryカラムを検索し、その結果を@reviewに代入する
     respond_to do |format|
-      format.json { render 'index', json: @reviews } #json形式のデータを受け取ったら、@usersをデータとして返す そしてindexをrenderで表示する
+      format.json { render 'index', json: @reviews } #json形式のデータを受け取ったら、@reviewsをデータとして返す そしてindexをrenderで表示する
     end
   end
 

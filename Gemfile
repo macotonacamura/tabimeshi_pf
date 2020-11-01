@@ -79,4 +79,3 @@ group :production do
 end
 gem 'rakuten_web_service'
 gem 'faraday', '~> 1.1'
-gem 'lightbox2-rails'

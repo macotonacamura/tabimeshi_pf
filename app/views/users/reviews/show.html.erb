@@ -9,7 +9,7 @@
 
 						<% @review.review_images.each do |review_image| %>
 							<% if review_image.image.present? %>
-					     		<%=  link_to review_image.image.url, 'data-lightbox': review_image.image do %>
+					     		<%=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
 					     			<%= image_tag review_image.image.url, class: 'review_images' %>
 					     		<% end %>
 					     	<% end %>

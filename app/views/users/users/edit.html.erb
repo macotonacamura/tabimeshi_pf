@@ -13,21 +13,21 @@
 						<% if @user.profile_image.present? %>
 						  <%= image_tag @user.profile_image.url,class: 'profile_img-edit', id: :img_prev %>
 						<% else %>
-						  <%= image_tag "sample.jpg", id: :img_prev %>
+						  <%= image_tag "no_image.jpg",class: 'profile_img-edit', id: :img_prev %>
 						<% end %>
 					</tr>
 					<script type="text/javascript">
 					  $(function() {
 					    function readURL(input) {
 					        if (input.files && input.files[0]) {
-					        var reader = new FileReader();
-					        reader.onload = function (e) {
-					    $('#profile_image_prev').attr('src', e.target.result);
-					        }
-					        reader.readAsDataURL(input.files[0]);
+						        var reader = new FileReader();
+						        reader.onload = function (e) {
+						    		$('#img_prev').attr('src', e.target.result);
+						        }
+						        reader.readAsDataURL(input.files[0]);
 					        }
 					    }
-					    $("#profile_img-show").change(function(){
+					    $("#profile_image").change(function(){
 					        readURL(this);
 					    });
 					  });

@@ -14,7 +14,7 @@
 		<%= render 'users/reviews/like' , review: review %>
 	</div>
 		<i class="fas fa-utensils">
-		<h4><%= link_to review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4></i>
+		<h4><%= link_to review_path(review.id),:style=>"color:#444;", "data-turbolinks": false do %><%= review.restaurant_name %><% end %></h4></i>
 		<%= review.country %>・<%= review.city %>
 	</div>
 	<div id="star-rate-<%= review.id %>" ></div>

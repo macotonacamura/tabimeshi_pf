@@ -65,9 +65,10 @@
   padding-bottom: 30px;
 }
 
-/* index */
+/* index 投稿一覧 */
 
 .page{
+  padding-top: 100px;
   background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
@@ -76,20 +77,35 @@
 
 .image1 {
   background-image: url("../image1.jpg");
-  background-size: 50%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 40px;
 }
 .image2 {
   background-image: url("../image2.jpg");
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 40px;
 }
 .image4 {
   background-image: url("../image4.jpg");
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 40px;
 }
-.image5 {
-  background-image: url("../image5.jpg");
+.image3 {
+  background-image: url("../image3.jpg");
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 40px;
 }
 
 #container{
-  height: 500px;
+  height: 600px;
 }
 
 
@@ -137,7 +153,7 @@
 
 
 .review_list_index{
-  padding-bottom: 150px;
+  padding: 150px;
 }
 .review_index{
   margin-top:5px;
@@ -299,15 +315,16 @@
   background-color: rgba(100, 100, 100,0.1);
 }
 
-.comment-field{
-  margin: 0 auto;
-}
 
 .mini-title{
   margin-top:50px;
   color:#444;
 }
 
+.comment_place{
+  padding-bottom:120px;
+  margin:0 auto;
+}
 
 
 
@@ -417,16 +434,12 @@
   background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
+  padding-bottom:100px;
 }
 
 .edit_title{
   padding-top:100px;
 }
-
-
-
-
-
 
 
 
