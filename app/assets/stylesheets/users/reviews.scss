@@ -336,10 +336,10 @@
 /*new*/
 
 .page_new{
-  height: 1250px;
   background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
+  padding-bottom: 100px;
 }
 
 ::placeholder{
@@ -445,32 +445,108 @@
 
 
 @media screen and (max-width:425px) {
+/*index*/
   .page{
-  /*height: 1700px;*/
   background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
   }
+
+  .responsive{
+  margin:0 auto;
+  }
+
   .main-box{
+  width:100%;
+  margin:0 auto;
+  padding-left: 35px;
+  }
+
+  body{
+    width:100%;
+  }
+
+  #container{
+    height: 300px;
+    width:100%;
+  }
+
+  .link-list{
+    margin:0 0 0 25px;
+
+  }
+
+  .btn-circle-flat {
+    display: inline-block;
+    text-decoration: none;
+    background: rgba(0, 68, 0,0.9);
+    color: #FFF;
+    width: 170px;
+    height: 170px;
+    line-height: 170px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    margin:50px;
+  }
+
+  .btn-circle-flat:hover {
+    background: #fc0;
+  }
+
+  .title_new_posts{
+  width:100%;
+  padding-left:15px;
+  }
+
+  .review_list_index{
+  width:100%;
+  padding:0 0 0 10px;
+  }
+
+  .review-box{
+   width:100%;
+  }
+
+/*new*/
+
+  .page_new{
+    background-image: url("../background_image.jpg");
+    background-size: cover;
+    object-fit: cover;
+    padding: 50px 150px 150px 100px;
+    width:auto;
+  }
+
+  .table{
+  width:100%;
+  display:block;
+  }
+  tbody{
+  display:block;
+  }
+  tr{
+  display:block;
+  }
+  th{
+  display:block;
+  }
+  td{
+  display:block;
+  }
+
+  .review_area{
+  width:220px;
+  }
+
+  .post__drop__box__container .prev-content .label-box{
+   width:100%;
+  }
+
+  /*index*/
+  .main{
   width:100%;
   }
 
-}
 
-body{
-  width:100%;
-}
-
-.btn-circle-flat {
-  display: inline-block;
-  text-decoration: none;
-  background: rgba(0, 68, 0,0.9);
-  color: #FFF;
-  width: 170px;
-  height: 170px;
-  line-height: 170px;
-  border-radius: 50%;
-  text-align: center;
-  overflow: hidden;
-  margin:50px;
 }

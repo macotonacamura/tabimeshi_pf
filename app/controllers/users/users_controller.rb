@@ -33,6 +33,10 @@ class Users::UsersController < ApplicationController
     @users = @user.followers.all
   end
 
+  def likes
+    @reviews = current_user.like_list
+  end
+
   def unsubscribe
   	@user = current_user
   end

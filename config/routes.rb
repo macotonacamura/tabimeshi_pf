@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
 	root :to => 'users/homes#top'
 
 	# devise_for :admins, controllers: {
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
 		patch '/users/:id/withdraw' => 'users#withdraw',as: 'users_withdraw'
 		get 'users/:id/following',to: 'users#following' ,as: 'relationship_following'
 		get 'users/:id/follower',to: 'users#follower' ,as: 'relationship_follower'
+		get 'users/:id/likes',to: 'users#likes', as:'likes_list'
 
 
 		resources :reviews do
@@ -46,8 +49,8 @@ Rails.application.routes.draw do
 			collection do
       			get 'search'
       		end
-
 		end
+
 
 		resources :relationships, only: [:create, :destroy]
 

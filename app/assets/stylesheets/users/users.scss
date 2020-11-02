@@ -32,7 +32,7 @@ h2{
 }
 
 
-.info-box_index::after {
+.info-box_index_show::after {
   content: "";
   display: block;
   clear: both;
@@ -132,6 +132,67 @@ h2{
 }
 
 
+
+@media screen and (max-width:425px) {
+
+	.page{
+	  background-image: url("../background_image.jpg");
+	  background-size: cover;
+	  object-fit: cover;
+	  padding-bottom: 300px;
+	  width:100%;
+	}
+
+	/*index*/
+
+	.info-box_index_show{
+	  width:100%;
+	  height:auto;
+	}
+	.profile_img_index_show{
+	  border: 2px solid #fff;
+	  border-radius: 50%;
+	  width: 100px;
+	  height: 100px;
+	  object-fit: cover;
+	  float:left;
+	}
+
+	.info-box_index_show::after {
+	  content: "";
+	  display: block;
+	  clear: both;
+	}
+	.user_info_index_show{
+	  float:left;
+	  margin: 0 0 0 30px;
+	}
+	table{
+	display:block;
+	width:100%;
+	}
+	tbody{
+	display:block;
+	}
+	tr{
+	display:block;
+	}
+	th{
+	display:block;
+	}
+	td{
+	display:block;
+	}
+
+	/*edit*/
+
+	.edit_form{
+	width:100%;
+	}
+	.introduction_area{
+	width:100%;
+	}
+}
 
 
 

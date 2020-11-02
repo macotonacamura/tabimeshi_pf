@@ -29,11 +29,14 @@ ActiveRecord::Schema.define(version: 2020_11_01_023857) do
     t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "review_id"], name: "index_bookmarks_on_user_id_and_review_id", unique: true
   end
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.string "city_name"
+    t.string "currency"
+    t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

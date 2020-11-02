@@ -1,4 +1,4 @@
-<div class="page_new" style="height: 1500px;">
+<div class="page_new">
 	<div class="container">
 		<h2 class="title">post review</h2>
 
@@ -44,7 +44,7 @@
 
 				<tr>
 					<th><%= f.label 'review' %></th>
-					<td><%= f.text_area :review ,:size=>"50x8",:placeholder => "レビュー" %></td>
+					<td><%= f.text_area :review ,:size=>"50x8",:placeholder => "レビュー",class: 'review_area' %></td>
 				</tr>
 				<tr>
 					<th><%= f.label 'genre' %> </th>

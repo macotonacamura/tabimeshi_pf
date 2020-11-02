@@ -1,9 +1,6 @@
 class Users::ReviewsController < ApplicationController
-  #include Country #concernファイルのcountry.rbのCountyメソッドを呼び出し
-  #before_action :country, only:[:index]
 
   def index
-      # return nil if params[:keyword] == ""
        if params[:country].present? #国名の取得
          @reviews = Review.where('country LIKE(?)', "%#{params[:country]}%").page(params[:page])
        else
@@ -59,12 +56,11 @@ class Users::ReviewsController < ApplicationController
   end
 
   def search
-  @reviews = Review.where('country LIKE(?)', "%#{params[:keyword]}%") #paramsとして送られてきたkeyword（入力された語句）で、Reviewモデルのcountryカラムを検索し、その結果を@reviewに代入する
+    @reviews = Review.where('country LIKE(?)', "#{params[:keyword]}%") #paramsとして送られてきたkeyword（入力された語句）で、Reviewモデルのcountryカラムを検索し、その結果を@reviewsに代入する。前方一致検索%
     respond_to do |format|
-      format.json { render 'index', json: @reviews } #json形式のデータを受け取ったら、@reviewsをデータとして返す そしてindexをrenderで表示する
+      format.json { render 'index', json: @reviews.map{|review|review.country}.uniq } #json形式のデータを受け取ったら、@reviewsをデータとして返す そしてindexをrenderで表示する
     end
   end
-
 
   private
 
