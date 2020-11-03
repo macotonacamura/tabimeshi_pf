@@ -148,6 +148,7 @@ h2{
 	.info-box_index_show{
 	  width:100%;
 	  height:auto;
+	  margin-left:10px;
 	}
 	.profile_img_index_show{
 	  border: 2px solid #fff;
@@ -158,31 +159,26 @@ h2{
 	  float:left;
 	}
 
-	.info-box_index_show::after {
-	  content: "";
-	  display: block;
-	  clear: both;
-	}
 	.user_info_index_show{
-	  float:left;
-	  margin: 0 0 0 30px;
+	  float:none;
+	  margin: 0 auto;
+	  padding:15px;
 	}
+
 	table{
 	display:block;
-	width:100%;
+	width:400px;
 	}
-	tbody{
-	display:block;
+
+	.introduction{
+	width:300px;
+	font-size:15px;
 	}
-	tr{
-	display:block;
+
+	.to_edit{
+	font-size:13px;
 	}
-	th{
-	display:block;
-	}
-	td{
-	display:block;
-	}
+
 
 	/*edit*/
 
@@ -192,6 +188,8 @@ h2{
 	.introduction_area{
 	width:100%;
 	}
+
+
 }
 
 

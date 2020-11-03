@@ -510,33 +510,49 @@
 
 /*new*/
 
+  .navbar{
+    width:100%;
+  }
+
+  .title{
+  size:30px;
+  }
+
   .page_new{
     background-image: url("../background_image.jpg");
     background-size: cover;
     object-fit: cover;
-    padding: 50px 150px 150px 100px;
-    width:auto;
+    width:100%;
   }
 
-  .table{
+  .table_new_all{
   width:100%;
   display:block;
   }
-  tbody{
+
+  .table_new{
   display:block;
   }
-  tr{
-  display:block;
+
+  .table_new_country_city{
+  width:50%;
   }
-  th{
-  display:block;
-  }
-  td{
-  display:block;
+
+  .budget{
+  width:100px;
   }
 
   .review_area{
   width:220px;
+  }
+
+  .prev-content{
+  width:400px;
+  display:inline-block;
+  }
+
+  #label-box--0{
+  width:300px;
   }
 
   .post__drop__box__container .prev-content .label-box{

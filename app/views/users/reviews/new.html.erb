@@ -3,18 +3,18 @@
 		<h2 class="title">post review</h2>
 
 		<%= form_with model: @review, url:reviews_path(@review.id), method: :post, local: true do |f| %>
-			<table class="table" >
-				<tr>
-					<th><%= f.label 'restaurant name' %></th>
-					<td><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
+			<table class="table table_new_all" >
+				<tr class="table_new">
+					<th class="table_new"><%= f.label 'restaurant name' %></th>
+					<td class="table_new"><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
 				</tr>
-				<tr>
-					<th>
+				<tr class="table_new">
+					<th class="table_new">
 					<div class="form-group" id="star" style="width:300px;">
 						<%= f.label :rate, style: "margin-right: 35px;" %>
 						<%= f.hidden_field :rate, id: :review_star %>
 					</div>
-					</th>
+					</th class="table_new">
 					<script>
 					  $('#star').raty({
 					   size: 35,
@@ -27,33 +27,53 @@
 					</script>
 				</tr>
 
-				<tr>
-					<th><%= f.label 'country' %>  <%= f.label 'city' %></th>
-					<td><%= f.text_field :country,:size=>"20", :placeholder => "国名(例:France)" %>　<%= f.text_field :city, :placeholder => "都市名(例:Paris)" %></td>
+				<tr class="table_new">
+					<!--<th><%#= f.label 'distination' %></th>
+					<td>
+						 <%#= f.fields_for :countries do |distination| %>
+						<%#= distination.text_field :country, :placeholder => "国名(例:France)", class: 'country_name', id: :country_name %>
+						<%#= distination.text_field :city, :placeholder => "都市名(例:Paris)", class: 'city_name' %>
+						<%# end %>
+						<script>
+						  $( function() {
+						    $( "#country_name" ).autocomplete({
+						      autoFocus: true,
+						      source: "/reviews/new.json",
+						      minLength: 0,
+						    });
+						  });
+						  </script>
+					</td> -->
+
+					 <th class="table_new"><%= f.label 'country' %> , <%= f.label 'city' %></th>
+					<td><%= f.text_field :country,:size=>"20", :placeholder => "国名(例:France)",class: "table_new_country_city" %>　<%= f.text_field :city, :placeholder => "都市名(例:Paris)",class: "table_new_country_city" %></td>
 				</tr>
 
-				<tr>
-					<th><%= f.label 'address' %></th>
-					<td><%= f.text_area :address,:size=>"30", :placeholder => "住所" %></td>
+				<tr class="table_new">
+					<th class="table_new"><%= f.label 'address' %></th>
+					<td class="table_new"><%= f.text_area :address,:size=>"30", :placeholder => "住所" %></td>
 				</tr>
 
-				<tr>
-					<th><%= f.label 'budget' %></th>
-					<td><%= f.text_field :budget,:placeholder => "予算(最低)" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額)" %></td>
+				<tr class="table_new">
+					<th class="table_new"><%= f.label 'budget' %></th>
+					<td class="table_new">
+						<%#= f.collection_select :currency, @currency, prompt: "-- 選択してください --" %>
+						<%= f.select :currency, ['$','€','£', '¥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫'], {include_blank: '通貨を選択してください'},class: 'sample' %>
+						<%= f.text_field :budget,:placeholder => "予算(最低)",class: "budget" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額)",class: "budget" %></td>
 				</tr>
 
-				<tr>
-					<th><%= f.label 'review' %></th>
-					<td><%= f.text_area :review ,:size=>"50x8",:placeholder => "レビュー",class: 'review_area' %></td>
+				<tr class="table_new">
+					<th class="table_new"><%= f.label 'review' %></th>
+					<td class="table_new"><%= f.text_area :review ,:size=>"50x8",:placeholder => "レビュー",class: 'review_area' %></td>
 				</tr>
-				<tr>
+				<tr class="table_new">
 					<th><%= f.label 'genre' %> </th>
   					<td><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: "-- 選択してください --" %></td>
 				</tr>
 
-				<tr>
+				<tr class="table_new">
 					<th><%= f.label 'images' %></th>
-					<td>
+					<td class="table_new">
 						<div class="post__drop__box__container">
 				            <div class="prev-content"></div>
 				            <div class="label-content">
@@ -76,9 +96,9 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr class="table_new">
 					<th></th>
-				<td><%= f.submit 'post', class: "btn btn-light" %></td>
+				<td class="table_new"><%= f.submit 'post', class: "btn btn-light" %></td>
 				</tr>
 
 			</table>

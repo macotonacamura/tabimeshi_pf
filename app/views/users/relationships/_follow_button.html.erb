@@ -1,28 +1,34 @@
+<div class="row">
 <table class="table table-borderless">
-  <tr>
-    <th>
-      <%= user.reviews.count %>
-    </th>
-    <th>
-      <%= link_to relationship_follower_path(user.id), :style=>"color:#444;" do %>
-        <%= user.followers.count %>
-      <% end %>
-    </th>
-    <th>
-      <%= link_to relationship_following_path(user.id), :style=>"color:#444;" do %>
-        <%= user.followings.count %>
-      <% end %>
-    </th>
-  </tr>
-  <tr>
-    <td>posts</td>
-    <td>followers</td>
-    <td>followings</td>
-  </tr>
-  <tr>
-    <td class="introduction"><%= user.introduction %></td>
-  </tr>
+  <thead style="width:100%;">
+    <tr>
+      <th class="col-xs-4">
+        <%= user.reviews.count %>
+      </th>
+      <th class="col-xs-4">
+        <%= link_to relationship_follower_path(user.id), :style=>"color:#444;" do %>
+          <%= user.followers.count %>
+        <% end %>
+      </th>
+      <th class="col-xs-4">
+        <%= link_to relationship_following_path(user.id), :style=>"color:#444;" do %>
+          <%= user.followings.count %>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>posts</td>
+      <td>followers</td>
+      <td>followings</td>
+    </tr>
+    <tr>
+      <td class="introduction"><%= user.introduction %></td>
+    </tr>
+ </tbody>
 </table>
+</div>
 
 <% unless current_user == user %>
   <% if current_user.following?(user) %>

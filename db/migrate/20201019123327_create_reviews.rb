@@ -7,10 +7,14 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.text :review
       t.float :rate , default: 0
       t.integer :budget
+      t.integer :maximum_budget
       t.string :image_id
       t.string :address
       t.float :latitude
       t.float :longitude
+      t.string :currency
+      t.string :country
+      t.string :city
 
       t.timestamps
     end

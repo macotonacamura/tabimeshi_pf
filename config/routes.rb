@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'bookmarks/create'
-  get 'bookmarks/destroy'
-	root :to => 'users/homes#top'
+  root :to => 'users/homes#top'
+  post '/users/homes/guest_sign_in', to: 'homes#new_guest'
 
 	# devise_for :admins, controllers: {
 	# sessions:      'admins/sessions',
@@ -30,8 +29,11 @@ Rails.application.routes.draw do
 	devise_for :users, controllers: {
 	sessions:      'users/sessions',
 	passwords:     'users/passwords',
-	registrations: 'users/registrations'
+	registrations: 'users/registrations',
+	omniauth_callbacks: 'users/omniauth_callbacks'
 	}
+
+
 
 
 	scope module: :users do
@@ -49,6 +51,9 @@ Rails.application.routes.draw do
 			collection do
       			get 'search'
       		end
+      		collection do
+      			get 'reviews/auto_complete'
+    		end
 		end
 
 

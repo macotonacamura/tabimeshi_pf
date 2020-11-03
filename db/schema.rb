@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_023857) do
+ActiveRecord::Schema.define(version: 2020_11_03_092538) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(version: 2020_11_01_023857) do
   end
 
   create_table "countries", force: :cascade do |t|
-    t.string "name"
-    t.string "city_name"
+    t.string "country"
+    t.string "city"
     t.string "currency"
     t.string "code"
+    t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,16 +88,25 @@ ActiveRecord::Schema.define(version: 2020_11_01_023857) do
     t.text "review"
     t.float "rate", default: 0.0
     t.integer "budget"
+    t.integer "maximum_budget"
+    t.string "image_id"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "currency"
     t.string "country"
     t.string "city"
-    t.integer "maximum_budget"
-    t.time "open"
-    t.time "close"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sns_credentials", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

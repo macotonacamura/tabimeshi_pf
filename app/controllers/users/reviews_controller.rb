@@ -18,9 +18,26 @@ class Users::ReviewsController < ApplicationController
   def new
     @review = Review.new
     (@review.review_images.count...5).each do |index|
-      @review.review_images.build
+    @review.review_images.build
     end
+
+    # @review.build_country
+
+    # #countries = Country.all もともと全件出すようにしてた
+    # countries = Country.where('country LIKE(?)', "#{params[:keyword]}%")これで検索絞れるのでは？
+    # countries = countries.map(&:country)
+    # respond_to do |format|
+    # format.html
+    # format.json { render json: countries.to_json }
+    #end
   end
+
+  # def auto_complete
+  #   countries = Country.select(:name).where("name like '%" + params[:term] + "%'").order(:name)
+  #   countries = countries.map(&:name)
+  #   render json: countries.to_json
+  #   end
+
 
   def create
     @review = Review.new(review_params.merge({user_id: current_user.id})) #.merge〜でパラメータにuserのidを付け加える
@@ -77,6 +94,8 @@ class Users::ReviewsController < ApplicationController
       :latitude,
       :longitude,
       :review,
+      :currency,
+      countries_attributes: [:country,:city],
       review_images_attributes: [
         :id,
         :image

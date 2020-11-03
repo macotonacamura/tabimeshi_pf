@@ -3,11 +3,11 @@
 		<div class="row">
 			<div class="col-md-12">
 				<% @users.each do |user| %>
-					<div class="info-box_index_show">
-						<div>
+					<div class="info-box_index_show row">
+						<div class="col-xs-3">
 							<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
 						</div>
-						<div class="user_info_index_show">
+						<div class="user_info_index_show col-xs-9">
 							<h3 class="user_name">
 								<%= link_to user_path(user.id), :style=>"color:#444;" do %>
 									<%= user.user_name %>
@@ -17,7 +17,7 @@
 								<%= render 'users/relationships/follow_button', user: user,reviews:user.reviews %>
 							</div>
 							<% if current_user == user %>
-								<%= link_to edit_user_path(current_user.id), :style=>"color:#444;", remote:true do %>
+								<%= link_to edit_user_path(current_user.id), :style=>"color:#444;",class: 'to_edit' do %>
 									<i class="fas fa-wrench btn btn-sm"></i>編集する
 								<% end %>
 							<% end %>

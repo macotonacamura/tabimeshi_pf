@@ -61,7 +61,9 @@
 									<button type="button" class="btn btn-light" style="margin-bottom: 10px;">
 										<%= link_to '会員登録して始める', new_user_registration_path, :style=>"color:#444;" %>
 									</button><br>
-		                           	<button type="button" class="btn btn-light"><%= link_to 'ログインする', new_user_session_path, :style=>"color:#444;" %>
+		                           	<button type="button" class="btn btn-light"><%= link_to 'ログインする', new_user_session_path, :style=>"color:#444;" %></button>
+	                           		<button type="button" class="btn btn-light"><%= link_to 'ゲストユーザーとしてログイン', users_homes_guest_sign_in_path,method: :post, :style=>"color:#444;" %></button>
+	                           		<button type="button" class="btn btn-light"><%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path,method: :post, :style=>"color:#444;" %></button>
 		                        </div>
 
 							</div>

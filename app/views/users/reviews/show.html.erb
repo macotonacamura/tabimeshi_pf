@@ -53,7 +53,7 @@
 								</tr>
 								<tr>
 									<th>予算</th>
-									<td><%= @review.budget %> 〜 <%= @review.maximum_budget %></td>
+									<td><%= @review.currency %><%= @review.budget %> 〜 <%= @review.currency %><%= @review.maximum_budget %></td>
 								</tr>
 							</table>
 
@@ -64,6 +64,9 @@
 							<div id="review_<%= @review.id %>" class="count_like_comment">
 								<%= render 'users/reviews/like' , review: @review %>
 							</div>
+							<%= link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do %>
+								<i class="fab fa-twitter">  Twitterでシェアする</i>
+							<% end %>
 						</div>
 
 						<div class="address">

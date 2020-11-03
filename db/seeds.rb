@@ -18,29 +18,28 @@
 
 
 
-
-
-	connection = Faraday.new(:url => 'https://wft-geo-db.p.rapidapi.com') do |f| # 共有したい処理
+#offset = i * 1000
+		connection = Faraday.new(:url => 'https://wft-geo-db.p.rapidapi.com') do |f| # 共有したい処理
 		f.headers["x-rapidapi-host"] = 'wft-geo-db.p.rapidapi.com'
 		f.headers["x-rapidapi-key"] = ENV['COUNTRY']
-	end
+		end
 
-	coutries_response = connection.get '/v1/geo/countries'  # GET https://wft-geo-db.p.rapidapi.com 国の情報を取得/固有の処理
-	cities_response = connection.get 'v1/geo/cities?countryIds=ME'
+		#coutries_response = connection.get '/v1/geo/countries?limit=100&offset=0'  # GET https://wft-geo-db.p.rapidapi.com 国の情報を取得/固有の処理
+		cities_response = connection.get 'v1/geo/cities?limit=1000&offset=#{offset}'
 
 
-    coutries_res = JSON.parse(coutries_response.body)
-    cities_res = JSON.parse(coutries_response.body)
+	    #coutries_res = JSON.parse(coutries_response.body)
+	    cities_res = JSON.parse(cities_response.body)
 
-	coutries_res["data"].each do |country|
-		Country.create!(
-			name: country['name'],
-			code: country['code'],
-			currency: country['currencyCodes']
-		)
-	end
+	    #pp coutries_res
+	    #pp cities_res
+
 		cities_res["data"].each do |country|
-		Country.create!(
-			name: country['city_name'],
-		)
-	end
+			Country.create!(
+				country: country['country'],
+				city: country['city'],
+				currency: country['currencyCodes']
+			)
+		end
+
+		#sleep 200

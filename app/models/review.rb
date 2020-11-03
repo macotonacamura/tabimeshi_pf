@@ -9,7 +9,9 @@ class Review < ApplicationRecord
 
 	has_many :review_comments , dependent: :destroy
 	belongs_to :genre
-	#has_one :country
+
+	# has_one :country
+	# accepts_nested_attributes_for :country
 
 
 	has_many :review_images, dependent: :destroy
