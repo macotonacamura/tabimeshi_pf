@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root :to => 'users/homes#top'
-  post '/users/homes/guest_sign_in', to: 'homes#new_guest'
+  post '/users/homes/guest_sign_in', to: 'users/homes#new_guest'
 
 	# devise_for :admins, controllers: {
 	# sessions:      'admins/sessions',
@@ -58,6 +58,10 @@ Rails.application.routes.draw do
 
 
 		resources :relationships, only: [:create, :destroy]
+		get 'countries/asia' => 'countries#asia'
+		get 'countries/america' => 'countries#america'
+		get 'countries/europe' => 'countries#europe'
+		get 'countries/oseania' => 'countries#oseania'
 
 
 	end

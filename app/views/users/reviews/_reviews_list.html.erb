@@ -1,42 +1,53 @@
-<%# reviews.review_images.each do |review_image| %>
-	<%# if review_image.image.present? %>
- 		<%#=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
- 			<%#= image_tag review_image.image.url, class: 'review_images' %>
- 		<%# end %>
- 	<%# end %>
-<%# end %>
-
 <% reviews.each do |review| %>
-	<div class="review-box">
-		<%=  l review.created_at, format: :long %>
-	<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
+	<div class="review-box fadein">
+		<div class="row">
+			<div class="col">
+				<%=  l review.created_at, format: :long %>
+				<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
+				<strong>
+					<%= link_to user_path(review.user.id),:style=>"color:#444;" do %>
+						<%= review.user.user_name %>
+					<% end %>
+				</strong>
+			</div>
+		</div>
+		<div class="row">
+			<div class="images col-xs-4">
+				<% review.review_images.each do |review_image| %>
+					<% if review_image.image.present? %>
+			 			<%=  link_to review_image.image.url do %>
+			 				<%= image_tag review_image.image.url, class: 'review_images_small' %>
+				 		<% end %>
+				 	<% end %>
+				<% end %>
+			</div>
 
-	<strong>
-		<%= link_to user_path(review.user.id),:style=>"color:#444;" do %>
-			<%= review.user.user_name %>
-		<% end %>
-	</strong>
+			<div class="col-xs-8" style="margin-left: 30px;">
 
-	<div>
-		<div id="review_<%= review.id %>" class="like_comment">
-		<%= render 'users/reviews/like' , review: review %>
-	</div>
-		<i class="fas fa-utensils">
-		<h4><%= link_to review_path(review.id),:style=>"color:#444;", "data-turbolinks": false do %><%= review.restaurant_name %><% end %></h4></i>
-		<%= review.country %>・<%= review.city %>
-	</div>
-	<div id="star-rate-<%= review.id %>" ></div>
-	<script>
-	  $('#star-rate-<%= review.id %>').raty({
-	   size: 35,
-	   starOff:  "/assets/star-off.png",
-	   starOn: "/assets/star-on.png",
-	   starHalf: "/assets/star-half.png",
-	   readOnly: true,
-	   half: true,
-	   score: <%= review.rate %>
-	 });
-	</script>
-	<div class="review_index"><%= review.review.truncate(20) %></div>
+				<div>
+					<div id="review_<%= review.id %>" class="like_comment">
+					<%= render 'users/reviews/like' , review: review %>
+				</div>
+					<i class="fas fa-utensils" style="margin-top:15px;"></i>
+						<%= link_to review_path(review.id),:style=>"color:#444;", "data-turbolinks": false do %>
+								<h4><%= review.restaurant_name %></h4>
+							<% end %>
+					<%= review.country %>・<%= review.city %>
+				</div>
+				<div id="star-rate-<%= review.id %>" ></div>
+				<script>
+				  $('#star-rate-<%= review.id %>').raty({
+				   size: 35,
+				   starOff:  "/assets/star-off.png",
+				   starOn: "/assets/star-on.png",
+				   starHalf: "/assets/star-half.png",
+				   readOnly: true,
+				   half: true,
+				   score: <%= review.rate %>
+				 });
+				</script>
+				<div class="review_index" style="margin-top: 15px;"><%= review.review.truncate(20) %></div>
+			</div>
+		</div>
 	</div>
 <% end %>

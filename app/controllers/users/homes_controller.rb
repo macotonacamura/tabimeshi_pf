@@ -8,7 +8,7 @@ class Users::HomesController < ApplicationController
 			user.password = SecureRandom.urlsafe_base64
 		end
 		sign_in user
-		redirect_to root_path,notice: 'ゲストユーザーとしてログインしました。'
+		redirect_to reviews_path,notice: 'ゲストユーザーとしてログインしました。'
 	end
 
 end

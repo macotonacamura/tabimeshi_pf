@@ -1,0 +1,6 @@
+<div class="search-form">
+      <%= form_with  url:users_path, method: :get, local: true do |f| %>
+        <%= f.text_field :content %>
+        <%= f.submit '検索', class: "btn btn-default" %>
+      <% end %>
+</div>

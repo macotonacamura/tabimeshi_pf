@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 2020_11_03_092538) do
     t.float "rate", default: 0.0
     t.integer "budget"
     t.integer "maximum_budget"
-    t.string "image_id"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
@@ -98,6 +97,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_092538) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "open"
+    t.time "close"
   end
 
   create_table "sns_credentials", force: :cascade do |t|

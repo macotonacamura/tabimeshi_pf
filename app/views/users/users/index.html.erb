@@ -1,9 +1,11 @@
 <div class="page">
 	<div class="container main">
 		<div class="row">
+			<div class="col-md-8"></div>
+				<div class="col-md-4"><%= render 'users/search/search',user: @users%></div>
 			<div class="col-md-12">
 				<% @users.each do |user| %>
-					<div class="info-box_index_show row">
+					<div class="info-box_index_show fadein row">
 						<div class="col-xs-3">
 							<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
 						</div>
@@ -24,6 +26,20 @@
 						</div>
 					</div>
 				<% end %>
+				<script type="text/javascript">
+					$(function(){
+					$(window).scroll(function (){
+					$('.fadein').each(function(){
+						var elemPos = $(this).offset().top;
+						var scroll = $(window).scrollTop();
+						var windowHeight = $(window).height();
+						if (scroll > elemPos - windowHeight + 200){
+							$(this).addClass('scrollin');
+								}
+							});
+						});
+					});
+				</script>
 			</div>
 		</div>
 	</div>

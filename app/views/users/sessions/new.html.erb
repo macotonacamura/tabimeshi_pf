@@ -9,25 +9,25 @@
 
           <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"30" %>
           </div>
 
           <div class="field">
             <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password" ,:style=>"color:#444;"%>
+            <%= f.password_field :password, autocomplete: "current-password" ,:style=>"color:#444;",:size=>"30" %>
           </div>
 
           <% if devise_mapping.rememberable? %>
             <div class="field">
               <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
+              <%= f.label :remember_me ,:size=>"30"%>
             </div>
           <% end %>
 
           <div class="actions">
-            <%= f.submit "Log in" %>
+            <%= f.submit "Log in",class: 'btn btn-secondary col-xs-offset-1' %>
           </div>
-        <% end %>
+        <% end %><br />
 
         <%= render "devise/shared/links" %>
       </div>

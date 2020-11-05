@@ -19,7 +19,10 @@
 				</tr>
 				<tr>
 					<th><%= f.label 'budget' %></th>
-					<td><%= f.text_field :budget,:placeholder => "予算(最低)" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額)" %></td>
+					<td>
+						<%= f.select :currency, ['$',' € ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'},class: 'sample' %>
+						<%= f.text_field :budget,:placeholder => "予算(最低)" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額)" %>
+					</td>
 				</tr>
 				<tr>
 					<th><%= f.label 'review' %></th>

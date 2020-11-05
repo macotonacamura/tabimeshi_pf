@@ -23,11 +23,17 @@
 
 }
 
+
 .main-visual-content{
 	width: 100%;
 	height: 300px;
 	line-height: 300px;
 	padding:50px;
+}
+
+li{
+	list-style: none;
+	margin:10px;
 }
 
 
@@ -58,6 +64,23 @@
   background: #fc0;
 }
 
+.btn-circle-flat-how{
+  display: inline-block;
+  text-decoration: none;
+  background: #004400;
+  color: #FFF;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  float:left;
+  color: #fff;
+  font-size:12px;
+}
+
+
 .about{
 	display: block;
 	clear: both;
@@ -67,4 +90,16 @@
 
 .tab-content{
 	padding-bottom:300px;
+}
+
+.how_title{
+	padding-bottom:20px;
+}
+
+.how_body{
+	margin:20px;
+}
+
+.how-content{
+	padding:20px;
 }

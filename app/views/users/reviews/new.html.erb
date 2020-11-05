@@ -2,6 +2,17 @@
 	<div class="container">
 		<h2 class="title">post review</h2>
 
+		<% if @review.errors.any? %>
+	        <div id="error_explanation">
+	            <h3><%= @review.errors.count %>error prohibited this obj from being saved:</h3>
+	            <ul>
+	                <% @review.errors.full_messages.each do |message| %>
+	                <li><%= message %></li>
+	                <% end %>
+	            </ul>
+	        </div>
+	    <% end %>
+
 		<%= form_with model: @review, url:reviews_path(@review.id), method: :post, local: true do |f| %>
 			<table class="table table_new_all" >
 				<tr class="table_new">
@@ -31,12 +42,12 @@
 					<!--<th><%#= f.label 'distination' %></th>
 					<td>
 						 <%#= f.fields_for :countries do |distination| %>
-						<%#= distination.text_field :country, :placeholder => "国名(例:France)", class: 'country_name', id: :country_name %>
-						<%#= distination.text_field :city, :placeholder => "都市名(例:Paris)", class: 'city_name' %>
+						<%#= distination.text_field :country, :placeholder => "国名(例:France)", class: 'country', id: :country %>
+						<%#= distination.text_field :city, :placeholder => "都市名(例:Paris)", class: 'city' %>
 						<%# end %>
 						<script>
 						  $( function() {
-						    $( "#country_name" ).autocomplete({
+						    $( "#country" ).autocomplete({
 						      autoFocus: true,
 						      source: "/reviews/new.json",
 						      minLength: 0,
@@ -57,8 +68,7 @@
 				<tr class="table_new">
 					<th class="table_new"><%= f.label 'budget' %></th>
 					<td class="table_new">
-						<%#= f.collection_select :currency, @currency, prompt: "-- 選択してください --" %>
-						<%= f.select :currency, ['$','€','£', '¥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫'], {include_blank: '通貨を選択してください'},class: 'sample' %>
+						<%= f.select :currency, ['$',' € ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'},class: 'sample' %>
 						<%= f.text_field :budget,:placeholder => "予算(最低)",class: "budget" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額)",class: "budget" %></td>
 				</tr>
 

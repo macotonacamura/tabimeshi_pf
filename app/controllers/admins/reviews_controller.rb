@@ -1,5 +1,5 @@
 class Admins::ReviewsController < ApplicationController
-
+before_action :authenticate_admin!
 	def index
 	# users = User.where(is_deleted: false)退会すみユーザの投稿は消したい
 		@reviews = Review.page(params[:page]).reverse_order

@@ -13,9 +13,9 @@
 						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="display: block; clear: both;">
 							<a class="btn-circle-flat"  id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">About</a>
 
-							<a class="btn-circle-flat" id="v-pills-wwcd-tab" data-toggle="pill" href="#v-pills-wwcd" role="tab" aria-controls="v-pills-wwcd" aria-selected="false" style="color: #fff;" >w y c d</a>
+							<a class="btn-circle-flat" id="v-pills-wwcd-tab" data-toggle="pill" href="#v-pills-wwcd" role="tab" aria-controls="v-pills-wwcd" aria-selected="false" style="color: #fff;" >What</a>
 
-							<a class="btn-circle-flat" id="v-pills-wwcd-tab" data-toggle="pill" href="#v-pills-wwcd" role="tab" aria-controls="v-pills-wwcd" aria-selected="false" style="color: #fff;" >sth</a>
+							<a class="btn-circle-flat" id="v-pills-how-tab" data-toggle="pill" href="#v-pills-how" role="tab" aria-controls="v-pills-how" aria-selected="false" style="color: #fff;" >How</a>
 
 							<a class="btn-circle-flat" id="v-pills-start-tab" data-toggle="pill" href="#v-pills-start" role="tab" aria-controls="v-pills-start" aria-selected="false" style="color: #fff;" >start</a>
 						</div>
@@ -23,12 +23,12 @@
 				</div>
 
 				<div class="row">
-					<div class="col">
+					<div class="col-md-12">
 						<div class="tab-content" id="v-pills-tabContent">
 							<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
 								<div class="about" id="about" >
 
-									<h4>About " tabimeshi "</h4><br>
+									<h4>About " Tabimeshi "</h4><br>
 
 									<h4>思い出が深まるような旅中での特別な食事をお楽しみいただくために</h4><br>
 
@@ -43,7 +43,7 @@
 							</div>
 
 							<div class="tab-pane fade" id="v-pills-wwcd" role="tabpanel" aria-labelledby="v-pills-wwcd-tab">
-								<strong><h3>What you can do with " tabimeshi " </h3></strong><br>
+								<strong><h3>What you can do with " Tabimeshi " </h3></strong>
 								<h5>
 									tabimeshi では、 旅先で見つけた皆様の美味しい情報、<br>
 									リアルな口コミをシェアできます。<br>
@@ -52,18 +52,59 @@
 								<h6>なお、記事を投稿するには会員登録が必要となります。</h6>
 							</div>
 
+							<div class="tab-pane fade how" id="v-pills-how" role="tabpanel" aria-labelledby="v-pills-how-tab">
+								<strong class="how_title"><h3>How to use " Tabimeshi " </h3></strong>
+								<table class="how_body">
+									<tr>
+										<th class="how-content">
+										<a class="btn-circle-flat-how" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</a>
+										</th>
+
+										<td>目的地から検索いただけます。</td>
+									</tr>
+									<tr>
+										<th class="how-content">
+											<a class="btn-circle-flat-how" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">post</a>
+										</th>
+										<td>新規投稿ができます。</td>
+									</tr>
+									<tr>
+										<th class="how-content">
+										<a class="btn-circle-flat-how" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">find ppl</a>
+										</th>
+										<td>気になるユーザーを探し、フォローいただけます。</td>
+									</tr>
+								</table>
+							</div>
+
 							<div class="tab-pane fade" id="v-pills-start" role="tabpanel" aria-labelledby="v-pills-start-tab" style="margin:0 auto;">
 								<strong><h3>Let's Find delicacies and Create memories!</h3></strong><br>
 								<h5>
-									さあ、世界の美味しい情報をチェックしましょう！<br>
+									Tabimeshiで世界の美味しい情報をチェックしましょう！<br>
 								</h5>
 								<div style="margin-right: 50px; text-align: right;">
-									<button type="button" class="btn btn-light" style="margin-bottom: 10px;">
-										<%= link_to '会員登録して始める', new_user_registration_path, :style=>"color:#444;" %>
-									</button><br>
-		                           	<button type="button" class="btn btn-light"><%= link_to 'ログインする', new_user_session_path, :style=>"color:#444;" %></button>
-	                           		<button type="button" class="btn btn-light"><%= link_to 'ゲストユーザーとしてログイン', users_homes_guest_sign_in_path,method: :post, :style=>"color:#444;" %></button>
-	                           		<button type="button" class="btn btn-light"><%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path,method: :post, :style=>"color:#444;" %></button>
+									<ul>
+										<li>
+											<button type="button" class="btn btn-light" >
+												<%= link_to '会員登録して始める', new_user_registration_path, :style=>"color:#444;" %>
+											</button>
+										</li>
+										<li>
+				                           	<button type="button" class="btn btn-light">
+				                           		<%= link_to 'ログインする', new_user_session_path, :style=>"color:#444;" %>
+				                           	</button>
+				                        </li>
+				                        <li>
+			                           		<button type="button" class="btn btn-light">
+			                           			<%= link_to 'ゲストユーザーとしてログイン', users_homes_guest_sign_in_path,method: :post, :style=>"color:#444;" %>
+			                           		</button>
+			                           	</li>
+			                           	<li>
+			                           		<button type="button" class="btn btn-light">
+			                           			<%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path,method: :post, :style=>"color:#444;" %>
+		                           			</button>
+		                           		</li>
+                           			</ul>
 		                        </div>
 
 							</div>

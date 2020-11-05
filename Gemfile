@@ -84,3 +84,4 @@ gem 'jquery-ui-rails'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'rb-readline'

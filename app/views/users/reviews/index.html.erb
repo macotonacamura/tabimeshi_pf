@@ -4,7 +4,7 @@
 			<div class="col-md-5">
 				<div id="container">
 				  <div id="theTarget">
-				    <div class="image1"></div>
+					<div class="image1"></div>
 				    <div class="image2"></div>
 				    <div class="image4"></div>
 				    <div class="image3"></div>
@@ -13,6 +13,7 @@
 			</div>
 
 			<div class="link-list col-md-7">
+				<div><%#= flash[:failure] %></div>
 				<a class="btn-circle-flat" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</a>
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 				  <div class="modal-dialog modal-lg">
@@ -23,17 +24,57 @@
 				     	 <%= f.submit 'search', class: "btn btn-light" %>
 					 	 <select id="result"></select>
 					  <% end %>
-				    </div>
+				     </div>
 				  </div>
 				</div>
 
-				<%= link_to 'post', new_review_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
-				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
+				<%= link_to 'post', new_review_path,class: 'btn-circle-flat ', :style=>"color:#fff;" %>
+				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat ', :style=>"color:#fff;" %>
 				<a class="btn-circle-flat"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">new posts</a>
 			</div>
 		</div>
+
+		<div class="popullar fadein" style="margin-top:50px;  display: block;">
+			 <h2>Search popular areas</h2>
+
+
+			<div style="padding:30px;">
+
+				<%= link_to countries_asia_path do %>
+					<div class="popular_area_asia" style="padding:30px; float:left;">
+						<div class="popular_area-content">
+							<h3 style="color:#fff;">Asia</h3>
+						</div>
+					</div>
+				<% end %>
+				<%= link_to countries_america_path do %>
+				<div class="popular_area_america" style="padding:30px; float:left;">
+					<div class="popular_area-content">
+						<strong><h3 style="color:#fff;">North America</h3></strong>
+					</div>
+				</div>
+				<% end %>
+				<%= link_to countries_europe_path do %>
+				<div class="popular_area_europe" style="padding:30px; float:left;">
+					<div class="popular_area-content">
+						<strong><h3 style="color:#fff;">Europe</h3></strong>
+					</div>
+				</div>
+				<% end %>
+				<%= link_to countries_europe_path do %>
+				<div class="popular_area_oseania" style="padding:30px; float:left;">
+					<div class="popular_area-content">
+						<strong><h3 style="color:#fff;">Oceania</h3></strong>
+					</div>
+				</div>
+				<% end %>
+
+			</div>
+		</div>
+
+
 		<div class="row review_list_index">
-			<h2 class="title_new_posts">new posts</h2>
+			<h2 class="title_new_posts fadein">Posts list</h2>
 			<%= render 'users/reviews/reviews_list', reviews:@reviews%>
 			<div><%= paginate @reviews , class: "pagination" %></div>
 		</div>
@@ -52,6 +93,20 @@
           return false;
         });
       });
+
+
+      $(function(){
+		$(window).scroll(function (){
+			$('.fadein').each(function(){
+				var elemPos = $(this).offset().top;
+				var scroll = $(window).scrollTop();
+				var windowHeight = $(window).height();
+				if (scroll > elemPos - windowHeight + 200){
+					$(this).addClass('scrollin');
+				}
+			});
+		});
+	});
     </script>
 
 </div>

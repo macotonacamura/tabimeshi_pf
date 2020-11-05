@@ -1,7 +1,9 @@
 class Users::UsersController < ApplicationController
-
+ before_action :authenticate_user!
   def index
-	  @users = User.where(is_deleted: false) #ここで削除されていない会員のみ表示
+	  @users = User.partical(params[:content]) #ここで削除されていない会員のみ表示
+
+
   end
 
   def show
@@ -48,6 +50,7 @@ class Users::UsersController < ApplicationController
     flash[:withdraw] = "ありがとうございました。またのご利用を心よりお待ちしております。"
     redirect_to root_path
   end
+
 
   private
   def user_params

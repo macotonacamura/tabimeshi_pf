@@ -1,11 +1,14 @@
 class Users::ReviewsController < ApplicationController
-
+ before_action :authenticate_user!
   def index
        if params[:country].present? #国名の取得
          @reviews = Review.where('country LIKE(?)', "%#{params[:country]}%").page(params[:page])
        else
           @reviews = Review.page(params[:page]).reverse_order
+          #flash[:failure] = "該当するページが見つかりませんでした。" #表示がうまくいかない
        end
+
+       #@all_ranks = Review.find(Review.group(:review_id).order('count(review_id) desc').limit(2).pluck(:review_id))
     #@reviews = Review.page(params[:page]).reverse_order
     # users = User.where(is_deleted: false)退会すみユーザの投稿は消したい
   end
@@ -29,7 +32,7 @@ class Users::ReviewsController < ApplicationController
     # respond_to do |format|
     # format.html
     # format.json { render json: countries.to_json }
-    #end
+    # end
   end
 
   # def auto_complete

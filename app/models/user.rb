@@ -66,7 +66,7 @@ class User < ApplicationRecord
     user = User.where(id: snscredential.user_id).first
     unless user.present?
       user = User.new(
-        nickname: auth.info.name,
+        user_name: auth.info.name,
         email: auth.info.email,
       )
     end
@@ -85,6 +85,16 @@ class User < ApplicationRecord
       sns = without_sns_data(auth)[:sns]
     end
     return { user: user ,sns: sns}
+  end
+
+
+
+  def self.partical(content)
+    if content
+      where("user_name LIKE ?", "%#{content}%")
+    else
+      where(is_deleted: false)
+    end
   end
 
 end

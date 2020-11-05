@@ -53,7 +53,7 @@
 								</tr>
 								<tr>
 									<th>予算</th>
-									<td><%= @review.currency %><%= @review.budget %> 〜 <%= @review.currency %><%= @review.maximum_budget %></td>
+									<td><%= @review.currency.html_safe %><%= @review.budget %> 〜 <%= @review.currency %><%= @review.maximum_budget %></td>
 								</tr>
 							</table>
 
