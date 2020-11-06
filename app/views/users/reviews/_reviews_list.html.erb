@@ -11,6 +11,7 @@
 				</strong>
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="images col-xs-4">
 				<% review.review_images.each do |review_image| %>
@@ -22,7 +23,7 @@
 				<% end %>
 			</div>
 
-			<div class="col-xs-8" style="margin-left: 30px;">
+			<div class="col-xs-8 pb-2" style="margin-left: 30px;">
 
 				<div>
 					<div id="review_<%= review.id %>" class="like_comment">
@@ -30,7 +31,7 @@
 				</div>
 					<i class="fas fa-utensils" style="margin-top:15px;"></i>
 						<%= link_to review_path(review.id),:style=>"color:#444;", "data-turbolinks": false do %>
-								<h4><%= review.restaurant_name %></h4>
+								<h4><%= review.restaurant_name.truncate(30) %></h4>
 							<% end %>
 					<%= review.country %>・<%= review.city %>
 				</div>

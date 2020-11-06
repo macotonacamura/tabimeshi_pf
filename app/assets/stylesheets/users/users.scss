@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main{
-	padding-top:100px;
-}
-
 
 img {
 
@@ -65,6 +61,11 @@ h2{
 .user_info_index_show{
 	float:left;
 	margin: 0 0 0 30px;
+}
+
+.review-box_show{
+	width:1400px;
+	padding:15px 50px 30px 50px;
 }
 
 .user_name{
@@ -131,6 +132,7 @@ h2{
 	margin-top:150px;
 }
 
+
 @media screen and (max-width:425px) {
 
 	.page{
@@ -141,13 +143,18 @@ h2{
 	  width:100%;
 	}
 
+	.mypage{
+	margin-left:20px;;
+	}
+
 	/*index*/
 
 	.info-box_index_show{
-	  width:100%;
+	  width:97%;
 	  height:auto;
-	  margin-left:10px;
+	  margin:10px;font-size:15px;
 	}
+
 	.profile_img_index_show{
 	  border: 2px solid #fff;
 	  border-radius: 50%;
@@ -196,6 +203,9 @@ h2{
 	}
 	.introduction_area{
 	width:100%;
+	}
+	table{
+	width:90%;
 	}
 
 

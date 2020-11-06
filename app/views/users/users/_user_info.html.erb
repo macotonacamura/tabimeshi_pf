@@ -1,4 +1,4 @@
-<div class="info-box_index_show">
+<div class="info-box_index_show fadein">
 	<div>
 		<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
 	</div>
@@ -8,8 +8,20 @@
 				<%= user.user_name %>
 			<% end %>
 		</h3>
-		<div id="follow_button_<%= user.id %>" style="margin-top: 10px;">
+		<div id="follow_button_<%= @user.id %>" style="margin-top: 10px;">
 			<%= render 'users/relationships/follow_button', user: user,reviews:user.reviews %>
 		</div>
+		<% if current_user == user %>
+			<div style="padding-bottom: 10px;">
+				<div style="padding: 5px;">
+					<%= link_to likes_list_path(current_user.id), :style=>"color:#444;" do %>
+						<i class="fas fa-heart"></i> いいねした投稿一覧
+					<% end %>
+					<%= link_to edit_user_path(current_user.id), :style=>"color:#444;" do %>
+						<i class="fas fa-wrench ml-3"></i> 登録情報を編集する
+					<% end %>
+				</div>
+			</div>
+		<% end %>
 	</div>
 </div>

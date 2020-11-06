@@ -1,9 +1,12 @@
 <div class="page">
-	<div class="container main">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-8"></div>
-				<div class="col-md-4"><%= render 'users/search/search',user: @users%></div>
-			<div class="col-md-12">
+			<div class="col-12 clearfix">
+				<div class="float-right fadein"><%= render 'users/users/search',user: @users%></div>
+			</div>
+
+			<div class="col-md-12 fadein">
+				<h2>Find people</h2>
 				<% @users.each do |user| %>
 					<div class="info-box_index_show fadein row">
 						<div class="col-xs-3">
@@ -41,6 +44,7 @@
 					});
 				</script>
 			</div>
+
 		</div>
 	</div>
 </div>

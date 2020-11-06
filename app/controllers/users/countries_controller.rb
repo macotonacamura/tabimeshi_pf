@@ -5,15 +5,15 @@ class Users::CountriesController < ApplicationController
 	end
 
 	def america
-		@america = Review.where(country: ['アメリカ','カナダ'])
+	 	@america = Review.where(country: ['アメリカ','カナダ'])
 	end
 
 	def europe
-		@europe = Country.where(country: ['フランス','イギリス','スペイン','スペイン'.'イタリア'])
+		@europe = Review.where(country:['フランス','イギリス'])
 	end
 
 	def oseania
-		@oseania = Country.where(country: ['オーストラリア','ニュージーランド'])
+		@oseania = Review.where(country: ['オーストラリア','ニュージーランド'])
 	end
 
 end

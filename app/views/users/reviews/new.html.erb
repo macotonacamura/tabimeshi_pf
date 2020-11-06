@@ -1,6 +1,6 @@
 <div class="page_new">
 	<div class="container">
-		<h2 class="title">post review</h2>
+		<h2 class="title mt-2 fadein">post review</h2>
 
 		<% if @review.errors.any? %>
 	        <div id="error_explanation">
@@ -14,7 +14,7 @@
 	    <% end %>
 
 		<%= form_with model: @review, url:reviews_path(@review.id), method: :post, local: true do |f| %>
-			<table class="table table_new_all" >
+			<table class="table table_new_all fadein" >
 				<tr class="table_new">
 					<th class="table_new"><%= f.label 'restaurant name' %></th>
 					<td class="table_new"><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>

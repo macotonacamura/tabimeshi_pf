@@ -100,7 +100,7 @@
 			end
 
 
-	i += 1
+	i += 1000
 
 		  sleep 2 #serverの負担軽減
 

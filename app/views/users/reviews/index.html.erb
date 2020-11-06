@@ -1,7 +1,7 @@
 <div class="page">
 	<div class="container responsive">
 		<div class="row main-box">
-			<div class="col-md-5">
+			<div class="col-md-5 fadein">
 				<div id="container">
 				  <div id="theTarget">
 					<div class="image1"></div>
@@ -12,57 +12,57 @@
 				</div>
 			</div>
 
-			<div class="link-list col-md-7">
-				<div><%#= flash[:failure] %></div>
-				<a class="btn-circle-flat" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</a>
+			<div class="link-list col-md-7 fadein">
+				<div class="time-limit" style="font-size: 15px;"><%#= flash[:failure] %></div>
+				<a class="btn-circle-flat fadein" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</a>
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 				  <div class="modal-dialog modal-lg">
 				    <div class="modal-content" style="padding:10px;">
 				    	<span style="margin-left: 10px;">目的地から検索</span>
 				      	 <%= form_with  url:reviews_path, method: :get, local: true do |f| %>
-				       	 <%= f.text_field :country, id:"form", placeholder:"国名を入力してください", style:"width: 250px;" %>
-				     	 <%= f.submit 'search', class: "btn btn-light" %>
+				       	 <%= f.text_field :country, id:"form", placeholder:"国名を入力してください", :size=>"40x12" %>
+				     	 <%= f.submit 'search', class: "btn btn-xs btn-outline-secondary mb-2" %>
 					 	 <select id="result"></select>
 					  <% end %>
 				     </div>
 				  </div>
 				</div>
 
-				<%= link_to 'post', new_review_path,class: 'btn-circle-flat ', :style=>"color:#fff;" %>
-				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat ', :style=>"color:#fff;" %>
-				<a class="btn-circle-flat"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">new posts</a>
+				<%= link_to 'post', new_review_path,class: 'btn-circle-flat fadein', :style=>"color:#fff;" %>
+				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat fadein', :style=>"color:#fff;" %>
+				<a class="btn-circle-flat fadein"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">discover</a>
 			</div>
 		</div>
 
-		<div class="popullar fadein" style="margin-top:50px;  display: block;">
+		<div class=" row popullar fadein mt-5" style="display: block;">
 			 <h2>Search popular areas</h2>
 
 
 			<div style="padding:30px;">
 
 				<%= link_to countries_asia_path do %>
-					<div class="popular_area_asia" style="padding:30px; float:left;">
+					<div class="popular_area_asia">
 						<div class="popular_area-content">
 							<h3 style="color:#fff;">Asia</h3>
 						</div>
 					</div>
 				<% end %>
 				<%= link_to countries_america_path do %>
-				<div class="popular_area_america" style="padding:30px; float:left;">
+				<div class="popular_area_america">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">North America</h3></strong>
 					</div>
 				</div>
 				<% end %>
 				<%= link_to countries_europe_path do %>
-				<div class="popular_area_europe" style="padding:30px; float:left;">
+				<div class="popular_area_europe">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">Europe</h3></strong>
 					</div>
 				</div>
 				<% end %>
-				<%= link_to countries_europe_path do %>
-				<div class="popular_area_oseania" style="padding:30px; float:left;">
+				<%= link_to countries_oseania_path do %>
+				<div class="popular_area_oseania">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">Oceania</h3></strong>
 					</div>
@@ -74,39 +74,24 @@
 
 
 		<div class="row review_list_index">
-			<h2 class="title_new_posts fadein">Posts list</h2>
-			<%= render 'users/reviews/reviews_list', reviews:@reviews%>
+			<h2 class="title_new_posts fadein" >Posts list</h2>
+			<%= render 'users/reviews/reviews_list', reviews:@reviews %>
 			<div><%= paginate @reviews , class: "pagination" %></div>
 		</div>
+
+		<script>
+	      $(function(){
+	        // #to-listsで発火 sth
+	        $('a[href^="#to-lists"]').click(function() {
+	          // スクロールの速度
+	          var speed = 400; // ミリ秒
+	          var href= $(this).attr("href");
+	          var target = $(href == "#" || href == "" ? 'html' : href);
+	          var position = target.offset().top;
+	          $('body,html').animate({scrollTop:position}, speed, 'swing');
+	          return false;
+	        });
+	      });
+	    </script>
 	</div>
-
-	<script>
-      $(function(){
-        // #to-listsで発火 sth
-        $('a[href^="#to-lists"]').click(function() {
-          // スクロールの速度
-          var speed = 400; // ミリ秒
-          var href= $(this).attr("href");
-          var target = $(href == "#" || href == "" ? 'html' : href);
-          var position = target.offset().top;
-          $('body,html').animate({scrollTop:position}, speed, 'swing');
-          return false;
-        });
-      });
-
-
-      $(function(){
-		$(window).scroll(function (){
-			$('.fadein').each(function(){
-				var elemPos = $(this).offset().top;
-				var scroll = $(window).scrollTop();
-				var windowHeight = $(window).height();
-				if (scroll > elemPos - windowHeight + 200){
-					$(this).addClass('scrollin');
-				}
-			});
-		});
-	});
-    </script>
-
 </div>

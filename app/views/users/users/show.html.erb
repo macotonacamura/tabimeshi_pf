@@ -1,68 +1,43 @@
 <div class="page">
 	<div class="container">
 		<div class="row">
+
 			<div class="col-xs-12">
 
 				<div>
 					<% if @user == current_user %>
-						<h2>mypage</h2>
+						<h2 class="mypage fadein">mypage</h2>
 					<% else %>
 						<h2><%= @user.user_name %>'s room</h2>
 					<% end %>
 				</div>
 				<div class="time-limit" style="font-size: 15px;"><%= flash[:change] %></div>
-
-				<div class="info-box_index_show">
-					<div>
-						<%= image_tag @user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
-					</div>
-					<div class="user_info_index_show">
-						<h3 class="user_name">
-							<%= link_to user_path(@user.id), :style=>"color:#444;" do %>
-								<%= @user.user_name %>
-							<% end %>
-						</h3>
-						<div id="follow_button_<%= @user.id %>" style="margin-top: 10px;">
-							<%= render 'users/relationships/follow_button', user: @user,reviews:@user.reviews %>
-						</div>
-						<% if current_user == @user %>
-							<div style="padding-bottom: 10px;">
-								<div style="padding: 5px;">
-									<%= link_to likes_list_path(current_user.id), :style=>"color:#444;" do %>
-										<i class="fas fa-heart"></i>　いいねした投稿
-									<% end %>
-									<%= link_to edit_user_path(current_user.id), :style=>"color:#444;" do %>
-										<i class="fas fa-wrench"></i>　登録情報を編集する
-									<% end %>
-								</div>
-							</div>
-						<% end %>
-					</div>
-				</div>
+				<%= render 'users/users/user_info', user: @user,reviews:@user.reviews %>
+			</div>
 
 
-				<div>
-					<h3 class="title_posts_list"><%= @user.user_name %>'s posts list</h3>
+			<div>
+				<h3 class="title_posts_list mb-3 fadein"><%= @user.user_name %>'s posts list</h3>
 
-					<%= render 'users/reviews/reviews_list', reviews:@reviews %>
-					<%= paginate @reviews %>
-				</div>
-				<script type="text/javascript">
-					$(function(){
-					$(window).scroll(function (){
-					$('.fadein').each(function(){
-						var elemPos = $(this).offset().top;
-						var scroll = $(window).scrollTop();
-						var windowHeight = $(window).height();
-						if (scroll > elemPos - windowHeight + 200){
-							$(this).addClass('scrollin');
-								}
-							});
+				<%= render 'users/reviews/reviews_list', reviews:@reviews %>
+				<%= paginate @reviews %>
+			</div>
+			<script type="text/javascript">
+				$(function(){
+				$(window).scroll(function (){
+				$('.fadein').each(function(){
+					var elemPos = $(this).offset().top;
+					var scroll = $(window).scrollTop();
+					var windowHeight = $(window).height();
+					if (scroll > elemPos - windowHeight + 200){
+						$(this).addClass('scrollin');
+							}
 						});
 					});
-				</script>
+				});
+			</script>
 
-			</div>
+
 		</div>
 	</div>
 </div>

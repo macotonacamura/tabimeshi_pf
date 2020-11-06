@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<div class="review-info">
+				<div class="review-info fadein">
 					<div class="time-limit" style="font-size: 15px;"><%= flash[:update] %></div>
 					<div class="time-limit" style="font-size: 15px;"><%= flash[:create] %></div>
 
@@ -16,8 +16,8 @@
 				 		<% end %>
 
 
-						<div>投稿日時  <%=  l @review.created_at, format: :long %></div>
-						<div class="review_show">
+						<div class="mt-3">投稿日時  <%=  l @review.created_at, format: :long %></div>
+						<div class="review_show mt-2 ">
 							<%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
 							<%= link_to user_path(@review.user.id), :style=>"color:#444;" do %>
 								 	<%= @review.user.user_name %>

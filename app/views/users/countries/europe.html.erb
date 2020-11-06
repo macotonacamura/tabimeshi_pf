@@ -1,20 +1,10 @@
-<div class="row review_list_index">
-	<h2 class="title_new_posts fadein">Europe</h2>
-	<%= render 'users/reviews/reviews_list', reviews:@europe %>
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2 class="title_new_posts fadein">Europe</h2>
+				<%= render 'users/reviews/reviews_list', reviews:@europe %>
+			</div>
+		</div>
+	</div>
 </div>
-
-
-<script type="text/javascript">
-	$(function(){
-	$(window).scroll(function (){
-	$('.fadein').each(function(){
-		var elemPos = $(this).offset().top;
-		var scroll = $(window).scrollTop();
-		var windowHeight = $(window).height();
-		if (scroll > elemPos - windowHeight + 200){
-			$(this).addClass('scrollin');
-				}
-			});
-		});
-	});
-</script>

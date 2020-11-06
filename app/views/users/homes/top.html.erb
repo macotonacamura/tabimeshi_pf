@@ -2,9 +2,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="main-visual">
-					<div class="main-visual-content">
-						<strong><h2>Find delicacies and Create memories !</h2></strong>
+				<div class="main-visual mt-3">
+					<div class="main-visual-content mt-4">
+						<strong><h2 style="color:#fff;">Find delicacies and Create memories !</h2></strong>
 					</div>
 				</div>
 
@@ -77,35 +77,37 @@
 								</table>
 							</div>
 
-							<div class="tab-pane fade" id="v-pills-start" role="tabpanel" aria-labelledby="v-pills-start-tab" style="margin:0 auto;">
-								<strong><h3>Let's Find delicacies and Create memories!</h3></strong><br>
-								<h5>
-									Tabimeshiで世界の美味しい情報をチェックしましょう！<br>
-								</h5>
-								<div style="margin-right: 50px; text-align: right;">
-									<ul>
-										<li>
-											<button type="button" class="btn btn-light" >
-												<%= link_to '会員登録して始める', new_user_registration_path, :style=>"color:#444;" %>
-											</button>
-										</li>
-										<li>
-				                           	<button type="button" class="btn btn-light">
-				                           		<%= link_to 'ログインする', new_user_session_path, :style=>"color:#444;" %>
-				                           	</button>
-				                        </li>
-				                        <li>
-			                           		<button type="button" class="btn btn-light">
-			                           			<%= link_to 'ゲストユーザーとしてログイン', users_homes_guest_sign_in_path,method: :post, :style=>"color:#444;" %>
-			                           		</button>
-			                           	</li>
-			                           	<li>
-			                           		<button type="button" class="btn btn-light">
-			                           			<%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path,method: :post, :style=>"color:#444;" %>
-		                           			</button>
-		                           		</li>
-                           			</ul>
-		                        </div>
+							<div class="tab-pane fade " id="v-pills-start" role="tabpanel" aria-labelledby="v-pills-start-tab" style="margin:0 auto;">
+								<div class="start">
+									<strong><h3>Let's Find delicacies and Create memories!</h3></strong><br>
+									<h5>
+										Tabimeshiで世界の美味しい情報をチェックしましょう！<br>
+									</h5>
+									<div style="margin-right: 50px; text-align: right;">
+										<ul>
+											<li>
+												<button type="button" class="btn btn-light" >
+													<%= link_to '会員登録して始める', new_user_registration_path, :style=>"color:#444;" %>
+												</button>
+											</li>
+											<li>
+					                           	<button type="button" class="btn btn-light">
+					                           		<%= link_to 'ログインする', new_user_session_path, :style=>"color:#444;" %>
+					                           	</button>
+					                        </li>
+					                        <li>
+				                           		<button type="button" class="btn btn-light">
+				                           			<%= link_to 'ゲストユーザーとしてログイン', users_homes_guest_sign_in_path,method: :post, :style=>"color:#444;" %>
+				                           		</button>
+				                           	</li>
+				                           	<li>
+				                           		<button type="button" class="btn btn-light">
+				                           			<%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path,method: :post, :style=>"color:#444;" %>
+			                           			</button>
+			                           		</li>
+	                           			</ul>
+			                        </div>
+			                    </div>
 
 							</div>
 

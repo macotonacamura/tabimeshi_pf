@@ -29,6 +29,7 @@ before_action :authenticate_admin!
      @review = Review.find(params[:id])
      @review.destroy
      redirect_to admins_reviews_path
+
   end
 
   def review_params
