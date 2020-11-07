@@ -39,13 +39,12 @@
 				</tr>
 
 				<tr class="table_new">
-					<!--<th><%#= f.label 'distination' %></th>
+					<th><%= f.label 'distination' %></th>
 					<td>
-						 <%#= f.fields_for :countries do |distination| %>
-						<%#= distination.text_field :country, :placeholder => "国名(例:France)", class: 'country', id: :country %>
-						<%#= distination.text_field :city, :placeholder => "都市名(例:Paris)", class: 'city' %>
-						<%# end %>
-						<script>
+						<%= f.text_field :country, :placeholder => "国名(例:France) 半角英", class: 'country', id: :country %>
+
+						<%= f.text_field :city, :placeholder => "都市名(例:Paris) 半角英", class: 'city',id: :city %>
+						<!-- <script>
 						  $( function() {
 						    $( "#country" ).autocomplete({
 						      autoFocus: true,
@@ -53,11 +52,16 @@
 						      minLength: 0,
 						    });
 						  });
-						  </script>
-					</td> -->
 
-					 <th class="table_new"><%= f.label 'country' %> , <%= f.label 'city' %></th>
-					<td><%= f.text_field :country,:size=>"20", :placeholder => "国名(例:France)",class: "table_new_country_city" %>　<%= f.text_field :city, :placeholder => "都市名(例:Paris)",class: "table_new_country_city" %></td>
+						  $( function() {
+						    $( "#city" ).autocomplete({
+						      autoFocus: true,
+						      source: "/reviews/new.json",
+						      minLength: 0,
+						    });
+						  });
+						</script> -->
+					</td>
 				</tr>
 
 				<tr class="table_new">
@@ -68,7 +72,7 @@
 				<tr class="table_new">
 					<th class="table_new"><%= f.label 'budget' %></th>
 					<td class="table_new">
-						<%= f.select :currency, ['$',' € ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'},class: 'sample' %>
+						<%#= f.select :currency, ['$',' € ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'},class: 'sample' %>
 						<%= f.text_field :budget,:placeholder => "予算(最低)",class: "budget" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額)",class: "budget" %></td>
 				</tr>
 

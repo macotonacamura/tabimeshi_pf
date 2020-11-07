@@ -17,91 +17,41 @@
 	end
 
 
+# Country
+connection = Faraday.new(:url => 'https://wft-geo-db.p.rapidapi.com') do |f| # 共有したい処理
+	f.headers["x-rapidapi-host"] = 'wft-geo-db.p.rapidapi.com'
+	f.headers["x-rapidapi-key"] = ENV['COUNTRY']
+end
 
-# countries = ["タジキスタン","ジャマイカ","ハイチ","サントメ・プリンシペ","モントセラト","アラブ首長国連邦","パキスタン",
-#  			"オランダ","ルクセンブルク","ベリーズ","イラン・イスラム共和国","ボリビア","ウルグアイ","ガーナ","サウジアラビア",
-#  "コートジボワール","サンマルタン (仏領)","フランス南方領土", "アングイラ","カタール", "サンマルタン (オランダ領)", "リビア",
-#  "ブーベ島","パプアニューギニア","キルギスタン", "赤道ギニア", "西サハラ", "ニウエ","プエルトリコ", "グレナダ", "韓国",
-#  "ハード島及びマクドナルド諸島", "サンマリノ","シエラレオネ","コンゴ民主共和国","マケドニア共和国","トルコ",
-#  "アルジェリア","グルジア","パレスチナ","バルバドス","ウクライナ", "グアドループ","仏領ポリネシア","ナミビア","ボツワナ",
-#  "シリア・アラブ共和国", "トーゴ","ドミニカ共和国","南極大陸","スイス","マダガスカル","フェロー諸島","英領ヴァージン諸島","ジブラルタル",
-#  "ブルネイ・ダルサラーム国","ラオス人民民主共和国","アイスランド","エストニア","アメリカ合衆国外諸島","リトアニア","セルビア","モーリタニア",
-# "アンドラ","ハンガリー","トケラウ","マレーシア","アンゴラ","ノーフォーク島","パナマ","ギニアビサウ","ベルギー","ポルトガル","イギリス","マン島","アメリカ","イエメン",
-# "香港","アゼルバイジャン","ココス (キーリング) 諸島","マリ","スロバキア","バヌアツ","東ティモール","クロアチア","スリナム","モーリシャス","Czechia",
-# "サンピエール及びミクロン","レソト","サモア","コモロ","イタリア","ブルンジ","ワリー及びフテュナ","ギニア","シンガポール","コロンビア","中国","アルーバ",
-# "モロッコ","フィンランド","バチカン市国","ジンバブエ","ケイマン諸島","バーレーン","パラグアイ","エクアドル","リベリア","ロシア連邦","ポーランド","オマーン","マルタ",
-# "南スーダン","ドイツ","トルクメニスタン","スヴァールバル及びヤンマイエン","ミャンマー","トリニダード・トバゴ","イスラエル","バングラデシュ","ナウル","スリランカ","ウガンダ",
-# "ナイジェリア","ボネール、シントユースタティウス及びサバ","メキシコ","キュラソー","スロベニア","モンゴル国","カナダ","オーランド諸島","ベトナム","台湾","日本",
-# "英国インド洋領土","ルーマニア","ブルガリア","グアム","ブラジル","アルメニア","ザンビア","ジブチ","ジャージー","オーストリア","カメルーン","スウェーデン",
-# "フィジー","カザフスタン","グリーンランド","ガイアナ","クリスマス島","マラウイ","チュニジア","南アフリカ","トンガ","キプロス","モルディブ","ピトケアン","ルワンダ",
-#  "ニカラグア", "セントクリストファー・ネーヴィス","ベナン", "エチオピア","ガンビア", "タンザニア", "セントビンセント及びグレナディーン諸島","フォークランド諸島 (マルビナス)",
-#  "スーダン", "モナコ", "オーストラリア","チリ", "デンマーク", "フランス", "タークス及びカイコス諸島", "キューバ", "アルバニア",
-#  "モザンビーク", "バハマ", "ニジェール", "グアテマラ", "リヒテンシュタイン", "ネパール", "ブルキナファソ","パラオ","クウェート","インド","ガボン","ツバル",
-# "セントヘレナ、アセンション及びトリスタン・ダ・クーニャ","モルドバ","クック諸島","アルゼンチン","セーシェル","アイルランド","スペイン","レバノン","バーミューダ","レユニオン","キリバス",
-# "アンティグア・バーブーダ","マルティニーク","エルサルバドル","ヨルダン","タイ","ソマリア","マーシャル諸島","コンゴ","朝鮮民主主義人民共和国",
-# "仏領ギアナ","ボスニア・ヘルツェゴビナ","マヨット","サウスジョージア及びサウスサンドウィッチ諸島","ケニア","ペルー","ブータン","スワジランド","コスタリカ",
-# "チャド","ドミニカ","ニューカレドニア","ギリシャ","ガーンジー","ホンジュラス","米領ヴァージン諸島","中央アフリカ共和国","セネガル","アフガニスタン","北マリアナ諸島","フィリピン",
-#  "ベラルーシ", "ラトビア", "ノルウェー","エジプト","カンボジア", "イラク", "セントルシア","ニュージーランド",
-#  "サンバルテルミ", "ウズベキスタン", "インドネシア", "エリトリア国", "ベネズエラ", "ミクロネシア連邦", "ソロモン諸島", "モンテネグロ","米領サモア"
-# ]
+coutries_response = connection.get '/v1/geo/countries?limit=200'  # GET https://wft-geo-db.p.rapidapi.com 国の情報を取得/固有の処理
+coutries_res = JSON.parse(coutries_response.body)
 
-#  countries.each do |country|
-# 	 Country.create!(country: country)
-#  end
+coutries_res["data"].each do |country|
+	Country.create!(
+		country: country['name'],
+		currency: country['currencyCodes']
+	)
+end
 
-#  cities =["マーストリヒト","マリンディ","ケララ","レ・コンタミン・モンジョワ","ウバトゥバ","ブリティッシュコロンビア州コートニー",
-#  			"アバディーン","フロリダ州ケープ・カナベラル","カリ","グアダラハラ","オレゴン州ユージーン","西安","ビクトリア州サンベリー",
-#  			"ブリーラム","ビルバオ","ウィスコンシン州ミルウォーキー","台北","グアム","ソウル","ホノルル","バンコク","バリ島","セブ",
-#  			"上海","ダナン","プーケット","ニューヨーク","釜山","パリ","ホーチミン","ケアンズ","ロサンゼルス","ロンドン","ローマ",
-#  			"バルセロナ","サイパン","パリ","バンクーバー","トロント","ウィーン","フィレンツェ","ヘルシンキ","ベネチア","ウラジオストク"
-#  		]
-
-# cities.each do |city|
-# 	Country.create!(city: city)
-# end
-
-# genres = ["レストラン","カフェ","バー","パブ","屋台","デリ","ベーカリー","パティスリー","その他"]
-
-# genres.each do |genre|
-# 	Genre.create!(genre_name: genre)
-# end
-
-
-
-
-
-
-
-	i = 274
-
-	i.times do
-		offset = i * 1000
-		    Rails.logger.debug("offsetcheck offset is #{offset}, i is #{i}")
-			connection = Faraday.new(:url => 'https://wft-geo-db.p.rapidapi.com') do |f| # 共有したい処理
-			f.headers["x-rapidapi-host"] = 'wft-geo-db.p.rapidapi.com'
-			f.headers["x-rapidapi-key"] = ENV['COUNTRY']
-			end
-
-			#coutries_response = connection.get '/v1/geo/countries?limit=100&offset=0'  # GET https://wft-geo-db.p.rapidapi.com 国の情報を取得/固有の処理
-			cities_response = connection.get "v1/geo/cities?limit=1000&offset=#{offset}"
-
-		    #coutries_res = JSON.parse(coutries_response.body)
-		    cities_res = JSON.parse(cities_response.body)
-
-		    #pp coutries_res
-		    #pp cities_res
-
-			cities_res["data"].each do |country|
-				Country.create!(
-					country: country['country'],
-					city: country['city'],
-					currency: country['currencyCodes']
-				)
-			end
-
-
-	i += 1000
-
-		  sleep 2 #serverの負担軽減
-
+# City
+MAX = 273691
+(MAX / 1000 + 1).times do |i|
+	offset = 1000 * i
+	city_connection = Faraday.new(:url => 'https://wft-geo-db.p.rapidapi.com') do |f| # 共有したい処理
+		f.headers["x-rapidapi-host"] = 'wft-geo-db.p.rapidapi.com'
+		f.headers["x-rapidapi-key"] = ENV['COUNTRY']
 	end
+	cities_response = city_connection.get "v1/geo/cities?limit=1000&offset=#{offset}"
+	cities_res = JSON.parse(cities_response.body)
+	cities_res["data"].each do |c|
+		country = Country.where(country: c['country'])[0]
+		unless country.blank?
+			City.create(
+				city: c['city'],
+				country_id: country.id
+			)
+		end
+	end
+    sleep 0.2 #serverの負担軽減
+end
+

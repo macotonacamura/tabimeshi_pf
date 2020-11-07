@@ -2,22 +2,22 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="main-visual mt-3">
-					<div class="main-visual-content mt-4">
+				<div class="main-visual mt-3 fadein">
+					<div class="main-visual-content mt-4 fadein">
 						<strong><h2 style="color:#fff;">Find delicacies and Create memories !</h2></strong>
 					</div>
 				</div>
 
 				 <div class="row">
-				 	<div class="col-xs-12">
-						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="display: block; clear: both;">
-							<a class="btn-circle-flat"  id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">About</a>
+				 	<div class="col-xs-12 fadein">
+						<div class="nav flex-column nav-pills fadein" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="display: block; clear: both;">
+							<a class="btn-circle-flat fadein"  id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">About</a>
 
-							<a class="btn-circle-flat" id="v-pills-wwcd-tab" data-toggle="pill" href="#v-pills-wwcd" role="tab" aria-controls="v-pills-wwcd" aria-selected="false" style="color: #fff;" >What</a>
+							<a class="btn-circle-flat fadein" id="v-pills-wwcd-tab" data-toggle="pill" href="#v-pills-wwcd" role="tab" aria-controls="v-pills-wwcd" aria-selected="false" style="color: #fff;" >What</a>
 
-							<a class="btn-circle-flat" id="v-pills-how-tab" data-toggle="pill" href="#v-pills-how" role="tab" aria-controls="v-pills-how" aria-selected="false" style="color: #fff;" >How</a>
+							<a class="btn-circle-flat fadein " id="v-pills-how-tab" data-toggle="pill" href="#v-pills-how" role="tab" aria-controls="v-pills-how" aria-selected="false" style="color: #fff;" >How</a>
 
-							<a class="btn-circle-flat" id="v-pills-start-tab" data-toggle="pill" href="#v-pills-start" role="tab" aria-controls="v-pills-start" aria-selected="false" style="color: #fff;" >start</a>
+							<a class="btn-circle-flat fadein" id="v-pills-start-tab" data-toggle="pill" href="#v-pills-start" role="tab" aria-controls="v-pills-start" aria-selected="false" style="color: #fff;" >start</a>
 						</div>
 					</div>
 				</div>
@@ -97,7 +97,7 @@
 					                        </li>
 					                        <li>
 				                           		<button type="button" class="btn btn-light">
-				                           			<%= link_to 'ゲストユーザーとしてログイン', users_homes_guest_sign_in_path,method: :post, :style=>"color:#444;" %>
+				                           			<%= button_to 'ゲストユーザーとしてログイン', users_homes_guest_sign_in_path,method: :post, :style=>"color:#444;",class: "btn btn-light button_to" %>
 				                           		</button>
 				                           	</li>
 				                           	<li>

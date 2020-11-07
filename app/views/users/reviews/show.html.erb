@@ -50,11 +50,11 @@
 								</tr>
 								<tr>
 									<th>エリア</th>
-									<td><%= @review.country %>・<%= @review.city %></td>
+									<td><%= @review.city.country.country %>・<%= @review.city.city %></td>
 								</tr>
 								<tr>
 									<th>予算</th>
-									<td><%= @review.currency.html_safe %><%= @review.budget %> 〜 <%= @review.currency %><%= @review.maximum_budget %></td>
+									<td><%#= @review.currency.html_safe %><%= @review.budget %> 〜 <%#= @review.currency %><%= @review.maximum_budget %></td>
 								</tr>
 							</table>
 

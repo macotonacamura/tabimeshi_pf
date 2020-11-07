@@ -52,7 +52,7 @@ Rails.application.routes.draw do
       			get 'search'
       		end
       		collection do
-      			get 'reviews/auto_complete'
+      			get 'reviews/auto_complete' #
     		end
 		end
 

@@ -10,8 +10,7 @@ class Review < ApplicationRecord
 	has_many :review_comments , dependent: :destroy
 	belongs_to :genre
 
-	# has_one :country
-	# accepts_nested_attributes_for :country
+	belongs_to :city
 
 
 	has_many :review_images, dependent: :destroy
@@ -26,14 +25,22 @@ class Review < ApplicationRecord
 	geocoded_by :address
 	after_validation :geocode, if: :address_changed?
 
-	validates :restaurant_name,presence: true, length: { maximum: 60 }
-	validates :review,presence: true
-	validates :rate, presence: true
-	validates :budget, numericality: { only_integer: true, greater_than: 1, less_than: :maximum_budget}
-	validates :maximum_budget, numericality: { only_integer: true,greater_than: :budget }
-	validates :address, presence: true
-	validates :country, presence: true
-	validates :city, presence: true
+	with_options presence: true do
+		validates :restaurant_name, length: { maximum: 60 }
+		validates :review
+		validates :rate
+		validates :budget, numericality: { only_integer: true, greater_than: 1}  #less_than: :maximum_budget
+		validates :maximum_budget, numericality: { only_integer: true, greater_than: 1 }
+		validates :address
+		validates :city
+	end
+
+
+	#自分でval作る
+	validate :check_budget
+    def check_budget
+	    errors.add(:budget, "より大きい値にしてください") if !(self.budget < self.maximum_budget) #.errors：エラーメッセージ 作成
+    end
 
 
 

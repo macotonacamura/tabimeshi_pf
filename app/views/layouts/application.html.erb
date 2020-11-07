@@ -59,7 +59,7 @@
                       </div>
                     </li>
                     <li class="nav-item nav-link">
-                      <%= button_to 'log out', destroy_user_session_path, method: :delete, :style=>"color:#fff;" %>
+                      <%= button_to 'log out', destroy_user_session_path, method: :delete, :style=>"color:#fff;", class: "button_to" %>
                     </li>
                   </ul>
                 <% elsif admin_signed_in? %>
@@ -68,7 +68,7 @@
                           <li style="padding-right: 15px;"><%= link_to 'ユーザー一覧', admins_users_path, :style=>"color:#fff;" %></li>
                           <li style="padding-right: 15px;"><%= link_to 'ジャンル登録・一覧', admins_genres_path, :style=>"color:#fff;" %></li>
                           <li style="padding-right: 15px;"><%= link_to '投稿一覧', admins_reviews_path, :style=>"color:#fff;" %></li>
-                          <li style="padding-right: 15px;"><%= link_to 'Log out', admins_sign_out_path, method: :delete, :style=>"color:#fff;" %></li>
+                          <li style="padding-right: 15px;"><%= button_to 'Log out', admins_sign_out_path, method: :delete, :style=>"color:#fff;", class: "button_to" %></li>
                       </ul>
                    <% else %>
                       <ul class="navbar-nav mr-auto">

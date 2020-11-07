@@ -33,7 +33,7 @@
 						<%= link_to review_path(review.id),:style=>"color:#444;", "data-turbolinks": false do %>
 								<h4><%= review.restaurant_name.truncate(30) %></h4>
 							<% end %>
-					<i class="fas fa-map-marker-alt"></i><%= review.country %>・<%= review.city %>
+					<i class="fas fa-map-marker-alt"></i><%= review.city.country.country %>・<%= review.city.city %>
 				</div>
 				<div id="star-rate-<%= review.id %>" ></div>
 				<script>

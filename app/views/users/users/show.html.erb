@@ -6,9 +6,9 @@
 
 				<div>
 					<% if @user == current_user %>
-						<h2 class="mypage fadein">mypage</h2>
+						<h2 class="mypage mt-3 fadein">mypage</h2>
 					<% else %>
-						<h2><%= @user.user_name %>'s room</h2>
+						<h2 class="mt-3 fadein"><%= @user.user_name %>'s room</h2>
 					<% end %>
 				</div>
 				<div class="time-limit fadein" style="font-size: 15px;"><%= flash[:change] %></div>

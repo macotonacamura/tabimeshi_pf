@@ -3,6 +3,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
     create_table :reviews do |t|
       t.integer :user_id
       t.integer :genre_id
+      t.integer :city_id
       t.string :restaurant_name
       t.text :review
       t.float :rate , default: 0
@@ -12,9 +13,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.string :address
       t.float :latitude
       t.float :longitude
-      t.string :currency
-      t.string :country
-      t.string :city
+
 
       t.timestamps
     end

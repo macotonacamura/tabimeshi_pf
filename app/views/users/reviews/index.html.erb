@@ -12,21 +12,9 @@
 				</div>
 			</div>
 
-			<div class="link-list col-md-7 fadein"><!--ここにfadein加えたい-->
+			<div class="link-list col-md-7 fadein">
 				<div class="time-limit" style="font-size: 15px;"><%#= flash[:failure] %></div>
-				<a class="btn-circle-flat " data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</a>
-				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-				  <div class="modal-dialog modal-lg">
-				    <div class="modal-content" style="padding:10px;">
-				    	<span style="margin-left: 10px;">目的地から検索</span>
-				      	 <%= form_with  url:reviews_path, method: :get, local: true do |f| %>
-				       	 <%= f.text_field :country, id:"form", placeholder:"国名を入力してください", :size=>"40x12" %>
-				     	 <%= f.submit 'search', class: "btn btn-xs btn-outline-secondary mb-2" %>
-					 	 <select id="result"></select>
-					  <% end %>
-				     </div>
-				  </div>
-				</div>
+				<button class="btn-circle-flat" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</button>
 
 				<%= link_to 'post', new_review_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
 				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
@@ -75,7 +63,7 @@
 
 		<div class="row review_list_index">
 			<h2 class="title_new_posts fadein" >Posts list</h2>
-			<%= render 'users/reviews/reviews_list', reviews:@reviews %>
+			<%= render 'users/reviews/reviews_list', reviews:@review %>
 			<div><%= paginate @reviews , class: "pagination" %></div>
 		</div>
 
@@ -94,4 +82,17 @@
 	      });
 	    </script>
 	</div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" style="padding:10px;">
+    	<span style="margin-left: 10px;">目的地から検索</span>
+      	 <%= form_with  url:reviews_path, method: :get, local: true do |f| %>
+       	 <%= f.text_field :country, id:"form", placeholder:"国名を入力してください", :size=>"40x12" %>
+     	 <%= f.submit 'search', class: "btn btn-xs btn-outline-secondary mb-2" %>
+	 	 <select id="result"></select>
+	  <% end %>
+     </div>
+  </div>
 </div>

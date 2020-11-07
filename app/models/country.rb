@@ -1,3 +1,6 @@
 class Country < ApplicationRecord
-	#belongs_to :review, optional: true
+	has_many :cities
+	has_many :reviews, through: :cities
+
+
 end

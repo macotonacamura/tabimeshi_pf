@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_092538) do
+ActiveRecord::Schema.define(version: 2020_11_07_095417) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,12 +32,16 @@ ActiveRecord::Schema.define(version: 2020_11_03_092538) do
     t.index ["user_id", "review_id"], name: "index_bookmarks_on_user_id_and_review_id", unique: true
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "city"
+    t.integer "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "countries", force: :cascade do |t|
     t.string "country"
-    t.string "city"
     t.string "currency"
-    t.string "code"
-    t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_092538) do
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
     t.integer "genre_id"
+    t.integer "city_id"
     t.string "restaurant_name"
     t.text "review"
     t.float "rate", default: 0.0
@@ -92,9 +97,6 @@ ActiveRecord::Schema.define(version: 2020_11_03_092538) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.string "currency"
-    t.string "country"
-    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.time "open"

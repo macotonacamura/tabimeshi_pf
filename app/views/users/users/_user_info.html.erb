@@ -2,7 +2,7 @@
 	<div>
 		<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
 	</div>
-	<div class="user_info_index_show">
+	<div class="user_info_index_show fadein">
 		<h3 class="user_name">
 			<%= link_to user_path(user.id), :style=>"color:#444;" do %>
 				<%= user.user_name %>
