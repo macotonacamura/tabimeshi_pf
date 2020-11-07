@@ -59,7 +59,7 @@
                       </div>
                     </li>
                     <li class="nav-item nav-link">
-                      <%= link_to 'log out', destroy_user_session_path, method: :delete, :style=>"color:#fff;" %>
+                      <%= button_to 'log out', destroy_user_session_path, method: :delete, :style=>"color:#fff;" %>
                     </li>
                   </ul>
                 <% elsif admin_signed_in? %>
