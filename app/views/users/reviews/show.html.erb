@@ -6,14 +6,15 @@
 				<div class="review-info fadein">
 					<div class="time-limit" style="font-size: 15px;"><%= flash[:update] %></div>
 					<div class="time-limit" style="font-size: 15px;"><%= flash[:create] %></div>
-
-						<% @review.review_images.each do |review_image| %>
-							<% if review_image.image.present? %>
-					     		<%=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
-					     			<%= image_tag review_image.image.url, class: 'review_images' %>
-					     		<% end %>
-					     	<% end %>
-				 		<% end %>
+						<div class="d-flex justify-content-center">
+							<% @review.review_images.each do |review_image| %>
+								<% if review_image.image.present? %>
+						     		<%=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
+						     			<%= image_tag review_image.image.url, class: 'review_images' %>
+						     		<% end %>
+						     	<% end %>
+					 		<% end %>
+					 	</div>
 
 
 						<div class="mt-3">投稿日時  <%=  l @review.created_at, format: :long %></div>
@@ -70,7 +71,7 @@
 						</div>
 
 						<div class="address">
-							<strong>住所 </strong>
+							<strong><i class="fas fa-map-marker-alt ml-3"></i></strong>
 							<span><%= @review.address %></span>
 
 							<script type="text/javascript">

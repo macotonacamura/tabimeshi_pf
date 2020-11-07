@@ -13,7 +13,7 @@
 		</div>
 
 		<div class="row">
-			<div class="images col-xs-4">
+			<div class="images col-xs-4 mt-2">
 				<% review.review_images.each do |review_image| %>
 					<% if review_image.image.present? %>
 			 			<%=  link_to review_image.image.url do %>
@@ -33,7 +33,7 @@
 						<%= link_to review_path(review.id),:style=>"color:#444;", "data-turbolinks": false do %>
 								<h4><%= review.restaurant_name.truncate(30) %></h4>
 							<% end %>
-					<%= review.country %>・<%= review.city %>
+					<i class="fas fa-map-marker-alt"></i><%= review.country %>・<%= review.city %>
 				</div>
 				<div id="star-rate-<%= review.id %>" ></div>
 				<script>

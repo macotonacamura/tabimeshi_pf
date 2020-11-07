@@ -1,6 +1,6 @@
 <div class="page_edit">
 	<div class="container">
-		<h2 class="edit_title">Edit your review</h2>
+		<h2 class="edit_title mt-3 mb-2">Edit your review</h2>
 		<% if @review.errors.any? %>
 	        <div id="error_explanation">
 	            <h3><%= @review.errors.count %>error prohibited this obj from being saved:</h3>
@@ -13,7 +13,7 @@
 	    <% end %>
 
 		<%= form_with model: @review,url:review_path(@review.id), method: :patch, local: true do |f| %>
-			<table class="table">
+			<table class="table mt-2">
 				<tr>
 					<th><%= f.label 'restaurant name' %></th>
 					<td><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
@@ -68,7 +68,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><%= f.submit 'send', class: "btn btn-default" %></td>
+					<td><%= f.submit 'send', class: "btn btn-outline-secondary" %></td>
 				</tr>
 			</table>
 		<% end %>

@@ -12,9 +12,9 @@
 				</div>
 			</div>
 
-			<div class="link-list col-md-7 fadein">
+			<div class="link-list col-md-7 fadein"><!--ここにfadein加えたい-->
 				<div class="time-limit" style="font-size: 15px;"><%#= flash[:failure] %></div>
-				<a class="btn-circle-flat fadein" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</a>
+				<a class="btn-circle-flat " data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</a>
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 				  <div class="modal-dialog modal-lg">
 				    <div class="modal-content" style="padding:10px;">
@@ -28,9 +28,9 @@
 				  </div>
 				</div>
 
-				<%= link_to 'post', new_review_path,class: 'btn-circle-flat fadein', :style=>"color:#fff;" %>
-				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat fadein', :style=>"color:#fff;" %>
-				<a class="btn-circle-flat fadein"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">discover</a>
+				<%= link_to 'post', new_review_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
+				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
+				<a class="btn-circle-flat"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">discover</a>
 			</div>
 		</div>
 

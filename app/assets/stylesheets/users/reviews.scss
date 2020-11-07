@@ -711,6 +711,10 @@
   text-align:center;
 }
 
+.main{
+  width:100%;
+  }
+
 /*new*/
 
   .navbar{
@@ -762,10 +766,26 @@
    width:100%;
   }
 
-  /*index*/
-  .main{
-  width:100%;
+  /*show*/
+  .page_show{
+  width:100%
   }
+
+  .review-info{
+  width:95%;
+  }
+
+  .review_images{
+  height:60px;
+  width:100px;
+  margin:5px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border: 2px solid #eee;
+  }
+
 
 
 }
