@@ -1,7 +1,22 @@
 class Users::CountriesController < ApplicationController
 
 	def asia
-		@asia = Review.where(country_id: [8])
+		#@reviews = Review.all
+		#@asia = Country.cities.reviews.where(country: ['China','Korea','Taiwan','Taiwan'])
+
+		@asia = Country.includes(:cities => :reviews).where(country: ['China','Korea','Taiwan'])#Thailand
+
+		@reviews = []
+		@asia.each do |country|
+			country.cities.each do |city|
+				city.reviews.each do |review|
+					review
+				end
+			end
+		end
+
+		@user = @reviews.users
+		#@asia = Review.includes(:countries => :reviews).where(country: ['China','Korea','Taiwan','Taiwan'])
 	end
 
 	def america

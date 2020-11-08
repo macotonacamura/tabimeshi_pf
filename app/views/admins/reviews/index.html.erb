@@ -1,30 +1,51 @@
-<div class="container" style="height: auto;">
-	<div class="row">
-		<div class="col-xs-12" style="margin-top: 110px;">
-			<h2 style="margin-bottom: 30px;">投稿一覧</h2>
-			<% @reviews.each do |review| %>
-			 <div class="review-box">
-			 	<div>
-					<%=  l review.created_at, format: :long %>
-					<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
-					<strong>
-						<%= link_to admins_user_path(review.user.id),:style=>"color:#444;" do %>   <%= review.user.user_name %><% end %>
-					</strong>
-					<span class="fas fa-heart" aria-hidden="true"></span>
-					<%= review.likes.count %>
-					<i class="far fa-comment"></i><%= review.review_comments.count %>
+<div class="container">
+	<h2 style="margin-top: 130px;">投稿一覧</h2>
+	<div style="padding-bottom:150px;">
+		<% @reviews.each do |review| %>
+			<div class="review-box fadein" style="height: auto;">
+				<div class="row">
+					<div class="col-xs-12">
+						<%=  l review.created_at, format: :long %>
+						<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
+						<strong>
+							<%= link_to user_path(review.user.id),:style=>"color:#444;" do %>
+								<%= review.user.user_name %>
+							<% end %>
+						</strong>
+					</div>
 				</div>
-
-					<th><i class="fas fa-utensils">
-						<h4><%= link_to admins_review_path(review.id),:style=>"color:#444;" do %><%= review.restaurant_name %><% end %></h4>
-						</i>
-						<%= review.country %>・<%= review.city %>
-					</th>
-					<div id="star-rate"><%= review.rate %></div>
-				<div><%= review.review %></div>
+				<div class="row">
+					<div class="images col-xs-4 mt-2">
+						<% review.review_images.each do |review_image| %>
+							<% if review_image.image.present? %>
+					 			<%=  link_to review_image.image.url do %>
+					 				<%= image_tag review_image.image.url, class: 'review_images_small' %>
+						 		<% end %>
+						 	<% end %>
+						<% end %>
+					</div>
+					<div class="col-xs-8 pb-2" style="margin-left: 30px;">
+						<i class="fas fa-utensils" style="margin-top:15px;"></i>
+						<%= link_to admins_review_path(review.id),:style=>"color:#444;", "data-turbolinks": false do %>
+							<h4><%= review.restaurant_name.truncate(30) %></h4>
+						<% end %>
+						<i class="fas fa-map-marker-alt"></i><%= review.city.country.country %>・<%= review.city.city %>
+						<div id="star-rate-<%= review.id %>" ></div>
+						<script>
+							$('#star-rate-<%= review.id %>').raty({
+								size: 35,
+								starOff:  "/assets/star-off.png",
+								starOn: "/assets/star-on.png",
+								starHalf: "/assets/star-half.png",
+								readOnly: true,
+								half: true,
+								score: <%= review.rate %>
+							});
+						</script>
+						<div class="review_index" style="margin-top: 15px;"><%= review.review.truncate(20) %></div>
+					</div>
+				</div>
 			</div>
-			<% end %>
-			<div class="pagenate"><%= paginate @reviews %></div>
-		</div>
+		<% end %>
 	</div>
 </div>

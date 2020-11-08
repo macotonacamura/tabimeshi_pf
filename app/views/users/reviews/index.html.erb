@@ -28,28 +28,28 @@
 
 			<div style="padding:30px;">
 
-				<%= link_to countries_asia_path do %>
+				<%= link_to reviews_path(continent_id: 8), method: :get do %>
 					<div class="popular_area_asia">
 						<div class="popular_area-content">
 							<h3 style="color:#fff;">Asia</h3>
 						</div>
 					</div>
 				<% end %>
-				<%= link_to countries_america_path do %>
+				<%= link_to reviews_path(continent_id: 9), method: :get do %>
 				<div class="popular_area_america">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">North America</h3></strong>
 					</div>
 				</div>
 				<% end %>
-				<%= link_to countries_europe_path do %>
+				<%= link_to reviews_path(continent_id: 10), method: :get do %>
 				<div class="popular_area_europe">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">Europe</h3></strong>
 					</div>
 				</div>
 				<% end %>
-				<%= link_to countries_oseania_path do %>
+				<%= link_to reviews_path(continent_id: 11), method: :get do %>
 				<div class="popular_area_oseania">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">Oceania</h3></strong>
@@ -63,7 +63,7 @@
 
 		<div class="row review_list_index">
 			<h2 class="title_new_posts fadein" >Posts list</h2>
-			<%= render 'users/reviews/reviews_list', reviews:@review %>
+			<%= render 'users/reviews/reviews_list', reviews: @reviews %>
 			<div><%= paginate @reviews , class: "pagination" %></div>
 		</div>
 

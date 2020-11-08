@@ -16,12 +16,6 @@ class Review < ApplicationRecord
 	has_many :review_images, dependent: :destroy
   	accepts_nested_attributes_for :review_images, limit: 5
 
-
-	validates :rate, numericality: {
-    less_than_or_equal_to: 5,
-    greater_than_or_equal_to: 1
-	}, presence: true
-
 	geocoded_by :address
 	after_validation :geocode, if: :address_changed?
 
@@ -33,6 +27,10 @@ class Review < ApplicationRecord
 		validates :maximum_budget, numericality: { only_integer: true, greater_than: 1 }
 		validates :address
 		validates :city
+		validates :rate, numericality: {
+				   less_than_or_equal_to: 5,
+		    	   greater_than_or_equal_to: 1
+				  }
 	end
 
 

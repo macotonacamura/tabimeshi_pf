@@ -63,7 +63,7 @@ $(window).on('load', function(){
 
  $(function() {
    // ハッシュリンク(#)と別ウィンドウでページを開く場合はスルー
-   $('a:not([href^="#"]):not([target])').on('click', function(e){
+   $('a:not([href^="#"]):not([target]):not(a[rel*="lightbox[sample-group]"])').on('click', function(e){
      e.preventDefault(); // ナビゲートをキャンセル
      url = $(this).attr('href'); // 遷移先のURLを取得
      if (url !== '') {

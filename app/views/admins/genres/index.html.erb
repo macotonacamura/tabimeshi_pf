@@ -1,55 +1,54 @@
 <div class="container">
 	<div class="row">
-		<div class="col" style="height: 1000px;">
+		<div class="col" style="padding-bottom:150px;">
 
-			<h1 style="margin-top: 120px;">ジャンル一覧・追加</h1>
+			<h1 style="margin: 110px 0 50px 0;">ジャンル一覧・追加</h1>
 				<%= flash[:genre] %>
 
-
+			<div style="margin-bottom: 50px;">
 				<%= form_with model: @genre, url:admins_genres_path, method: :post, local: true do |f| %>
-
 						<%= f.text_field :genre_name ,class: '' %>
-
 						<label><%= f.radio_button :is_active, :true %> 有効 </label><!--booleanはtかfを返す-->
 						<label><%= f.radio_button :is_active, :false %> 無効</label>
-
-						<br><%= f.submit '追加',class: 'btn btn-primary'%></br>
+						<%= f.submit '追加',class: 'btn btn-primary'%>
 				<% end %>
+			</div>
 
-				<table class="table">
+			<table class="table">
 
-					<thead>
+				<thead>
+					<tr>
+						<th>ジャンル</th>
+						<th>状態</th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @genres.each do |genre| %>
+
 						<tr>
-							<th>ジャンル</th>
-							<th>状態</th>
-							<th colspan="3"></th>
+							<td>
+								<%= genre.genre_name %>
+							</td>
+
+					 		<td>
+					 			<% if genre.is_active == true %> <!--''で囲うと文字列になってしまうので値だけ記述-->
+					 				<h5>有効</h5>
+					 			<% else %>
+					 				<h5>無効</h5>
+					 			<% end %>
+					 		</td>
+
+					 		<td>
+					 			<%= link_to '編集', edit_admins_genre_path(genre.id),class: "btn btn-default glyphicon glyphicon-wrench admin_genres_edit" %>
+							</td>
 						</tr>
-					</thead>
 
-					<tbody>
-						<% @genres.each do |genre| %>
+					<% end %>
+				</tbody>
 
-							<tr>
-								<td>
-									<%= genre.genre_name %>
-								</td>
-
-						 		<td>
-						 			<% if genre.is_active == true %> <!--''で囲うと文字列になってしまうので値だけ記述-->
-						 				<h5>有効</h5>
-						 			<% else %>
-						 				<h5>無効</h5>
-						 			<% end %>
-						 		</td>
-
-						 		<td>
-						 			<%= link_to '編集', edit_admins_genre_path(genre.id),class: "btn btn-default glyphicon glyphicon-wrench admin_genres_edit" %>
-								</td>
-							</tr>
-
-						<% end %>
-					</tbody>
-				</table>
+			</table>
 				<%= paginate @genres %>
 		</div>
 	</div>

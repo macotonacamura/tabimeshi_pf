@@ -52,7 +52,8 @@ Rails.application.routes.draw do
       			get 'search'
       		end
       		collection do
-      			get 'reviews/auto_complete' #
+      			get 'auto_complete'
+      			get 'auto_complete_cities'
     		end
 		end
 

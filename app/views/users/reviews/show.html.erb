@@ -1,7 +1,7 @@
 <div class="page_show">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 mb-30">
 
 				<div class="review-info fadein">
 					<div class="time-limit" style="font-size: 15px;"><%= flash[:update] %></div>
@@ -109,7 +109,7 @@
 
 						<div>
 			            	<%if @review.user == current_user%>
-								<%= link_to 'delete',review_path(@review),method: :delete, local: true, class: 'btn-delete',"data-confirm" => "Are you sure?"%>
+								<%= button_to 'delete',review_path(@review),method: :delete, local: true, class: 'btn-delete',"data-confirm" => "Are you sure?"%>
 								<%= link_to edit_review_path(@review.id) ,class: 'btn-circle-flat_user_show icon_to_edit', :style=>"color:#fff;" do %>
 									<i class="fas fa-wrench"></i>
 								<% end %>

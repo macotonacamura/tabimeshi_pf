@@ -19,28 +19,27 @@
 					<td><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
 				</tr>
 				<tr>
-					<th><%= f.label 'distination' %></th>
+					<th><%= f.label 'Country,City' %></th>
 					<td>
-						<%= f.text_field :country, :placeholder => "国名(例:France) 半角英", class: 'country', id: :country %>
-
-						<%= f.text_field :city, :placeholder => "都市名(例:Paris) 半角英", class: 'city',id: :city %>
-						<!-- <script>
+						<%= f.text_field :country, value: @review.city.country.country, class: 'country', id: :country, autocomplete: 'off' %>
+						<%= f.text_field :city, value: @review.city.city, class: 'city',id: :city,  autocomplete: 'off' %>
+						<script>
 						  $( function() {
 						    $( "#country" ).autocomplete({
 						      autoFocus: true,
-						      source: "/reviews/new.json",
-						      minLength: 0,
+						      source: "/reviews/auto_complete.json",
+						      minLength: 1,
 						    });
 						  });
 
-						  $( function() {
+						$( function() {
 						    $( "#city" ).autocomplete({
-						      autoFocus: true,
-						      source: "/reviews/new.json",
-						      minLength: 0,
+							    autoFocus: true,
+							    source: "/reviews/auto_complete_cities.json",
+						      	minLength: 1
 						    });
-						  });
-						</script> -->
+						});
+						</script>
 					</td>
 				</tr>
 				<tr>
@@ -50,7 +49,19 @@
 				<tr>
 					<th><%= f.label 'budget' %></th>
 					<td>
-						<%#= f.select :currency, ['$',' € ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'},class: 'sample' %>
+
+						<%#= f.text_field :currency,,id: :currency %>
+						<!-- <script>
+
+						$( function() {
+						    $( "#currency" ).autocomplete({
+						      autoFocus: true,
+						      source: "/reviews/new.json",
+						      minLength: 0,
+						    });
+						  });
+						</script>-->
+
 						<%= f.text_field :budget,:placeholder => "予算(最低)" %> 〜 <%= f.text_field :maximum_budget, :placeholder => "予算(上限額)" %>
 					</td>
 				</tr>
