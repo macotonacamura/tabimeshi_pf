@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
 
+  validates_uniqueness_of :user_name
+  validates :introduction, length: { maximum: 50 }
+
   has_many :sns_credentials, dependent: :destroy
 
   mount_uploader :profile_image, ProfileImageUploader

@@ -3,6 +3,16 @@
 		<div class="row">
 			<div class="col-xs-12 edit_form">
 				<h1>Edit Profile</h1>
+				<% if @user.errors.any? %>
+			        <div id="error_explanation">
+			            <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
+			            <ul>
+			                <% @user.errors.full_messages.each do |message| %>
+			                	<li><%= message %></li>
+			                	<% end %>
+			            </ul>
+			        </div>
+	    		<% end %>
 
 				<%= form_with model: @user,url:user_path(current_user.id), method: :patch, local: true do |f| %>
 
@@ -33,11 +43,11 @@
 						</script>
 						<tr>
 							<th><%= f.label 'user name' %></th>
-							<td><%= f.text_field :user_name ,:size=>"21" %></td>
+							<td><%= f.text_field :user_name ,:size=>"21", placeholder: "ユーザーネーム" %></td>
 						</tr>
 						<tr>
 							<th><%= f.label 'introduction' %></th>
-							<td><%= f.text_area :introduction ,:size=>"40", class: "introduction_area" %></td>
+							<td><%= f.text_area :introduction ,:size=>"40", placeholder: "紹介文(50字まで)", class: "introduction_area" %></td>
 						</tr>
 						<tr>
 							<th>Private Information</th>

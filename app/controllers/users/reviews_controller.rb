@@ -43,18 +43,23 @@ class Users::ReviewsController < ApplicationController
   end
 
   def auto_complete_cities
-    # cities = City.select(:city).where("city like '%" + params[:term] + "%'").order(city: :asc)
     cities = City.select(:city).where("city like '%" + params[:term] + "%'").order(city: :asc)
-    #render json: { cities: City.all, currency: 'JPY' }.to_json
     render json: cities.limit(10).map(&:city).to_json
   end
 
 
   def create
+    if review_params[:country].blank?
+       @review = Review.new
+       render 'new'
+       return #59~以降をやらないでね という記述
+    end
+
     @review = Review.new(review_params.merge({user_id: current_user.id}).except(:country, :city)) #.merge〜でパラメータにuserのidを付け加える
     country = Country.find_by(country: review_params[:country])
     @review.city = City.find_by(city: review_params[:city],country_id: country.id)
     @review = validate_budget(@review)
+
     if @review.save
       redirect_to review_path(@review)
       flash[:create] = "You've created a new review successfully."
@@ -79,15 +84,20 @@ class Users::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    country = Country.find_by(country: review_params[:country])
-    @review.city = City.find_by(city: review_params[:city],country_id: country.id) #city確定=countryの確定
-    @review = validate_budget(@review)
-    if @review.update(review_params.except(:country, :city))
-      redirect_to review_path(@review)
-      flash[:update] = "You've updateded this review successfully."
-    else
-      render 'edit'
-    end
+     if review_params[:country].blank?
+        @city = @review.city
+        render 'edit'
+        return
+     end
+      country = Country.find_by(country: review_params[:country])
+      @review.city = City.find_by(city: review_params[:city],country_id: country.id) #city確定=countryの確定
+      @review = validate_budget(@review)
+      if @review.update(review_params.except(:country, :city))
+        redirect_to review_path(@review)
+        flash[:update] = "You've updateded this review successfully."
+      else
+        render 'edit'
+      end
   end
 
 

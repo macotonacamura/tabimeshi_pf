@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_055657) do
+ActiveRecord::Schema.define(version: 2020_11_09_044618) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,19 +24,12 @@ ActiveRecord::Schema.define(version: 2020_11_08_055657) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "bookmarks", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "review_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id", "review_id"], name: "index_bookmarks_on_user_id_and_review_id", unique: true
-  end
-
   create_table "cities", force: :cascade do |t|
     t.string "city"
     t.integer "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city"], name: "index_cities_on_city"
   end
 
   create_table "continents", force: :cascade do |t|
@@ -100,14 +93,14 @@ ActiveRecord::Schema.define(version: 2020_11_08_055657) do
     t.text "review"
     t.float "rate", default: 0.0
     t.integer "budget"
+    t.string "currency"
     t.integer "maximum_budget"
+    t.string "image_id"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.time "open"
-    t.time "close"
   end
 
   create_table "sns_credentials", force: :cascade do |t|

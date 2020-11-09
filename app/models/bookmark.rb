@@ -1,2 +1,0 @@
-class Bookmark < ApplicationRecord
-end

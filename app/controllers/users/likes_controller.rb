@@ -4,6 +4,7 @@ class Users::LikesController < ApplicationController
 	def create
 		@review = Review.find(params[:review_id])
 		like = current_user.likes.new(review_id: @review.id)
+		#binding.pry
 		like.save
 	end
 

@@ -205,3 +205,25 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
+  activerecord:
+    attributes:
+      user:
+        user_name: ユーザーネーム
+        introduction: 紹介文
+      review:
+        restaurant_name: レストラン名
+        review: 口コミ
+        rate: 評価
+        budget: 予算(最低)
+        currency: 通貨
+        maximum_budget: 予算(最高)
+        address: 住所
+      review_comments:
+        review_comment: コメント
+      genres:
+        genres: ジャンル
+      countries:
+        country: 国名
+      cities:
+        city: 都市名

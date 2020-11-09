@@ -1,123 +1,122 @@
 <div class="page_new">
 	<div class="container">
-		<h2 class="title mt-2 fadein">post review</h2>
+		<div class="row">
+			<h2 class="title mt-2 fadein">Post review</h2>
 
-		<% if @review.errors.any? %>
-	        <div id="error_explanation">
-	            <h3><%= @review.errors.count %>error prohibited this obj from being saved:</h3>
-	            <ul>
-	                <% @review.errors.full_messages.each do |message| %>
-	                <li><%= message %></li>
-	                <% end %>
-	            </ul>
-	        </div>
-	    <% end %>
+			<% if @review.errors.any? %>
+		        <div id="error_explanation">
+		            <h3><%= @review.errors.count %>error prohibited this obj from being saved:</h3>
+		            <ul>
+		                <% @review.errors.full_messages.each do |message| %>
+		                <li><%= message %></li>
+		                <% end %>
+		            </ul>
+		        </div>
+		    <% end %>
 
-		<%= form_with model: @review, url:reviews_path(@review.id), method: :post, local: true do |f| %>
-			<table class="table table_new_all fadein" >
-				<tr class="table_new">
-					<th class="table_new"><%= f.label 'restaurant name' %></th>
-					<td class="table_new"><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
-				</tr>
-				<tr class="table_new">
-					<th class="table_new">
-					<div class="form-group" id="star" style="width:300px;">
-						<%= f.label :rate, style: "margin-right: 35px;" %>
-						<%= f.hidden_field :rate, id: :review_star %>
-					</div>
-					</th class="table_new">
-					<script>
-					  $('#star').raty({
-					   size: 35,
-					   starOff:  "/assets/star-off.png",
-					   starOn: "/assets/star-on.png",
-					   starHalf: "/assets/star-half.png",
-					   scoreName: 'review[rate]',
-					   half: true,
-					 });
-					</script>
-				</tr>
-
-				<tr class="table_new">
-					<th><%= f.label 'Country,City' %></th>
-					<td>
-						<%= f.text_field :country, placeholder: "国名(例:France) 半角英", class: 'country', id: :country, autocomplete: 'off' %>
-						<%#= f.collection_select :country_id, Country.all, :id, :country %>
-
-						<%= f.text_field :city, placeholder: "都市名(例:Paris) 半角英", class: 'city',id: :city, autocomplete: 'off' %>
+			<%= form_with model: @review, url:reviews_path(@review.id), method: :post, local: true do |f| %>
+				<table class="table table_new_all fadein" >
+					<tr class="table_new">
+						<th class="table_new"><%= f.label 'restaurant name' %></th>
+						<td class="table_new"><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
+					</tr>
+					<tr class="table_new">
+						<th class="table_new">
+						<div class="form-group" id="star" style="width:300px;">
+							<strong>Rate</strong>
+							<%= f.hidden_field :rate, id: :review_star %>
+						</div>
+						</th class="table_new">
 						<script>
-						  $( function() {
-						    $( "#country" ).autocomplete({
-						      autoFocus: true,
-						      source: "/reviews/auto_complete.json",
-						      minLength: 1,
-						    });
-						  });
-
-						$( function() {
-						    $( "#city" ).autocomplete({
-							    autoFocus: true,
-							    source: "/reviews/auto_complete_cities.json",
-						      	minLength: 1
-						    });
-						});
+						  $('#star').raty({
+						   size: 35,
+						   starOff:  "/assets/star-off.png",
+						   starOn: "/assets/star-on.png",
+						   starHalf: "/assets/star-half.png",
+						   scoreName: 'review[rate]',
+						   half: true,
+						 });
 						</script>
-					</td>
-				</tr>
+					</tr>
 
-				<tr class="table_new">
-					<th class="table_new"><%= f.label 'address' %></th>
-					<td class="table_new"><%= f.text_area :address,:size=>"30", :placeholder => "住所" %></td>
-				</tr>
+					<tr class="table_new">
+						<th>Country,City</th>
+						<td class="country_box">
+							<%= f.text_field :country, placeholder: "国名(例:France) 半角英", class: 'country', id: :country, autocomplete: 'off' %>
+							<%= f.text_field :city, placeholder: "都市名(例:Paris) 半角英", class: 'city',id: :city, autocomplete: 'off' %>
+							<script>
+							  $( function() {
+							    $( "#country" ).autocomplete({
+							      autoFocus: true,
+							      source: "/reviews/auto_complete.json",
+							      minLength: 1,
+							    });
+							  });
+							$( function() {
+							    $( "#city" ).autocomplete({
+								    autoFocus: true,
+								    source: "/reviews/auto_complete_cities.json",
+							      	minLength: 1
+							    });
+							});
+							</script>
+						</td>
+					</tr>
 
-				<tr class="table_new">
-					<th class="table_new"><%= f.label 'budget' %></th>
-					<td class="table_new">
-						<%#= f.select :currency, ['$',' € ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'},class: 'sample' %>
-						<%= f.text_field :budget,:placeholder => "予算(最低)",class: "budget" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額)",class: "budget" %></td>
-				</tr>
+					<tr class="table_new">
+						<th class="table_new">Address</th>
+						<td class="table_new"><%= f.text_area :address,:size=>"30", :placeholder => "住所" %></td>
+					</tr>
 
-				<tr class="table_new">
-					<th class="table_new"><%= f.label 'review' %></th>
-					<td class="table_new"><%= f.text_area :review ,:size=>"50x8",:placeholder => "レビュー",class: 'review_area' %></td>
-				</tr>
-				<tr class="table_new">
-					<th><%= f.label 'genre' %> </th>
-  					<td><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: "-- 選択してください --" %></td>
-				</tr>
+					<tr class="table_new">
+						<th class="table_new">Budget</th>
+						<td class="table_new">
+							<%= f.select :currency, ['$',' EUR ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'} %>
+							<%= f.text_field :budget,:placeholder => "予算(最低額) 15",class: "budget_box" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額) 30",class: "budget_box" %></td>
+					</tr>
 
-				<tr class="table_new">
-					<th><%= f.label 'images' %></th>
-					<td class="table_new">
-						<div class="post__drop__box__container">
-				            <div class="prev-content"></div>
-				            <div class="label-content">
-				              <label class="label-box" for="review_images_attributes_0_image" id="label-box--0">
-				                <pre class="label-box__text-visible"></pre>
-				              </label>
-				            </div>
-				            <div class="hidden-content">
-				            	<%= f.fields_for :review_images do |image_form| %>
-				            		<div>
-					            		<% if image_form.object.image.present? %>
-					            			<%= image_tag image_form.object.image.url, class: 'review_images' %>
-					            		<% end %>
-					            		<%= image_form.file_field :image, class: 'hidden-field' %>
-					            		<%#= image_form.hidden_field :id, value: nil %>
-					            		<%#= image_form.hidden_field :review_id, value: image_form.review_id %>
-				            		</div>
-				            	<% end %>
-				            </div>
-					</td>
-				</tr>
+					<tr class="table_new">
+						<th class="table_new">Review</th>
+						<td class="table_new"><%= f.text_area :review ,:size=>"50x8",:placeholder => "口コミ",class: 'review_area' %></td>
+					</tr>
+					<tr class="table_new">
+						<th><%= f.label 'genre' %> </th>
+	  					<td><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: "ジャンルを選択してください --" %></td>
+					</tr>
 
-				<tr class="table_new">
-					<th></th>
-				<td class="table_new"><%= f.submit 'post', class: "btn btn-outline-secondary" %></td>
-				</tr>
+					<tr class="table_new">
+						<th><%= f.label 'images' %></th>
+						<td class="table_new">
+							<div class="post__drop__box__container">
+					            <div class="prev-content"></div>
+					            <div class="label-content">
+					              <label class="label-box" for="review_images_attributes_0_image" id="label-box--0">
+					                <pre class="label-box__text-visible"></pre>
+					              </label>
+					            </div>
+					            <div class="hidden-content">
+					            	<%= f.fields_for :review_images do |image_form| %>
+					            		<div>
+						            		<% if image_form.object.image.present? %>
+						            			<%= image_tag image_form.object.image.url, class: 'review_images' %>
+						            		<% end %>
+						            		<%= image_form.file_field :image, class: 'hidden-field' %>
+						            		<%#= image_form.hidden_field :id, value: nil %>
+						            		<%#= image_form.hidden_field :review_id, value: image_form.review_id %>
+					            		</div>
+					            	<% end %>
+					            </div>
+						</td>
+					</tr>
 
-			</table>
-		<% end %>
+					<tr class="table_new">
+						<th></th>
+					<td class="table_new pb-2"><%= f.submit 'post', class: "btn btn-outline-secondary" %></td>
+					</tr>
+
+				</table>
+			<% end %>
+		</div>
 	</div>
 </div>
 

@@ -22,7 +22,7 @@
 //= require_tree .
 
 $(function(){
-  setTimeout("$('.time-limit').fadeOut('slow')", 2000)
+  setTimeout("$('.time-limit').fadeOut('slow')", 3000)
 })
 
 
@@ -63,14 +63,16 @@ $(window).on('load', function(){
 
  $(function() {
    // ハッシュリンク(#)と別ウィンドウでページを開く場合はスルー
-   $('a:not([href^="#"]):not([target]):not(a[rel*="lightbox[sample-group]"])').on('click', function(e){
+   $('a:not([href^="#"]):not([target]):not(a[rel*="lightbox[sample-group]"]):not([data-method]):not([class="lb-close"])').on('click', function(e){
      e.preventDefault(); // ナビゲートをキャンセル
      url = $(this).attr('href'); // 遷移先のURLを取得
+     console.log('test tool')
+     console.log(url)
      if (url !== '') {
        $('body').addClass('fadeout');  // bodyに class="fadeout"を挿入
        setTimeout(function(){
-         window.location = url;  // 0.4秒後に取得したURLに遷移
-       }, 400);
+          window.location = url;  // 0.3秒後に取得したURLに遷移
+       }, 300);
      }
      return false;
    });
@@ -86,7 +88,7 @@ $(function(){
         var elemPos = $(this).offset().top;
         var scroll = $(window).scrollTop();
         var windowHeight = $(window).height();
-        if (scroll > elemPos - windowHeight + 200){
+        if (scroll > elemPos - windowHeight + 300){
             $(this).addClass('scrollin');
                 }
             });

@@ -144,6 +144,7 @@
 
     this.$lightbox.hide().on('click', function(event) {
       if ($(event.target).attr('id') === 'lightbox') {
+        console.log('test')
         self.end();
       }
     });

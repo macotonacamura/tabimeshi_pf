@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .page{
-  background-image: image-url("../background_image.jpg");
+  background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
 }
@@ -14,7 +14,7 @@
 	margin-bottom: 10px;
 	background-size: cover;
 	background-position: center;
-	background-image: image-url(../home_pic.jpg);
+	background-image: url(../home_pic.jpg);
 	border-top-left-radius: 10px;
 	border-top-right-radius: 20px;
 	border-bottom-right-radius: 30px;
@@ -119,7 +119,7 @@ nav{
 }
 
 
-.btn-circle-flat:nth-child(-n+3) {
+.btn-circle-flat_home:nth-child(-n+3) {
   text-decoration: none;
   background: #004400;
   color: #FFF;

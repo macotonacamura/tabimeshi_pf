@@ -2,8 +2,6 @@ class Users::UsersController < ApplicationController
  before_action :authenticate_user!
   def index
 	  @users = User.partical(params[:content]) #ここで検索結果&削除されていない会員のみ表示 モデルファイルに定義あり
-
-
   end
 
   def show

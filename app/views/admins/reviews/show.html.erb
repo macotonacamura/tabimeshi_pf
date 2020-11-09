@@ -15,11 +15,16 @@
 				<h4>Rate <%= @review.rate %></h4>
 				<div class="images col-xs-4">
 				<table>
+					<tr style="width:600px;">
+						<th>エリア</th>
+						<td> <%= @review.city.country.country %>・<%= @review.city.city %></td>
+					</tr style="width:600px;">
 					<tr>
-						<th>エリア <%= @review.city.country.country %>・<%= @review.city.city %></th>
 						<th>予算</th>
 						<td><%= @review.budget %> 〜 <%= @review.maximum_budget %></td>
 					</tr>
+				</table>
+				<table>
 					<tr>
 						<th style="padding-top: 20px;"><%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
 						 	<%= link_to admins_user_path(@review.user.id), :style=>"color:#444;" do %>
@@ -29,19 +34,17 @@
 					</tr>
 					<tr>
 						<td>
-							<div class="review">
+							<div class="review" style="width:1000px;">
 								<%= @review.review %>
 							</div>
-						</td>
-						<td>
-							<span class="fas fa-heart" aria-hidden="true"></span>
-							<%= @review.likes.count %>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<strong class="shop-info">住所 </strong>
 							<span><%= @review.address %></span>
+							<span class="fas fa-heart" aria-hidden="true"></span>
+								<%= @review.likes.count %>
 						</td>
 					</tr>
 				</table>

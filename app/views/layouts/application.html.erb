@@ -15,35 +15,38 @@
     <div class="wrapper">
 
       <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav fixed-top fadein" style="height: 90px;">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav fixed-top fadein0" style="height: 90px;">
           <div class="container">
-             <a class="navbar-brand " href="/">
+            <a class="navbar-brand " href="/">
               <% if user_signed_in? %>
                 <div id="head-logo">
-                  <%= link_to reviews_path,:style=>"color:#fff;", class: "logo " do %><h4>Tabimeshi</h4>
-                  <%#= image_tag('/assets/tabimeshi.png',width: '23%', height: '23%', class: "logo mb-3") %>
+                  <%= link_to reviews_path,:style=>"color:#fff;", class: "logo " do %><!-- <h4>Tabimeshi</h4> -->
+                  <%= image_tag('/assets/tmlogo3.png',width: '30%', height: '30%', class: "logo mt-3 mb-2") %>
                   <% end %>
                 </div>
               <% else %>
-                <%= link_to root_path, :style=>"color:#fff;" do %><h4>Tabimeshi</h4><% end %>
+                <%= link_to root_path, :style=>"color:#fff;" do %>
+                  <%= image_tag('/assets/tmlogo3.png',width: '30%', height: '30%', class: "logo mt-3 mb-2") %>
+                <% end %>
               <% end %>
-              </a>
+            </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <% if user_signed_in? %>
                   <ul class="navbar-nav mr-auto">
-                    <li class="nav-item nav-link">
+                    <li class="nav-item nav-link nav_res">
                       <%= link_to 'find ppl', users_path, :style=>"color:#fff;" %>
                     </li>
-                    <li class="nav-item nav-link">
+                    <li class="nav-item nav-link nav_res">
                       <%= link_to 'post review', new_review_path, :style=>"color:#fff;" %>
                     </li>
                   </ul>
                   <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">x x x</a>
+                      <a class="nav-link dropdown-toggle nav_res" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">x x x</a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="text-align: center;">
                         <a class="dropdown-item" href="#">
                           <%= link_to user_path(current_user.id), :style=>"color:#333; font-size:25px;" do %>
@@ -83,11 +86,9 @@
                           </li>
                       </ul>
                     <% end %>
-              </div>
+                </div>
             </div>
           </nav>
-
-
         </header>
 
     <%= yield %>

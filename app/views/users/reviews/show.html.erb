@@ -54,7 +54,7 @@
 								</tr>
 								<tr>
 									<th>予算</th>
-									<td><%#= @review.currency.html_safe %><%= @review.budget %> 〜 <%#= @review.currency %><%= @review.maximum_budget %></td>
+									<td><%= @review.currency.html_safe %><%= @review.budget %> 〜 <%= @review.currency %><%= @review.maximum_budget %></td>
 								</tr>
 							</table>
 
@@ -117,11 +117,23 @@
 						</div>
 					</div>
 
-					<h5 class="mini-title"><strong>コメント一覧</strong></h5>
 					<div id="table_comment">
 						<%= render 'users/review_comments/comments_area', review:@review %>
 					</div>
-					<div class="comment_place">
+
+					<div class="comment_place mb-5 ">
+
+						<% if @review_comment.errors.any? %>
+					        <div id="error_explanation">
+					            <h3><%= @review_comment.errors.count %>error prohibited this obj from being saved:</h3>
+					            <ul>
+					                <% @review_comment.errors.full_messages.each do |message| %>
+					                <li><%= message %></li>
+					                <% end %>
+					            </ul>
+					        </div>
+					    <% end %>
+
 						<%= form_with model: @review_comment ,url:review_review_comments_path(@review.id), method: :post do |f| %>
 							<h6 class="mini-title">コメントを投稿する</h6>
 							<%= f.text_area :review_comment, id: "comment_body", :size=>"50" %>
