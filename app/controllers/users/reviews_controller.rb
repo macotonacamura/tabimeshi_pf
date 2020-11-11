@@ -85,12 +85,20 @@ class Users::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
      if review_params[:country].blank?
-        @city = @review.city
+        @review.errors.add(:country, "記述が正しくありません")
         render 'edit'
         return
      end
+
       country = Country.find_by(country: review_params[:country])
       @review.city = City.find_by(city: review_params[:city],country_id: country.id) #city確定=countryの確定
+     if @review.city.blank?
+        @review.city = Review.find(params[:id]).city
+        @review.errors.add(:city, "記述が正しくありません")
+        render 'edit'
+        return
+     end
+
       @review = validate_budget(@review)
       if @review.update(review_params.except(:country, :city))
         redirect_to review_path(@review)
@@ -98,6 +106,7 @@ class Users::ReviewsController < ApplicationController
       else
         render 'edit'
       end
+
   end
 
 

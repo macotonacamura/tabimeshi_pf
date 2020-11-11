@@ -4,8 +4,8 @@
 			<div class="col-md-12 mb-30">
 
 				<div class="review-info fadein">
-					<div class="time-limit" style="font-size: 15px;"><%= flash[:update] %></div>
-					<div class="time-limit" style="font-size: 15px;"><%= flash[:create] %></div>
+					<div class="time-limit"><%= flash[:update] %></div>
+					<div class="time-limit"><%= flash[:create] %></div>
 						<div class="d-flex justify-content-center">
 							<% @review.review_images.each do |review_image| %>
 								<% if review_image.image.present? %>
@@ -17,7 +17,7 @@
 					 	</div>
 
 
-						<div class="mt-3">投稿日時  <%=  l @review.created_at, format: :long %></div>
+						<div class="mt-2">投稿日時  <%=  l @review.created_at, format: :long %></div>
 						<div class="review_show mt-2 ">
 							<%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
 							<%= link_to user_path(@review.user.id), :style=>"color:#444;" do %>
@@ -29,7 +29,7 @@
 
 
 						<div class="details">
-							<table class="table table-borderless" style="width:300px;">
+							<table class="table table-borderless" style="width:auto;">
 								<tr>
 									<th><div id="star-rate-<%= @review.id %>" ></div></th>
 								</tr>
@@ -109,7 +109,7 @@
 
 						<div>
 			            	<%if @review.user == current_user%>
-								<%= button_to 'delete',review_path(@review),method: :delete, local: true, class: 'btn-delete',"data-confirm" => "Are you sure?"%>
+								<%= link_to 'delete',review_path(@review),method: :delete, local: true, class: 'btn-delete',"data-confirm" => "Are you sure?"%>
 								<%= link_to edit_review_path(@review.id) ,class: 'btn-circle-flat_user_show icon_to_edit', :style=>"color:#fff;" do %>
 									<i class="fas fa-wrench"></i>
 								<% end %>

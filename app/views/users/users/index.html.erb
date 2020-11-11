@@ -2,13 +2,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 clearfix">
-				<div class="float-right fadein"><%= render 'users/users/search',user: @users%></div>
+				<div class="float-right"><%= render 'users/users/search',user: @users%></div>
 			</div>
 
-			<div class="col-md-12 fadein">
-				<h2>Find people</h2>
+			<div class="col-md-12">
+				<h2 class="fadein">Find people</h2>
 				<% @users.each do |user| %>
-					<div class="info-box_index_show fadein row">
+					<div class="info-box_index_show fadein row pb-20">
 						<div class="col-xs-3">
 							<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
 						</div>
