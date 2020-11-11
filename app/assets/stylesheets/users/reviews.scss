@@ -14,7 +14,7 @@
 }
 .page_show{
   height: auto;
-  background-image: image-url("../background_image.jpg");
+  background-image: url("/images/background_image.jpg");
   background-size: cover;
   object-fit: cover;
 }
@@ -456,7 +456,7 @@
 /*new*/
 
 .page_new{
-  background-image: image-url("../background_image.jpg");
+  background-image: url("/images/background_image.jpg");
   background-size: cover;
   object-fit: cover;
   padding-bottom: 100px;
@@ -560,7 +560,7 @@
 
 .page_edit{
   height: auto;
-  background-image: image-url("../background_image.jpg");
+  background-image: url("/images/background_image.jpg");
   background-size: cover;
   object-fit: cover;
   padding-bottom:100px;
@@ -582,7 +582,7 @@
 
 /*index*/
   .page{
-  background-image: image-url("../background_image.jpg");
+  background-image: url("/images/background_image.jpg");
   background-size: cover;
   object-fit: cover;
   }
@@ -654,7 +654,7 @@
     margin-bottom: 5px;
     background-size: cover;
     background-position: center;
-    background-image: image-url("../asia.jpeg");
+    background-image: url("/images/asia.jpeg");
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -673,7 +673,7 @@
     margin-bottom: 5px;
     background-size: cover;
     background-position: center;
-    background-image: image-url("../america.jpeg");
+    background-image: url("/images/america.jpeg");
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -691,7 +691,7 @@
   margin-bottom: 5px;
   background-size: cover;
   background-position: center;
-  background-image: image-url("../europe.jpeg");
+  background-image: url("/images/europe.jpeg");
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -709,7 +709,7 @@
   margin-bottom: 5px;
   background-size: cover;
   background-position: top;
-  background-image: image-url("../australia.jpeg");
+  background-image: url("/images/australia.jpeg");
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -760,7 +760,7 @@
   }
 
   .page_new{
-    background-image: image-url("../background_image.jpg");
+    background-image: url("/images/background_image.jpg");
     background-size: cover;
     object-fit: cover;
     width:100%;
