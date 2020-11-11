@@ -113,7 +113,7 @@ h2{
 
 .edit_form{
 	margin:0 auto;
-	padding:50px;
+	padding:100px;
 	width:900px;
 }
 
@@ -122,24 +122,21 @@ h2{
 }
 
 .page{
-  background-image: image-url("../background_image.jpg");
+  background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
-  padding-bottom: 400px;
+  padding-bottom: 300px;
 }
 
 .unsubscribe{
 	margin-top:150px;
 }
 
-.update_btn{
-	width:150px;
-}
 
 @media screen and (max-width:425px) {
 
 	.page{
-	  background-image: image-url("../background_image.jpg");
+	  background-image: url("../background_image.jpg");
 	  background-size: cover;
 	  object-fit: cover;
 	  padding-bottom: 300px;
@@ -202,22 +199,11 @@ h2{
 	/*edit*/
 
 	.edit_form{
-	width:400px;
-	padding:0;
+	width:100%;
 	}
-
 	.introduction_area{
-	width:90%;
+	width:100%;
 	}
-
-	.name_area{
-	width:90%;
-	}
-
-	.email_area{
-	width:90%;
-	}
-
 	table{
 	width:90%;
 	}

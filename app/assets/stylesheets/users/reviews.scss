@@ -3,18 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*review/show*/
-
-.time-limit{
-  width: 100%;
-  height: 30px;
-  font-size: 15px;
-  text-align: center;
-  padding: 0;
-  z-index: 1;
-}
 .page_show{
   height: auto;
-  background-image: image-url("../background_image.jpg");
+  background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
 }
@@ -78,35 +69,35 @@
 
 .page{
   padding-top: 100px;
-  background-image: image-url("../background_image.jpg");
+  background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
 }
 
 
 .image1 {
-  background-image: image-url("../image1.jpg");
+  background-image: url("../image1.jpg");
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 40px;
 }
 .image2 {
-  background-image: image-url("../image2.jpg");
+  background-image: url("../image2.jpg");
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 40px;
 }
 .image4 {
-  background-image: image-url("../image4.jpg");
+  background-image: url("../image4.jpg");
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 40px;
 }
 .image3 {
-  background-image: image-url("../image3.jpg");
+  background-image: url("../image3.jpg");
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
@@ -133,7 +124,7 @@
 	margin-bottom: 30px;
 	background-size: cover;
 	background-position: center;
-	background-image: image-url(../review_image.jpg);
+	background-image: url(../review_image.jpg);
 	border-top-left-radius: 10px;
 	border-top-right-radius: 20px;
 	border-bottom-right-radius: 30px;
@@ -148,7 +139,7 @@
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
-  background-image: image-url(../asia.jpeg);
+  background-image: url(../asia.jpeg);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -166,7 +157,7 @@
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
-  background-image: image-url(../america.jpeg);
+  background-image: url(../america.jpeg);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -183,7 +174,7 @@
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
-  background-image: image-url(../europe.jpeg);
+  background-image: url(../europe.jpeg);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -200,7 +191,7 @@
   margin-bottom: 10px;
   background-size: cover;
   background-position: top;
-  background-image: image-url(../australia.jpeg);
+  background-image: url(../australia.jpeg);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -262,8 +253,8 @@
 }
 
 .review_images{
-	height:150px;
-	width:200px;
+	height:200px;
+	width:300px;
   margin:10px;
 	object-fit: cover;
   border: 5px solid #eee;
@@ -456,7 +447,7 @@
 /*new*/
 
 .page_new{
-  background-image: image-url("../background_image.jpg");
+  background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
   padding-bottom: 100px;
@@ -542,9 +533,6 @@
     }
   }
 
-  .post_btn{
-  width:150px;
-  }
 
 
 
@@ -554,7 +542,7 @@
 
 .page_edit{
   height: auto;
-  background-image: image-url("../background_image.jpg");
+  background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
   padding-bottom:100px;
@@ -569,7 +557,7 @@
 
 @media screen and (max-width:425px) {
 .nav {
-  width: 100%;
+    width: 425px;
   }
   header {
     width: 100%;
@@ -577,7 +565,7 @@
 
 /*index*/
   .page{
-  background-image: image-url("../background_image.jpg");
+  background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
   }
@@ -617,7 +605,6 @@
     text-align: center;
     overflow: hidden;
     margin:50px;
-    display:none;
   }
 
   .btn-circle-flat:hover {
@@ -649,7 +636,7 @@
     margin-bottom: 5px;
     background-size: cover;
     background-position: center;
-    background-image: image-url(../asia.jpeg);
+    background-image: url(../asia.jpeg);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -668,7 +655,7 @@
     margin-bottom: 5px;
     background-size: cover;
     background-position: center;
-    background-image: image-url(../america.jpeg);
+    background-image: url(../america.jpeg);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -686,7 +673,7 @@
   margin-bottom: 5px;
   background-size: cover;
   background-position: center;
-  background-image: image-url(../europe.jpeg);
+  background-image: url(../europe.jpeg);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -704,7 +691,7 @@
   margin-bottom: 5px;
   background-size: cover;
   background-position: top;
-  background-image: image-url(../australia.jpeg);
+  background-image: url(../australia.jpeg);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -755,7 +742,7 @@
   }
 
   .page_new{
-    background-image: image-url("../background_image.jpg");
+    background-image: url("../background_image.jpg");
     background-size: cover;
     object-fit: cover;
     width:100%;
@@ -835,18 +822,6 @@
 
   .table_content{
   width:50%;
-  }
-
-  .review-info{
-  width:100%;
-  padding:100px 0 100px 0;
-  }
-
-  .review{
-  padding:0;
-  }
-  #comment_body{
-  width:90%;
   }
 
 

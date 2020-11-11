@@ -21,14 +21,10 @@
             <a class="navbar-brand " href="/">
               <% if user_signed_in? %>
                 <div id="head-logo">
-                  <%= link_to reviews_path,:style=>"color:#fff;", class: "logo " do %>
+                  <%= link_to reviews_path,:style=>"color:#fff;", class: "logo " do %><!-- <h4>Tabimeshi</h4> -->
                   <%= image_tag('/assets/tmlogo3.png',width: '30%', height: '30%', class: "logo mt-3 mb-2") %>
                   <% end %>
                 </div>
-              <% elsif admin_signed_in? %>
-                  <%= link_to admins_admins_top_path,:style=>"color:#fff;", class: "logo " do %>
-                    <%= image_tag('/assets/tmlogo3.png',width: '30%', height: '30%', class: "logo mt-3 mb-2") %>
-                  <% end %>
               <% else %>
                 <%= link_to root_path, :style=>"color:#fff;" do %>
                   <%= image_tag('/assets/tmlogo3.png',width: '30%', height: '30%', class: "logo mt-3 mb-2") %>

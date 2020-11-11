@@ -43,7 +43,7 @@
 						</script>
 						<tr>
 							<th><%= f.label 'user name' %></th>
-							<td><%= f.text_field :user_name ,:size=>"21", placeholder: "ユーザーネーム", class: "name_area" %></td>
+							<td><%= f.text_field :user_name ,:size=>"21", placeholder: "ユーザーネーム" %></td>
 						</tr>
 						<tr>
 							<th><%= f.label 'introduction' %></th>
@@ -54,17 +54,16 @@
 						</tr>
 						<tr>
 							<th><%= f.label 'email' %></th>
-							<td><%= f.text_field :email,:size=>"21", class: "email_area" %></td>
+							<td><%= f.text_field :email,:size=>"21" %></td>
 						</tr>
 						<tr>
-							<th></th>
 							<th></th>
 						<td><%= f.submit 'update', class: "btn btn-outline-secondary" %></td>
 						</tr>
 					</table>
 
 				<% end %>
-				<%= link_to users_unsubscribe_path(current_user.id), class: "btn btn-outline-dark update_btn" do %>退会画面<% end %>
+				<%= link_to users_unsubscribe_path(current_user.id), class: "btn btn-outline-dark" do %>退会画面<% end %>
 
 			</div>
 		</div>
