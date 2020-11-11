@@ -11,7 +11,7 @@
 						<h2 class="mt-3 fadein"><%= @user.user_name %>'s room</h2>
 					<% end %>
 				</div>
-				<div class="time-limit fadein" style="font-size: 15px;"><%= flash[:change] %></div>
+				<div class="time-limit fadein"><%= flash[:change] %></div>
 				<%= render 'users/users/user_info', user: @user,reviews:@user.reviews %>
 			</div>
 

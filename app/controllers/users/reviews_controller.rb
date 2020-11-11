@@ -2,9 +2,9 @@ class Users::ReviewsController < ApplicationController
   before_action :authenticate_user!
   def index
      if params[:country].present? #国名の取得
-        @reviews = Review.joins(city: [:country]).where('countries.country LIKE(?)', "%#{params[:country]}%").page(params[:page])
+        @reviews = Review.joins(city: [:country]).where('countries.country LIKE(?)', "%#{params[:country]}%").page(params[:page]).reverse_order
      elsif params[:continent_id] .present?
-        @reviews = Review.joins(city: [:country]).where('countries.continent_id = ?', params[:continent_id]).page(params[:page])
+        @reviews = Review.joins(city: [:country]).where('countries.continent_id = ?', params[:continent_id]).page(params[:page]).reverse_order
      else
         @reviews = Review.joins(:user).where('users.is_deleted =?', false).page(params[:page]).reverse_order
         @review = @reviews.select{ |review| review.user.is_deleted == false }#{}の中の条件に合う投稿を選択
@@ -84,13 +84,21 @@ class Users::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-     if review_params[:country].blank?
-        @city = @review.city
+     if review_params[:country].blank? &&
+        @review.errors.add(:country, "記述が正しくありません")
         render 'edit'
         return
      end
+
       country = Country.find_by(country: review_params[:country])
       @review.city = City.find_by(city: review_params[:city],country_id: country.id) #city確定=countryの確定
+     if @review.city.blank?
+        @review.city = Review.find(params[:id]).city
+        @review.errors.add(:city, "記述が正しくありません")
+        render 'edit'
+        return
+     end
+
       @review = validate_budget(@review)
       if @review.update(review_params.except(:country, :city))
         redirect_to review_path(@review)
@@ -98,6 +106,7 @@ class Users::ReviewsController < ApplicationController
       else
         render 'edit'
       end
+
   end
 
 

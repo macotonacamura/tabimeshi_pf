@@ -6,41 +6,42 @@
   background-image: url("../background_image.jpg");
   background-size: cover;
   object-fit: cover;
+  width:auto;
 }
 
 .main-visual{
-	width: 100%;
-	height: 300px;
-	margin-bottom: 10px;
-	background-size: cover;
-	background-position: center;
-	background-image: url(../home_pic.jpg);
-	border-top-left-radius: 10px;
-	border-top-right-radius: 20px;
-	border-bottom-right-radius: 30px;
-	border-bottom-left-radius: 40px;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-position: center;
+  background-image: image-url(../home_pic.jpg);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 40px;
 
 }
 
 
 .main-visual-content{
-	width: 100%;
-	height: 300px;
-	line-height: 300px;
-	padding:50px;
+  width: 100%;
+  height: 300px;
+  line-height: 300px;
+  padding:50px;
 }
 
 li{
-	list-style: none;
-	margin:10px;
+  list-style: none;
+  margin:10px;
 }
 
 
 .tab-pane{
-	margin-top: 20px;
-	padding:30px;
-	color: #444;
-	width: 1000px;
+  margin-top: 20px;
+  padding:30px;
+  color: #444;
+  width: 1000px;
 }
 
 .btn-circle-flat {
@@ -48,9 +49,9 @@ li{
   text-decoration: none;
   background: #004400;
   color: #FFF;
-  width: 110px;
-  height: 110px;
-  line-height: 110px;
+  width: 170px;
+  height: 170px;
+  line-height: 170px;
   border-radius: 50%;
   text-align: center;
   overflow: hidden;
@@ -81,81 +82,42 @@ li{
 
 
 .about{
-	display: block;
-	clear: both;
-	width: 1200px;
+  display: block;
+  clear: both;
+  width: 1200px;
 }
 
 
 .tab-content{
-	padding-bottom:300px;
+  padding-bottom:300px;
 }
 
 .how_title{
-	padding-bottom:20px;
+  padding-bottom:20px;
 }
 
 .how_body{
-	margin:20px;
+  margin:20px;
 }
 
 .how-content{
-	padding:20px;
+  padding:20px;
 }
 
 
 @media screen and (max-width:425px) {
 
-.page{
-  height:auto;
+  .page{
+    height:auto;
+  }
+
+  nav{
+    width:100%;
+    background-color: #212529;
+  }
+
+  .flex-column{
+    margin:0 auto;
+  }
 }
 
-nav{
-  width:100%;
-}
-
-.flex-column{
-  margin:0 auto;
-}
-
-
-.btn-circle-flat_home:nth-child(-n+3) {
-  text-decoration: none;
-  background: #004400;
-  color: #FFF;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 50%;
-  text-align: center;
-  overflow: hidden;
-  transition: .4s;
-  float:left;
-  color: #fff;
-  display:none;
- }
-
- .btn-circle-flat: {
-  text-decoration: none;
-  background: #004400;
-  color: #FFF;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 50%;
-  text-align: center;
-  overflow: hidden;
-  transition: .4s;
-  float:left;
-  color: #fff;
-  display:none;
- }
-
- #v-pills-start {
-    margin-top: 20px;
-    padding: 30px;
-    color: #444;
-    width: 400px;
-    }
-
-}

@@ -15,16 +15,16 @@
 		<%= form_with model: @review,url:review_path(@review.id), method: :patch, local: true do |f| %>
 			<table class="table table_edit mt-2">
 				<tr class="table_edit">
-					<th class="table_title">Restaurant name</th>
-					<td class="table_content"><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
+					<th class="table_edit">Restaurant name</th>
+					<td class="table_edit"><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
 				</tr>
-				<tr class="table_new">
-					<th class="table_new">
+				<tr class="table_edit">
+					<th class="table_edit">
 					<div class="form-group" id="star" style="width:300px;">
 						<strong>Rate</strong>
 						<%= f.hidden_field :rate, id: :review_star %>
 					</div>
-					</th class="table_new">
+					</th class="table_edit">
 					<script>
 					  $('#star').raty({
 					   size: 35,
@@ -36,9 +36,9 @@
 					 });
 					</script>
 				</tr>
-				<tr>
-					<th>Country,City</th>
-					<td>
+				<tr class="table_edit">
+					<th class="table_edit">Country,City</th>
+					<td class="table_edit">
 						<%= f.text_field :country, value: @review.city.country.country, class: 'country', id: :country, autocomplete: 'off' %>
 						<%= f.text_field :city, value: @review.city.city, class: 'city',id: :city,  autocomplete: 'off' %>
 						<script>
@@ -60,28 +60,28 @@
 						</script>
 					</td>
 				</tr>
-				<tr>
-					<th>Address</th>
-					<td><%= f.text_area :address,:size=>"30", :placeholder => "住所" %></td>
+				<tr class="table_edit">
+					<th class="table_edit">Address</th>
+					<td class="table_edit"><%= f.text_area :address,:size=>"30", :placeholder => "住所" %></td>
 				</tr>
-				<tr>
-					<th>Budget</th>
-					<td>
+				<tr class="table_edit">
+					<th class="table_edit">Budget</th>
+					<td class="table_edit">
 						<%= f.select :currency, ['$',' EUR ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'},class: 'sample' %>
 						<%= f.text_field :budget,:placeholder => "予算(最低)15" %> 〜 <%= f.text_field :maximum_budget, :placeholder => "予算(上限額)30" %>
 					</td>
 				</tr>
-				<tr>
-					<th>Review</th>
-					<td><%= f.text_area :review ,:size=>"50x8",:placeholder => "口コミ"%></td>
+				<tr class="table_edit">
+					<th class="table_edit">Review</th>
+					<td class="table_edit"><%= f.text_area :review ,:size=>"50x8",:placeholder => "口コミ"%></td>
 				</tr>
-				<tr>
-					<th>Genre</th>
-  					<td><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: "ジャンルを選択してください --" %></td>
+				<tr class="table_edit">
+					<th class="table_edit">Genre</th>
+  					<td class="table_edit"><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: "ジャンルを選択してください --" %></td>
 				</tr>
-				<tr>
-					<th>Images</th>
-					<td>
+				<tr class="table_edit">
+					<th class="table_edit">Images</th>
+					<td class="table_edit">
 						<div class="post__drop__box__container">
 				            <div class="prev-content"></div>
 				            <div class="label-content">
@@ -104,8 +104,10 @@
 		        		</div>
 					</td>
 				</tr>
-				<tr>
-					<td><%= f.submit 'send', class: "btn btn-outline-secondary" %></td>
+				<tr class="table_edit">
+					<th></th>
+					<th></th>
+					<td class="table_edit"><%= f.submit 'send', class: "btn btn-md btn-outline-secondary post_btn mb-20" %></td>
 				</tr>
 			</table>
 		<% end %>

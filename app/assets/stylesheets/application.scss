@@ -22,7 +22,7 @@
    	src: font-url('mincho.otf') format('truetype');
  }
 
- .logo{
+.logo{
   margin-right:20px;
   text-align:left;
 }
@@ -42,28 +42,16 @@ footer{
   bottom: 0;
   left: 0;
   right: 0;
-	width:100%;
-	color: #DDD;
-	line-height:100px;
-	background-color:#000;
+  width:100%;
+  color: #DDD;
+  line-height:100px;
+  background-color:#000;
 }
 
 
-.pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
-}
-
-/* 表示しているページ番号のデザイン */
-.pagination>.active>a {
-  background: #eee;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
-}
-
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {
-  border-radius: 15px;   /*角を丸くする*/
-}
+.page-item.active .page-link {
+    background-color: #dee2e6;
+    border-color: #fff;}
 
 body::after {
   content: '';
@@ -119,5 +107,11 @@ button {
     margin-right: 20px;
     text-align: left;
     width: 150px;
+  }
+
+.nav-item{
+    background-color:rgba(105, 105, 105,0.6);
+    width:90px;
+    padding-left:10px;
   }
 }
