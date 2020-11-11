@@ -92,21 +92,21 @@
   border-bottom-left-radius: 40px;
 }
 .image2 {
-  background-image: image-url("../image2.jpg");
+  background-image: url("/images/image2.jpg");
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 40px;
 }
 .image4 {
-  background-image: image-url("../image4.jpg");
+  background-image: url("/images/image4.jpg");
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 40px;
 }
 .image3 {
-  background-image: image-url("../image3.jpg");
+  background-image: url("/images/image3.jpg");
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
@@ -133,7 +133,7 @@
   margin-bottom: 30px;
   background-size: cover;
   background-position: center;
-  background-image: image-url("../review_image.jpg");
+  background-image: url("/images/review_image.jpg");
   border-top-left-radius: 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 30px;
@@ -148,7 +148,7 @@
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
-  background-image: image-url("../asia.jpeg");
+  background-image: url("/images/asia.jpeg");
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -166,7 +166,7 @@
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
-  background-image: image-url("../america.jpeg");
+  background-image: url("/images/america.jpeg");
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -183,7 +183,7 @@
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
-  background-image: image-url("../europe.jpeg");
+  background-image: url("/images/europe.jpeg");
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -200,7 +200,7 @@
   margin-bottom: 10px;
   background-size: cover;
   background-position: top;
-  background-image: image-url("../australia.jpeg");
+  background-image: url("/images/australia.jpeg");
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
