@@ -63,7 +63,7 @@ end
 if Continent.exists?(name: 'asia') == false
 	p "asia登録開始"
 	continent_asia = Continent.create(name:"asia")
-	asia = ['Japan', 'Taiwan', 'China', 'Thailand']
+	asia = ['Japan', 'Taiwan', 'China', 'Thailand', 'South Korea']
 
 	asia.each do |country_name|
 		country = Country.find_by(country: country_name)

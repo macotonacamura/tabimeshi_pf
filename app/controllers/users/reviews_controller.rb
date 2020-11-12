@@ -29,7 +29,7 @@ class Users::ReviewsController < ApplicationController
       format.json { render json: countries.to_json }
     end
     #非同期
-    cities = City.where('city LIKE(?)', "#{params[:keyword]}%") #これで検索絞れるのでは？
+    cities = City.where('city LIKE(?)', "#{params[:keyword]}%")
     cities = cities.map(&:city)
     respond_to do |format|
       format.html
@@ -108,9 +108,6 @@ class Users::ReviewsController < ApplicationController
       end
 
   end
-
-
-
 
   def destroy
      @review = Review.find(params[:id])
