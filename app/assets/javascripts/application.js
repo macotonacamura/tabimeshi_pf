@@ -17,7 +17,6 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap-sprockets
-//= require jquery.raty.js
 //= require lightbox
 //= require_tree .
 
