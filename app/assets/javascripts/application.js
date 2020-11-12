@@ -18,6 +18,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require lightbox
+//= require jquery-ui
 //= require_tree .
 
 $(function(){
