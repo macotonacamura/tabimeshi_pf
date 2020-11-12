@@ -1,4 +1,4 @@
 class Genre < ApplicationRecord
 	has_many :reviews,dependent: :destroy
-	vakidates :genre, presence: true
+	#validates :genre, presence: true
 end
