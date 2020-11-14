@@ -91,6 +91,11 @@ class Users::ReviewsController < ApplicationController
      end
 
       country = Country.find_by(country: review_params[:country])
+     if country.blank?
+        @review.errors.add(:country, "記述が正しくありません")
+        render 'edit'
+        return
+     end
       @review.city = City.find_by(city: review_params[:city],country_id: country.id) #city確定=countryの確定
      if @review.city.blank?
         @review.city = Review.find(params[:id]).city
@@ -120,7 +125,12 @@ class Users::ReviewsController < ApplicationController
     respond_to do |format|
       format.json { render 'index', json: @reviews.map{|review|review.city.country.country}.uniq } #json形式のデータを受け取ったら、@reviewsをデータとして返す そしてindexをrenderで表示する
     end
-  end
+
+   # if @reviews = Review.joins(city: [:country]).where('cities LIKE(?)', "%#{params[:keyword]}%").page(params[:page])
+   #  respond_to do |format|
+   #    format.json { render 'index', json: @reviews.map{|review|review.city.city}.uniq }
+   #  end
+   end
 
   private
 

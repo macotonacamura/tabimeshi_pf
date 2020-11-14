@@ -1,48 +1,50 @@
 <div class="page">
 	<div class="container">
 		<div class="row">
-			<div class="col-12 clearfix">
-				<div class="float-right fadein"><%= render 'users/users/search',user: @users%></div>
-			</div>
+			<div class="user_box">
+				<div class="col-12 clearfix">
+					<div class="float-right fadein"><%= render 'users/users/search',user: @users%></div>
+				</div>
 
-			<div class="col-md-12 fadein">
-				<h2>Find people</h2>
-				<% @users.each do |user| %>
-					<div class="info-box_index_show fadein row">
-						<div class="col-xs-3">
-							<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
-						</div>
-						<div class="user_info_index_show col-xs-9">
-							<h3 class="user_name">
-								<%= link_to user_path(user.id), :style=>"color:#444;" do %>
-									<%= user.user_name %>
-								<% end %>
-							</h3>
-							<div id="follow_button_<%= user.id %>" style="margin-top: 10px;">
-								<%= render 'users/relationships/follow_button', user: user,reviews:user.reviews %>
+				<div class="col-md-12 fadein">
+					<h2>Find people</h2>
+					<% @users.each do |user| %>
+						<div class="info-box_index_show fadein row">
+							<div class="col-xs-3">
+								<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
 							</div>
-							<% if current_user == user %>
-								<%= link_to edit_user_path(current_user.id), :style=>"color:#444;",class: 'to_edit' do %>
-									<i class="fas fa-wrench btn btn-sm"></i>編集する
+							<div class="user_info_index_show col-xs-9">
+								<h3 class="user_name">
+									<%= link_to user_path(user.id), :style=>"color:#444;" do %>
+										<%= user.user_name %>
+									<% end %>
+								</h3>
+								<div id="follow_button_<%= user.id %>" style="margin-top: 10px;">
+									<%= render 'users/relationships/follow_button', user: user,reviews:user.reviews %>
+								</div>
+								<% if current_user == user %>
+									<%= link_to edit_user_path(current_user.id), :style=>"color:#444;",class: 'to_edit' do %>
+										<i class="fas fa-wrench btn btn-sm"></i>編集する
+									<% end %>
 								<% end %>
-							<% end %>
+							</div>
 						</div>
-					</div>
-				<% end %>
-				<script type="text/javascript">
-					$(function(){
-					$(window).scroll(function (){
-					$('.fadein').each(function(){
-						var elemPos = $(this).offset().top;
-						var scroll = $(window).scrollTop();
-						var windowHeight = $(window).height();
-						if (scroll > elemPos - windowHeight + 200){
-							$(this).addClass('scrollin');
-								}
+					<% end %>
+					<script type="text/javascript">
+						$(function(){
+						$(window).scroll(function (){
+						$('.fadein').each(function(){
+							var elemPos = $(this).offset().top;
+							var scroll = $(window).scrollTop();
+							var windowHeight = $(window).height();
+							if (scroll > elemPos - windowHeight + 200){
+								$(this).addClass('scrollin');
+									}
+								});
 							});
 						});
-					});
-				</script>
+					</script>
+				</div>
 			</div>
 
 		</div>

@@ -13,7 +13,7 @@
 			</div>
 
 			<div class="link-list col-md-7 fadein">
-				<div class="time-limit" style="font-size: 15px;"><%#= flash[:failure] %></div>
+				<div class="time-limit" style="font-size: 15px;"><%= flash[:failure] %></div>
 				<button class="btn-circle-flat" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</button>
 
 				<%= link_to 'post', new_review_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
