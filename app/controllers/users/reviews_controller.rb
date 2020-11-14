@@ -8,7 +8,6 @@ class Users::ReviewsController < ApplicationController
      else
         @reviews = Review.joins(:user).where('users.is_deleted =?', false).page(params[:page]).reverse_order
         @review = @reviews.select{ |review| review.user.is_deleted == false }#{}の中の条件に合う投稿を選択
-        #flash[:failure] = "該当するページが見つかりませんでした。" #表示がうまくいかない
      end
   end
 

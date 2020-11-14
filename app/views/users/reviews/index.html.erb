@@ -13,12 +13,11 @@
 			</div>
 
 			<div class="link-list col-md-7 fadein">
-				<div class="time-limit" style="font-size: 15px;"><%= flash[:failure] %></div>
 				<button class="btn-circle-flat" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">distination</button>
 
-				<%= link_to 'post', new_review_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
-				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat', :style=>"color:#fff;" %>
-				<a class="btn-circle-flat"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">discover</a>
+				<%= link_to 'post', new_review_path,class: 'btn-circle-flat post_button', :style=>"color:#fff;" %>
+				<%= link_to 'find ppl', users_path,class: 'btn-circle-flat find_button', :style=>"color:#fff;" %>
+				<a class="btn-circle-flat discover_button"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">discover</a>
 			</div>
 		</div>
 
