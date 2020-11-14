@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+#
 img {
 
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
@@ -28,6 +28,10 @@ padding-top:130px;
 	height: 200px;
 	object-fit: cover;
 	transition: .4s;
+}
+
+.savetitle{
+	margin-top:130px;
 }
 
 
