@@ -95,12 +95,13 @@ ActiveRecord::Schema.define(version: 2020_11_09_044618) do
     t.integer "budget"
     t.string "currency"
     t.integer "maximum_budget"
-    t.string "image_id"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "open"
+    t.time "close"
   end
 
   create_table "sns_credentials", force: :cascade do |t|
