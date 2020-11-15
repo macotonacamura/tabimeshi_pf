@@ -3,11 +3,6 @@ Rails.application.routes.draw do
   root :to => 'users/homes#top'
   post '/users/homes/guest_sign_in', to: 'users/homes#new_guest'
 
-	# devise_for :admins, controllers: {
-	# sessions:      'admins/sessions',
-	# passwords:     'admins/passwords',
-	# registrations: 'admins/registrations'
-	# }
 
 	devise_for :admins, skip: :all #これに上のdevise_forを消して、書き換える
     devise_scope :admin do
