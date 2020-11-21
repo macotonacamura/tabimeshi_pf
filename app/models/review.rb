@@ -23,6 +23,7 @@ class Review < ApplicationRecord
 		validates :restaurant_name, length: { maximum: 60 }
 		validates :review
 		validates :rate
+		validates :currency
 		validates :budget, numericality: { only_integer: true, greater_than: 1}
 		validates :maximum_budget, numericality: { only_integer: true, greater_than: 1 }
 		validates :address

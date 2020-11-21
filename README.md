@@ -38,5 +38,3 @@ https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4
 - https://pixabay.com/
   フォント
 - https://fontfree.me/category/mincho
-- https://www.fontsquirrel.com/
-- https://fontawesome.com/

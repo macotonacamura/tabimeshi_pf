@@ -7,6 +7,14 @@ GIT
       rest-client (~> 2)
       sinatra (~> 2.0.0.beta2)
 
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: a1ffab7246fe7a77438f9e582e5b2ffacba32bb6
+  branch: master
+  specs:
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -131,6 +139,11 @@ GEM
       railties (>= 3.2)
     erubi (1.9.0)
     execjs (2.7.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
@@ -377,6 +390,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  factory_bot_rails
+  faker!
   faraday (~> 1.1)
   geocoder
   i18n_generators
