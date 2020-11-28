@@ -10,7 +10,7 @@
 							<% @review.review_images.each do |review_image| %>
 								<% if review_image.image.present? %>
 						     		<%=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
-						     			<%= image_tag review_image.image.to_s().sub("img-files-original-tabimeshi.s3.amazonaws.com/uploads", "img-files-resize-tabimeshi.s3-ap-northeast-1.amazonaws.com/uploads/") + "-thumbnail.", class: 'review_images' %>
+						     			<%= image_tag review_image.image.url, class: 'review_images' %>
 						     		<% end %>
 						     	<% end %>
 					 		<% end %>
