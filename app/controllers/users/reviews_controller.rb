@@ -13,7 +13,8 @@ class Users::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-    @image_url = "https://RESIZE_BUCKET_NAME.s3-ap-northeast-1.amazonaws.com/store/" + @image.image_id + "-thumbnail."
+    #@review_images = @review.review_images
+    #@image_url = "https://img-files-resize-tabimeshi.s3-ap-northeast-1.amazonaws.com/store/" + @review.image + "-thumbnail." #ここ
     @review_comment = ReviewComment.new
   end
 
