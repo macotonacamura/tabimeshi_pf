@@ -36,12 +36,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
 
 # デフォルト画像は1200x5000に収まるようリサイズ
-  process resize_to_limit: [1200, 5000]
+  #process resize_to_limit: [1200, 5000]
 
   # サムネイル画像
-  version :thumb do
-    process resize_to_fill: [100, 100]
-  end
+  #version :thumb do
+  #  process resize_to_fill: [100, 100]
+  #end
 
   # 許可する画像の拡張子
   def extension_whitelist
