@@ -10,12 +10,9 @@
 							<% @review.review_images.each do |review_image| %>
 								<% if review_image.image.present? %>
 						     		<%=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
-						     		<%#= image_tag ENV['S3_BUCKET_URL'] + review_image.image.id.to_s + "-thumbnail.", class: 'review_images' %>
+						     		<%#= image_tag review_image.image.to_s().sub(ENV['S3_UPLOAD_BUCKET_URL'], ENV['S3_RESIZE_BUCKET_URL']) + "-thumbnail.", class: 'review_images' %>
 
-<%= review_image.image.to_s() %>
-						     		<%= image_tag review_image.image.to_s().sub(ENV['S3_UPLOAD_BUCKET_URL'], ENV['S3_RESIZE_BUCKET_URL']) + "-thumbnail.", class: 'review_images' %>
-
-						     			<%#= image_tag review_image.image.url, class: 'review_images' %>
+						     			<%= image_tag review_image.image.url, class: 'review_images' %>
 						     		<% end %>
 						     	<% end %>
 					 		<% end %>
