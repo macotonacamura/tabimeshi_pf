@@ -15,7 +15,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+     "sample-image/#{model.id}"
+#    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -34,11 +35,39 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  process resize_to_fit: [800, 800]
 
+# デフォルト画像は1200x5000に収まるようリサイズ
+  process resize_to_limit: [1200, 5000]
+
+  # サムネイル画像
   version :thumb do
-    process resize_to_fit: [50, 50]
+    process resize_to_fill: [100, 100]
   end
+
+  # 許可する画像の拡張子
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
+
+# 保存するファイルの命名規則
+  def filename
+     "#{secure_token(10)}.#{file.extension}" if original_filename.present?
+  end
+
+  # 一意となるトークンを作成
+  protected
+  def secure_token(length=16)
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(length/2))
+  end
+
+
+  # ここから
+  # process resize_to_fit: [800, 800]
+
+  # version :thumb do
+  #   process resize_to_fit: [50, 50]
+  # end ここまで
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
