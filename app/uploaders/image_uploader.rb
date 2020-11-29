@@ -36,7 +36,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
 
 # デフォルト画像は1200x5000に収まるようリサイズ
-  #process resize_to_limit: [1200, 5000]
+  process resize_to_limit: [1200, 5000]
 
   # サムネイル画像
   #version :thumb do
