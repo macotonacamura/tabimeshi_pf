@@ -143,8 +143,8 @@
 
 
 .popular_area_asia{
-  width: 220px;
-  height: 150px;
+  width: 250px;
+  height: 180px;
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
@@ -161,8 +161,8 @@
 
 
 .popular_area_america{
-  width: 220px;
-  height: 150px;
+  width: 250px;
+  height: 180px;
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
@@ -178,8 +178,8 @@
 }
 
 .popular_area_europe{
-  width: 220px;
-  height: 150px;
+  width: 250px;
+  height: 180px;
   margin-bottom: 10px;
   background-size: cover;
   background-position: center;
@@ -195,12 +195,46 @@
 }
 
 .popular_area_oseania{
-  width: 220px;
-  height: 150px;
+  width: 250px;
+  height: 180px;
   margin-bottom: 10px;
   background-size: cover;
   background-position: top;
   background-image: url("/images/australia.jpeg");
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 3px solid #fff;
+  margin:10px;
+  padding:30px;
+  float:left;
+}
+
+.popular_area_africa{
+  width: 250px;
+  height: 180px;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-position: bottom;
+  background-image: url("/images/africa.jpeg");
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 3px solid #fff;
+  margin:10px;
+  padding:30px;
+  float:left;
+}
+
+.popular_area_south_america{
+  width: 250px;
+  height: 180px;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-position: bottom;
+  background-image: url("/images/south_america.jpeg");
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -646,6 +680,7 @@
 
   .popullar{
     text-align:center;
+    width:425px;
   }
 
   .popular_area_asia{
@@ -711,6 +746,42 @@
   background-size: cover;
   background-position: top;
   background-image: url("/images/australia.jpeg");
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 3px solid #fff;
+  margin:10px;
+  padding:30px;
+  float:left;
+}
+
+.popular_area_south_america{
+  width: 150px;
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-size: cover;
+  background-position: top;
+  background-image: url("/images/south_america.jpeg");
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 3px solid #fff;
+  margin:10px;
+  padding:30px;
+  float:left;
+}
+
+.popular_area_africa{
+  width: 150px;
+  height: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-size: cover;
+  background-position: top;
+  background-image: url("/images/africa.jpeg");
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;

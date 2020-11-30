@@ -107,7 +107,6 @@ else
 end
 
 
-
 if Continent.exists?(name: 'oceania') == false
 	p "oceania登録開始"
 	continent_oceania = Continent.create(name:"oceania")
@@ -122,6 +121,7 @@ if Continent.exists?(name: 'oceania') == false
 else
 	p "oceania登録済み"
 end
+
 
 if Continent.exists?(name: 'africa') == false
 	p "africa登録開始"
@@ -138,6 +138,21 @@ else
 	p "africa登録済み"
 end
 
+
+if Continent.exists?(name: 'south_america') == false
+	p "south_america登録開始"
+	continent_south_america = Continent.create(name:"south_america")
+	south_america = ['Peru','Mexico','Brazil','Cuba']
+
+	south_america.each do |country_name|
+		country = Country.find_by(country: country_name)
+		next if country.nil?
+		country.update(continent_id: continent_south_america.id)
+	end
+	p "south_america登録完了"
+else
+	p "south_america登録済み"
+end
 
 
 
