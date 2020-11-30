@@ -8,8 +8,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-   <!--  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
   </head>
 
   <body class="fadeoutdess">
@@ -22,7 +20,7 @@
             <a class="navbar-brand " href="/">
               <% if user_signed_in? %>
                 <div id="head-logo">
-                  <%= link_to reviews_path,:style=>"color:#fff;", class: "logo " do %><!-- <h4>Tabimeshi</h4> -->
+                  <%= link_to reviews_path,:style=>"color:#fff;", class: "logo " do %>
                   <%= image_tag('tmlogo3.png',width: '30%', height: '30%', class: "logo mt-3 mb-2") %>
                   <% end %>
                 </div>
@@ -39,15 +37,15 @@
                 <% if user_signed_in? %>
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item nav-link nav_res">
-                      <%= link_to 'find ppl', users_path, :style=>"color:#fff;" %>
+                      <%= link_to 'Find people', users_path, :style=>"color:#fff;" %>
                     </li>
                     <li class="nav-item nav-link nav_res">
-                      <%= link_to 'post review', new_review_path, :style=>"color:#fff;" %>
+                      <%= link_to 'Post review', new_review_path, :style=>"color:#fff;" %>
                     </li>
                   </ul>
                   <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle nav_res" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">x x x</a>
+                      <a class="nav-link dropdown-toggle nav_res" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My page</a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="text-align: center;">
                         <a class="dropdown-item" href="#">
                           <%= link_to user_path(current_user.id), :style=>"color:#333; font-size:25px;" do %>
@@ -63,7 +61,7 @@
                       </div>
                     </li>
                     <li class="nav-item nav-link">
-                      <%= button_to 'log out', destroy_user_session_path, method: :delete, :style=>"color:#fff;", class: "button_to" %>
+                      <%= button_to 'Log out', destroy_user_session_path, method: :delete, :style=>"color:#fff;", class: "button_to" %>
                     </li>
                   </ul>
                 <% elsif admin_signed_in? %>
@@ -80,10 +78,10 @@
 
                       <ul class="navbar-nav">
                           <li class="nav-item nav-link ">
-                             <%= link_to 'sign up', new_user_registration_path, data: {"turbolinks" => false}, :style=>"color:#fff;" %>
+                             <%= link_to 'Sign up', new_user_registration_path, data: {"turbolinks" => false}, :style=>"color:#fff;" %>
                           </li>
                           <li class="nav-item nav-link">
-                             <%= link_to 'log in', new_user_session_path, data: {"turbolinks" => false}, :style=>"color:#fff;" %>
+                             <%= link_to 'Log in', new_user_session_path, data: {"turbolinks" => false}, :style=>"color:#fff;" %>
                           </li>
                       </ul>
                     <% end %>

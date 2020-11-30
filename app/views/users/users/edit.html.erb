@@ -42,11 +42,11 @@
 						  });
 						</script>
 						<tr>
-							<th><%= f.label 'user name' %></th>
+							<th>user name</th>
 							<td><%= f.text_field :user_name ,:size=>"21", placeholder: "ユーザーネーム", class: "name_area" %></td>
 						</tr>
 						<tr>
-							<th><%= f.label 'introduction' %></th>
+							<th>introduction</th>
 							<td><%= f.text_area :introduction ,:size=>"40", placeholder: "紹介文(50字まで)", class: "introduction_area" %></td>
 						</tr>
 						<tr>
@@ -60,11 +60,12 @@
 							<th></th>
 							<th></th>
 						<td><%= f.submit 'update', class: "btn btn-outline-secondary" %></td>
+						<td><%= link_to users_unsubscribe_path(current_user.id), class: "btn btn-outline-dark update_btn" do %>退会画面<% end %></td>
+
 						</tr>
 					</table>
 
 				<% end %>
-				<%= link_to users_unsubscribe_path(current_user.id), class: "btn btn-outline-dark update_btn" do %>退会画面<% end %>
 
 			</div>
 		</div>
