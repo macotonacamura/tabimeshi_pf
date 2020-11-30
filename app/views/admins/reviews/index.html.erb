@@ -8,7 +8,7 @@
 						<%=  l review.created_at, format: :long %>
 						<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
 						<strong>
-							<%= link_to user_path(review.user.id),:style=>"color:#444;" do %>
+							<%= link_to admins_user_path(review.user.id),:style=>"color:#444;" do %>
 								<%= review.user.user_name %>
 							<% end %>
 						</strong>
