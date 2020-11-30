@@ -60,7 +60,7 @@ class Users::ReviewsController < ApplicationController
     @review = validate_budget(@review)
 
     if @review.save
-      sleep(10)
+      sleep(3)
       redirect_to review_path(@review)
       flash[:create] = "You've created a new review successfully."
     else
@@ -106,7 +106,7 @@ class Users::ReviewsController < ApplicationController
 
       @review = validate_budget(@review)
       if @review.update(review_params.except(:country, :city))
-        sleep(10)
+        sleep(3)
         redirect_to review_path(@review)
         flash[:update] = "You've updateded this review successfully."
       else
