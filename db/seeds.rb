@@ -123,6 +123,21 @@ else
 	p "oceania登録済み"
 end
 
+if Continent.exists?(name: 'africa') == false
+	p "africa登録開始"
+	continent_africa = Continent.create(name:"africa")
+	africa = ['Egypt', 'Morocco', 'South Africa', 'Kenya', 'Tunisia']
+
+	africa.each do |country_name|
+		country = Country.find_by(country: country_name)
+		next if country.nil?
+		country.update(continent_id: continent_africa.id)
+	end
+	p "africa登録完了"
+else
+	p "africa登録済み"
+end
+
 
 
 
