@@ -86,13 +86,22 @@ $(window).on('load', function(){
 
 $(function(){
     $(window).scroll(function (){
-    $('.fadein').each(function(){
+      $('.fadein').each(function(){
         var elemPos = $(this).offset().top;
         var scroll = $(window).scrollTop();
         var windowHeight = $(window).height();
         if (scroll > elemPos - windowHeight + 300){
             $(this).addClass('scrollin');
                 }
-            });
         });
     });
+});
+
+
+$(function(){
+  $('.multiple-items').slick({
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 3
+  });
+});

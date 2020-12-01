@@ -83,6 +83,17 @@
   object-fit: cover;
 }
 
+.slick-prev:before,
+.slick-next:before {
+  color: #000 !important;
+}
+
+.center-mode div {
+  color: #666;
+  margin: 10px;
+  text-align: center;
+}
+
 .image1 {
   background-image: url("/images/image1.jpg");
   border-top-left-radius: 10px;
