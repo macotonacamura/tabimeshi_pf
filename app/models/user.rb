@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable #, omniauth_providers: %i[facebook]
+         :omniauthable
 
   validates :user_name, uniqueness: true,  presence: true
   validates :introduction, length: { maximum: 50 }
@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   mount_uploader :profile_image, ProfileImageUploader
 
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, foreign_key: :user_id, dependent: :destroy
   has_many :review_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_list, through: :likes, source: 'review'

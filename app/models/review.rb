@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
 
-	belongs_to :user
+	belongs_to :user , optional: true
 
 	has_many :likes , dependent: :destroy
 	def liked_by?(user)
