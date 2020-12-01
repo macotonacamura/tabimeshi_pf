@@ -16,7 +16,14 @@
 					<tbody>
 						<% @users.each do |user| %>
 							<tr>
-								<td><%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_admin_index' %></td>
+								<td>
+									<% if user.profile_image.url.blank? %>
+										<%= image_tag "no_image.jpg", class: "profile_admin_index" %>
+									<% else %>
+										<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_admin_index' %>
+									<% end %>
+
+								</td>
 								<td><%= user.id%></td>
 								<td>
 									<%if user.is_deleted == false %>
