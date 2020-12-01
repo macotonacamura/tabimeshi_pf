@@ -93,13 +93,14 @@
           </nav>
         </header>
 
-    <%= yield %>
+        <%= yield %>
+        <div id="page_top"><a href="#">TOP</a></div>
 
-    <footer class="bottom">
-      <ul class="nav navbar-inverse pull-right">
-        <li><%= link_to 'CopyRight tabimeshi.inc', admins_sign_in_path, :style=>"color:#fff;" %></li>
-      </ul>
-    </footer>
+        <footer class="bottom">
+          <ul class="nav navbar-inverse pull-right">
+            <li><%= link_to 'CopyRight tabimeshi.inc', admins_sign_in_path, :style=>"color:#fff;" %></li>
+          </ul>
+        </footer>
     </div>
   </body>
 </html>

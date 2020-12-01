@@ -32,6 +32,23 @@ body{
   font-family: 'minifont';
 }
 
+#page_top {
+    position: fixed;
+    bottom: 40px;
+    right: 50px;
+}
+#page_top a {
+    background-color: #999;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 25px 30px;
+}
+#page_top a:hover {
+    background-color: #666;
+    text-decoration: none;
+}
+
 .wrapper {
   min-height: 100vh;
   position: relative;
