@@ -17,7 +17,7 @@
 					</thead>
 					<tbody>
 							<tr>
-								<td><%= image_tag @user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_admin_index' %></td>
+								<td><%= image_tag @user.profile_image.url,class: 'profile_admin_index' %></td>
 								<td><%= @user.id%></td>
 								<td>
 									<%if @user.is_deleted == false %>

@@ -17,12 +17,7 @@
 						<% @users.each do |user| %>
 							<tr>
 								<td>
-									<% if user.profile_image.url.blank? %>
-										<%= image_tag "no_image.jpg", class: "profile_admin_index" %>
-									<% else %>
-										<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_admin_index' %>
-									<% end %>
-
+									<%= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_admin_index' %>
 								</td>
 								<td><%= user.id%></td>
 								<td>
