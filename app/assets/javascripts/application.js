@@ -107,7 +107,7 @@ $(function(){
 });
 
 
-
+//トップへ戻るボタン
 $(function(){
   var pagetop = $('#page_top');
   // ボタン非表示

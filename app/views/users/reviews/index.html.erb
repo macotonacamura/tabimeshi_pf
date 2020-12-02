@@ -27,7 +27,7 @@
 
 			<div style="padding:30px;" class="multiple-items">
 
-				<%= link_to reviews_path(continent_id: 1), method: :get do %>
+				<%= link_to reviews_path(continent_id: 1), method: :get, remote: true do %>
 					<div class="popular_area_asia">
 						<div class="popular_area-content">
 							<h3 style="color:#fff;">Asia</h3>
@@ -35,7 +35,7 @@
 					</div>
 				<% end %>
 
-				<%= link_to reviews_path(continent_id: 2), method: :get do %>
+				<%= link_to reviews_path(continent_id: 2), method: :get, remote: true do %>
 				<div class="popular_area_america">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">North America</h3></strong>
@@ -43,7 +43,7 @@
 				</div>
 				<% end %>
 
-				<%= link_to reviews_path(continent_id: 3), method: :get do %>
+				<%= link_to reviews_path(continent_id: 3), method: :get, remote: true do %>
 				<div class="popular_area_europe">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">Europe</h3></strong>
@@ -51,7 +51,7 @@
 				</div>
 				<% end %>
 
-				<%= link_to reviews_path(continent_id: 4), method: :get do %>
+				<%= link_to reviews_path(continent_id: 4), method: :get, remote: true do %>
 				<div class="popular_area_oseania">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">Oceania</h3></strong>
@@ -59,7 +59,7 @@
 				</div>
 				<% end %>
 
-				<%= link_to reviews_path(continent_id: 5), method: :get do %>
+				<%= link_to reviews_path(continent_id: 5), method: :get, remote: true do %>
 				<div class="popular_area_africa">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">Africa</h3></strong>
@@ -67,7 +67,7 @@
 				</div>
 				<% end %>
 
-				<%= link_to reviews_path(continent_id: 6), method: :get do %>
+				<%= link_to reviews_path(continent_id: 6), method: :get, remote: true do %>
 				<div class="popular_area_south_america">
 					<div class="popular_area-content">
 						<strong><h3 style="color:#fff;">South America</h3></strong>
@@ -75,15 +75,15 @@
 				</div>
 				<% end %>
 
-
-
 			</div>
 		</div>
 
 
 		<div class="row review_list_index">
 			<h2 class="title_new_posts fadein" >Posts list</h2>
-			<%= render 'users/reviews/reviews_list', reviews: @reviews %>
+			<div id="review_index">
+				<%= render 'users/reviews/reviews_list', reviews: @reviews %>
+			</div>
 			<div><%= paginate @reviews , class: "pagination" %></div>
 		</div>
 
