@@ -77,6 +77,13 @@
 					</tr>
 
 					<tr class="table_new">
+						<th class="table_new">Buisiness hours</th>
+						<td>
+							<%= f.time_select :open,prompt:true, ignore_data:true %> 〜 <%= f.time_select :close,prompt:true, ignore_data:true %>
+						</td>
+					</tr>
+
+					<tr class="table_new">
 						<th class="table_new">Review</th>
 						<td class="table_new"><%= f.text_area :review ,:size=>"50x8",:placeholder => "口コミ",class: 'review_area' %></td>
 					</tr>
@@ -105,12 +112,6 @@
 					            		</div>
 					            	<% end %>
 					            </div>
-						</td>
-					</tr>
-					<tr class="table_new">
-						<th class="table_new">Buisiness hours</th>
-						<td>
-							<%= f.time_select :open,prompt:true, ignore_data:true %> 〜 <%= f.time_select :close,prompt:true, ignore_data:true %>
 						</td>
 					</tr>
 
