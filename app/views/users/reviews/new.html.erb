@@ -72,7 +72,8 @@
 						<th class="table_new">Budget</th>
 						<td class="table_new">
 							<%= f.select :currency, ['$',' EUR ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'} %>
-							<%= f.text_field :budget,:placeholder => "予算(最低額) 15",class: "budget_box" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額) 30",class: "budget_box" %></td>
+							<%= f.text_field :budget,:placeholder => "予算(最低額) 15",class: "budget_box" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額) 30",class: "budget_box" %>
+						</td>
 					</tr>
 
 					<tr class="table_new">
@@ -85,7 +86,7 @@
 					</tr>
 
 					<tr class="table_new">
-						<th><%= f.label 'images' %></th>
+						<th><%= f.label 'Images' %></th>
 						<td class="table_new">
 							<div class="post__drop__box__container">
 					            <div class="prev-content"></div>
@@ -104,6 +105,12 @@
 					            		</div>
 					            	<% end %>
 					            </div>
+						</td>
+					</tr>
+					<tr class="table_new">
+						<th class="table_new">Buisiness hours</th>
+						<td>
+							<%= f.time_select :open,prompt:true, ignore_data:true %> 〜 <%= f.time_select :close,prompt:true, ignore_data:true %>
 						</td>
 					</tr>
 

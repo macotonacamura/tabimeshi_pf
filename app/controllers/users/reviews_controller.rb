@@ -150,6 +150,8 @@ class Users::ReviewsController < ApplicationController
       :currency,
       :country,
       :city,
+      :open,
+      :close,
       review_images_attributes: [
         :id,
         :image
