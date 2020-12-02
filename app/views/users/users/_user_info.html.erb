@@ -1,11 +1,6 @@
 <div class="info-box_index_show fadein">
 	<div>
-		<%#= image_tag user.profile_image.url, fallback: "no_image.jpg" ,class: 'profile_img_index_show' %>
-		<% if user.profile_image.url.blank? %>
-			<%= image_tag "no_image.jpg", class: "profile_img_index_show" %>
-		<% else %>
-			<%= image_tag user.profile_image.url ,class: 'profile_img_index_show' %>
-		<% end %>
+		<%= image_tag user.profile_image.url, class: 'profile_img_index_show' %>
 	</div>
 	<div class="user_info_index_show fadein">
 		<h3 class="user_name ml-2">

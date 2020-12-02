@@ -52,6 +52,13 @@ $(document).on('turbolinks:load', function() {
     // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
     hidePrevious : false
   });
+  $(function(){
+    $('.multiple-items').slick({
+      infinite: true,
+      slidesToShow: 4,
+      slidesToScroll: 3
+    });
+  });
 });
 
 
@@ -98,13 +105,13 @@ $(function(){
 });
 
 //slick
-$(function(){
-  $('.multiple-items').slick({
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 3
-  });
-});
+// $(function(){
+//   $('.multiple-items').slick({
+//     infinite: true,
+//     slidesToShow: 4,
+//     slidesToScroll: 3
+//   });
+// });
 
 
 //トップへ戻るボタン

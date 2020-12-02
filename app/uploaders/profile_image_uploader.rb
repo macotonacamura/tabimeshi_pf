@@ -23,6 +23,11 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
+   def default_url(*args)
+  #   For Rails 3.1+ asset pipeline compatibility:
+    "no_image.jpg"
+  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+   end
   # def scale(width, height)
   #   # do something
   # end

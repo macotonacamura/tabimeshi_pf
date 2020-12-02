@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col">
 				<%=  l review.created_at, format: :long %>
-				<%= image_tag review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img' %>
+				<%= image_tag review.user.profile_image.url, format: 'jpg' ,class: 'profile_img' %>
 				<strong>
 					<%= link_to user_path(review.user.id),:style=>"color:#444;" do %>
 						<%= review.user.user_name %>
