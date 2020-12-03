@@ -305,7 +305,8 @@
 .pop_intro{
   position: absolute;
   left: 220px;
-  top:60px;
+  top: 60px;
+  right: 20px;
 }
 
 .user_box_content{
@@ -332,6 +333,7 @@
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
   border: 2px solid #fff;
+  object-fit: cover;
 }
 
 
