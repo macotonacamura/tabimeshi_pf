@@ -29,7 +29,7 @@ class User < ApplicationRecord
   end
 
   def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id) #フォロー済みならアンフォローできる
+    relationship = self.find_by(follow_id: other_user.id) #フォロー済みならアンフォローできる
     relationship.destroy if relationship
   end
 
@@ -67,8 +67,13 @@ class User < ApplicationRecord
   end
 
 #ユーザーランキング機能(フォロワーが多い順で5名の情報を取得)
-  # def self.create_all_ranks
-  #   User.find(follower.group(:user_id).order('count(followers) desc').limit(5).pluck(user_id))
-  # end
+   def self.create_all_ranks
+      # select users.id, relationships.follower_count, users.user_name from users inner join ( select follow_id, count(follow_id) as follower_count from relationships group by follow_id order by follower_count desc) as relationships on users.id = relationships.follow_id;
+      #ret = User.joins(Relationship.group(:follow_id).count(:follow_id)).order(count_follow_id: :desc).limit(5)
+      user = User.joins(:followers).group(:follow_id).order('count(follow_id) desc').limit(5)
+      #user = user.distinct().limit(5)
+     #User.find(followers.group(:user_id).order('count(user_id) desc').limit(3).pluck(user_id))
+     return user
+   end
 
 end
