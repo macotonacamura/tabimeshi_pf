@@ -74,6 +74,15 @@ footer{
     background-color: #dee2e6;
     border-color: #fff;}
 
+.page-link{
+  color:rgba(82,77,77,0.6);
+  background-color: rgba(245, 245, 245,0.6);
+}
+
+.page-link:hover{
+  color:#444;
+}
+
 body::after {
   content: '';
   position: fixed;
