@@ -9,6 +9,8 @@ class Users::ReviewsController < ApplicationController
         @reviews = Review.joins(:user).where('users.is_deleted =?', false).page(params[:page]).reverse_order
         @review = @reviews.select{ |review| review.user.is_deleted == false }#{}の中の条件に合う投稿を選択
      end
+     #@rank = User.create_all_ranks
+     @users = User.all.limit(5)
   end
 
   def show

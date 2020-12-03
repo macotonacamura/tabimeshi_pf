@@ -11,11 +11,7 @@
 					<% @users.each do |user| %>
 						<div class="info-box_index_show fadein row">
 							<div class="col-xs-3">
-								<% if user.profile_image.url.blank? %>
-									<%= image_tag "no_image.jpg", class: "profile_img_index_show" %>
-								<% else %>
-									<%= image_tag user.profile_image.url ,class: 'profile_img_index_show' %>
-								<% end %>
+								<%= image_tag user.profile_image.url ,class: 'profile_img_index_show' %>
 							</div>
 							<div class="user_info_index_show col-xs-9">
 								<h3 class="user_name">

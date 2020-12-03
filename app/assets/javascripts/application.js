@@ -59,6 +59,13 @@ $(document).on('turbolinks:load', function() {
       slidesToScroll: 3
     });
   });
+  $(function(){
+    $('.pop_users').slick({
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    });
+  });
 });
 
 

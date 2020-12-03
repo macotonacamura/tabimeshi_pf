@@ -22,8 +22,7 @@
 		</div>
 
 		<div class=" row popullar fadein mt-5" style="display: block;">
-			 <h2>Search popular areas</h2>
-
+			<h2>Search popular areas</h2>
 
 			<div style="padding:30px;" class="multiple-items">
 
@@ -36,56 +35,89 @@
 				<% end %>
 
 				<%= link_to reviews_path(continent_id: 2), method: :get, remote: true do %>
-				<div class="popular_area_america">
-					<div class="popular_area-content">
-						<strong><h3 style="color:#fff;">North America</h3></strong>
+					<div class="popular_area_america">
+						<div class="popular_area-content">
+							<strong><h3 style="color:#fff;">North America</h3></strong>
+						</div>
 					</div>
-				</div>
 				<% end %>
 
 				<%= link_to reviews_path(continent_id: 3), method: :get, remote: true do %>
-				<div class="popular_area_europe">
-					<div class="popular_area-content">
-						<strong><h3 style="color:#fff;">Europe</h3></strong>
+					<div class="popular_area_europe">
+						<div class="popular_area-content">
+							<strong><h3 style="color:#fff;">Europe</h3></strong>
+						</div>
 					</div>
-				</div>
 				<% end %>
 
 				<%= link_to reviews_path(continent_id: 4), method: :get, remote: true do %>
-				<div class="popular_area_oseania">
-					<div class="popular_area-content">
-						<strong><h3 style="color:#fff;">Oceania</h3></strong>
+					<div class="popular_area_oseania">
+						<div class="popular_area-content">
+							<strong><h3 style="color:#fff;">Oceania</h3></strong>
+						</div>
 					</div>
-				</div>
 				<% end %>
 
 				<%= link_to reviews_path(continent_id: 5), method: :get, remote: true do %>
-				<div class="popular_area_africa">
-					<div class="popular_area-content">
-						<strong><h3 style="color:#fff;">Africa</h3></strong>
+					<div class="popular_area_africa">
+						<div class="popular_area-content">
+							<strong><h3 style="color:#fff;">Africa</h3></strong>
+						</div>
 					</div>
-				</div>
 				<% end %>
 
 				<%= link_to reviews_path(continent_id: 6), method: :get, remote: true do %>
-				<div class="popular_area_south_america">
-					<div class="popular_area-content">
-						<strong><h3 style="color:#fff;">South America</h3></strong>
+					<div class="popular_area_south_america">
+						<div class="popular_area-content">
+							<strong><h3 style="color:#fff;">South America</h3></strong>
+						</div>
 					</div>
-				</div>
 				<% end %>
 
 			</div>
 		</div>
 
-
-		<div class="row review_list_index">
 			<h2 class="title_new_posts fadein" >Posts list</h2>
-			<div id="review_index">
-				<%= render 'users/reviews/reviews_list', reviews: @reviews %>
+			<div class="row review_list_index">
+				<div id="review_index" class="col">
+					<%= render 'users/reviews/reviews_list', reviews: @reviews %>
+				</div>
+				<div><%= paginate @reviews , class: "pagination" %></div>
 			</div>
-			<div><%= paginate @reviews , class: "pagination" %></div>
-		</div>
+
+		<div class="row" style="display: block;  padding-bottom:300px;">
+			<h2 class="col-lg-12 mt-5 mb-3">Popular users</h2>
+
+				<div class= "pop_users">
+					<% @users.each do |user| %>
+						<div class="fadein pop_user_box">
+							<div class="col-xs-3">
+								<%= image_tag user.profile_image.url ,class: 'popular_user_img mt-3' %>
+							</div>
+							<div class="col-xs-9">
+								<h5 class="pop_user_name">
+									<%= user.user_name %>
+								</h5>
+								<div class="pop_intro">
+									<%= user.introduction %>
+								</div>
+								<div class="user_box_content">
+									<span>レビュー <%= user.reviews.count  %>件</span><br>
+									<span>フォロワー <%= user.followers.count %>人</span>
+								</div>
+								<div class="link_to_user_show">
+									<%= link_to user_path(user.id), :style=>"color:#333;" do %>
+										<i class="fas fa-link"></i>
+									<% end %>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			<%# @rank.each do |rank| %>
+				<%# rank.user.user_name %>
+			<%# end %>
 
 		<script>
 	      $(function(){

@@ -21,6 +21,7 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
 
+#フォロー機能
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id) #既にフォロー済みの場合重複してフォローされる事を防ぐ
@@ -36,12 +37,12 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
-  #退会ユーザーをログインできないようにする active_for_authentication?
+#退会ユーザーをログインできないようにする active_for_authentication?
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
 
-
+#FBログイン
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
@@ -56,8 +57,7 @@ class User < ApplicationRecord
     user
   end
 
-
-
+#ユーザー検索
   def self.partical(content)
     if content
       where("user_name LIKE ?", "%#{content}%")
@@ -65,5 +65,10 @@ class User < ApplicationRecord
       where(is_deleted: false)
     end
   end
+
+#ユーザーランキング機能(フォロワーが多い順で5名の情報を取得)
+  # def self.create_all_ranks
+  #   User.find(follower.group(:user_id).order('count(followers) desc').limit(5).pluck(user_id))
+  # end
 
 end
