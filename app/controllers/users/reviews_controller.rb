@@ -10,7 +10,6 @@ class Users::ReviewsController < ApplicationController
         @review = @reviews.select{ |review| review.user.is_deleted == false }#{}の中の条件に合う投稿を選択
      end
      @rank = User.create_all_ranks
-     #@users = User.partical(params[:content])
   end
 
   def show
