@@ -55,11 +55,6 @@ Rails.application.routes.draw do
 
 		resources :relationships, only: [:create, :destroy]
 
-		# get 'countries/asia' => 'countries#asia'
-		# get 'countries/america' => 'countries#america'
-		# get 'countries/europe' => 'countries#europe'
-		# get 'countries/oseania' => 'countries#oseania'
-
 		resources :inquiries, only:[:new, :create]
 
 
