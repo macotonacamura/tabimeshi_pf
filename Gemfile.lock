@@ -366,7 +366,6 @@ GEM
     sshkit (1.21.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    subdomain_locale (0.0.3)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -438,7 +437,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
-  subdomain_locale
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
