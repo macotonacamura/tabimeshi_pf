@@ -1,5 +1,6 @@
 class Users::ReviewsController < ApplicationController
   before_action :authenticate_user!
+
   def index
      if params[:country].present? #国名の取得
         @reviews = Review.joins(city: [:country]).where('countries.country LIKE(?)', "%#{params[:country]}%").page(params[:page]).reverse_order

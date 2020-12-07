@@ -227,3 +227,9 @@ ja:
         country: 国名
       cities:
         city: 都市名
+
+      reviews:
+        index:
+          Find_people: "ユーザーを探す"
+          Destination: "目的地から検索"
+          Post: "レビューを投稿する"

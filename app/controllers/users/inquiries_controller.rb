@@ -9,6 +9,7 @@ class Users::InquiriesController < ApplicationController
 		if @inquiry.save
 			InquiryMailer.send_mail(@inquiry).deliver
 			redirect_to reviews_path
+		flash[:email] = "Send email sucsessfully."
 		else
 			redirect_to reviews_path
 		end

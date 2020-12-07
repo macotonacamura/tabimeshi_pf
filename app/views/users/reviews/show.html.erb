@@ -7,13 +7,13 @@
 					<div class="time-limit"><%= flash[:update] %></div>
 					<div class="time-limit"><%= flash[:create] %></div>
 						<div class="d-flex justify-content-center">
-							<% @review.review_images.each do |review_image| %>
-								<% if review_image.image.present? %>
-						     		<%=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
-						     			<%= image_tag review_image.image.to_s().sub(ENV['S3_UPLOAD_BUCKET_URL'], ENV['S3_RESIZE_BUCKET_URL']) + "-thumbnail.", class: 'review_images' %>
-						     		<% end %>
-						     	<% end %>
-					 		<% end %>
+							<%# @review.review_images.each do |review_image| %>
+								<%# if review_image.image.present? %>
+						     		<%#=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
+						     			<%#= image_tag review_image.image.to_s().sub(ENV['S3_UPLOAD_BUCKET_URL'], ENV['S3_RESIZE_BUCKET_URL']) + "-thumbnail.", class: 'review_images' %>
+						     		<%# end %>
+						     	<%# end %>
+					 		<%# end %>
 					 	</div>
 
 
