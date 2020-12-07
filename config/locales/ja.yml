@@ -228,6 +228,21 @@ ja:
       cities:
         city: 都市名
 
+  application:
+    application:
+      find_people: "ユーザー一覧"
+      post_review: "レビューを投稿する"
+      my_page: "マイページ"
+      log_out: "ログアウト"
+      sign_in: "新規登録"
+      log_in: "ログイン"
+
+  homes:
+    top:
+      message_1: "思い出が深まるような旅中での特別な食事をお楽しみいただくためにガイドブックに載っている場所だけではなく、特別な食体験をしたい！ そんな願いを叶えるための、海外の美味しい情報レビューサイトです。 現地で見つけた美味しい情報を共有しましょう！"
+      message_2: "tabimeshi では、 旅先で見つけた皆様の美味しい情報を沢山のユーザーとシェアができます。 投稿した記事を目的地別に検索をすることが可能です。
+なお、記事を投稿するには会員登録が必要となります。"
+
   reviews:
     index:
       find_people: "ユーザーを探す"
@@ -236,17 +251,14 @@ ja:
       discover: "探す"
       search_popular_areas: "人気のエリアから探す"
       asia: "アジア"
-      europe: "ヨーロッパ"
       north_america: "北アメリカ"
-      south_america: "南アメリカ"
+      europe: "ヨーロッパ"
       oceania: "オセアニア"
       africa: "アフリカ"
+      south_america: "南アメリカ"
       posts_list: "投稿一覧"
       popular_users: "人気ユーザー一覧"
       review: "レビュー"
       followers: "フォロワー"
       search_by_destination: "目的地から検索"
-
-  homes:
-    top:
-      message_1: "思い出が深まるような旅中での特別な食事をお楽しみいただくためにガイドブックに載っている場所だけではなく、特別な食体験をしたい！ そんな願いを叶えるための、海外の美味しい情報レビューサイトです。 現地で見つけた美味しい情報を共有しましょう！"
+      choose_country: "国名を入力してください"

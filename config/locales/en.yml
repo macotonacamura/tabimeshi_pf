@@ -30,14 +30,58 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  application:
+    application:
+      find_people: "Find people"
+      post_review: "Post review"
+      my_page: "My page"
+      log_out: "Log out"
+      sign_in: "Sign in"
+      log_in: "log_in"
+
   homes:
     top:
       message_1: "The more you eat delicious food, the easier it is to create great memories.
       Not only can we help find famous local restaurants but also special local experiences off the beaten path.
       This is the food review application to help create unique memories.
       Experience something new with Tabimeshi"
+      message_2: "You can search and share food reviews based on location."
 
   reviews:
     index:
-      search_by_destination: "Search by destination"
+      find_people: "Find people"
+      destination: "Destination"
+      post: "Post"
+      discover: "Discover"
       search_popular_areas: "Search popular areas"
+      asia: "Asia"
+      north_america: "Noth America"
+      europe: "Europe"
+      oceania: "Oceania"
+      africa: "Africa"
+      south_america: "South America"
+      posts_list: "Posts list"
+      popular_users: "Popular users"
+      review: "Review"
+      followers: "Followers"
+      search_by_destination: "Search by destination"
+      choose_country: "Country name"
+
+      find_people: "ユーザーを探す"
+      destination: "目的地から検索"
+      post: "レビューを投稿する"
+      discover: "探す"
+      search_popular_areas: "人気のエリアから探す"
+      asia: "アジア"
+      north_america: "北アメリカ"
+      europe: "ヨーロッパ"
+      oceania: "オセアニア"
+      africa: "アフリカ"
+      south_america: "南アメリカ"
+      posts_list: "投稿一覧"
+      popular_users: "人気ユーザー一覧"
+      review: "レビュー"
+      followers: "フォロワー"
+      search_by_destination: "目的地から検索"
+      choose_country: "国名を入力してください"
+

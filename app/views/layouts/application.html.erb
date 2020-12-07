@@ -18,7 +18,7 @@
 
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav fixed-top fadein0" style="height: 90px;">
-          <div class="container">
+          <div class="container size">
             <a class="navbar-brand " href="/">
               <% if user_signed_in? %>
                 <div id="head-logo">
@@ -39,15 +39,15 @@
               <% if user_signed_in? %>
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item nav-link nav_res">
-                    <%= link_to 'Find people', users_path, :style=>"color:#fff;" %>
+                    <%= link_to t('application.application.find_people'), users_path, :style=>"color:#fff;" %>
                   </li>
                   <li class="nav-item nav-link nav_res">
-                    <%= link_to 'Post review', new_review_path, :style=>"color:#fff;" %>
+                    <%= link_to t('application.application.post_review'), new_review_path, :style=>"color:#fff;" %>
                   </li>
                 </ul>
                 <ul class="navbar-nav">
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle nav_res" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My page</a>
+                    <a class="nav-link dropdown-toggle nav_res" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t 'application.application.my_page' %></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="text-align: center;">
                       <a class="dropdown-item" href="#">
                         <%= link_to user_path(current_user.id), :style=>"color:#333; font-size:25px;" do %>
@@ -63,7 +63,7 @@
                     </div>
                   </li>
                   <li class="nav-item nav-link">
-                    <%= button_to 'Log out', destroy_user_session_path, method: :delete, :style=>"color:#fff;", class: "button_to" %>
+                    <%= button_to t('application.application.log_out'), destroy_user_session_path, method: :delete, :style=>"color:#fff;", class: "button_to" %>
                   </li>
                   <li class="nav-item nav-link">
                     <% if I18n.locale.to_s == "en" %>
@@ -87,10 +87,17 @@
 
                     <ul class="navbar-nav">
                         <li class="nav-item nav-link ">
-                           <%= link_to 'Sign up', new_user_registration_path, data: {"turbolinks" => false}, :style=>"color:#fff;" %>
+                           <%= link_to t('application.application.sign_in'), new_user_registration_path, data: {"turbolinks" => false}, :style=>"color:#fff;" %>
                         </li>
                         <li class="nav-item nav-link">
-                           <%= link_to 'Log in', new_user_session_path, data: {"turbolinks" => false}, :style=>"color:#fff;" %>
+                           <%= link_to t('application.application.log_in'), new_user_session_path, data: {"turbolinks" => false}, :style=>"color:#fff;" %>
+                        </li>
+                        <li class="nav-item nav-link">
+                          <% if I18n.locale.to_s == "en" %>
+                            <%= link_to('JA', :locale => 'ja') %>
+                          <% else %>
+                            <%= link_to('EN', :locale => 'en') %>
+                          <% end %>
                         </li>
                     </ul>
                   <% end %>

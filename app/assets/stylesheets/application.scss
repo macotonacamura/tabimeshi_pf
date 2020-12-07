@@ -28,6 +28,10 @@
   text-align:left;
 }
 
+.nav-item{
+  font-size:13px;
+}
+
 body{
   font-family: 'minifont';
 }
@@ -67,6 +71,7 @@ footer{
   color: #DDD;
   line-height:100px;
   background-color:#000;
+  z-index:100;
 }
 
 

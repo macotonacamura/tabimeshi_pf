@@ -109,6 +109,8 @@ li{
 
 //top
 
+
+
 .background_ {
     top: 0;
     left: 0;
@@ -128,7 +130,7 @@ li{
     opacity: 1;
 }
 
-.contents .wrap {
+.contents .wrap_ {
     padding: 40vh 0 60vh;
     position: relative;
     z-index: 2;
@@ -146,15 +148,18 @@ background-image: image-url("002.jpg");
 
 #content03_bg {
 background-image: image-url("003.jpg");
-background-color: rgba(255,255,255,0.2);
 }
 
-#content01 .wrap {
+#content01 .wrap_ {
  background-color: rgba(152,152,152,0.4);
 }
 
-#content02 .wrap {
- background-color: rgba(255,255,255,0.2);
+#content02 .wrap_ {
+  background-color: rgba(152,152,152,0.4);
+}
+
+#content03 .wrap_ {
+  background-color: rgba(152,152,152,0.4);
 }
 
 
