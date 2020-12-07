@@ -236,6 +236,7 @@ ja:
       log_out: "ログアウト"
       sign_in: "新規登録"
       log_in: "ログイン"
+      contact: "お問い合わせ"
 
   homes:
     top:
@@ -262,3 +263,12 @@ ja:
       followers: "フォロワー"
       search_by_destination: "目的地から検索"
       choose_country: "国名を入力してください"
+    show:
+      ones_review: "さんの口コミ"
+      posted_date: "投稿日時"
+      genre: "ジャンル"
+      area: "エリア"
+      budget: "予算"
+      link_twitter: "Twitterでシェアする"
+      comment_area: "コメントエリア"
+      post_comment: "コメントを投稿する"

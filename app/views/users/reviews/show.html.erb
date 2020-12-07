@@ -7,22 +7,22 @@
 					<div class="time-limit"><%= flash[:update] %></div>
 					<div class="time-limit"><%= flash[:create] %></div>
 						<div class="d-flex justify-content-center">
-							<%# @review.review_images.each do |review_image| %>
-								<%# if review_image.image.present? %>
-						     		<%#=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
-						     			<%#= image_tag review_image.image.to_s().sub(ENV['S3_UPLOAD_BUCKET_URL'], ENV['S3_RESIZE_BUCKET_URL']) + "-thumbnail.", class: 'review_images' %>
-						     		<%# end %>
-						     	<%# end %>
-					 		<%# end %>
+							<% @review.review_images.each do |review_image| %>
+								<% if review_image.image.present? %>
+						     		<%=  link_to review_image.image.url,:rel => "lightbox[sample-group]" do %>
+						     			<%= image_tag review_image.image.to_s().sub(ENV['S3_UPLOAD_BUCKET_URL'], ENV['S3_RESIZE_BUCKET_URL']) + "-thumbnail.", class: 'review_images' %>
+						     		<% end %>
+						     	<% end %>
+					 		<% end %>
 					 	</div>
 
 
-						<div class="mt-2">投稿日時  <%=  l @review.created_at, format: :long %></div>
+						<div class="mt-2"><%= t 'reviews.show.posted_date' %>  <%=  l @review.created_at, format: :long %></div>
 						<div class="review_show mt-2 ">
 							<%= image_tag @review.user.profile_image.url, format: 'jpg', fallback: "no_image.jpg"  ,class: 'profile_img'  %>
 							<%= link_to user_path(@review.user.id), :style=>"color:#444;" do %>
-								 	<%= @review.user.user_name %>
-							<% end %>  さんの口コミ
+								<%= @review.user.user_name %>
+							<% end %>  <%= t 'reviews.show.ones_review' %>
 						</div>
 
 						<h3 class="restaurant_name_show"><i class="fas fa-utensils"></i>　<%= @review.restaurant_name %></h3>
@@ -45,21 +45,17 @@
 								 });
 								</script>
 								<tr>
-									<th>ジャンル</th>
+									<th><%= t 'reviews.show.genre' %></th>
 									<td><%= @review.genre.genre_name %></td>
 								</tr>
 								<tr>
-									<th>エリア</th>
+									<th><%= t 'reviews.show.area' %></th>
 									<td><%= @review.city.country.country %>・<%= @review.city.city %></td>
 								</tr>
 								<tr>
-									<th>予算</th>
+									<th><%= t 'reviews.show.budget' %></th>
 									<td><%= @review.currency.html_safe %><%= @review.budget %> 〜 <%= @review.currency %><%= @review.maximum_budget %></td>
 								</tr>
-								<!-- <tr>
-									<th>営業時間</th>
-									<td><%#= @review.open %> 〜 <%#= @review.close %></td>
-								</tr> -->
 							</table>
 
 							<div class="review">
@@ -70,7 +66,7 @@
 								<%= render 'users/reviews/like' , review: @review %>
 							</div>
 							<%= link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do %>
-								<i class="fab fa-twitter">  Twitterでシェアする</i>
+								<i class="fab fa-twitter">  <%= t 'reviews.show.link_twitter' %></i>
 							<% end %>
 						</div>
 
@@ -139,7 +135,7 @@
 					    <% end %>
 
 						<%= form_with model: @review_comment ,url:review_review_comments_path(@review.id), method: :post do |f| %>
-							<h6 class="mini-title">コメントを投稿する</h6>
+							<h6 class="mini-title"><%= t 'reviews.show.post_comment' %></h6>
 							<%= f.text_area :review_comment, id: "comment_body", :size=>"50" %>
 							<%= f.submit "comment" %>
 						<% end %>

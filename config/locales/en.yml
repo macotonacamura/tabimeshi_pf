@@ -37,7 +37,8 @@ en:
       my_page: "My page"
       log_out: "Log out"
       sign_in: "Sign in"
-      log_in: "log_in"
+      log_in: "Log_in"
+      contact: "Contact"
 
   homes:
     top:
@@ -66,4 +67,14 @@ en:
       followers: "Followers"
       search_by_destination: "Search by destination"
       choose_country: "Country name"
+
+    show:
+      ones_review: "'s review"
+      posted_date: "Posted date"
+      genre: "Genre"
+      area: "Area"
+      budget: "Budget"
+      link_twitter: "Share with Twitter"
+      comment_area: "Comments"
+      post_comment: "Post comment"
 

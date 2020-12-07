@@ -113,7 +113,7 @@
           <ul class="nav navbar-inverse pull-right" style="margin-left: 20px;">
             <li><%= link_to 'CopyRight tabimeshi.inc', admins_sign_in_path, :style=>"color:#fff;" %></li>
           <li class="nav navbar-inverse pull_left">
-            <%= link_to new_inquiry_path, :style=>"color:#fff;" do %>お問い合わせ <i class="fas fa-envelope"></i><% end %>
+            <%= link_to new_inquiry_path, :style=>"color:#fff;" do %><%= t 'application.application.contact' %> <i class="fas fa-envelope"></i><% end %>
           </li>
         </ul>
         </footer>
