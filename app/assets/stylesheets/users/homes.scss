@@ -106,6 +106,76 @@ li{
 }
 
 
+
+//top
+
+.background_ {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    position: fixed;
+    background-position: center center;
+    opacity: 0;
+-webkit-background-size: cover;
+        background-size: cover;
+-webkit-transition: all 0.5s ease 0s;
+   -moz-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s;
+}
+
+.show .background_ {
+    opacity: 1;
+}
+
+.contents .wrap {
+    padding: 40vh 0 60vh;
+    position: relative;
+    z-index: 2;
+}
+
+/* design*/
+
+#content01_bg{
+background-image: url("../001.jpg");
+}
+
+#content02_bg{
+background-image: url("../002.jpg");
+}
+
+#content03_bg {
+background-image: url("../003.jpg");
+background-color: rgba(255,255,255,0.2);
+}
+
+#content01 .wrap {
+ background-color: rgba(152,152,152,0.4);
+}
+
+#content02 .wrap {
+ background-color: rgba(255,255,255,0.2);
+}
+
+
+.text-box {
+    padding: 50px 25px;
+    width: 500px;
+    background-color: rgba(152,152,152,0.4);
+    color: #fff;
+}
+
+.text-box .catch {
+    margin: 0 0 10px;
+    font-size: 35px;
+}
+
+.text-box .copy {
+    margin: 0;
+    line-height: 2;
+}
+
+
 @media screen and (max-width:425px) {
 
   .page{

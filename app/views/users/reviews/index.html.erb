@@ -14,23 +14,23 @@
 			</div>
 
 			<div class="link-list col-md-7 fadein">
-				<button class="btn-circle-flat" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;">Destination</button>
+				<button class="btn-circle-flat" data-toggle="modal" data-target=".bd-example-modal-lg" style="color: #fff;"><%= t 'reviews.index.destination' %></button>
 
-				<%= link_to 'Post', new_review_path,class: 'btn-circle-flat post_button', :style=>"color:#fff;" %>
-				<%= link_to 'Find people', users_path,class: 'btn-circle-flat find_button', :style=>"color:#fff;" %>
-				<a class="btn-circle-flat discover_button"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;">Discover</a>
+				<%= link_to t('reviews.index.post'), new_review_path,class: 'btn-circle-flat post_button', :style=>"color:#fff;" %>
+				<%= link_to t('reviews.index.find_people'), users_path,class: 'btn-circle-flat find_button', :style=>"color:#fff;" %>
+				<a class="btn-circle-flat discover_button"  id="to-lists" data-toggle="pill" href="#to-lists" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="color: #fff;"><%= t 'reviews.index.discover' %></a>
 			</div>
 		</div>
 
 		<div class=" row popullar fadein mt-5" style="display: block;">
-			<h2>Search popular areas</h2>
+			<h2><%= t 'reviews.index.search_popular_areas' %></h2>
 
 			<div style="padding:30px;" class="multiple-items">
 
 				<%= link_to reviews_path(continent_id: 1), method: :get, remote: true do %>
 					<div class="popular_area_asia">
 						<div class="popular_area-content">
-							<h3 style="color:#fff;">Asia</h3>
+							<h3 style="color:#fff;"><%= t 'reviews.index.asia' %></h3>
 						</div>
 					</div>
 				<% end %>
@@ -38,7 +38,7 @@
 				<%= link_to reviews_path(continent_id: 2), method: :get, remote: true do %>
 					<div class="popular_area_america">
 						<div class="popular_area-content">
-							<strong><h3 style="color:#fff;">North America</h3></strong>
+							<strong><h3 style="color:#fff;"><%= t 'reviews.index.north_america' %></h3></strong>
 						</div>
 					</div>
 				<% end %>
@@ -46,7 +46,7 @@
 				<%= link_to reviews_path(continent_id: 3), method: :get, remote: true do %>
 					<div class="popular_area_europe">
 						<div class="popular_area-content">
-							<strong><h3 style="color:#fff;">Europe</h3></strong>
+							<strong><h3 style="color:#fff;"><%= t 'reviews.index.europe' %></h3></strong>
 						</div>
 					</div>
 				<% end %>
@@ -54,7 +54,7 @@
 				<%= link_to reviews_path(continent_id: 4), method: :get, remote: true do %>
 					<div class="popular_area_oseania">
 						<div class="popular_area-content">
-							<strong><h3 style="color:#fff;">Oceania</h3></strong>
+							<strong><h3 style="color:#fff;"><%= t 'reviews.index.oceania' %></h3></strong>
 						</div>
 					</div>
 				<% end %>
@@ -62,7 +62,7 @@
 				<%= link_to reviews_path(continent_id: 5), method: :get, remote: true do %>
 					<div class="popular_area_africa">
 						<div class="popular_area-content">
-							<strong><h3 style="color:#fff;">Africa</h3></strong>
+							<strong><h3 style="color:#fff;"><%= t 'reviews.index.africa' %></h3></strong>
 						</div>
 					</div>
 				<% end %>
@@ -70,7 +70,7 @@
 				<%= link_to reviews_path(continent_id: 6), method: :get, remote: true do %>
 					<div class="popular_area_south_america">
 						<div class="popular_area-content">
-							<strong><h3 style="color:#fff;">South America</h3></strong>
+							<strong><h3 style="color:#fff;"><%= t 'reviews.index.south_america' %></h3></strong>
 						</div>
 					</div>
 				<% end %>
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 
-			<h2 class="title_new_posts fadein" >Posts list</h2>
+			<h2 class="title_new_posts fadein" ><%= t 'reviews.index.posts_list' %></h2>
 			<div class="row review_list_index">
 				<div id="review_index" class="col">
 					<%= render 'users/reviews/reviews_list', reviews: @reviews %>
@@ -91,7 +91,7 @@
 			</div>
 
 		<div class="row pop_users_mainbox" style="display: block;">
-			<h2 class="col-lg-12 mt-8 mb-3">Popular users</h2>
+			<h2 class="col-lg-12 mt-8 mb-3"><%= t 'reviews.index.popular_users' %></h2>
 
 				<div class= "pop_users">
 					<% @rank.each do |user| %>
@@ -107,8 +107,8 @@
 									<%= user.introduction %>
 								</div>
 								<div class="user_box_content">
-									<span>レビュー <%= user.reviews.count  %>件</span><br>
-									<span>フォロワー <%= user.followers.count %>人</span>
+									<span><%= t 'reviews.index.review' %> <%= user.reviews.count  %></span><br>
+									<span><%= t 'reviews.index.followers' %>  <%= user.followers.count %></span>
 								</div>
 								<div class="link_to_user_show">
 									<%= link_to user_path(user.id), :style=>"color:#333;" do %>
@@ -141,7 +141,7 @@
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" style="padding:10px;">
-    	<span style="margin-left: 10px;">目的地から検索</span>
+    	<span style="margin-left: 10px;"><%= t 'reviews.index.search_by_destination' %></span>
       	 <%= form_with  url:reviews_path, method: :get, local: true do |f| %>
        	 <%= f.text_field :country, id:"form", placeholder:"国名を入力してください", :size=>"40x12" %>
      	 <%= f.submit 'search', class: "btn btn-xs btn-outline-secondary mb-2" %>

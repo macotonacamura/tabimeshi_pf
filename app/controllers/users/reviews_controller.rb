@@ -2,14 +2,22 @@ class Users::ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-     if params[:country].present? #国名の取得
-        @reviews = Review.joins(city: [:country]).where('countries.country LIKE(?)', "%#{params[:country]}%").page(params[:page]).reverse_order
-     elsif params[:continent_id] .present?
-        @reviews = Review.joins(city: [:country]).where('countries.continent_id = ?', params[:continent_id]).page(params[:page]).reverse_order
-     else
+     # if params[:country].present? #国名の取得
+     #    @reviews = Review.joins(city: [:country]).where('countries.country LIKE(?)', "%#{params[:country]}%").page(params[:page]).reverse_order
+     # elsif params[:continent_id] .present?
+     #    @reviews = Review.joins(city: [:country]).where('countries.continent_id = ?', params[:continent_id]).page(params[:page]).reverse_order
+     # else
+     #    @reviews = Review.joins(:user).where('users.is_deleted =?', false).page(params[:page]).reverse_order
+     #    @review = @reviews.select{ |review| review.user.is_deleted == false }#{}の中の条件に合う投稿を選択
+     # end
+     if params[:country].present? or params[:continent_id].present?
+        country_param = params[:country].present? ? "%#{params[:country]}%" : params[:continent_id]
+        where_param = params[:country].present? ? 'countries.country LIKE(?)' : 'countries.continent_id = ?'
+        @reviews = Review.joins(city: [:country]).where(where_param, country_param).page(params[:page]).reverse_order
+      else
         @reviews = Review.joins(:user).where('users.is_deleted =?', false).page(params[:page]).reverse_order
-        @review = @reviews.select{ |review| review.user.is_deleted == false }#{}の中の条件に合う投稿を選択
-     end
+        @review = @reviews.select{ |review| review.user.is_deleted == false }
+      end
      @rank = User.create_all_ranks
   end
 
@@ -25,10 +33,10 @@ class Users::ReviewsController < ApplicationController
     end
     countries = Country.where('country LIKE(?)', "#{params[:keyword]}%")
     countries = countries.map(&:country)
-    respond_to do |format|
-      format.html
-      format.json { render json: countries.to_json }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: countries.to_json }
+    # end
     #非同期
     cities = City.where('city LIKE(?)', "#{params[:keyword]}%")
     cities = cities.map(&:city)
@@ -62,7 +70,7 @@ class Users::ReviewsController < ApplicationController
     @review = validate_budget(@review)
 
     if @review.save
-      sleep(3)
+      sleep(3) #S3 Lambda連携時間確保
       redirect_to review_path(@review)
       flash[:create] = "You've created a new review successfully."
     else
@@ -133,6 +141,7 @@ class Users::ReviewsController < ApplicationController
    #  respond_to do |format|
    #    format.json { render 'index', json: @reviews.map{|review|review.city.city}.uniq }
    #  end
+
    end
 
   private

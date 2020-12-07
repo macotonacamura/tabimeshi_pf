@@ -30,8 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  site:
-    find people: "Find people"
-    post review: "Post review"
-    my page: "My page"
-    log out: "Log out"
+  homes:
+    top:
+      message_1: "The more you eat delicious food, the easier it is to create great memories.
+      Not only can we help find famous local restaurants but also special local experiences off the beaten path.
+      This is the food review application to help create unique memories.
+      Experience something new with Tabimeshi"
+
+  reviews:
+    index:
+      search_by_destination: "Search by destination"
+      search_popular_areas: "Search popular areas"

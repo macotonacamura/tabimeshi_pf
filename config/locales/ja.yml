@@ -228,8 +228,25 @@ ja:
       cities:
         city: 都市名
 
-      reviews:
-        index:
-          Find_people: "ユーザーを探す"
-          Destination: "目的地から検索"
-          Post: "レビューを投稿する"
+  reviews:
+    index:
+      find_people: "ユーザーを探す"
+      destination: "目的地から検索"
+      post: "レビューを投稿する"
+      discover: "探す"
+      search_popular_areas: "人気のエリアから探す"
+      asia: "アジア"
+      europe: "ヨーロッパ"
+      north_america: "北アメリカ"
+      south_america: "南アメリカ"
+      oceania: "オセアニア"
+      africa: "アフリカ"
+      posts_list: "投稿一覧"
+      popular_users: "人気ユーザー一覧"
+      review: "レビュー"
+      followers: "フォロワー"
+      search_by_destination: "目的地から検索"
+
+  homes:
+    top:
+      message_1: "思い出が深まるような旅中での特別な食事をお楽しみいただくためにガイドブックに載っている場所だけではなく、特別な食体験をしたい！ そんな願いを叶えるための、海外の美味しい情報レビューサイトです。 現地で見つけた美味しい情報を共有しましょう！"

@@ -1,9 +1,7 @@
 class Admins::ReviewsController < ApplicationController
 before_action :authenticate_admin!
 	def index
-    # @reviews = Review.joins(:user).where('users.is_deleted =?', false).page(params[:page]).reverse_order
-    # @review = @reviews.select{ |review| review.user.is_deleted == false }
-	  @reviews = Review.page(params[:page]).reverse_order #
+	  @reviews = Review.page(params[:page]).reverse_order
     @review = @reviews.select{ |review| review.user.is_deleted == false }
 	end
 
