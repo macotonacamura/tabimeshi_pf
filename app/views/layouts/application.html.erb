@@ -67,9 +67,9 @@
                   </li>
                   <li class="nav-item nav-link">
                     <% if I18n.locale.to_s == "en" %>
-                      <%= link_to('JA', :locale => 'ja') %>
+                      <i class="fas fa-globe-americas" style="color: #fff;"></i> <%= link_to('JA',{ :locale => 'ja'}, { class: "translation_btn" }) %>
                     <% else %>
-                      <%= link_to('EN', :locale => 'en') %>
+                      <i class="fas fa-globe-americas" style="color: #fff;"></i> <%= link_to('EN',{ :locale => 'en'},{class: "translation_btn "}) %>
                     <% end %>
                   </li>
                 </ul>
