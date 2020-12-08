@@ -1,7 +1,7 @@
 <div class="page_new">
 	<div class="container">
 		<div class="row">
-			<h2 class="title mt-2 fadein">Post review</h2>
+			<h2 class="title mt-2 fadein"><%= t 'reviews.new.post_review' %></h2>
 
 			<% if @review.errors.any? %>
 		        <div id="error_explanation">
@@ -17,13 +17,13 @@
 			<%= form_with model: @review, url:reviews_path(@review.id), method: :post, local: true do |f| %>
 				<table class="table table_new_all fadein" >
 					<tr class="table_new">
-						<th class="table_new"><%= f.label 'restaurant name' %></th>
-						<td class="table_new"><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
+						<th class="table_new"><%= t 'reviews.new.restaurant_name' %></th>
+						<td class="table_new"><%= f.text_field :restaurant_name, :placeholder => t('reviews.new.restaurant_name_area') %></td>
 					</tr>
 					<tr class="table_new">
 						<th class="table_new">
 						<div class="form-group" id="star" style="width:300px;">
-							<strong>Rate</strong>
+							<strong><%= t 'reviews.new.rate' %></strong>
 							<%= f.hidden_field :rate, id: :review_star %>
 						</div>
 						</th>
@@ -40,10 +40,10 @@
 					</tr>
 
 					<tr class="table_new">
-						<th>Country,City</th>
+						<th><%= t 'reviews.new.country_city' %></th>
 						<td class="country_box">
-							<%= f.text_field :country, placeholder: "国名(例:France) 半角英", class: 'country', id: :country, autocomplete: 'off' %>
-							<%= f.text_field :city, placeholder: "都市名(例:Paris) 半角英", class: 'city',id: :city, autocomplete: 'off' %>
+							<%= f.text_field :country, placeholder: t('reviews.new.country_area'), class: 'country', id: :country, autocomplete: 'off' %>
+							<%= f.text_field :city, placeholder: t('reviews.new.city_area'), class: 'city',id: :city, autocomplete: 'off' %>
 							<script>
 							  $( function() {
 							    $( "#country" ).autocomplete({
@@ -64,36 +64,30 @@
 					</tr>
 
 					<tr class="table_new">
-						<th class="table_new">Address</th>
-						<td class="table_new"><%= f.text_area :address,:size=>"30", :placeholder => "住所" %></td>
+						<th class="table_new"><%= t 'reviews.new.address' %></th>
+						<td class="table_new"><%= f.text_area :address,:size=>"30", :placeholder => t('reviews.new.address_area') %></td>
 					</tr>
 
 					<tr class="table_new">
-						<th class="table_new">Budget</th>
+						<th class="table_new"><%= t 'reviews.new.budget' %></th>
 						<td class="table_new">
-							<%= f.select :currency, ['$',' EUR ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'} %>
-							<%= f.text_field :budget,:placeholder => "予算(最低額) 15",class: "budget_box" %> 〜 <%= f.text_field :maximum_budget,:placeholder => "予算(上限額) 30",class: "budget_box" %>
+							<%= f.select :currency, ['$',' EUR ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: t('reviews.new.choose_currency')} %>
+							<%= f.text_field :budget,:placeholder => t('reviews.new.min_budget'),class: "budget_box" %> 〜 <%= f.text_field :maximum_budget,:placeholder => t('reviews.new.max_budget'),class: "budget_box" %>
 						</td>
 					</tr>
 
-					<!-- <tr class="table_new">
-						<th class="table_new">Buisiness hours</th>
-						<td>
-							<%#= f.time_select :open,prompt:true, ignore_data:true %> 〜 <%#= f.time_select :close,prompt:true, ignore_data:true %>
-						</td>
-					</tr> -->
 
 					<tr class="table_new">
-						<th class="table_new">Review</th>
-						<td class="table_new"><%= f.text_area :review ,:size=>"50x8",:placeholder => "口コミ",class: 'review_area' %></td>
+						<th class="table_new"><%= t 'reviews.new.review' %></th>
+						<td class="table_new"><%= f.text_area :review ,:size=>"50x8",:placeholder => t('reviews.new.review_area'),class: 'review_area' %></td>
 					</tr>
 					<tr class="table_new">
-						<th><%= f.label 'genre' %> </th>
-	  					<td><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: "ジャンルを選択してください --" %></td>
+						<th><%= t 'reviews.new.genre' %></th>
+	  					<td><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: t('reviews.new.choose_genre') %></td>
 					</tr>
 
 					<tr class="table_new">
-						<th><%= f.label 'Images' %></th>
+						<th><%= t 'reviews.new.images' %></th>
 						<td class="table_new">
 							<div class="post__drop__box__container">
 					            <div class="prev-content"></div>
@@ -118,7 +112,7 @@
 					<tr class="table_new">
 						<th></th>
 						<th></th>
-					<td class="table_new pb-2"><%= f.submit 'post', class: "btn btn-outline-secondary post_btn mb-20" %></td>
+					<td class="table_new pb-2"><%= f.submit t('reviews.new.post'), class: "btn btn-outline-secondary post_btn mb-20" %></td>
 					</tr>
 
 				</table>

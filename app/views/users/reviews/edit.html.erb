@@ -1,6 +1,6 @@
 <div class="page_edit">
 	<div class="container">
-		<h2 class="edit_title mt-3 mb-2">Edit your review</h2>
+		<h2 class="edit_title mt-3 mb-2"><%= t 'reviews.edit.edit_your_review' %></h2>
 		<% if @review.errors.any? %>
 	        <div id="error_explanation">
 	            <h3><%= @review.errors.count %>error prohibited this obj from being saved:</h3>
@@ -15,13 +15,13 @@
 		<%= form_with model: @review,url:review_path(@review.id), method: :patch, local: true do |f| %>
 			<table class="table table_edit mt-2">
 				<tr class="table_edit">
-					<th class="table_edit">Restaurant name</th>
-					<td class="table_edit"><%= f.text_field :restaurant_name, :placeholder => "店名" %></td>
+					<th class="table_edit"><%= t 'reviews.edit.restaurant_name' %></th>
+					<td class="table_edit"><%= f.text_field :restaurant_name, :placeholder => t('reviews.edit.restaurant_name_area') %></td>
 				</tr>
 				<tr class="table_edit">
 					<th class="table_edit">
 					<div class="form-group" id="star" style="width:300px;">
-						<strong>Rate</strong>
+						<strong><%= t 'reviews.edit.rate' %></strong>
 						<%= f.hidden_field :rate, id: :review_star %>
 					</div>
 					</th class="table_edit">
@@ -38,7 +38,7 @@
 					</script>
 				</tr>
 				<tr class="table_edit">
-					<th class="table_edit">Country,City</th>
+					<th class="table_edit"><%= t 'reviews.edit.country_city' %></th>
 					<td class="table_edit">
 						<%= f.text_field :country, value: @review.city.country.country, class: 'country', id: :country, autocomplete: 'off' %>
 						<%= f.text_field :city, value: @review.city.city, class: 'city',id: :city,  autocomplete: 'off' %>
@@ -62,26 +62,26 @@
 					</td>
 				</tr>
 				<tr class="table_edit">
-					<th class="table_edit">Address</th>
+					<th class="table_edit"><%= t 'reviews.edit.address' %></th>
 					<td class="table_edit"><%= f.text_area :address,:size=>"30", :placeholder => "住所" %></td>
 				</tr>
 				<tr class="table_edit">
-					<th class="table_edit">Budget</th>
+					<th class="table_edit"><%= t 'reviews.edit.budget' %></th>
 					<td class="table_edit">
-						<%= f.select :currency, ['$',' EUR ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: '通貨を選択してください'},class: 'sample' %>
-						<%= f.text_field :budget,:placeholder => "予算(最低)15" %> 〜 <%= f.text_field :maximum_budget, :placeholder => "予算(上限額)30" %>
+						<%= f.select :currency, ['$',' EUR ','￡', '￥','Kr','Fr','₩','R','₺','₡','₪','₹','ரூ','₫','฿','؋','₱' ], {include_blank: t('reviews.edit.choose_currency')},class: 'sample' %>
+						<%= f.text_field :budget,:placeholder => t('reviews.edit.min_budget') %> 〜 <%= f.text_field :maximum_budget, :placeholder => t('reviews.edit.max_budget') %>
 					</td>
 				</tr>
 				<tr class="table_edit">
-					<th class="table_edit">Review</th>
-					<td class="table_edit"><%= f.text_area :review ,:size=>"50x8",:placeholder => "口コミ"%></td>
+					<th class="table_edit"><%= t 'reviews.edit.review' %></th>
+					<td class="table_edit"><%= f.text_area :review ,:size=>"50x8",:placeholder => t('reviews.edit.review_area') %></td>
 				</tr>
 				<tr class="table_edit">
-					<th class="table_edit">Genre</th>
-  					<td class="table_edit"><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: "ジャンルを選択してください --" %></td>
+					<th class="table_edit"><%= t 'reviews.edit.genre' %></th>
+  					<td class="table_edit"><%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :genre_name, prompt: t('reviews.edit.choose_genre') %></td>
 				</tr>
 				<tr class="table_edit">
-					<th class="table_edit">Images</th>
+					<th class="table_edit"><%= t 'reviews.edit.images' %></th>
 					<td class="table_edit">
 						<div class="post__drop__box__container">
 				            <div class="prev-content"></div>
@@ -108,7 +108,7 @@
 				<tr class="table_edit">
 					<th></th>
 					<th></th>
-					<td class="table_edit"><%= f.submit 'send', class: "btn btn-md btn-outline-secondary post_btn mb-20" %></td>
+					<td class="table_edit"><%= f.submit t('reviews.edit.post') , class: "btn btn-md btn-outline-secondary post_btn mb-20" %></td>
 				</tr>
 			</table>
 		<% end %>

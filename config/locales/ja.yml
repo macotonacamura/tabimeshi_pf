@@ -263,6 +263,7 @@ ja:
       followers: "フォロワー"
       search_by_destination: "目的地から検索"
       choose_country: "国名を入力してください"
+
     show:
       ones_review: "さんの口コミ"
       posted_date: "投稿日時"
@@ -272,3 +273,100 @@ ja:
       link_twitter: "Twitterでシェアする"
       comment_area: "コメントエリア"
       post_comment: "コメントを投稿する"
+
+    new:
+      post_review: "レビューを投稿する"
+      restaurant_name: "店名"
+      restaurant_name_area: "店名"
+      rate: "評価"
+      country_city: "国・都市"
+      country_area: "国名(例:France) 半角英"
+      city_area: "都市名(例:Paris) 半角英"
+      address: "住所"
+      address_area: "Place de l'Hôtel de Ville, 75004 Paris,France"
+      budget: "通貨を選択 --"
+      choose_budget: ""
+      min_budget: "予算(最低額) 15"
+      max_budget: "予算(上限額) 30"
+      review: "レビュー"
+      review_area: "口コミ"
+      genre: "ジャンル"
+      choose_genre: "ジャンルを選択してください --"
+      images: "写真"
+      post: "投稿する"
+
+    edit:
+      edit_your_review: "投稿を編集する"
+      restaurant_name: "店名"
+      restaurant_name_area: "店名"
+      rate: "評価"
+      country_city: "国・都市"
+      country_area: "国名(例:France) 半角英"
+      city_area: "都市名(例:Paris) 半角英"
+      address: "住所"
+      address_area: "Place de l'Hôtel de Ville, 75004 Paris,France"
+      budget: "予算"
+      choose_currency: ""
+      min_budget: "予算(最低額) 15"
+      max_budget: "予算(上限額) 30"
+      review: "レビュー"
+      review_area: "口コミ"
+      genre: "ジャンル"
+      choose_genre: "ジャンルを選択してください --"
+      images: "写真"
+      post: "投稿する"
+
+  users:
+    index:
+      find_people: "ユーザーを探す"
+      search: "検索"
+      posts: "投稿"
+      followers: "フォロワー"
+      followings: "フォロー"
+      edit: "編集する"
+
+    show:
+      mypage: "マイページ"
+      page_you_liked: "いいねした投稿一覧"
+      edit_your_profile: "登録情報を編集"
+
+    edit:
+      edit_profile: "登録情報編集"
+      user_name: "ユーザー名"
+      introduction: "紹介文"
+      private_infomation: "個人情報"
+      email: "メール"
+      update: "更新"
+      delete_an_account: "退会する"
+
+    follower:
+      follower_list: "フォロワー"
+    followings:
+      following_list: "フォロー"
+
+    likes:
+      saved_reviews: "いいねした投稿一覧"
+
+    unsubscribe:
+      are_you_sure: "本当に退会しますか?"
+      if_you_delete: "退会するとこれまでの投稿が全て削除されます。"
+      plz_click: "退会する場合は退会するをクリックしてください。"
+      confirm': "本当に退会しますか?"
+      delete_button: "退会する"
+
+  inquiries:
+    new:
+      contact: "お問い合わせ"
+      name: "お名前"
+      message: "お問い合わせ内容"
+      send: "送信"
+
+
+
+
+
+
+
+
+
+

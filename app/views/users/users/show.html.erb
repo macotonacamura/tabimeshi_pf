@@ -5,9 +5,9 @@
 
 				<div>
 					<% if @user == current_user %>
-						<h2 class="mypage mt-3 fadein">mypage</h2>
+						<h2 class="mypage mt-3 fadein"><%= t 'users.show.mypage' %></h2>
 					<% else %>
-						<h2 class="mt-3 fadein"><%= @user.user_name %>'s room</h2>
+						<h2 class="mt-3 fadein"><%= @user.user_name %></h2>
 					<% end %>
 				</div>
 				<div class="time-limit fadein"><%= flash[:change] %></div>
@@ -16,7 +16,7 @@
 
 
 			<div>
-				<h3 class="title_posts_list mb-3 fadein"><%= @user.user_name %>'s posts list</h3>
+				<h3 class="title_posts_list mb-3 fadein"></h3>
 
 				<%= render 'users/reviews/reviews_list', reviews:@reviews %>
 				<%= paginate @reviews %>

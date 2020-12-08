@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 edit_form">
-				<h1>Edit Profile</h1>
+				<h2 style="margin-top:100px;"><%= t 'users.edit.edit_profile' %></h2>
 				<% if @user.errors.any? %>
 			        <div id="error_explanation">
 			            <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
@@ -42,25 +42,25 @@
 						  });
 						</script>
 						<tr>
-							<th>user name</th>
+							<th><%= t 'users.edit.user_name' %></th>
 							<td><%= f.text_field :user_name ,:size=>"21", placeholder: "ユーザーネーム", class: "name_area" %></td>
 						</tr>
 						<tr>
-							<th>introduction</th>
+							<th><%= t 'users.edit.introduction' %></th>
 							<td><%= f.text_area :introduction ,:size=>"40", placeholder: "紹介文(50字まで)", class: "introduction_area" %></td>
 						</tr>
 						<tr>
-							<th>Private Information</th>
+							<th><%= t 'users.edit.private_infomation' %></th>
 						</tr>
 						<tr>
-							<th><%= f.label 'email' %></th>
+							<th><%= t 'reviews.edit.email' %></th>
 							<td><%= f.text_field :email,:size=>"21", class: "email_area" %></td>
 						</tr>
 						<tr>
 							<th></th>
 							<th></th>
-						<td><%= f.submit 'update', class: "btn btn-outline-secondary" %></td>
-						<td><%= link_to users_unsubscribe_path(current_user.id), class: "btn btn-outline-dark update_btn" do %>退会画面<% end %></td>
+						<td><%= f.submit t('users.edit.update'), class: "btn btn-outline-secondary" %></td>
+						<td><%= link_to users_unsubscribe_path(current_user.id), class: "btn btn-outline-dark update_btn to_delete" do %><%= t 'users.edit.delete_an_account' %><% end %></td>
 
 						</tr>
 					</table>

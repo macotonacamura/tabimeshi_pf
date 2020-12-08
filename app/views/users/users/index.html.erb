@@ -7,7 +7,7 @@
 				</div>
 
 				<div class="col-md-12 fadein">
-					<h2>Find people</h2>
+					<h2><%= t 'users.index.find_people' %></h2>
 					<% @users.each do |user| %>
 						<div class="info-box_index_show fadein row">
 							<div class="col-xs-3">
@@ -24,7 +24,7 @@
 								</div>
 								<% if current_user == user %>
 									<%= link_to edit_user_path(current_user.id), :style=>"color:#444;",class: 'to_edit' do %>
-										<i class="fas fa-wrench btn btn-sm"></i>編集する
+										<i class="fas fa-wrench btn btn-sm"></i><%= t 'users.index.edit' %>
 									<% end %>
 								<% end %>
 							</div>

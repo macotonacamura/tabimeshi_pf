@@ -78,3 +78,106 @@ en:
       comment_area: "Comments"
       post_comment: "Post comment"
 
+    new:
+      post_review: "Post review"
+      restaurant_name: "Restaurant"
+      restaurant_name_area: "Restaurant name"
+      rate: "Rate"
+      country_city: "Countryt City"
+      country_area: "国名(例:France) 半角英"
+      city_area: "都市名(例:Paris) 半角英"
+      address: "Address"
+      address_area: "Place de l'Hôtel de Ville, 75004 Paris,France"
+      budget: "Budget"
+      choose_currency: "Choose currency --"
+      min_budget: "Minimum  15"
+      max_budget: "Maximum  30"
+      review: "Review"
+      review_area: "Write your review"
+      genre: "Genre"
+      choose_genre: "Select genre --"
+      images: "Images"
+      post: "Post"
+
+    edit:
+      edit_your_review: "Edit your review"
+      restaurant_name: "Restaurant"
+      restaurant_name_area: "Restaurant name"
+      rate: "Rate"
+      country_city: "Country・City"
+      country_area: "France "
+      city_area: "Paris"
+      address: "Address"
+      address_area: "Place de l'Hôtel de Ville, 75004 Paris,France"
+      budget: "Budget"
+      choose_currency: "Choose currency --"
+      min_budget: "Minimum  15"
+      max_budget: "Maximum  30"
+      review: "Review"
+      review_area: "Write your review"
+      genre: "Genre"
+      choose_genre: "Select genre --"
+      images: "Images"
+      post: "Update"
+
+
+  users:
+    index:
+      find_people: "Find People"
+      search: "Search"
+      posts: "Posts"
+      followers: "Followers"
+      followings: "Followings"
+      edit: "Edit"
+
+    show:
+      mypage: "My page"
+      page_you_liked: "Liked"
+      edit_your_profile: "Edit your profile"
+
+    edit:
+      edit_profile: "Edit your infomation"
+      user_name: "User name"
+      introduction: "Introduction"
+      private_infomation: "Private infomation"
+      email: "Email"
+      update: "Update"
+      delete_an_account: "Delete your account"
+
+    follower:
+      follower_list: "Follower list"
+    followings:
+      following_list: "Following list"
+
+    likes:
+      saved_reviews: "Saved reviews"
+
+    unsubscribe:
+      are_you_sure: "Are you sure?"
+      if_you_delete: "If you delete your account the posts associated with it will be deleted entirely."
+      plz_click: "Please click if you would like to click to confirm account deletion."
+      confirm': "Are you sure?"
+      delete_button: "Unsubscribe"
+
+
+  inquiries:
+    new:
+      contact: "Contact"
+      name: "Name"
+      message: "Message"
+      send: "Send"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

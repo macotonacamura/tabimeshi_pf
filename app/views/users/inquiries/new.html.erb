@@ -2,14 +2,14 @@
 	<div class="row">
 		<div class="col">
 			<div style="margin: 120px;">
-				<h2>お問い合わせフォーム</h2>
+				<h2><%= t 'inquiries.new.contact' %></h2>
 
 				<%= form_with model: @inquiry do |f|  %>
-					<%= f.label :お名前 %><br>
+					<%= t 'inquiries.new.name' %><br>
 					<%= f.text_field :name %><br>
-					<%= f.label :お問い合わせ内容 %><br>
+					<%= t 'inquiries.new.message' %><br>
 					<%= f.text_area :message,:size=>"50x10" %><br>
-					<%= f.submit :送信 %><br>
+					<%= f.submit t('inquiries.new.send') %><br>
 				<% end %>
 
 			</div>

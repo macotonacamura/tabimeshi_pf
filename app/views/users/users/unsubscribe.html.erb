@@ -2,12 +2,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h3 class="unsubscribe"><strong>本当に退会しますか？</strong></h3>
-					<p>退会するとこれまでの投稿が全て削除されます。<br>
-					退会する場合は退会するをクリックしてください。</p>
+				<h3 class="unsubscribe"><strong><%= t 'users.unsubscribe.are_you_sure' %></strong></h3>
+					<p><%= t 'users.unsubscribe.if_you_delete' %><br>
+					<%= t 'users.unsubscribe.plz_click' %></p>
 
 					<% if user_signed_in? && @user.id == current_user.id %>
-				        <%= link_to "退会", users_withdraw_path(current_user.id), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+				        <%= link_to t('users.unsubscribe.delete_button'), users_withdraw_path(current_user.id), method: :patch, "data-confirm" => "Delete your account?", class: "btn btn-outline-danger" %>
 					<% end %>
 
 			</div>
