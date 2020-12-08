@@ -2,14 +2,6 @@ class Users::ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-     # if params[:country].present? #国名の取得
-     #    @reviews = Review.joins(city: [:country]).where('countries.country LIKE(?)', "%#{params[:country]}%").page(params[:page]).reverse_order
-     # elsif params[:continent_id] .present?
-     #    @reviews = Review.joins(city: [:country]).where('countries.continent_id = ?', params[:continent_id]).page(params[:page]).reverse_order
-     # else
-     #    @reviews = Review.joins(:user).where('users.is_deleted =?', false).page(params[:page]).reverse_order
-     #    @review = @reviews.select{ |review| review.user.is_deleted == false }#{}の中の条件に合う投稿を選択
-     # end
      if params[:country].present? or params[:continent_id].present?
         country_param = params[:country].present? ? "%#{params[:country]}%" : params[:continent_id]
         where_param = params[:country].present? ? 'countries.country LIKE(?)' : 'countries.continent_id = ?'
@@ -33,10 +25,6 @@ class Users::ReviewsController < ApplicationController
     end
     countries = Country.where('country LIKE(?)', "#{params[:keyword]}%")
     countries = countries.map(&:country)
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: countries.to_json }
-    # end
     #非同期
     cities = City.where('city LIKE(?)', "#{params[:keyword]}%")
     cities = cities.map(&:city)
