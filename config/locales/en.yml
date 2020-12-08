@@ -45,8 +45,8 @@ en:
       message_1: "The more you eat delicious food, the easier it is to create great memories.
       Not only can we help find famous local restaurants but also special local experiences off the beaten path.
       This is the food review application to help create unique memories.
-      Experience something new with Tabimeshi"
-      message_2: "You can search and share food reviews based on location."
+      Experience something new with Tabimeshi
+      message_2: You can search and share food reviews based on location."
 
   reviews:
     index:
@@ -158,6 +158,7 @@ en:
       plz_click: "Please click if you would like to click to confirm account deletion."
       confirm': "Are you sure?"
       delete_button: "Unsubscribe"
+      confirm: "Are you sure?"
 
 
   inquiries:
@@ -167,7 +168,15 @@ en:
       message: "Message"
       send: "Send"
 
+  sessions:
+    new:
+      log_in: "Log in"
+      email: "Email"
 
+  registrations:
+    new:
+      sign_up: "Sign up"
+      user_name: "User name"
 
 
 

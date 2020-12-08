@@ -2,18 +2,18 @@
   <div class="container" style="padding-top: 100px;">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <h2>Log in</h2>
+        <h2><%= t 'sessions.new.log_in' %></h2>
         <%= flash[:error] %>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
           <div class="field">
-            <%= f.label :email %><br />
+            <%= t 'sessions.new.email' %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"30" %>
           </div>
 
           <div class="field">
-            <%= f.label :password %><br />
+            <%= t 'sessions.new.password' %><br />
             <%= f.password_field :password, autocomplete: "current-password" ,:style=>"font-family: sans-serif;",:size=>"30" %>
           </div>
 

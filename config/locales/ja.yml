@@ -284,8 +284,8 @@ ja:
       city_area: "都市名(例:Paris) 半角英"
       address: "住所"
       address_area: "Place de l'Hôtel de Ville, 75004 Paris,France"
-      budget: "通貨を選択 --"
-      choose_budget: ""
+      budget: "予算"
+      choose_currency: "通貨を選んでください"
       min_budget: "予算(最低額) 15"
       max_budget: "予算(上限額) 30"
       review: "レビュー"
@@ -353,6 +353,7 @@ ja:
       plz_click: "退会する場合は退会するをクリックしてください。"
       confirm': "本当に退会しますか?"
       delete_button: "退会する"
+      confirm: "本当に削除しますか?"
 
   inquiries:
     new:
@@ -360,6 +361,17 @@ ja:
       name: "お名前"
       message: "お問い合わせ内容"
       send: "送信"
+
+  sessions:
+    new:
+      log_in: "ログイン"
+      email: "Email"
+
+  registrations:
+    new:
+      sign_up: "新規登録"
+      user_name: "ユーザー名"
+
 
 
 

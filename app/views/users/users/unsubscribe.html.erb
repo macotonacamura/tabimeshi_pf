@@ -7,7 +7,7 @@
 					<%= t 'users.unsubscribe.plz_click' %></p>
 
 					<% if user_signed_in? && @user.id == current_user.id %>
-				        <%= link_to t('users.unsubscribe.delete_button'), users_withdraw_path(current_user.id), method: :patch, "data-confirm" => "Delete your account?", class: "btn btn-outline-danger" %>
+				        <%= link_to t('users.unsubscribe.delete_button'), users_withdraw_path(current_user.id), method: :patch, "data-confirm" => t('users.unsubscribe.confirm'), class: "btn btn-outline-danger" %>
 					<% end %>
 
 			</div>

@@ -2,7 +2,7 @@
   <div class="container" style="padding-top: 100px;">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <h2>Sign up</h2>
+        <h2><%= t 'registrations.new.sign_up' %></h2>
 
         <% if @user.errors.any? %>
           <div id="error_explanation">
@@ -19,7 +19,7 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="field">
-            <%= f.label :user_name %><br />
+            <%= t 'registrations.new.user_name' %><br />
             <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name",:size=>"30" %>
           </div>
 
