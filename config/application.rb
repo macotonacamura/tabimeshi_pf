@@ -16,8 +16,16 @@ module Tabimeshi
     I18n.available_locales = [:fr, :de, :es, :en, :ja, :it, :ko, :da, :el, :et, :ru,]
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
 
-    # 翻訳ファイルのディレクトを追加
-    #config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.generators do |g|
+      g.test_framework :rspec,
+                       fixtures: true,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: true,
+                       request_specs: false
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

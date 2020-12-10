@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-	before do
-		@user = build(:user)
-	end
+  	before do
+  		@user = build(:user)
+  	end
 
   	it "姓、名、メール、パスワードがある場合、有効である" do
   		expect(FactoryBot.create(:user)).to be_valid

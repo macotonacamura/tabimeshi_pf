@@ -23,11 +23,17 @@ class Users::ReviewsController < ApplicationController
     (@review.review_images.count...5).each do |index|
        @review.review_images.build
     end
-    countries = Country.where('country LIKE(?)', "#{params[:keyword]}%")
-    countries = countries.map(&:country)
-    #非同期
-    cities = City.where('city LIKE(?)', "#{params[:keyword]}%")
-    cities = cities.map(&:city)
+
+    countries = []
+    cities = []
+
+    if params[:keyword].present?
+      countries = Country.where('country LIKE(?)', "#{params[:keyword]}%")
+      countries = countries.map(&:country)
+      #非同期
+      cities = City.where('city LIKE(?)', "#{params[:keyword]}%")
+      cities = cities.map(&:city)
+    end
     respond_to do |format|
       format.html
       format.json { render json: cities.to_json }
@@ -71,6 +77,7 @@ class Users::ReviewsController < ApplicationController
     (@review.review_images.count...5).each do |index|
       @review.review_images.build
     end
+
     countries = Country.where('country LIKE(?)', "#{params[:keyword]}%") #これで検索絞れるのでは？
     countries = countries.map(&:country)
     @city = @review.city
