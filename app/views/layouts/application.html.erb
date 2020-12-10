@@ -93,10 +93,13 @@
                            <%= link_to t('application.application.log_in'), new_user_session_path, data: {"turbolinks" => false}, :style=>"color:#fff;" %>
                         </li>
                         <li class="nav-item nav-link">
+                          <%= link_to t('application.application.Guest'), users_homes_guest_sign_in_path,method: :post, :style=>"color:#fff;" %>
+                        </li>
+                        <li class="nav-item nav-link">
                           <% if I18n.locale.to_s == "en" %>
-                            <%= link_to('JA', :locale => 'ja') %>
+                            <i class="fas fa-globe-americas" style="color: #fff;"></i> <%= link_to('JA',{ :locale => 'ja'}, { class: "translation_btn" }) %>
                           <% else %>
-                            <%= link_to('EN', :locale => 'en') %>
+                            <i class="fas fa-globe-americas" style="color: #fff;"></i> <%= link_to('EN',{ :locale => 'en'},{class: "translation_btn "}) %>
                           <% end %>
                         </li>
                     </ul>

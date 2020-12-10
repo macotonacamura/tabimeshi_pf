@@ -37,8 +37,9 @@ en:
       my_page: "My page"
       log_out: "Log out"
       sign_in: "Sign in"
-      log_in: "Log_in"
+      log_in: "Log in"
       contact: "Contact"
+      guest: "Guest"
 
   homes:
     top:
@@ -84,8 +85,8 @@ en:
       restaurant_name_area: "Restaurant name"
       rate: "Rate"
       country_city: "Countryt City"
-      country_area: "国名(例:France) 半角英"
-      city_area: "都市名(例:Paris) 半角英"
+      country_area: "France"
+      city_area: "Paris"
       address: "Address"
       address_area: "Place de l'Hôtel de Ville, 75004 Paris,France"
       budget: "Budget"
