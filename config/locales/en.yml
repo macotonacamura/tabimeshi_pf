@@ -49,6 +49,17 @@ en:
       Experience something new with Tabimeshi"
       message_1_2: ""
       message_2: "You can search and share food reviews based on location."
+      destination: "Destination"
+      destination_explanation: "You can search reviews with country name"
+      post: "Post"
+      post_explanation: "You can post food review."
+      find_people: "Find people"
+      find_people_explanation: "You can find users and also follow them."
+      discover_sth: 'Discover what you would like to eat and where you would like to go with Tabimeshi.'
+      sign_up: 'Sign up'
+      log_in: 'Log in'
+      guest_user: 'Log in as a guest user'
+      Facebook: 'Log in with Facebook'
 
   reviews:
     index:

@@ -247,6 +247,17 @@ ja:
       message_2: "tabimeshi では、 旅先で見つけた皆様の美味しい情報を沢山のユーザーとシェアができます。 
       投稿した記事を目的地別に検索をすることが可能です。
       なお、記事を投稿するには会員登録が必要となります。"
+      destination: "目的地から探す"
+      destination_explanation: "国の名前からレビュー検索いただけます。"
+      post: "投稿する"
+      post_explanation: "新規投稿ができます。"
+      find_people: "ユーザーを探す"
+      find_people_explanation: "気になるユーザーを探し、フォローできます。"
+      discover_sth: 'Tabimeshiで世界の美味しい情報を探す'
+      sign_up: '会員登録して始める'
+      log_in: 'ログインする'
+      guest_user: 'ゲストユーザーとしてログイン'
+      Facebook: 'Facebookでログイン'
 
   reviews:
     index:

@@ -134,7 +134,7 @@ $(function(){
 });
 
 
-
+//トップ画面
 $(function(){
     $('.contents').each(function(i, elem){
         var contentsPOS = $(elem).offset().top;
@@ -153,6 +153,24 @@ $(function(){
 });
 
 
+jQuery(function($){
+  $(document).ajaxSend(function() {
+    $("#overlay").fadeIn(300);
+  });
+
+  $('#button').click(function(){
+    $.ajax({
+      type: 'GET',
+      success: function(data){
+        console.log(data);
+      }
+    }).done(function() {
+      setTimeout(function(){
+        $("#overlay").fadeOut(300);
+      },500);
+    });
+  });
+});
 
 //スクロールしたときの効果(フワッと)
 // $(function(){

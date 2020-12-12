@@ -36,6 +36,10 @@
   color: #fff;
 }
 
+.translation_btn:hover {
+  color: #fff;
+}
+
 body{
   font-family: 'minifont';
 }
@@ -46,14 +50,14 @@ body{
     right: 50px;
 }
 #page_top a {
-    background-color: #999;
+    background-color: rgba(153,153,153,0.5);
     color: #fff;
     text-align: center;
     text-decoration: none;
     padding: 25px 30px;
 }
 #page_top a:hover {
-    background-color: #666;
+    background-color: rgba(102,102,102,0.5);
     text-decoration: none;
 }
 
@@ -77,8 +81,6 @@ footer{
   background-color:#000;
   z-index:100;
 }
-
-
 
 .page-item.active .page-link {
     background-color: #dee2e6;
