@@ -59,7 +59,7 @@ en:
       sign_up: 'Sign up'
       log_in: 'Log in'
       guest_user: 'Log in as a guest user'
-      Facebook: 'Log in with Facebook'
+      Facebook: 'Log in with Facebook!'
 
   reviews:
     index:
