@@ -27,8 +27,8 @@ class Users::ReviewsController < ApplicationController
     countries = []
     cities = []
 
-    if params[:keyword].present?
-      countries = Country.where('country LIKE(?)', "#{params[:keyword]}%")
+    if params[:keyword].present? #フォームに記述が行われたときにのみ、if以下の処理を行う
+      countries = Country.where('country LIKE(?)', "#{params[:keyword]}%") #前方一致
       countries = countries.map(&:country)
       #非同期
       cities = City.where('city LIKE(?)', "#{params[:keyword]}%")
@@ -131,18 +131,12 @@ class Users::ReviewsController < ApplicationController
      redirect_to reviews_path
   end
 
-  def search
+  def search #インクリメンタルサーチ
    @reviews = Review.joins(city: [:country]).where('countries.country LIKE(?)', "%#{params[:keyword]}%").page(params[:page]) #paramsとして送られてきたkeyword（入力された語句）で、Reviewモデルのcountryカラムを検索し、その結果を@reviewsに代入する。前方一致検索%
     respond_to do |format|
       format.json { render 'index', json: @reviews.map{|review|review.city.country.country}.uniq } #json形式のデータを受け取ったら、@reviewsをデータとして返す そしてindexをrenderで表示する
     end
-
-   # if @reviews = Review.joins(city: [:country]).where('cities LIKE(?)', "%#{params[:keyword]}%").page(params[:page])
-   #  respond_to do |format|
-   #    format.json { render 'index', json: @reviews.map{|review|review.city.city}.uniq }
-   #  end
-
-   end
+  end
 
   private
 

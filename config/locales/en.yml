@@ -102,7 +102,7 @@ en:
       address: "Address"
       address_area: "Place de l'Hôtel de Ville, 75004 Paris,France"
       budget: "Budget"
-      choose_currency: "Choose currency --"
+      choose_currency: "Select currency --"
       min_budget: "Minimum  15"
       max_budget: "Maximum  30"
       review: "Review"
