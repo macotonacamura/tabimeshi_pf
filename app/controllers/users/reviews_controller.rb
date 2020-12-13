@@ -72,18 +72,18 @@ class Users::ReviewsController < ApplicationController
     end
   end
 
-  def edit #
+  def edit
     @review = Review.find(params[:id])
-    if @review.user == current_user
-      render :edit
-    else
-      redirect_to reviews_path
-    end
+    # if @review.user == current_user
+    #   render :edit
+    # else
+    #   redirect_to reviews_path
+    # end
     (@review.review_images.count...5).each do |index|
       @review.review_images.build
     end
 
-    countries = Country.where('country LIKE(?)', "#{params[:keyword]}%") #これで検索絞れるのでは？
+    countries = Country.where('country LIKE(?)', "#{params[:keyword]}%")
     countries = countries.map(&:country)
     @city = @review.city
     respond_to do |format|

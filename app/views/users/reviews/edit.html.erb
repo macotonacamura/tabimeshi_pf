@@ -97,7 +97,7 @@
 					            		<% if image_form.object.image.present? %>
 					            			<%= image_tag image_form.object.image.url, class: 'review_images_prev' %>
 					            		<% end %>
-					            		<%= image_form.file_field :image, class: 'hidden-field' %>
+					            		<%= image_form.file_field :image, class: 'hidden-field',"data-turbolinks": false %>
 					            		<%= image_form.hidden_field :id, value: image_form.object.id %>
 				            		</div>
 				            	<% end %>
@@ -108,7 +108,9 @@
 				<tr class="table_edit">
 					<th></th>
 					<th></th>
-					<td class="table_edit"><%= f.submit t('reviews.edit.post') , class: "btn btn-md btn-outline-secondary post_btn mb-20" %></td>
+					<td class="table_edit">
+						<%= f.submit t('reviews.edit.post') , class: "btn btn-md btn-outline-secondary post_btn mb-20" %>
+					</td>
 				</tr>
 			</table>
 		<% end %>
