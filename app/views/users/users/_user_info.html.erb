@@ -11,17 +11,17 @@
 		<div id="follow_button_<%= @user.id %>" style="margin-top: 10px;">
 			<%= render 'users/relationships/follow_button', user: user,reviews:user.reviews %>
 		</div>
-		<% if current_user == user %>
 			<div style="padding-bottom: 10px;">
 				<div style="padding: 5px;">
 					<%= link_to likes_list_path(current_user.id), :style=>"color:#444;" do %>
 						<i class="fas fa-heart"></i> <%= t 'users.show.page_you_liked' %>
 					<% end %>
-					<%= link_to edit_user_path(current_user.id), :style=>"color:#444;" do %>
-						<i class="fas fa-wrench ml-3"></i> <%= t 'users.show.edit_your_profile' %>
+					<% if current_user == user && current_user.user_name != 'GuestUser'  %>
+						<%= link_to edit_user_path(current_user.id), :style=>"color:#444;" do %>
+							<i class="fas fa-wrench ml-3"></i> <%= t 'users.show.edit_your_profile' %>
+						<% end %>
 					<% end %>
 				</div>
 			</div>
-		<% end %>
 	</div>
 </div>

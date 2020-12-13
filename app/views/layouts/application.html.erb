@@ -54,12 +54,14 @@
                           <i class="fas fa-user-circle"></i>
                         <% end %>
                       </a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">
-                        <%= link_to edit_user_path(current_user.id), :style=>"color:#333; font-size:25px;" do %>
-                          <i class="fas fa-wrench"></i>
-                        <% end %>
-                      </a>
+                      <% if current_user && current_user.user_name != 'GuestUser'  %>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                          <%= link_to edit_user_path(current_user.id), :style=>"color:#333; font-size:25px;" do %>
+                            <i class="fas fa-wrench"></i>
+                          <% end %>
+                         </a>
+                      <% end %>
                     </div>
                   </li>
                   <li class="nav-item nav-link">

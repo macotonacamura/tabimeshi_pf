@@ -44,9 +44,6 @@ describe '投稿のテスト' do
 		  it 'ジャンルフォームが表示される' do #詰まったところ
 		  	page.has_select? 'genre_name', options: @review.genre_id_change
 		  end
-		  it '写真フォームが表示される' do #★
-		  	expect(page).to have_field 'review[review.review_images]'
-		  end
 		  it '投稿ボタンが表示される' do
 		  	expect(page).to have_button '投稿する'
 		  end
@@ -60,7 +57,7 @@ describe '投稿のテスト' do
 		  	fill_in 'review[maximum_budget]',with: @review.maximum_budget
 		  	fill_in 'review[review]',with: @review.review
 		  	select(value = @review.genre_id_change, from: "review[genre_id]")
-		  	fill_in 'review[review_images_attributes]',with: @review.review_images
+		  	find('#review_review_images_attributes_0_image', visible: false).set(@review.review_images)
 		  	click_button '投稿する'
 		  	expect(page).to have_content 'さんの口コミ'
 		  end
