@@ -47,7 +47,7 @@ describe '投稿のテスト' do
 		  it '投稿ボタンが表示される' do
 		  	expect(page).to have_button '投稿する'
 		  end
-		  it '投稿に成功する' do #★
+		  it '投稿に成功する' do
 		  	fill_in 'review[restaurant_name]', with: @review.restaurant_name
 		  	find('#review_star', visible: false).set(@review.rate)
 		  	fill_in 'review[country]', with: @review.city.country
@@ -58,6 +58,10 @@ describe '投稿のテスト' do
 		  	fill_in 'review[review]',with: @review.review
 		  	select(value = @review.genre_id_change, from: "review[genre_id]")
 		  	find('#review_review_images_attributes_0_image', visible: false).set(@review.review_images)
+		  	find('#review_review_images_attributes_1_image', visible: false).set(@review.review_images)
+		  	find('#review_review_images_attributes_2_image', visible: false).set(@review.review_images)
+		  	find('#review_review_images_attributes_3_image', visible: false).set(@review.review_images)
+		  	find('#review_review_images_attributes_4_image', visible: false).set(@review.review_images)
 		  	click_button '投稿する'
 		  	expect(page).to have_content 'さんの口コミ'
 		  end

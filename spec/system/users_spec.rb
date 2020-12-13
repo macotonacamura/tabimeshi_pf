@@ -83,10 +83,6 @@ describe 'ユーザーのテスト' do
         visit user_path(user)
         expect(page).to have_link '', href: "/ja" + edit_user_path(user)
       end
-      it 'ログアウトのリンクが表示される' do #
-        visit destroy_user_session_path
-        expect(page).to have_link nil, href: destroy_user_session_path
-      end
     end
   end
 
@@ -147,7 +143,7 @@ describe 'ユーザーのテスト' do
         expect(page).to have_content user.user_name
         expect(page).to have_content test_user2.user_name
       end
-      it 'ユーザー詳細ページへのリンクが表示される' do #★
+      it 'ユーザー詳細ページへのリンクが表示される' do
         expect(page).to have_link user.user_name, href: user_path(user)
         expect(page).to have_link user.user_name, href: user_path(test_user2)
       end
@@ -157,16 +153,17 @@ describe 'ユーザーのテスト' do
   describe '詳細画面のテスト' do
     before do
       visit user_path(user)
+      @review = FactoryBot.create(:review)
     end
     context '表示の確認' do
       it 'ユーザーの名前が表示される' do
         expect(page).to have_content user.user_name
       end
-      it 'レビュー一覧のレストラン名のリンク先が正しい' do #★
-        expect(page).to have_link restaurant_name, href: review_path(review)
+      it 'レビュー一覧のレストラン名のリンク先が正しい' do
+        expect(page).to have_link @review.restaurant_name, href: review_path(@review)
       end
       it '投稿一覧にレビュー内容が表示される' do
-        expect(page).to have_content(review.review)
+        expect(page).to have_content(@review.review)
       end
     end
   end
