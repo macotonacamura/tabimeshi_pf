@@ -17,7 +17,7 @@
 	end
 
 # Country
-if Country.exists?(country: 'Japan') == false
+if Country.exists?(country: 'Japan') == false #Japanが入っていなかったら、以下の処理を行う
 	connection = Faraday.new(:url => 'https://wft-geo-db.p.rapidapi.com') do |f| # 共有したい処理
 		f.headers["x-rapidapi-host"] = 'wft-geo-db.p.rapidapi.com'
 		f.headers["x-rapidapi-key"] = ENV['COUNTRY']
@@ -35,7 +35,7 @@ if Country.exists?(country: 'Japan') == false
 end
 
 # City
-if City.exists?(city: 'Tokyo') == false
+if City.exists?(city: 'Tokyo') == false #Tokyoが入っていなかったら、以下の処理を行う
 	MAX = 273691
 	(MAX / 1000 + 1).times do |i|
 		offset = 1000 * i

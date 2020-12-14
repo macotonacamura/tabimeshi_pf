@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function(){ //リロードしなくてもjsが
       if (data.length == 0 ){
        $('#result').html('<option></option>') //もし何も入力されなかったら、('<option></option>')空で返す
        }else{
-       $(data).each(function(i, review){ //dataをuserという変数に代入して、以下のことを繰り返し行う(単純なeach文ですね)
+       $(data).each(function(i, review){ //dataをuserという変数に代入して、以下のことを繰り返し行う(単純なeach文)
         $('#result').html('<option>' + review + '</option>') //resultというidの要素に対して、<li>国の名前</li>を追加する。
         });
        }
