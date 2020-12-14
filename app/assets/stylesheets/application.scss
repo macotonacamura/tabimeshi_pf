@@ -23,6 +23,12 @@
    	src: font-url('mincho.otf') format('truetype');
  }
 
+ .alert-warning {
+    color: #666;
+    background-color: #f8f9fa;
+    border-color: #6c757d;
+}
+
 .logo{
   margin-right:20px;
   text-align:left;
