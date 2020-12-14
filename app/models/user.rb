@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def unfollow(other_user)
-    relationship = self.find_by(follow_id: other_user.id) #フォロー済みならアンフォローできる
+    relationship = self.relationships.find_by(follow_id: other_user.id) #フォロー済みならアンフォローできる
     relationship.destroy if relationship
   end
 
@@ -73,5 +73,6 @@ class User < ApplicationRecord
       user = User.joins(:followers).group(:follow_id).order('count(follow_id) desc').limit(5)
      return user
    end
+
 
 end
