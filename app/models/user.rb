@@ -52,7 +52,7 @@ class User < ApplicationRecord
 
     unless user
       user = User.create(
-        user_name: "FBuser" + Time.now.iso8601(3).to_s
+        user_name: "FBuser" + Time.now.iso8601(3).to_s,
         uid:       auth.uid,
         provider:  auth.provider,
         email:     auth.info.email,
