@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<h2 class="title mt-2 fadein"><%= t 'reviews.new.post_review' %></h2>
-			<%= form_with model: @review, url:reviews_path(@review.id), method: :post, local: true do |f| %>
+			<%= form_with model: @review, url:reviews_path, method: :post, local: true do |f| %>
 				<%= render 'layouts/error', model: f.object , class: "fadein" %>
 				<table class="table table_new_all fadein" >
 					<tr class="table_new">

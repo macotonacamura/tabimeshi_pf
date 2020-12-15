@@ -207,10 +207,14 @@ ja:
     pm: 午後
 
   activerecord:
+    models:
+      user:
     attributes:
       user:
         user_name: ユーザーネーム
         introduction: 紹介文
+        email: メールアドレス
+        password: パスワード
       review:
         restaurant_name: レストラン名
         review: 口コミ
@@ -330,8 +334,7 @@ ja:
       choose_genre: "ジャンルを選択してください --"
       images: "写真"
       post: "投稿する"
-    flash:
-      create: "レビュー投稿が完了しました。"
+
 
   users:
     index:

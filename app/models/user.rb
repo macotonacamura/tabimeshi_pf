@@ -5,8 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable
 
-  validates :user_name, uniqueness: true,  presence: true
-  validates :introduction, length: { maximum: 50 }
+  with_options presence: true do
+    validates :user_name, uniqueness: true
+    validates :email, uniqueness: true
+  end
+    validates :introduction, length: { maximum: 50 }
 
   has_many :sns_credentials, dependent: :destroy
 

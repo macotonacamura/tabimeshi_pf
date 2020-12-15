@@ -3,37 +3,33 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h2><%= t 'sessions.new.log_in' %></h2>
-        <%= flash[:error] %>
-
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-          <div class="field">
-            <%= t 'sessions.new.email' %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"30" %>
-          </div>
-
-          <div class="field">
-            <%= t 'sessions.new.password' %><br />
-            <%= f.password_field :password, autocomplete: "current-password" ,:style=>"font-family: sans-serif;",:size=>"30" %>
-          </div>
-
-          <% if devise_mapping.rememberable? %>
-            <div class="field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me ,:size=>"30"%>
+        <%=  devise_error_messages! %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="myinfo_form">
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, class: "form-control",:size=>"30" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "off", class: "form-control",:size=>"30",:style=>"font-family: sans-serif;" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control",:size=>"30",:style=>"font-family: sans-serif;" %>
+              </div>
+              <div class="actions">
+                <%= f.submit "Log in", class: "btn btn-primary" %>
+              </div>
             </div>
           <% end %>
-
-          <div class="actions">
-            <%= f.submit "Log in",class: 'btn btn-secondary col-xs-offset-1' %>
-          </div>
-        <% end %><br />
-
-        <button type="button" class="btn btn-light col-xs-offset-1" style="background-color:#069;">
-          <%= link_to 'Log in with Facebook', user_facebook_omniauth_authorize_path,method: :post, :style=>"color:#fff;" %>
-        </button>
+          <br>
+          <button type="button" class="btn btn-light col-xs-offset-1" style="background-color:#069;">
+            <%= link_to 'Log in with Facebook', user_facebook_omniauth_authorize_path,method: :post, :style=>"color:#fff;" %>
+          </button>
 
       </div>
     </div>
   </div>
 </div>
+

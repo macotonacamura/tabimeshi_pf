@@ -50,4 +50,5 @@ class Review < ApplicationRecord
 
 
 
+
 end
