@@ -12,11 +12,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_oauth(request.env['omniauth.auth'])
     puts @user
     if @user.persisted?
-      puts Facebook userです
+      puts "Facebook userです"
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
       sign_in_and_redirect @user, event: :authentication
     else
-      puts Facebook userではない
+      puts "Facebook userではない"
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
       redirect_to new_user_registration_url
     end
