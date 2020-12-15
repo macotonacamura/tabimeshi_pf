@@ -2,8 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable
+         :recoverable, :rememberable, :validatable,:omniauthable
 
   with_options presence: true do
     validates :user_name, uniqueness: true
@@ -65,7 +64,7 @@ class User < ApplicationRecord
 #ユーザー検索
   def self.partical(content)
     if content
-      where("user_name LIKE ?", "%#{content}%")
+      where("user_name LIKE ?", "%#{content}%" ) && where(is_deleted: false)
     else
       where(is_deleted: false)
     end
