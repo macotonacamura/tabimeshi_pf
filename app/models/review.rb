@@ -38,8 +38,15 @@ class Review < ApplicationRecord
 	#自分でval作る
 	validate :check_budget
     def check_budget
-	    errors.add(:budget, "より大きい値にしてください") if !(self.budget < self.maximum_budget) #.errors：エラーメッセージ 作成
+    	if self.budget == nil
+    		self.budget = 0
+	    end
+    	if self.maximum_budget == nil
+    		self.maximum_budget = 0
+	    end
+	   	errors.add(:budget, "より大きい値にしてください") if !(self.budget < self.maximum_budget) #.errors：エラーメッセージ 作成
     end
+
 
 
 

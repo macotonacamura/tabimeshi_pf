@@ -330,6 +330,8 @@ ja:
       choose_genre: "ジャンルを選択してください --"
       images: "写真"
       post: "投稿する"
+    flash:
+      create: "レビュー投稿が完了しました。"
 
   users:
     index:
@@ -386,6 +388,7 @@ ja:
     new:
       sign_up: "新規登録"
       user_name: "ユーザー名"
+
 
 
 
