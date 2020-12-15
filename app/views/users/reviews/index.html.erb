@@ -150,6 +150,6 @@
      </div>
   </div>
 </div>
-<script>
-if (window.location.hash == "#_=_") window.location.hash = "";
-</script>
+<script type = "text / javascript">
+	var idx = window.location.toString().indexOf("＃_=_"); if(idx> 0){window.location = window.location.toString().substring(0,idx); }
+</script> 
