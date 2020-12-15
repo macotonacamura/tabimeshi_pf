@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  require "time"
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
@@ -50,11 +52,11 @@ class User < ApplicationRecord
 
     unless user
       user = User.create(
-        user_name: auth.uid,
-        uid:      auth.uid,
-        provider: auth.provider,
-        email:    auth.info.email,
-        password: Devise.friendly_token[0, 20]
+        user_name: "FBuser" + Time.now.iso8601(3).to_s
+        uid:       auth.uid,
+        provider:  auth.provider,
+        email:     auth.info.email,
+        password:  Devise.friendly_token[0, 20]
       )
     end
     user
