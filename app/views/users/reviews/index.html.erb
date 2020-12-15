@@ -151,5 +151,11 @@
   </div>
 </div>
 <script type = "text / javascript">
-	var idx = window.location.toString().indexOf("＃_=_"); if(idx> 0){window.location = window.location.toString().substring(0,idx); }
+	$(window).on('load', function(e){
+  	if (window.location.hash == '#_=_') {
+      window.location.hash = ''; // for older browsers, leaves a # behind
+      history.pushState('', document.title, window.location.pathname); // nice and clean
+      e.preventDefault(); // no page reload
+  	  }
+	})
 </script> 
