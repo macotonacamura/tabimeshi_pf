@@ -111,6 +111,7 @@ en:
       choose_genre: "Select genre --"
       images: "Images"
       post: "Post"
+      invalid_budget: "greater than minimum budget"
 
     edit:
       edit_your_review: "Edit your review"
@@ -216,7 +217,9 @@ en:
         country: "Country"
       cities:
         city: "City"
-
+    errors:
+      messages:
+        invalid_budget: "must be smaller than maximum budget" ###
 
 
 

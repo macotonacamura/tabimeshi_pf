@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,:omniauthable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   with_options presence: true do
     validates :user_name, uniqueness: true
@@ -19,8 +19,6 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_list, through: :likes, source: 'review'
   has_many :relationships
-  #has_many :relationships, foreign_key: :user_id
-  #has_many :relationships, foreign_key: :follow_id
   has_many :followings, through: :relationships, source: :follow #中間テーブル：relationships
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
@@ -64,13 +62,13 @@ class User < ApplicationRecord
 #ユーザー検索
   def self.partical(content)
     if content
-      where("user_name LIKE ?", "%#{content}%" ) && where(is_deleted: false)
+      where("user_name LIKE ?", "%#{content}%" ) && where(is_deleted: false) #部分一致かつ会員のみ表示
     else
-      where(is_deleted: false)
+      where(is_deleted: false) #会員のみ (退会してないユーザー)
     end
   end
 
-#ユーザーランキング機能(フォロワーが多い順で5名の情報を取得)
+#ユーザーランキング機能(フォロワーが多い順：5名の情報を取得)
    def self.create_all_ranks
       user = User.joins(:followers).group(:follow_id).order('count(follow_id) desc').limit(5)
      return user

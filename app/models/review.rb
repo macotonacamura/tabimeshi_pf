@@ -44,7 +44,15 @@ class Review < ApplicationRecord
     	if self.maximum_budget == nil
     		self.maximum_budget = 0
 	    end
-	   	errors.add(:budget, "より大きい値にしてください") if !(self.budget < self.maximum_budget) #.errors：エラーメッセージ 作成
+	   	errors.add(:budget, :invalid_budget) if !(self.budget < self.maximum_budget) #.errors：エラーメッセージ 作成
+    end
+
+    def review_images_each
+	  (self.review_images.count...5).each do |index|
+    	self.review_images.build
+ 	  end
+ 	  render 'new'
+      return
     end
 
 

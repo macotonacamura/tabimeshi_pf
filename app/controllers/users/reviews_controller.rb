@@ -54,6 +54,7 @@ class Users::ReviewsController < ApplicationController
       end
       render 'new'
       return
+      #@review.review_images_each
     end
     country = Country.find_by(country: review_params[:country]) #↓country.idのcountryの定義
     if country == nil or country.id == nil
@@ -63,6 +64,7 @@ class Users::ReviewsController < ApplicationController
       end
       render 'new'
       return
+      #@review.review_images_each
     end
     @review.city = City.find_by(city: review_params[:city],country_id: country.id) #city確定=countryの確定
     if @review.city.blank?
@@ -71,6 +73,7 @@ class Users::ReviewsController < ApplicationController
       end
       render 'new'
       return
+      #@review.review_images_each
     end
     flash[:create] = "You've created a new review successfully."
     @review = validate_budget(@review)
@@ -80,6 +83,7 @@ class Users::ReviewsController < ApplicationController
       end
       render 'new'
       return
+      #@reviewreview_images_each
     end
     sleep(3) #S3 Lambda連携時間確保
     redirect_to review_path(@review)
