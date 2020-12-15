@@ -50,6 +50,7 @@ class User < ApplicationRecord
 
     unless user
       user = User.create(
+        user_name: auth.uid,
         uid:      auth.uid,
         provider: auth.provider,
         email:    auth.info.email,
