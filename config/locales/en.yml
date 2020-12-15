@@ -191,6 +191,32 @@ en:
       sign_up: "Sign up"
       user_name: "User name"
 
+  activerecord:
+    models:
+      user:
+    attributes:
+      user:
+        user_name: "User name"
+        introduction: "Introduction"
+        email: "Email"
+        password: "Password"
+      review:
+        restaurant_name: "Restaurant"
+        review: "Review"
+        rate: "Rate"
+        budget: "Minimum budget"
+        currency: "Currency"
+        maximum_budget: "Maximum budget"
+        address: "Address"
+      review_comments:
+        review_comment: "Comment"
+      genres:
+        genre_name: "genre"
+      countries:
+        country: "Country"
+      cities:
+        city: "City"
+
 
 
 

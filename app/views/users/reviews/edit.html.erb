@@ -1,18 +1,9 @@
 <div class="page_edit">
 	<div class="container">
 		<h2 class="edit_title mt-3 mb-2"><%= t 'reviews.edit.edit_your_review' %></h2>
-		<% if @review.errors.any? %>
-	        <div id="error_explanation">
-	            <h3><%= @review.errors.count %>error prohibited this obj from being saved:</h3>
-	            <ul>
-	                <% @review.errors.full_messages.each do |message| %>
-	                <li><%= message %></li>
-	                <% end %>
-	            </ul>
-	        </div>
-	    <% end %>
 
 		<%= form_with model: @review,url:review_path(@review.id), method: :patch, local: true do |f| %>
+		 <%= render 'layouts/error', model: f.object %>
 			<table class="table table_edit mt-2">
 				<tr class="table_edit">
 					<th class="table_edit"><%= t 'reviews.edit.restaurant_name' %></th>
