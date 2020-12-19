@@ -47,16 +47,5 @@ class Review < ApplicationRecord
 	   	errors.add(:budget, :invalid_budget) if !(self.budget < self.maximum_budget) #.errors：エラーメッセージ 作成
     end
 
-    def review_images_each
-	  (self.review_images.count...5).each do |index|
-    	self.review_images.build
- 	  end
- 	  render 'new'
-      return
-    end
-
-
-
-
 
 end
