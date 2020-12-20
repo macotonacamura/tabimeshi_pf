@@ -96,23 +96,23 @@
                             <p class="catch">Find delicacies and Create memories !</p>
 
                             <p class="copy"><br>
-                                <h5><%= t 'homes.top.discover_sth' %></h5>
-                                <div style="margin: 50px; text-align: right;">
-                                        <ul>
-                                            <li>
-                                                <%= link_to t('homes.top.sign_up'), new_user_registration_path, :style=>"color:#fff;", class: "link_line" %>
-                                            </li>
-                                            <li>
-                                                <%= link_to t('homes.top.log_in'), new_user_session_path, :style=>"color:#fff;", class: "link_line" %>
-                                            </li>
-                                            <li>
-                                                <%= link_to t('homes.top.guest_user'), users_homes_guest_sign_in_path,method: :post, :style=>"color:#fff;", class: "link_line"  %>
-                                            </li>
-                                            <li>
-                                                <%= link_to t('homes.top.Facebook'), user_facebook_omniauth_authorize_path,method: :post, :style=>"color:#fff;", class: "link_line"  %>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <h5 class="discover_sth"><%= t 'homes.top.discover_sth' %></h5>
+                                <div class="links_to_enter" style="margin: 50px; text-align: right;">
+                                    <ul>
+                                        <li>
+                                            <%= link_to t('homes.top.sign_up'), new_user_registration_path, :style=>"color:#fff;", class: "link_line" %>
+                                        </li>
+                                        <li>
+                                            <%= link_to t('homes.top.log_in'), new_user_session_path, :style=>"color:#fff;", class: "link_line" %>
+                                        </li>
+                                        <li>
+                                            <%= link_to t('homes.top.guest_user'), users_homes_guest_sign_in_path,method: :post, :style=>"color:#fff;", class: "link_line"  %>
+                                        </li>
+                                        <li>
+                                            <%= link_to t('homes.top.Facebook'), user_facebook_omniauth_authorize_path,method: :post, :style=>"color:#fff;", class: "link_line"  %>
+                                        </li>
+                                    </ul>
+                                </div>
                             </p>
 
                         </div>
