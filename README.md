@@ -8,7 +8,7 @@
 ### URL
 https://tabimeshi.work/
 ナビゲーションバーにある、Guestからゲストユーザーとしてログインできます。
-管理者側のページへは、Footerにある CopyRight tabimeshi.inc をかざしていただきますと、ご覧いただくことができます。
+管理者側のページは、Footerにある CopyRight tabimeshi.inc がリンクになっておりますので、そちらからご覧いただけます。
 
 
 ### 制作の背景
@@ -33,6 +33,17 @@ https://tabimeshi.work/
 
 
 ### 機能一覧
+- 投稿機能
+- 国・都市情報(API)を活用したオートコンプリート機能
+- googleマップにてレストランの位置を表示
+- 多言語化(11ヶ国語投稿が可能、日/英言語切り替え機能)
+- 検索機能(インクリメンタルサーチ)
+- フォロー機能
+- いいね/いいねリスト(Bookmark)機能
+- お問い合わせ機能
+- 非同期通信
+- 外部API (Google MapAPI,Cities GEO corder country/city,omniauth)
+詳細は下記よりご確認ください。
 https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4smY/edit#gid=0
 
 ## 環境・使用技術
@@ -56,6 +67,11 @@ https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4
 
 ### インフラ構成図
 ![PF_tabimeshi](https://user-images.githubusercontent.com/65491593/102706467-7bf43000-42d5-11eb-8058-06f52a202d9c.jpg)
+
+### テスト
+- Rspec 約 80 (モデル、システム、コントローラー)
+
+### その他使用技術
 
 
 ## 使用素材
