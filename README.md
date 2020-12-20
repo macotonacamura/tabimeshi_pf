@@ -5,9 +5,9 @@
 海外の美味しい情報の口コミアプリケーションです。
 旅先でも美味しいお食事をお楽しみいただくためのサービス。
 
-###URL
+### URL
 https://tabimeshi.work/
-ナビバーにある、Guestからゲストユーザーとしてログインできます。
+ナビゲーションバーにある、Guestからゲストユーザーとしてログインできます。
 管理者側のページへは、Footerにある CopyRight tabimeshi.inc をかざしていただきますと、ご覧いただくことができます。
 
 
@@ -35,12 +35,27 @@ https://tabimeshi.work/
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4smY/edit#gid=0
 
-## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
-- 仮想環境：Vagrant,VirtualBox
+## 環境・使用技術
+### フロントエンド
+- Bootstrap 4.5.0
+- SCSS (BEM)
+- JavaScript、jQuery、Ajax
+
+### バックエンド
+- Ruby 2.5.7
+- Rails 5.2.4.4
+
+### 開発環境
+- Vagrant 2.2.14
+- VirtualBox
+
+
+### 本番環境
+- AWS(EC2、RDS、Route53、CloudWatch、S3、Lambda)
+- Nginx , Puma
+
+### インフラ構成図
+
 
 ## 使用素材
   フリー画像
