@@ -55,6 +55,7 @@ https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4
 - Nginx , Puma
 
 ### インフラ構成図
+![PF_tabimeshi](https://user-images.githubusercontent.com/65491593/102706467-7bf43000-42d5-11eb-8058-06f52a202d9c.jpg)
 
 
 ## 使用素材
