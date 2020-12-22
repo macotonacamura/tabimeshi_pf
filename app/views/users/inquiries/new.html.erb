@@ -5,6 +5,7 @@
 				<h2><%= t 'inquiries.new.contact' %></h2>
 
 				<%= form_with model: @inquiry do |f|  %>
+				<%= render 'layouts/error', model: f.object , class: "fadein" %>
 					<%= t 'inquiries.new.name' %><br>
 					<%= f.text_field :name %><br>
 					<%= t 'inquiries.new.message' %><br>

@@ -11,7 +11,8 @@ class Users::InquiriesController < ApplicationController
 			redirect_to reviews_path
 		flash[:email] = "Send email sucsessfully."
 		else
-			redirect_to reviews_path
+			render 'new'
+      		return
 		end
 	end
 
