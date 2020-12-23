@@ -43,6 +43,8 @@ https://tabimeshi.work/
 - お問い合わせ機能
 - 非同期通信
 - 外部API (Google MapAPI,Cities GEO corder country/city,omniauth)
+
+
 詳細は下記よりご確認ください。
 https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4smY/edit#gid=0
 
@@ -77,7 +79,9 @@ https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4
 
 
 ## 使用素材
-  フリー画像
+
+フリー画像
 - https://unsplash.com/
-  フォント
+
+フォント
 - https://fontfree.me/category/mincho
