@@ -71,7 +71,9 @@ https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4
 ### テスト
 - Rspec 約 80 (モデル、システム、コントローラー)
 
-### その他使用技術
+### ER図
+![Untitled Diagram](https://user-images.githubusercontent.com/65491593/102967575-9298c200-4535-11eb-88dc-fd6be6a37b3e.jpg)
+
 
 
 ## 使用素材
