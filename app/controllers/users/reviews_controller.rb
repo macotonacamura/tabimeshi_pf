@@ -7,8 +7,7 @@ class Users::ReviewsController < ApplicationController
         where_param = params[:country].present? ? 'countries.country LIKE(?)' : 'countries.continent_id = ?'
         @reviews = Review.joins(city: [:country]).where(where_param, country_param).page(params[:page]).reverse_order #joinsメソッドでreviewsとcities(と、country_id)を内部結合 where(条件) を、降順で並べる
       else
-        @reviews = Review.joins(:user).where('users.is_deleted =?', false).page(params[:page]).reverse_order #reviewsとuserを内部結合し、users.is_deletedじゃなかったら 降順で並べる
-        @review = @reviews.select{ |review| review.user.is_deleted == false } #?
+        @reviews = Review.joins(:user).where('users.is_deleted =?', false).page(params[:page]).reverse_order #reviewsとuserを内部結合(joins)し、users.is_deletedじゃなかったら 降順で並べる
      end
      @rank = User.create_all_ranks #models/user.rbに定義あり
   end

@@ -36,14 +36,14 @@ https://tabimeshi.work/
 - 投稿機能
 - 国・都市情報(API)を活用したオートコンプリート機能
 - googleマップにてレストランの位置を表示
-- 多言語化(11ヶ国語投稿が可能、日/英言語切り替え機能)
+- 多言語化(11ヶ国語で投稿が可能、日/英言語切り替え機能)
 - 検索機能(インクリメンタルサーチ)
 - フォロー機能
 - いいね/いいねリスト(Bookmark)機能
 - お問い合わせ機能
 - 非同期通信
 - 外部API (Google MapAPI,Cities GEO corder country/city,omniauth)
-
+- Rspec テスト
 
 詳細は下記よりご確認ください。
 https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4smY/edit#gid=0
@@ -72,9 +72,6 @@ https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4
 
 ### テスト
 - Rspec 約 80 (モデル、システム、コントローラー)
-
-### ER図
-![Untitled Diagram](https://user-images.githubusercontent.com/65491593/102967575-9298c200-4535-11eb-88dc-fd6be6a37b3e.jpg)
 
 
 
