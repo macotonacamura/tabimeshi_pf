@@ -73,6 +73,8 @@ https://docs.google.com/spreadsheets/d/1rbWRdNTyhW8w4USYAYGzUVNJPw3RrZeIOFlmdEP4
 ### テスト
 - Rspec 約 80 (モデル、システム、コントローラー)
 
+### ER図
+![tabimeshi_ER](https://user-images.githubusercontent.com/65491593/103138770-1bbc1e80-4719-11eb-9e0c-2206b8b407ea.jpg)
 
 
 ## 使用素材
