@@ -219,7 +219,7 @@ en:
         city: "City"
     errors:
       messages:
-        invalid_budget: "must be smaller than maximum budget" ###
+        invalid_budget: "must be smaller than maximum budget"
 
 
 

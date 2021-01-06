@@ -233,7 +233,7 @@ ja:
         city: 都市名
     errors:
       messages:
-        invalid_budget: "より大きい値にしてください" ###
+        invalid_budget: "より大きい値にしてください"
 
   application:
     application:
