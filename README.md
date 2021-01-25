@@ -5,6 +5,9 @@
 海外の美味しい情報の口コミアプリケーションです。
 旅先でも美味しいお食事をお楽しみいただくためのサービス。
 
+![84215551-D11C-47AE-A182-C966C158E2CC_1_105_c](https://user-images.githubusercontent.com/65491593/105660904-6cd55300-5f0f-11eb-9a36-e2de974bfa3a.jpeg)
+
+
 ### URL
 https://tabimeshi.work/
 ナビゲーションバーにある、Guestからゲストユーザーとしてログインできます。
